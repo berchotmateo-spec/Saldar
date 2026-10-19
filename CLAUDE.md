@@ -43,10 +43,10 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
 
 | Dato | Valor en la web | Fuente y fecha |
 |---|---|---|
-| Nombre comercial | "Saldar" | Usuario de Instagram `saldar223`. ⚠️ Nombre exacto a confirmar |
+| Nombre comercial | "Saldar" | El dueño, vía Mateo, 19/10/2026 ✅ |
 | Rubro | Logística / envíos | Investigación de Mateo, 19/10/2026 |
 | Ciudad | Mar del Plata ("223" = característica de MDP) | Inferido, casi seguro |
-| Servicios | Solo "Envíos y mensajería" activo | ⚠️ A confirmar |
+| Servicios | "Envíos y mensajería" y "Fletes" activos | Fletes: el dueño, vía Mateo, 19/10/2026 ✅. Mensajería: ⚠️ a confirmar |
 | Zonas | Centro, Macrocentro, Puerto, Norte, Sur, Batán y Sierra, Miramar | ⚠️ De ejemplo |
 | Tarifas | De ejemplo | ⚠️ Inventadas para la demo |
 | WhatsApp | El de Mateo (pruebas) | ⚠️ Falta el del negocio |
@@ -85,7 +85,7 @@ por bulto, matriz zona×zona), cambiar `lineasTramo()` / `calcularEnvio()`.
 
 Interruptores:
 - `NEGOCIO.tarifasDeEjemplo = false` → se va la barra VISTA PREVIA y la etiqueta del presupuesto.
-- Servicio `flete` con `activo: true` → aparece la pestaña "Flete" del cotizador.
+- Servicio `flete` con `activo: true` → aparece la pestaña "Flete" del cotizador (**prendido desde el 19/10/2026**: el dueño confirmó que hace fletes).
 - Servicio `tiendas` con `activo: true` → aparece la sección "Para empresas y tiendas online" y su link en el menú.
 - `NEGOCIO.whatsapp` → cambiarlo por el del negocio (formato `549` + característica sin 0 + número sin 15).
 
@@ -124,13 +124,12 @@ Nada de Google Maps (pide tarjeta).
 
 | Qué | Por qué hay duda |
 |---|---|
-| Nombre exacto ("Saldar", "Saldar 223", "Saldar Logística"…) | Solo tenemos el usuario de Instagram |
-| Servicios: mensajería en moto, envíos Flex / e-commerce, fletes, mudanzas, encomiendas a otras ciudades | Solo está activo "Envíos y mensajería" |
+| Servicios: ¿también mensajería / envíos chicos? ¿Envíos Flex / e-commerce, mudanzas, encomiendas a otras ciudades? | Fletes confirmado; la mensajería quedó activa pero no está confirmada |
 | Zonas que cubre y sus barrios (¿Zona Oeste? ¿Batán y Sierra juntas o separadas? ¿Miramar?) | Las zonas y barrios son de ejemplo |
 | Tarifas reales y **cómo calcula** (por zona, km, bulto, hora, precio fijo) | Todas las tarifas son de ejemplo |
 | Tamaños: cómo los define (medidas, peso) y cuánto suma cada uno | Los textos ("entra en una mochila") son de ejemplo |
 | Recargos: urgente / en el día, ida y vuelta, cobro contra entrega (¿los hace? ¿cuánto?) | De ejemplo |
-| Si hace fletes: vehículos, precio por hora o por viaje, mínimo, ayudantes, pisos | Pestaña lista pero apagada |
+| Fletes: vehículos que tiene, precio por hora o por viaje, mínimo de horas, ayudantes, pisos por escalera, si sale de la ciudad | Pestaña prendida con tarifas y vehículos de ejemplo |
 | WhatsApp del negocio | Hoy todo va al de Mateo |
 | Horario y días | "A confirmar" en contacto y preguntas |
 | Medios de pago | "A confirmar" |
@@ -156,6 +155,10 @@ Nada de Google Maps (pide tarjeta).
 
 ## Registro de cambios
 
+- 19/10/2026 — Mateo confirmó con el dueño: el nombre es **Saldar** y **hacen
+  fletes** (el resto lo pasa después) → pestaña "Flete" y servicio "Fletes"
+  prendidos (sin hablar de mudanzas, que no está confirmado); título, bajada,
+  cinta y pie dicen "envíos y fletes".
 - 19/10/2026 — Mateo pidió (comentario en el Artifact) que las letras de la
   cinta naranja se muevan hacia la izquierda → animación continua.
 - 19/10/2026 — Mateo habló con el dueño y pidió publicar → Artifact privado
