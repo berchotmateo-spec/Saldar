@@ -8,7 +8,7 @@ o volverse público).
 ## Qué es
 
 Web de una página para **Saldar** (Instagram [@saldar223](https://www.instagram.com/saldar223/)),
-servicio de logística de Mar del Plata. Es una **demo de venta** de Mateo
+empresa de **fletes** de Mar del Plata. Es una **demo de venta** de Mateo
 Berchot: se le muestra al dueño funcionando y se le ofrece con abono mensual.
 Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
 
@@ -33,8 +33,8 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
 - Tiene `<meta name="robots" content="noindex">` para que Google no indexe la
   demo (precios de ejemplo y WhatsApp de Mateo). **Sacarlo al publicar.**
 - Probado en Chromium a 1366 y 390 px: 0 errores de JS, sin desborde
-  horizontal, mensaje de WhatsApp bien armado (envío y flete), pestañas con
-  teclado, botón "Cotizar" de cada zona.
+  horizontal, mensaje de WhatsApp del flete bien armado, aviso cuando falta
+  un dato, ninguna mención a envíos ni mensajería en el texto visible.
 - "Pedir por WhatsApp" es un link común (`#pedir`) cuyo `href` se rearma con
   cada cambio del formulario; si falta un dato, el clic se cancela y avisa.
   No usar `window.open`: dentro del Artifact no anda para gente de afuera.
@@ -44,20 +44,32 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
 | Dato | Valor en la web | Fuente y fecha |
 |---|---|---|
 | Nombre comercial | "Saldar" | El dueño, vía Mateo, 19/10/2026 ✅ |
-| Rubro | Logística / envíos | Investigación de Mateo, 19/10/2026 |
+| Rubro | Fletes | El dueño, vía Mateo, 19/10/2026 ✅ |
 | Ciudad | Mar del Plata ("223" = característica de MDP) | Inferido, casi seguro |
-| Servicios | "Envíos y mensajería" y "Fletes" activos | Fletes: el dueño, vía Mateo, 19/10/2026 ✅. Mensajería: ⚠️ a confirmar |
-| Zonas | Centro, Macrocentro, Puerto, Norte, Sur, Batán y Sierra, Miramar | ⚠️ De ejemplo |
+| Servicios | Solo "Fletes" | El dueño, vía Mateo, 19/10/2026 ✅: hace fletes y **no tiene mensajería** |
+| Zonas | Centro, Macrocentro, Puerto, Norte, Sur, Batán y Sierra, Miramar (solo informativas, sin precio) | ⚠️ De ejemplo |
 | Tarifas | De ejemplo | ⚠️ Inventadas para la demo |
 | WhatsApp | El de Mateo (pruebas) | ⚠️ Falta el del negocio |
 | Horario | "A confirmar" | — |
 | Dirección / depósito | "A confirmar" | — |
 | Medios de pago | "A confirmar" | — |
-| Qué no transporta | "A confirmar" | — |
+| Qué no llevan | "A confirmar" | — |
 | Si no hay nadie para recibir | "A confirmar" | — |
 | Instagram | @saldar223 | — |
 | Logo | Logotipo tipográfico hecho para la demo (SVG en el HTML) | ⚠️ Falta el real |
 | Fotos | Ninguna (la web se ve bien sin fotos) | ⚠️ Faltan las reales |
+
+## Lo que NO va en la web (pedido del dueño)
+
+Al sacar algo, buscarlo en **todo** el `index.html`: textos, `<title>`,
+`description`, Open Graph y JSON-LD.
+
+- **Mensajería / envíos chicos** (sobres, paquetes, envíos para tiendas
+  online): el dueño dice que no la tiene — 19/10/2026. Se sacó el cotizador
+  de envíos por zona y tamaño, los recargos (urgente, ida y vuelta, cobro
+  contra entrega), los precios por zona y la sección "Para empresas y
+  tiendas online". Si algún día la suma, está en el historial de git
+  (commit anterior a "Sacar la mensajería").
 
 ## Cómo actualizar las tarifas (y los datos)
 
@@ -65,28 +77,25 @@ Todo lo que cambia está **al final del `<script>`** de `index.html`, debajo del
 comentario **"DATOS DE SALDAR — ACÁ SE CAMBIAN LOS PRECIOS"**:
 
 - `NEGOCIO`: nombre, `whatsapp`, `instagram`, `tarifasDeEjemplo`, horario,
-  pagos, dirección, qué no se envía, qué pasa si no hay nadie, servicios
-  (con `activo: true/false`) y preguntas frecuentes.
-- `ZONAS`: una por zona, con `extra` (lo que se suma si se retira o entrega
-  ahí), `barrios` (texto de ayuda), `grupo` (para la lista desplegable) y
-  `mapa` (puntos del esquema SVG).
-- `TARIFAS`: `salida` (mínimo), `redondeo`, `tamanos` (sobre, chico, mediano,
-  grande) y `flete` (vehículos por hora, mínimo de horas, ayudante, piso).
-- `RECARGOS`: urgente, ida y vuelta, cobro contra entrega (`porcentaje` o `fijo`).
+  pagos, dirección, qué no llevan (`noLlevan`), qué pasa si no hay nadie,
+  servicios (con `activo: true/false`) y preguntas frecuentes.
+- `ZONAS`: una por zona, con `barrios` (texto de ayuda), `lejos` (punto
+  negro) y `mapa` (puntos del esquema SVG). Son solo informativas: el precio
+  del flete no depende de la zona.
+- `TARIFAS`: `redondeo`, `minimoHoras`, `ayudantePorHora`,
+  `porPisoEscalera` y `vehiculos` (cada uno con `nombre`, `detalle` y
+  `porHora`).
 
-Reglas: los precios van **enteros, sin puntos ni $** (`5500`). El formato
-`$ 5.500` lo hace la función `pesos()`.
+Reglas: los precios van **enteros, sin puntos ni $** (`22000`). El formato
+`$ 22.000` lo hace la función `pesos()`.
 
-Cálculo de un envío: `salida + extra zona retiro + extra zona entrega + tamaño`,
-y sobre eso los porcentajes (urgente, ida y vuelta) más los fijos (cobro
-contra entrega). Si retiro y entrega son en la misma zona, el extra se cobra
-una vez. Se redondea a `TARIFAS.redondeo`. Si Saldar cobra distinto (por km,
-por bulto, matriz zona×zona), cambiar `lineasTramo()` / `calcularEnvio()`.
+Cálculo de un flete (`calcular()`): `porHora del vehículo × horas` (nunca
+menos que `minimoHoras`) `+ ayudantes × horas × ayudantePorHora + pisos ×
+porPisoEscalera`, redondeado a `TARIFAS.redondeo`. Si Saldar cobra distinto
+(por viaje, por km, recargo fuera de la ciudad), cambiar `calcular()`.
 
 Interruptores:
 - `NEGOCIO.tarifasDeEjemplo = false` → se va la barra VISTA PREVIA y la etiqueta del presupuesto.
-- Servicio `flete` con `activo: true` → aparece la pestaña "Flete" del cotizador (**prendido desde el 19/10/2026**: el dueño confirmó que hace fletes).
-- Servicio `tiendas` con `activo: true` → aparece la sección "Para empresas y tiendas online" y su link en el menú.
 - `NEGOCIO.whatsapp` → cambiarlo por el del negocio (formato `549` + característica sin 0 + número sin 15).
 
 Al cambiar zonas, actualizar también `areaServed` del JSON-LD en el `<head>`
@@ -107,10 +116,10 @@ Nada de Google Maps (pide tarjeta).
     números de paso, barra de VISTA PREVIA, tarjeta de contacto, código de
     barras, punto de destino y Miramar en el mapa.
   - Los tokens están en `:root`; no hay naranja ni verde en ningún lado.
-- Idea: **etiqueta de envío**. Guía de envío con código de barras en la
-  portada, cinta de embalaje naranja con el nombre, el presupuesto como ticket,
-  numeración de secciones en tipografía mono.
-- La cinta naranja tiene las letras **corriendo hacia la izquierda** (pedido
+- Idea: **etiqueta / hoja de ruta**. Hoja de ruta con código de barras en
+  la portada, cinta de embalaje azul con el nombre, el presupuesto como
+  ticket, numeración de secciones en tipografía mono.
+- La cinta azul tiene las letras **corriendo hacia la izquierda** (pedido
   de Mateo, 19/10/2026): dos tiras iguales que se corren su propio ancho en
   60 s. Se frena al pasar el mouse y queda quieta si el celular tiene
   "reducir movimiento".
@@ -119,41 +128,38 @@ Nada de Google Maps (pide tarjeta).
   de 2 px y sombra dura negra corrida 4 px. Si llevan ícono adelante, el ícono
   va en un "talón" separado por una línea punteada, como el troquel de una
   etiqueta. Con el mouse se levantan; al apretar se hunden como un sello.
-  Mismo estilo en las pestañas del cotizador (la elegida queda hundida en
-  negro), el "Cotizar" de cada zona y el WhatsApp de la cabecera. Sobre la
-  tarjeta negra de contacto la sombra va en azul. No queda ningún `999px`.
+  Mismo estilo en el WhatsApp de la cabecera. Sobre la tarjeta negra de
+  contacto la sombra va en azul. No queda ningún `999px`.
 - Tipografías: Barlow Condensed (títulos, aire de cartel de ruta), Barlow
   (texto) e IBM Plex Mono (etiquetas, precios del detalle).
-- Logo provisorio: cuadrado petróleo con una "S" que es un recorrido (punto de
-  origen → punto de destino naranja) + "SALDAR / LOGÍSTICA · MDP".
+- Logo provisorio: cuadrado azul con una "S" que es un recorrido (punto de
+  origen → punto de destino negro) + "SALDAR / LOGÍSTICA · MDP".
 - Mapa de zonas: esquema SVG propio (costa, mar al este, rutas 2, 226, 88 y 11),
   sin API de mapas. Los puntos salen de `ZONAS[].mapa`.
-- Nada inventado sobre el negocio: sin años, cantidad de envíos, clientes,
+- Nada inventado sobre el negocio: sin años, cantidad de fletes, clientes,
   reseñas, seguros ni garantías. Lo que falta dice "A confirmar".
 - Crédito al pie: "Sitio hecho por Mateo".
-- Si llegan fotos reales (vehículos, entregas), usarlas **sin recortar**.
+- Si llegan fotos reales (vehículos, fletes), usarlas **sin recortar**.
 
 ## PENDIENTES — confirmar con el dueño
 
 | Qué | Por qué hay duda |
 |---|---|
-| Servicios: ¿también mensajería / envíos chicos? ¿Envíos Flex / e-commerce, mudanzas, encomiendas a otras ciudades? | Fletes confirmado; la mensajería quedó activa pero no está confirmada |
-| Zonas que cubre y sus barrios (¿Zona Oeste? ¿Batán y Sierra juntas o separadas? ¿Miramar?) | Las zonas y barrios son de ejemplo |
-| Tarifas reales y **cómo calcula** (por zona, km, bulto, hora, precio fijo) | Todas las tarifas son de ejemplo |
-| Tamaños: cómo los define (medidas, peso) y cuánto suma cada uno | Los textos ("entra en una mochila") son de ejemplo |
-| Recargos: urgente / en el día, ida y vuelta, cobro contra entrega (¿los hace? ¿cuánto?) | De ejemplo |
-| Fletes: vehículos que tiene, precio por hora o por viaje, mínimo de horas, ayudantes, pisos por escalera, si sale de la ciudad | Pestaña prendida con tarifas y vehículos de ejemplo |
+| ¿Hace mudanzas? | Si las hace, se suma al texto de Fletes y se evalúa `MovingCompany` en el JSON-LD |
+| Zonas que cubre y sus barrios (¿Zona Oeste? ¿Batán y Sierra? ¿Miramar u otras ciudades?) | Las zonas y barrios son de ejemplo |
+| Tarifas reales y **cómo cobra el flete** (por hora, por viaje, por km, recargo fuera de la ciudad) | Todas las tarifas son de ejemplo (por hora) |
+| Vehículos que tiene (tipo y tamaño), mínimo de horas, ayudantes y precio, pisos por escalera | Vehículos y precios de ejemplo |
 | WhatsApp del negocio | Hoy todo va al de Mateo |
 | Horario y días | "A confirmar" en contacto y preguntas |
 | Medios de pago | "A confirmar" |
 | ¿Tiene local o depósito con dirección? ¿Se publica? | "A confirmar" |
-| Qué no transporta | "A confirmar" en preguntas |
+| Qué no llevan | "A confirmar" en preguntas |
 | Qué pasa si no hay nadie para recibir | "A confirmar" en preguntas |
 | Franjas horarias del formulario (mañana / mediodía / tarde) | Puestas sin horario exacto |
 | Clientes o marcas que se puedan nombrar (con permiso) | No hay ninguno en la web |
-| Algo que lo distinga (envío en el día, seguimiento, horario extendido…) | No se puso nada |
+| Algo que lo distinga (fletes en el día, horario extendido, años en la ciudad…) | No se puso nada |
 | Logo real (captura de la foto de perfil) | Logo tipográfico provisorio; también sirve para sacar el tono exacto de azul |
-| Fotos propias (vehículos, moto, equipo, entregas) | Ninguna |
+| Fotos propias (vehículos, equipo, fletes hechos) | Ninguna |
 
 ## Para publicar (cuando cierre)
 
@@ -168,6 +174,12 @@ Nada de Google Maps (pide tarjeta).
 
 ## Registro de cambios
 
+- 19/10/2026 — Mateo: "no tiene mensajería la empresa" → se sacó todo lo de
+  envíos (cotizador por zona y tamaño, recargos, precios por zona, sección
+  para tiendas online). La web queda de **fletes**: título, portada, cinta,
+  cotizador, cómo funciona, contacto, pie y ficha de Google. Las zonas
+  quedan solo como cobertura. También se corrigió el ícono gigante del
+  botón "Consultanos".
 - 19/10/2026 — Mateo pidió cambiar los botones de pastilla por algo menos
   genérico → botones tipo etiqueta con talón troquelado y sombra dura negra.
 - 19/10/2026 — Mateo pasó los colores de Saldar: azul y blanco, con detalles
