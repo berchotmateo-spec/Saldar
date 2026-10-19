@@ -138,7 +138,7 @@ Nada de Google Maps (pide tarjeta).
   sin API de mapas. Los puntos salen de `ZONAS[].mapa`.
 - Nada inventado sobre el negocio: sin años, cantidad de fletes, clientes,
   reseñas, seguros ni garantías. Lo que falta dice "A confirmar".
-- Crédito al pie: "Sitio hecho por Mateo".
+- Crédito al pie: "Desarrollado por ConnectHUB" (pedido de Mateo, 19/10/2026).
 - Si llegan fotos reales (vehículos, fletes), usarlas **sin recortar**.
 
 ## PENDIENTES — confirmar con el dueño
@@ -174,6 +174,8 @@ Nada de Google Maps (pide tarjeta).
 
 ## Registro de cambios
 
+- 19/10/2026 — Mateo pidió cambiar el crédito del pie → "Desarrollado por
+  ConnectHUB" en vez de "Sitio hecho por Mateo".
 - 19/10/2026 — Mateo: "no tiene mensajería la empresa" → se sacó todo lo de
   envíos (cotizador por zona y tamaño, recargos, precios por zona, sección
   para tiendas online). La web queda de **fletes**: título, portada, cinta,
