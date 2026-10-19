@@ -114,6 +114,14 @@ Nada de Google Maps (pide tarjeta).
   de Mateo, 19/10/2026): dos tiras iguales que se corren su propio ancho en
   60 s. Se frena al pasar el mouse y queda quieta si el celular tiene
   "reducir movimiento".
+- **Botones con forma de etiqueta de envío** (pedido de Mateo, 19/10/2026:
+  "nada de pastilla, muy genérico"): esquinas casi rectas (5 px), borde negro
+  de 2 px y sombra dura negra corrida 4 px. Si llevan ícono adelante, el ícono
+  va en un "talón" separado por una línea punteada, como el troquel de una
+  etiqueta. Con el mouse se levantan; al apretar se hunden como un sello.
+  Mismo estilo en las pestañas del cotizador (la elegida queda hundida en
+  negro), el "Cotizar" de cada zona y el WhatsApp de la cabecera. Sobre la
+  tarjeta negra de contacto la sombra va en azul. No queda ningún `999px`.
 - Tipografías: Barlow Condensed (títulos, aire de cartel de ruta), Barlow
   (texto) e IBM Plex Mono (etiquetas, precios del detalle).
 - Logo provisorio: cuadrado petróleo con una "S" que es un recorrido (punto de
@@ -160,6 +168,8 @@ Nada de Google Maps (pide tarjeta).
 
 ## Registro de cambios
 
+- 19/10/2026 — Mateo pidió cambiar los botones de pastilla por algo menos
+  genérico → botones tipo etiqueta con talón troquelado y sombra dura negra.
 - 19/10/2026 — Mateo pasó los colores de Saldar: azul y blanco, con detalles
   en negro → toda la página pasó a esa paleta (azul provisorio `#1847D6`).
 - 19/10/2026 — Mateo confirmó con el dueño: el nombre es **Saldar** y **hacen
