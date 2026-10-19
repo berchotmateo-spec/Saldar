@@ -1,0 +1,1289 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Saldar · Logística y envíos en Mar del Plata</title>
+<meta name="description" content="Saldar: logística y envíos en Mar del Plata. Cotizá tu envío por zona en un minuto y pedilo por WhatsApp. Retiramos y entregamos.">
+<!-- DEMO: mientras sea vista previa no queremos que Google la indexe. Sacar esta línea al publicar de verdad (ver CLAUDE.md). -->
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0B5A52">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+<meta property="og:site_name" content="Saldar">
+<meta property="og:title" content="Saldar · Logística y envíos en Mar del Plata">
+<meta property="og:description" content="Cotizá tu envío por zona en un minuto y pedilo por WhatsApp.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%230B5A52'/%3E%3Cpath d='M27 9H16a6 6 0 0 0 0 12h8a6 6 0 0 1 0 12H13' fill='none' stroke='%23fff' stroke-width='4' stroke-linecap='round'/%3E%3Ccircle cx='10.5' cy='33' r='3.6' fill='%23FF6B1A'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<!-- Ficha para Google: solo datos confirmados. Sin teléfono (el WhatsApp de prueba es de Mateo, no del negocio). -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Saldar",
+  "description": "Logística y envíos en Mar del Plata. Cotización por zona y pedidos por WhatsApp.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Mar del Plata",
+    "addressRegion": "Buenos Aires",
+    "addressCountry": "AR"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Mar del Plata" },
+    { "@type": "Place", "name": "Batán" },
+    { "@type": "Place", "name": "Sierra de los Padres" },
+    { "@type": "City", "name": "Miramar" }
+  ],
+  "sameAs": ["https://www.instagram.com/saldar223/"]
+}
+</script>
+<style>
+:root{
+  --papel:#F4F1E9;
+  --papel-2:#EAE5D8;
+  --superficie:#FFFFFF;
+  --tinta:#14211E;
+  --tinta-2:#4B5955;
+  --linea:#DAD4C6;
+  --borde-campo:#8A8373;
+  --petroleo:#0B5A52;
+  --petroleo-osc:#073F39;
+  --petroleo-claro:#E2EEEB;
+  --mar:#D6E8E4;
+  --senal:#FF6B1A;
+  --senal-texto:#A84300;
+  --senal-claro:#FFE8DA;
+  --error:#B42318;
+  --radio:20px;
+  --radio-chico:12px;
+  --sombra:0 1px 2px rgba(20,33,30,.06),0 10px 30px -14px rgba(20,33,30,.22);
+  --f-texto:"Barlow",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --f-titulo:"Barlow Condensed","Arial Narrow","Roboto Condensed",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:88px}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--papel);color:var(--tinta);font:400 1.0625rem/1.55 var(--f-texto);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img,svg{max-width:100%}
+a{color:var(--petroleo)}
+h1,h2,h3{margin:0;line-height:1.05}
+p{margin:0}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--tinta);outline-offset:3px;border-radius:6px}
+.sr{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.contenedor{width:100%;max-width:1180px;margin:0 auto;padding:0 16px}
+@media (min-width:720px){.contenedor{padding:0 28px}}
+.mono{font-family:var(--f-mono);font-weight:500;letter-spacing:.06em;text-transform:uppercase;font-size:.78rem}
+.confirmar{color:var(--senal-texto);font-style:italic}
+
+/* Saltar al contenido */
+.saltar{position:absolute;left:16px;top:-80px;z-index:100;background:var(--tinta);color:#fff;padding:.75rem 1rem;border-radius:10px;text-decoration:none;font-weight:600}
+.saltar:focus{top:12px}
+
+/* Barra de vista previa (se saca con NEGOCIO.tarifasDeEjemplo = false) */
+.vista-previa{background:var(--senal);color:var(--tinta);text-align:center;padding:.55rem 16px;font:600 .8rem/1.35 var(--f-mono);letter-spacing:.04em}
+.vista-previa strong{font-weight:600;background:var(--tinta);color:var(--senal);padding:.1rem .45rem;border-radius:4px;margin-right:.35rem;white-space:nowrap}
+
+/* Botones */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55em;min-height:48px;padding:.7em 1.4em;border-radius:999px;border:2px solid transparent;font:600 1.0625rem/1.1 var(--f-texto);text-decoration:none;cursor:pointer;transition:background-color .15s,border-color .15s,transform .15s;text-align:center}
+.btn:active{transform:translateY(1px)}
+.btn svg{width:1.25em;height:1.25em;flex:none}
+.btn-primario{background:var(--petroleo);color:#fff}
+.btn-primario:hover{background:var(--petroleo-osc)}
+.btn-senal{background:var(--senal);color:var(--tinta)}
+.btn-senal:hover{background:#F25A05}
+.btn-borde{background:transparent;border-color:var(--tinta);color:var(--tinta)}
+.btn-borde:hover{background:var(--tinta);color:#fff}
+.btn-chico{min-height:44px;padding:.5em 1.1em;font-size:1rem}
+.btn-grande{min-height:56px;font-size:1.125rem;width:100%}
+.ico{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+/* Cabecera */
+.cabecera{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:saturate(1.4) blur(8px);-webkit-backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid var(--linea)}
+.cabecera-in{display:flex;align-items:center;gap:12px;min-height:68px}
+.marca{display:inline-flex;align-items:center;text-decoration:none;color:var(--tinta);margin-right:auto;min-height:44px}
+.logo{height:38px;width:auto;display:block}
+.logo-nombre{font-family:var(--f-titulo);font-weight:800;fill:var(--tinta)}
+.logo-bajada{font-family:var(--f-mono);font-weight:600;fill:var(--petroleo)}
+.menu{display:none;list-style:none;margin:0;padding:0;gap:4px}
+.menu a{display:inline-flex;align-items:center;min-height:44px;padding:0 .8rem;border-radius:999px;color:var(--tinta);text-decoration:none;font-weight:600}
+.menu a:hover{background:var(--papel)}
+.cab-wa{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;color:var(--petroleo);border:2px solid var(--petroleo)}
+.cab-wa:hover{background:var(--petroleo);color:#fff}
+@media (min-width:900px){.menu{display:flex}}
+
+/* Portada */
+.portada{padding:clamp(2.5rem,7vw,5.5rem) 0 clamp(2.5rem,6vw,4.5rem)}
+.portada-in{display:grid;gap:clamp(2rem,5vw,3.5rem);align-items:center}
+@media (min-width:900px){.portada-in{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr)}}
+.portada-eyebrow{display:inline-flex;align-items:center;gap:.6rem;color:var(--petroleo);margin-bottom:1.1rem}
+.portada-eyebrow::before{content:"";width:28px;height:3px;background:var(--senal);border-radius:2px}
+.portada h1{font:800 clamp(2.9rem,10vw,5.6rem)/.92 var(--f-titulo);text-transform:uppercase;letter-spacing:-.005em}
+.portada h1 .cinta-texto-h1{position:relative;display:inline-block;padding:0 .12em;z-index:0}
+.portada h1 .cinta-texto-h1::before{content:"";position:absolute;inset:.08em -.04em .02em;background:var(--senal);transform:rotate(-1.6deg);z-index:-1;border-radius:3px}
+.portada-bajada{font-size:clamp(1.1rem,2.6vw,1.3rem);color:var(--tinta-2);max-width:34ch;margin-top:1.3rem}
+.portada-botones{display:flex;flex-wrap:wrap;gap:12px;margin-top:2rem}
+@media (max-width:479px){.portada-botones .btn{width:100%}}
+
+/* Guía de envío (ilustración de la portada) */
+.guia{position:relative;background:var(--superficie);border-radius:var(--radio);box-shadow:var(--sombra);padding:1.25rem 1.25rem 1rem;max-width:440px;width:100%;justify-self:center;border:1px solid var(--linea)}
+.guia::after{content:"";position:absolute;top:-13px;left:50%;width:92px;height:26px;margin-left:-46px;background:var(--senal);opacity:.92;transform:rotate(-4deg);border-radius:2px;box-shadow:0 1px 2px rgba(0,0,0,.12)}
+.guia-fila{display:flex;justify-content:space-between;gap:1rem;font:600 .74rem/1.2 var(--f-mono);letter-spacing:.08em;text-transform:uppercase}
+.guia-top{padding-bottom:.85rem;border-bottom:2px dashed var(--linea);color:var(--petroleo)}
+.recorrido{display:block;width:100%;height:auto;margin:.9rem 0 .4rem}
+.recorrido-linea{fill:none;stroke:var(--petroleo);stroke-width:4;stroke-linecap:round;stroke-dasharray:420;stroke-dashoffset:0}
+.recorrido-punteada{fill:none;stroke:var(--linea);stroke-width:4;stroke-linecap:round;stroke-dasharray:2 9}
+.punto-origen{fill:#fff;stroke:var(--petroleo);stroke-width:4}
+.punto-destino{fill:var(--senal);stroke:var(--tinta);stroke-width:2.5}
+@media (prefers-reduced-motion:no-preference){
+  .recorrido-linea{animation:trazar 1.8s cubic-bezier(.6,.05,.3,1) .35s both}
+  .punto-destino{animation:aparecer .35s ease-out 2s both;transform-origin:240px 92px;transform-box:view-box}
+}
+@keyframes trazar{from{stroke-dashoffset:420}to{stroke-dashoffset:0}}
+@keyframes aparecer{from{transform:scale(0)}to{transform:scale(1)}}
+.guia-datos{margin:0;display:grid;gap:.15rem}
+.guia-datos div{display:grid;grid-template-columns:4.2rem 1fr;gap:.75rem;padding:.55rem 0;border-bottom:1px solid var(--linea);align-items:baseline}
+.guia-datos dt{font:600 .74rem/1.2 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-2)}
+.guia-datos dd{margin:0;font-weight:600}
+.barras{height:30px;margin:1rem 0 .55rem;background:repeating-linear-gradient(90deg,var(--tinta) 0 2px,transparent 2px 4px,var(--tinta) 4px 5px,transparent 5px 8px,var(--tinta) 8px 11px,transparent 11px 13px,var(--tinta) 13px 14px,transparent 14px 18px);opacity:.88}
+.guia-pie{color:var(--tinta-2)}
+
+/* Cinta de embalaje */
+.cinta{overflow:hidden;padding:18px 0;margin:0}
+.cinta-banda{background:var(--senal);color:var(--tinta);transform:rotate(-1.4deg);margin:0 -40px;padding:.6rem 0;white-space:nowrap;overflow:hidden;font:600 .9rem/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;box-shadow:0 2px 0 rgba(20,33,30,.12)}
+.cinta-banda span{display:inline-block;padding-left:1rem}
+
+/* Secciones */
+.seccion{padding:clamp(3.5rem,8vw,6rem) 0}
+.seccion-blanca{background:var(--superficie)}
+.seccion-cabeza{max-width:720px;margin-bottom:clamp(2rem,4vw,3rem)}
+.seccion-num{display:inline-flex;align-items:center;gap:.6rem;color:var(--senal-texto);margin-bottom:.8rem}
+.seccion-num::after{content:"";width:40px;height:2px;background:currentColor;opacity:.5}
+.seccion h2{font:800 clamp(2.2rem,6vw,3.6rem)/.95 var(--f-titulo);text-transform:uppercase}
+.seccion-cabeza p:not(.seccion-num){margin-top:1rem;color:var(--tinta-2);font-size:1.125rem;max-width:56ch}
+
+/* Servicios */
+.servicios{display:grid;gap:16px}
+@media (min-width:720px){.servicios{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}}
+.servicio{background:var(--superficie);border:1px solid var(--linea);border-radius:var(--radio);padding:1.5rem;display:flex;flex-direction:column;gap:.75rem}
+.servicio .ico{width:40px;height:40px;color:var(--petroleo);stroke-width:1.6}
+.servicio h3{font:700 1.6rem/1.05 var(--f-titulo);text-transform:uppercase}
+.servicio p{color:var(--tinta-2)}
+.servicio-otro{background:transparent;border:2px dashed var(--borde-campo)}
+.servicio-otro .btn{align-self:flex-start;margin-top:auto}
+.servicio-etiquetas{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:.25rem}
+.servicio-etiquetas span{font:600 .72rem/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;padding:.45rem .6rem;border-radius:999px;background:var(--petroleo-claro);color:var(--petroleo-osc)}
+
+/* Cotizador */
+.seccion-cotizador{background:var(--papel-2);background-image:radial-gradient(rgba(20,33,30,.07) 1px,transparent 1px);background-size:18px 18px}
+.pestanas{display:inline-flex;gap:4px;padding:5px;background:var(--superficie);border:1px solid var(--linea);border-radius:999px;margin-bottom:1.25rem;max-width:100%}
+.pestana{min-height:44px;padding:0 1.2rem;border:0;border-radius:999px;background:transparent;font-weight:600;cursor:pointer;white-space:nowrap}
+.pestana[aria-selected="true"]{background:var(--tinta);color:#fff}
+.cot{display:flex;flex-direction:column;gap:16px}
+@media (min-width:980px){
+  .cot{display:grid;grid-template-columns:minmax(0,1fr) 380px;grid-template-areas:"paso1 ticket" "paso2 enviar";column-gap:28px;row-gap:20px}
+  .cot-paso1{grid-area:paso1}
+  .ticket{grid-area:ticket;align-self:start;position:sticky;top:92px}
+  .cot-paso2{grid-area:paso2}
+  .cot-enviar{grid-area:enviar;align-self:end}
+}
+.hoja{background:var(--superficie);border-radius:var(--radio);border:1px solid var(--linea);padding:clamp(1.15rem,3vw,1.75rem)}
+.paso-titulo{display:flex;align-items:center;gap:.7rem;font:700 1.5rem/1.1 var(--f-titulo);text-transform:uppercase;margin-bottom:1.25rem}
+.paso-num{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--senal);color:var(--tinta);font:600 .95rem/1 var(--f-mono);flex:none}
+.campos-2{display:grid;gap:14px}
+@media (min-width:600px){.campos-2{grid-template-columns:1fr 1fr}}
+.campo label,.campo .etiqueta{display:block;font-weight:600;margin-bottom:.4rem}
+.campo .opcional{font-weight:400;color:var(--tinta-2)}
+.campo + .campo{margin-top:0}
+.campos-2 + .campo,.campo + .campos-2,.campos-2 + .campos-2{margin-top:14px}
+select,input[type=text],input[type=date],input[type=number],textarea{width:100%;min-height:48px;padding:.65rem .9rem;border:1.5px solid var(--borde-campo);border-radius:var(--radio-chico);background:#fff;color:var(--tinta);font-size:1rem}
+textarea{min-height:88px;resize:vertical}
+select{appearance:none;-webkit-appearance:none;padding-right:2.6rem;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2314211E' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .8rem center;background-size:18px;cursor:pointer}
+select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--petroleo);outline-offset:1px;border-color:var(--petroleo)}
+[aria-invalid="true"]{border-color:var(--error)!important;box-shadow:0 0 0 1px var(--error)}
+.ayuda{font-size:.95rem;color:var(--tinta-2);margin-top:.7rem}
+.grupo{border:0;padding:0;margin:1.5rem 0 0;min-width:0}
+.grupo legend{font-weight:600;padding:0;margin-bottom:.6rem}
+.opciones{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (min-width:600px){.opciones{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.opciones-3{grid-template-columns:1fr}
+@media (min-width:600px){.opciones-3{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.opcion{position:relative;display:block;cursor:pointer}
+.opcion input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.opcion-caja{display:flex;flex-direction:column;gap:.2rem;height:100%;min-height:44px;padding:.85rem .85rem .8rem;border:1.5px solid var(--borde-campo);border-radius:14px;background:#fff;transition:border-color .15s,background-color .15s}
+.opcion:hover .opcion-caja{border-color:var(--tinta)}
+.opcion input:checked + .opcion-caja{border-color:var(--petroleo);background:var(--petroleo-claro);box-shadow:inset 0 0 0 1.5px var(--petroleo)}
+.opcion input:focus-visible + .opcion-caja{outline:3px solid var(--tinta);outline-offset:2px}
+.opcion-icono{height:30px;display:flex;align-items:flex-end;color:var(--petroleo);margin-bottom:.25rem}
+.opcion-icono .ico{stroke-width:1.6}
+.t-sobre .ico{width:28px;height:28px}
+.t-chico .ico{width:22px;height:22px}
+.t-mediano .ico{width:27px;height:27px}
+.t-grande .ico{width:32px;height:32px}
+.opcion-nombre{font-weight:700;font-size:1.05rem}
+.opcion-detalle{font-size:.88rem;line-height:1.3;color:var(--tinta-2)}
+.opcion-precio{font:600 .78rem/1.2 var(--f-mono);color:var(--petroleo);margin-top:auto;padding-top:.35rem}
+.extras{display:grid;gap:10px}
+.extra{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:.85rem;align-items:center;min-height:56px;padding:.7rem .9rem;border:1.5px solid var(--borde-campo);border-radius:14px;background:#fff;cursor:pointer}
+.extra:hover{border-color:var(--tinta)}
+.extra input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.extra-caja{width:24px;height:24px;border:2px solid var(--borde-campo);border-radius:7px;display:grid;place-items:center;background:#fff}
+.extra-caja svg{width:16px;height:16px;opacity:0;stroke:#fff;stroke-width:3;fill:none}
+.extra input:checked ~ .extra-caja{background:var(--petroleo);border-color:var(--petroleo)}
+.extra input:checked ~ .extra-caja svg{opacity:1}
+.extra:has(input:checked){border-color:var(--petroleo);background:var(--petroleo-claro)}
+.extra:has(input:focus-visible){outline:3px solid var(--tinta);outline-offset:2px}
+.extra-nombre{display:block;font-weight:700}
+.extra-detalle{display:block;font-size:.9rem;color:var(--tinta-2);line-height:1.3}
+.extra-precio{font:600 .8rem/1.2 var(--f-mono);color:var(--petroleo);white-space:nowrap}
+.contadores{display:grid;gap:14px;margin-top:1.5rem}
+@media (min-width:600px){.contadores{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.contador-ctrl{display:grid;grid-template-columns:48px minmax(0,1fr) 48px;gap:6px}
+.contador-ctrl input{text-align:center;font-weight:700;-moz-appearance:textfield;appearance:textfield}
+.contador-ctrl input::-webkit-inner-spin-button,.contador-ctrl input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+.contador-btn{min-height:48px;border-radius:var(--radio-chico);border:1.5px solid var(--borde-campo);background:#fff;font:700 1.35rem/1 var(--f-texto);cursor:pointer}
+.contador-btn:hover{border-color:var(--tinta)}
+
+/* Ticket con el precio */
+.ticket{background:var(--superficie);border-radius:var(--radio);box-shadow:var(--sombra);overflow:hidden;border:1px solid var(--linea)}
+.ticket-cabeza{display:flex;justify-content:space-between;align-items:center;gap:.75rem;background:var(--petroleo);color:#fff;padding:.95rem 1.25rem;font:600 .78rem/1.2 var(--f-mono);letter-spacing:.08em;text-transform:uppercase}
+.ticket-ejemplo{background:var(--senal);color:var(--tinta);padding:.3rem .5rem;border-radius:5px;font-size:.68rem;white-space:nowrap}
+.ticket-cuerpo{padding:1.25rem}
+.ticket-ruta{position:relative;display:grid;gap:.9rem;padding-left:1.6rem;margin-bottom:1.1rem}
+.ticket-ruta::before{content:"";position:absolute;left:6px;top:12px;bottom:12px;border-left:2.5px dashed var(--borde-campo)}
+.tr-punto{position:relative}
+.tr-punto::before{content:"";position:absolute;left:-1.6rem;top:.3rem;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--petroleo);box-sizing:border-box}
+.tr-destino::before{background:var(--senal);border-color:var(--tinta);border-width:2px}
+.tr-et{display:block;font:600 .7rem/1.2 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-2)}
+.tr-valor{display:block;font-weight:700;font-size:1.08rem;line-height:1.25}
+.ticket-lineas{list-style:none;margin:0;padding:.9rem 0 0;border-top:2px dashed var(--linea);display:grid;gap:.45rem}
+.ticket-lineas li{display:flex;justify-content:space-between;gap:1rem;font-size:.97rem}
+.ticket-lineas li span:first-child{color:var(--tinta-2)}
+.ticket-lineas li span:last-child{font-family:var(--f-mono);font-weight:500;white-space:nowrap}
+.ticket-total-fila{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;margin-top:1rem;padding-top:1rem;border-top:2px solid var(--tinta)}
+.ticket-total-fila > span{font:600 .78rem/1.2 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;padding-bottom:.45rem}
+.ticket-total{font:800 clamp(2.4rem,9vw,3.1rem)/1 var(--f-titulo);color:var(--petroleo);text-align:right}
+.ticket-total.vacio{font:600 1rem/1.35 var(--f-texto);color:var(--tinta-2);max-width:18ch}
+.ticket-aviso{margin-top:.6rem;font-size:.9rem;color:var(--tinta-2);text-align:right}
+.ticket .barras{margin:0 1.25rem 1rem;height:24px;opacity:.75}
+
+/* Enviar */
+.cot-enviar{display:grid;gap:.8rem}
+.enviar-total{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;font:600 .78rem/1.2 var(--f-mono);letter-spacing:.08em;text-transform:uppercase}
+.enviar-total strong{font:800 1.75rem/1 var(--f-titulo);color:var(--petroleo);letter-spacing:0}
+.error{color:var(--error);font-weight:600}
+.error:empty{display:none}
+.nota{font-size:.92rem;color:var(--tinta-2)}
+
+/* Cómo funciona */
+.seccion-oscura{background:var(--petroleo);color:#fff}
+.seccion-oscura .seccion-num{color:#FFB285}
+.seccion-oscura .seccion-cabeza p:not(.seccion-num){color:#CFE3DF}
+.seccion-oscura :focus-visible{outline-color:#fff}
+.pasos{list-style:none;margin:0;padding:0;display:grid;gap:16px;counter-reset:paso}
+@media (min-width:860px){.pasos{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}}
+.paso{position:relative;padding:1.5rem;border:1.5px solid rgba(255,255,255,.28);border-radius:var(--radio);background:rgba(255,255,255,.04)}
+.paso-n{display:block;font:600 .8rem/1 var(--f-mono);letter-spacing:.1em;color:#FFB285;margin-bottom:1.6rem}
+.paso h3{font:700 1.85rem/1 var(--f-titulo);text-transform:uppercase;margin-bottom:.6rem}
+.paso p{color:#CFE3DF}
+.paso .ico{position:absolute;right:1.4rem;top:1.25rem;width:30px;height:30px;color:var(--senal)}
+.pasos-cta{margin-top:2rem}
+
+/* Zonas */
+.zonas-in{display:grid;gap:clamp(1.5rem,4vw,2.5rem);align-items:start}
+@media (min-width:900px){.zonas-in{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}}
+.mapa{background:var(--superficie);border:1px solid var(--linea);border-radius:var(--radio);padding:.75rem;margin:0}
+.mapa svg{display:block;width:100%;height:auto}
+.mapa figcaption{font-size:.85rem;color:var(--tinta-2);padding:.5rem .4rem .1rem}
+.m-tierra{fill:var(--papel)}
+.m-ciudad{fill:var(--papel-2)}
+.m-mar{fill:var(--mar)}
+.m-ola{fill:none;stroke:#A9CBC4;stroke-width:1.4;stroke-linecap:round}
+.m-costa{fill:none;stroke:var(--petroleo);stroke-width:2}
+.m-ruta{fill:none;stroke:var(--tinta-2);stroke-width:1.6;stroke-dasharray:5 4;opacity:.55}
+.m-ruta-et{font:600 9px var(--f-mono);fill:var(--tinta-2);letter-spacing:.04em}
+.m-mar-et{font:600 10px var(--f-mono);fill:var(--petroleo);letter-spacing:.3em;opacity:.7}
+.m-norte{font:700 11px var(--f-mono);fill:var(--tinta)}
+.m-punto circle{fill:var(--petroleo);stroke:#fff;stroke-width:2}
+.m-punto.lejos circle{fill:var(--senal);stroke:var(--tinta);stroke-width:1.5}
+.m-punto .m-n{font:600 8.5px var(--f-mono);fill:#fff;text-anchor:middle;dominant-baseline:central}
+.m-punto.lejos .m-n{fill:var(--tinta)}
+.m-et{font:700 11.5px var(--f-texto);fill:var(--tinta);paint-order:stroke;stroke:rgba(255,255,255,.9);stroke-width:3px;stroke-linejoin:round}
+.zonas-nota{font-size:.95rem;color:var(--tinta-2);margin-bottom:.9rem}
+.lista-zonas{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.zona{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:.4rem .9rem;align-items:center;background:var(--superficie);border:1px solid var(--linea);border-radius:16px;padding:.85rem .95rem}
+.zona-num{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--petroleo);color:#fff;font:600 .78rem/1 var(--f-mono)}
+.zona.lejos .zona-num{background:var(--senal);color:var(--tinta)}
+.zona h3{font:700 1.2rem/1.1 var(--f-titulo);text-transform:uppercase}
+.zona p{font-size:.9rem;color:var(--tinta-2);line-height:1.3;margin-top:.15rem}
+.zona-precio{text-align:right;line-height:1.1}
+.zona-precio span{display:block;font:600 .66rem/1.2 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--tinta-2)}
+.zona-precio strong{font:700 1.05rem/1.2 var(--f-mono);color:var(--petroleo)}
+.zona-num{grid-row:span 2;align-self:start}
+.zona > div:not(.zona-precio){grid-row:span 2;align-self:start}
+.zona-btn{grid-column:3;justify-self:end;min-height:44px;padding:0 1rem;border-radius:999px;border:1.5px solid var(--petroleo);background:transparent;color:var(--petroleo);font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:.4rem}
+.zona-btn:hover{background:var(--petroleo);color:#fff}
+.zona-btn .ico{width:18px;height:18px}
+@media (min-width:600px){.zona{grid-template-columns:auto minmax(0,1fr) auto auto}.zona-num,.zona > div:not(.zona-precio){grid-row:auto;align-self:center}.zona-btn{grid-column:auto}}
+
+/* Empresas */
+.empresas-caja{display:grid;gap:1.5rem;align-items:center;background:var(--superficie);border:1px solid var(--linea);border-radius:var(--radio);padding:clamp(1.5rem,4vw,2.5rem)}
+@media (min-width:860px){.empresas-caja{grid-template-columns:minmax(0,1fr) auto}}
+.empresas-caja p{color:var(--tinta-2);max-width:60ch}
+
+/* Preguntas */
+.preguntas{display:grid;gap:10px;max-width:820px}
+.pregunta{background:var(--superficie);border:1px solid var(--linea);border-radius:16px}
+.pregunta summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;min-height:56px;padding:.8rem 1.1rem;font-weight:700;font-size:1.08rem;cursor:pointer;border-radius:16px}
+.pregunta summary::-webkit-details-marker{display:none}
+.pregunta summary::after{content:"";flex:none;width:28px;height:28px;border-radius:50%;background:var(--papel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230B5A52' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M12 6v12M6 12h12'/%3E%3C/svg%3E") center/16px no-repeat;transition:transform .2s}
+.pregunta[open] summary::after{transform:rotate(45deg)}
+.pregunta p{padding:0 1.1rem 1.1rem;color:var(--tinta-2)}
+
+/* Contacto */
+.contacto{display:grid;gap:16px}
+@media (min-width:860px){.contacto{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)}}
+.contacto-principal{background:var(--tinta);color:#fff;border-radius:var(--radio);padding:clamp(1.5rem,4vw,2.5rem);display:flex;flex-direction:column;gap:1.25rem;align-items:flex-start}
+.contacto-principal h3{font:800 clamp(2rem,5vw,2.8rem)/1.02 var(--f-titulo);text-transform:uppercase}
+.contacto-principal p{color:#C9D3D0}
+.contacto-principal :focus-visible{outline-color:#fff}
+.contacto-botones{display:flex;flex-wrap:wrap;gap:10px}
+.btn-claro{background:#fff;color:var(--tinta)}
+.btn-claro:hover{background:var(--senal-claro)}
+.btn-borde-claro{border-color:rgba(255,255,255,.6);color:#fff;background:transparent}
+.btn-borde-claro:hover{background:rgba(255,255,255,.12)}
+.datos{margin:0;display:grid;gap:10px}
+.dato{display:grid;grid-template-columns:auto minmax(0,1fr);gap:.9rem;align-items:start;background:var(--superficie);border:1px solid var(--linea);border-radius:16px;padding:1rem 1.1rem}
+.dato .ico{color:var(--petroleo);margin-top:.15rem}
+.dato dt{font:600 .72rem/1.2 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-2);margin-bottom:.2rem}
+.dato dd{margin:0;font-weight:600;overflow-wrap:anywhere}
+
+/* Pie */
+.pie{border-top:1px solid var(--linea);padding:2rem 0 2.5rem;background:var(--papel)}
+.pie-in{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem}
+.pie p{font-size:.92rem;color:var(--tinta-2)}
+.pie .logo{height:32px}
+.pie-credito{width:100%;font-size:.8rem!important;opacity:.85;margin-top:.5rem}
+.pie-credito a{color:inherit}
+</style>
+</head>
+<body>
+
+<!-- Íconos (se usan con <use href="#i-...">) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="marca" viewBox="0 0 40 40">
+      <rect width="40" height="40" rx="10" fill="#0B5A52"/>
+      <path d="M27 9H16a6 6 0 0 0 0 12h8a6 6 0 0 1 0 12H13" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="29.6" cy="9" r="2.6" fill="#0B5A52" stroke="#fff" stroke-width="2"/>
+      <circle cx="10.5" cy="33" r="3.6" fill="#FF6B1A"/>
+    </symbol>
+    <symbol id="i-paquete" viewBox="0 0 24 24"><path d="M12 2.8 3.5 7.2v9.6l8.5 4.4 8.5-4.4V7.2z"/><path d="m3.5 7.2 8.5 4.4 8.5-4.4M12 11.6v9.6M7.8 5l8.4 4.4"/></symbol>
+    <symbol id="i-sobre" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="m3.8 7 8.2 6 8.2-6"/></symbol>
+    <symbol id="i-camion" viewBox="0 0 24 24"><path d="M2.5 6h11v10h-11zM13.5 9.5h4.2l3.3 3.4V16h-7.5"/><circle cx="6.5" cy="17.2" r="1.9"/><circle cx="17" cy="17.2" r="1.9"/></symbol>
+    <symbol id="i-tienda" viewBox="0 0 24 24"><path d="M4.5 10v10h15V10M3 4.5h18l-1.3 3.9a2.5 2.5 0 0 1-4.8.1 2.6 2.6 0 0 1-5 0 2.5 2.5 0 0 1-4.8-.1z"/><path d="M9.5 20v-5h5v5"/></symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path d="M20.5 11.7a8.5 8.5 0 0 1-12.6 7.4l-4.4 1.4 1.5-4.2a8.5 8.5 0 1 1 15.5-4.6z"/><path d="M9.1 8.4c.2-.5.5-.7.8-.7h.6c.2 0 .4.1.5.4l.7 1.7c.1.3 0 .5-.1.7l-.5.6c-.1.2-.1.4 0 .6a7 7 0 0 0 2.4 2.4c.2.1.4.1.6 0l.6-.5c.2-.2.5-.2.7-.1l1.7.7c.3.1.4.3.4.5v.6c0 .3-.2.6-.7.8-.6.3-1.6.4-2.8-.1a9.8 9.8 0 0 1-4.8-4.8c-.5-1.2-.4-2.2-.1-2.8z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-reloj" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></symbol>
+    <symbol id="i-pago" viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="2.5"/><path d="M2.5 10h19M6.5 15h4"/></symbol>
+    <symbol id="i-flecha" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-cotizar" viewBox="0 0 24 24"><rect x="5" y="2.5" width="14" height="19" rx="2.5"/><path d="M8.5 6.5h7M8.5 11h1M12 11h1M15.5 11h0M8.5 14.5h1M12 14.5h1M8.5 18h1M12 18h1M15.5 14.5V18"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5.5h16v10H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></symbol>
+    <symbol id="i-moto" viewBox="0 0 24 24"><circle cx="5.5" cy="16.5" r="3"/><circle cx="18.5" cy="16.5" r="3"/><path d="M5.5 16.5 9 10h5l2.5 6.5M14 10l1.5-3.5H18M9 10H6.5"/></symbol>
+  </defs>
+</svg>
+
+<a class="saltar" href="#cotizador">Saltar al cotizador</a>
+
+<!-- VISTA PREVIA: se saca sola poniendo NEGOCIO.tarifasDeEjemplo = false (o borrando este bloque) -->
+<div class="vista-previa" id="vista-previa" role="note">
+  <strong>VISTA PREVIA</strong>Tarifas de ejemplo: los precios todavía no son los de Saldar.
+</div>
+
+<header class="cabecera">
+  <div class="contenedor cabecera-in">
+    <a class="marca" href="#inicio" aria-label="Saldar, volver al inicio">
+      <svg class="logo" viewBox="0 0 142 40" aria-hidden="true" focusable="false">
+        <use href="#marca" width="40" height="40"/>
+        <text class="logo-nombre" x="50" y="25" font-size="27" textLength="84" lengthAdjust="spacingAndGlyphs">SALDAR</text>
+        <text class="logo-bajada" x="50.5" y="36.5" font-size="8.2" textLength="83" lengthAdjust="spacingAndGlyphs">LOGÍSTICA · MDP</text>
+      </svg>
+    </a>
+    <nav aria-label="Secciones">
+      <ul class="menu">
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#zonas">Zonas</a></li>
+        <li data-solo="tiendas" hidden><a href="#empresas">Empresas</a></li>
+        <li><a href="#preguntas">Preguntas</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+    <a class="cab-wa" data-wa href="#contacto" aria-label="Escribinos por WhatsApp"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg></a>
+    <a class="btn btn-senal btn-chico" href="#cotizador">Cotizá</a>
+  </div>
+</header>
+
+<main id="inicio">
+
+  <!-- PORTADA -->
+  <section class="portada" aria-labelledby="titulo">
+    <div class="contenedor portada-in">
+      <div>
+        <p class="portada-eyebrow mono">Logística · Mar del Plata</p>
+        <h1 id="titulo">Envíos en Mar del Plata, <span class="cinta-texto-h1">sin vueltas.</span></h1>
+        <p class="portada-bajada">Cotizá en un minuto, mandanos el pedido por WhatsApp y nosotros retiramos y entregamos.</p>
+        <div class="portada-botones">
+          <a class="btn btn-primario" href="#cotizador"><svg class="ico" aria-hidden="true"><use href="#i-cotizar"/></svg>Cotizá tu envío</a>
+          <a class="btn btn-borde" data-wa href="#contacto"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Escribinos por WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="guia" aria-hidden="true">
+        <div class="guia-fila guia-top"><span>Saldar</span><span>Guía de envío</span></div>
+        <svg class="recorrido" viewBox="0 0 260 112">
+          <path class="recorrido-punteada" d="M20 92 C 70 92, 64 22, 128 22 S 190 92, 240 92"/>
+          <path class="recorrido-linea" d="M20 92 C 70 92, 64 22, 128 22 S 190 92, 240 92"/>
+          <circle class="punto-origen" cx="20" cy="92" r="8"/>
+          <circle class="punto-destino" cx="240" cy="92" r="10"/>
+        </svg>
+        <dl class="guia-datos">
+          <div><dt>De</dt><dd>Donde estés</dd></div>
+          <div><dt>Para</dt><dd>Donde lo necesites</dd></div>
+          <div><dt>Cómo</dt><dd>Cotizás acá, confirmamos por WhatsApp y lo llevamos.</dd></div>
+        </dl>
+        <div class="barras"></div>
+        <div class="guia-fila guia-pie"><span>Mar del Plata</span><span>(223)</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cinta" aria-hidden="true">
+    <div class="cinta-banda" id="cinta-banda"><span>Saldar · Envíos · Mar del Plata · Saldar · Envíos · Mar del Plata · Saldar · Envíos · Mar del Plata · Saldar · Envíos · Mar del Plata · Saldar · Envíos · Mar del Plata ·</span></div>
+  </div>
+
+  <!-- SERVICIOS -->
+  <section class="seccion" id="servicios" aria-labelledby="t-servicios">
+    <div class="contenedor">
+      <header class="seccion-cabeza">
+        <p class="seccion-num mono">01 · Servicios</p>
+        <h2 id="t-servicios">Qué hacemos</h2>
+      </header>
+      <div class="servicios" id="lista-servicios"></div>
+    </div>
+  </section>
+
+  <!-- COTIZADOR -->
+  <section class="seccion seccion-cotizador" id="cotizador" aria-labelledby="t-cotizador">
+    <div class="contenedor">
+      <header class="seccion-cabeza">
+        <p class="seccion-num mono">02 · Cotizador</p>
+        <h2 id="t-cotizador">Cotizá tu envío</h2>
+        <p>Elegí de dónde a dónde y el tamaño: el precio estimado sale al instante. Después lo mandás por WhatsApp y te lo confirmamos.</p>
+      </header>
+
+      <div class="pestanas" role="tablist" aria-label="Tipo de servicio" id="pestanas" hidden>
+        <button class="pestana" type="button" role="tab" id="tab-envio" aria-controls="panel-envio" aria-selected="true" data-modo="envio">Envío / mensajería</button>
+        <button class="pestana" type="button" role="tab" id="tab-flete" aria-controls="panel-flete" aria-selected="false" tabindex="-1" data-modo="flete">Flete</button>
+      </div>
+
+      <noscript><p class="hoja">El cotizador necesita JavaScript activado. También podés escribirnos por Instagram.</p></noscript>
+
+      <form class="cot" id="form-cot" novalidate>
+        <div class="cot-paso1 hoja">
+          <div id="panel-envio" aria-labelledby="tab-envio">
+            <h3 class="paso-titulo"><span class="paso-num" aria-hidden="true">1</span>Qué llevamos y adónde</h3>
+            <div class="campos-2">
+              <div class="campo">
+                <label for="origen">Zona de retiro</label>
+                <select id="origen" name="origen"></select>
+              </div>
+              <div class="campo">
+                <label for="destino">Zona de entrega</label>
+                <select id="destino" name="destino"></select>
+              </div>
+            </div>
+            <p class="ayuda">¿No sabés qué zona es? <a href="#zonas">Mirá las zonas</a> o escribinos y te decimos.</p>
+            <fieldset class="grupo">
+              <legend>Tamaño del paquete</legend>
+              <div class="opciones" id="tamanos"></div>
+            </fieldset>
+            <fieldset class="grupo" id="grupo-recargos">
+              <legend>Opciones <span class="opcional">(si hace falta)</span></legend>
+              <div class="extras" id="recargos"></div>
+            </fieldset>
+          </div>
+
+          <div id="panel-flete" aria-labelledby="tab-flete" hidden>
+            <h3 class="paso-titulo"><span class="paso-num" aria-hidden="true">1</span>Qué hay que mover</h3>
+            <fieldset class="grupo" style="margin-top:0">
+              <legend>Vehículo</legend>
+              <div class="opciones opciones-3" id="vehiculos"></div>
+            </fieldset>
+            <div class="contadores">
+              <div class="campo">
+                <label for="horas">Horas estimadas</label>
+                <div class="contador-ctrl">
+                  <button class="contador-btn" type="button" data-para="horas" data-paso="-1" aria-label="Una hora menos">−</button>
+                  <input id="horas" name="horas" type="number" inputmode="numeric" value="2" min="1" max="12">
+                  <button class="contador-btn" type="button" data-para="horas" data-paso="1" aria-label="Una hora más">+</button>
+                </div>
+              </div>
+              <div class="campo">
+                <label for="ayudantes">Ayudantes</label>
+                <div class="contador-ctrl">
+                  <button class="contador-btn" type="button" data-para="ayudantes" data-paso="-1" aria-label="Un ayudante menos">−</button>
+                  <input id="ayudantes" name="ayudantes" type="number" inputmode="numeric" value="0" min="0" max="4">
+                  <button class="contador-btn" type="button" data-para="ayudantes" data-paso="1" aria-label="Un ayudante más">+</button>
+                </div>
+              </div>
+              <div class="campo">
+                <label for="pisos">Pisos por escalera</label>
+                <div class="contador-ctrl">
+                  <button class="contador-btn" type="button" data-para="pisos" data-paso="-1" aria-label="Un piso menos">−</button>
+                  <input id="pisos" name="pisos" type="number" inputmode="numeric" value="0" min="0" max="20">
+                  <button class="contador-btn" type="button" data-para="pisos" data-paso="1" aria-label="Un piso más">+</button>
+                </div>
+              </div>
+            </div>
+            <p class="ayuda" id="flete-ayuda"></p>
+          </div>
+        </div>
+
+        <aside class="ticket" aria-labelledby="ticket-titulo">
+          <div class="ticket-cabeza"><span id="ticket-titulo">Presupuesto estimado</span><span class="ticket-ejemplo" id="ticket-ejemplo">Tarifas de ejemplo</span></div>
+          <div class="ticket-cuerpo">
+            <div class="ticket-ruta">
+              <div class="tr-punto"><span class="tr-et" id="tr-et-1">Retiro</span><span class="tr-valor" id="tr-1">—</span></div>
+              <div class="tr-punto tr-destino"><span class="tr-et" id="tr-et-2">Entrega</span><span class="tr-valor" id="tr-2">—</span></div>
+            </div>
+            <ul class="ticket-lineas" id="ticket-lineas"></ul>
+            <div class="ticket-total-fila">
+              <span aria-hidden="true">Total</span>
+              <output class="ticket-total" id="ticket-total" for="origen destino" aria-live="polite" aria-atomic="true"></output>
+            </div>
+            <p class="ticket-aviso">Precio estimado, a confirmar por WhatsApp.</p>
+          </div>
+          <div class="barras" aria-hidden="true"></div>
+        </aside>
+
+        <div class="cot-paso2 hoja">
+          <h3 class="paso-titulo"><span class="paso-num" aria-hidden="true">2</span>Tus datos</h3>
+          <div class="campo">
+            <label for="nombre">Tu nombre</label>
+            <input id="nombre" name="nombre" type="text" autocomplete="name" required>
+          </div>
+          <div class="campos-2">
+            <div class="campo">
+              <label for="dir-retiro">Dirección de retiro</label>
+              <input id="dir-retiro" name="dir-retiro" type="text" autocomplete="street-address" placeholder="Calle, número y entre calles" required>
+            </div>
+            <div class="campo">
+              <label for="dir-entrega">Dirección de entrega</label>
+              <input id="dir-entrega" name="dir-entrega" type="text" placeholder="Calle, número y entre calles" required>
+            </div>
+          </div>
+          <div class="campos-2">
+            <div class="campo">
+              <label for="dia">Día <span class="opcional">(opcional)</span></label>
+              <input id="dia" name="dia" type="date">
+            </div>
+            <div class="campo">
+              <label for="franja">Franja horaria <span class="opcional">(opcional)</span></label>
+              <select id="franja" name="franja">
+                <option value="">Elegí una franja</option>
+                <option>Por la mañana</option>
+                <option>Al mediodía</option>
+                <option>Por la tarde</option>
+                <option>Cualquier horario</option>
+              </select>
+            </div>
+          </div>
+          <div class="campo" style="margin-top:14px">
+            <label for="comentario">Comentario <span class="opcional">(opcional)</span></label>
+            <textarea id="comentario" name="comentario" placeholder="Qué es, a quién se lo entregamos, si hay que tocar timbre…"></textarea>
+          </div>
+        </div>
+
+        <div class="cot-enviar">
+          <p class="enviar-total"><span>Total estimado</span><strong id="enviar-total">—</strong></p>
+          <button class="btn btn-primario btn-grande" type="submit"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Pedir por WhatsApp</button>
+          <p class="error" id="enviar-error" role="alert"></p>
+          <p class="nota">Se abre WhatsApp con el pedido armado. Es un precio estimado: te lo confirmamos por chat antes de retirar.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- CÓMO FUNCIONA -->
+  <section class="seccion seccion-oscura" id="como-funciona" aria-labelledby="t-como">
+    <div class="contenedor">
+      <header class="seccion-cabeza">
+        <p class="seccion-num mono">03 · Cómo funciona</p>
+        <h2 id="t-como">Tres pasos y listo</h2>
+      </header>
+      <ol class="pasos">
+        <li class="paso">
+          <svg class="ico" aria-hidden="true"><use href="#i-cotizar"/></svg>
+          <span class="paso-n">Paso 01</span>
+          <h3>Cotizás</h3>
+          <p>Elegís de dónde a dónde y el tamaño. El precio estimado sale al instante, sin esperar respuesta.</p>
+        </li>
+        <li class="paso">
+          <svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg>
+          <span class="paso-n">Paso 02</span>
+          <h3>Confirmamos por WhatsApp</h3>
+          <p>Te llega el pedido armado al chat. Te confirmamos el precio final y cuándo pasamos.</p>
+        </li>
+        <li class="paso">
+          <svg class="ico" aria-hidden="true"><use href="#i-moto"/></svg>
+          <span class="paso-n">Paso 03</span>
+          <h3>Retiramos y entregamos</h3>
+          <p>Pasamos a buscarlo por la dirección de retiro y lo llevamos a destino.</p>
+        </li>
+      </ol>
+      <div class="pasos-cta"><a class="btn btn-senal" href="#cotizador">Cotizá tu envío<svg class="ico" aria-hidden="true"><use href="#i-flecha"/></svg></a></div>
+    </div>
+  </section>
+
+  <!-- ZONAS -->
+  <section class="seccion" id="zonas" aria-labelledby="t-zonas">
+    <div class="contenedor">
+      <header class="seccion-cabeza">
+        <p class="seccion-num mono">04 · Zonas</p>
+        <h2 id="t-zonas">Zonas que cubrimos</h2>
+        <p>Mar del Plata y alrededores. Si tu dirección no está, escribinos y te decimos si llegamos.</p>
+      </header>
+      <div class="zonas-in">
+        <figure class="mapa">
+          <svg viewBox="0 0 340 400" role="img" aria-labelledby="mapa-titulo">
+            <title id="mapa-titulo">Esquema de las zonas de Mar del Plata y alrededores, con el mar al este</title>
+            <rect class="m-tierra" width="340" height="400"/>
+            <path class="m-ciudad" d="M300 30 C 262 40 214 110 196 180 C 180 240 166 300 178 352 C 200 330 230 292 250 250 C 266 220 282 186 292 140 C 298 100 304 60 300 30 Z"/>
+            <path class="m-mar" d="M306 0 C 302 60 296 120 286 166 C 280 194 272 214 264 230 L 276 236 L 271 244 L 258 241 C 246 268 230 300 208 334 C 186 364 150 386 104 400 L 340 400 L 340 0 Z"/>
+            <g class="m-olas" aria-hidden="true">
+              <path class="m-ola" d="M318 70 q5 -4 10 0 t10 0"/>
+              <path class="m-ola" d="M306 190 q5 -4 10 0 t10 0"/>
+              <path class="m-ola" d="M292 286 q5 -4 10 0 t10 0"/>
+              <path class="m-ola" d="M250 360 q5 -4 10 0 t10 0"/>
+            </g>
+            <path class="m-costa" d="M306 0 C 302 60 296 120 286 166 C 280 194 272 214 264 230 L 276 236 L 271 244 L 258 241 C 246 268 230 300 208 334 C 186 364 150 386 104 400"/>
+            <text class="m-mar-et" transform="translate(300 346) rotate(-70)">MAR ARGENTINO</text>
+            <path class="m-ruta" d="M232 186 C 214 130 196 70 176 0"/>
+            <path class="m-ruta" d="M228 198 C 170 182 110 162 0 142"/>
+            <path class="m-ruta" d="M226 214 C 170 236 120 256 0 302"/>
+            <path class="m-ruta" d="M248 250 C 228 290 200 326 172 352 C 156 366 138 376 122 382"/>
+            <text class="m-ruta-et" x="184" y="40">RN 2</text>
+            <text class="m-ruta-et" x="8" y="132">RN 226</text>
+            <text class="m-ruta-et" x="8" y="320">RN 88</text>
+            <text class="m-ruta-et" x="128" y="350">RP 11</text>
+            <text class="m-norte" x="14" y="22">N ↑</text>
+            <g id="mapa-zonas"></g>
+          </svg>
+          <figcaption>Esquema de referencia, no está a escala.</figcaption>
+        </figure>
+        <div>
+          <p class="zonas-nota" id="zonas-nota"></p>
+          <ol class="lista-zonas" id="lista-zonas"></ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARA EMPRESAS (solo si el servicio "tiendas" está activo) -->
+  <section class="seccion seccion-blanca" id="empresas" aria-labelledby="t-empresas" hidden>
+    <div class="contenedor">
+      <header class="seccion-cabeza">
+        <p class="seccion-num mono">Para empresas</p>
+        <h2 id="t-empresas">Para empresas y tiendas online</h2>
+      </header>
+      <div class="empresas-caja">
+        <p>Si vendés por internet o tenés un comercio y hacés envíos seguido, escribinos y coordinamos los retiros para tus pedidos.</p>
+        <a class="btn btn-primario" data-wa="empresas" href="#contacto"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Coordinar envíos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREGUNTAS -->
+  <section class="seccion seccion-blanca" id="preguntas" aria-labelledby="t-preguntas">
+    <div class="contenedor">
+      <header class="seccion-cabeza">
+        <p class="seccion-num mono">05 · Preguntas</p>
+        <h2 id="t-preguntas">Preguntas frecuentes</h2>
+      </header>
+      <div class="preguntas" id="lista-preguntas"></div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="seccion" id="contacto" aria-labelledby="t-contacto">
+    <div class="contenedor">
+      <header class="seccion-cabeza">
+        <p class="seccion-num mono">06 · Contacto</p>
+        <h2 id="t-contacto">Hablemos</h2>
+      </header>
+      <div class="contacto">
+        <div class="contacto-principal">
+          <h3>¿Tenés que mandar algo?</h3>
+          <p>Escribinos por WhatsApp o mandanos un mensaje por Instagram.</p>
+          <div class="contacto-botones">
+            <a class="btn btn-claro" data-wa href="#contacto"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Escribinos por WhatsApp</a>
+            <a class="btn btn-borde-claro" data-ig href="https://www.instagram.com/saldar223/" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-ig"/></svg><span data-ig-usuario>@saldar223</span></a>
+          </div>
+        </div>
+        <dl class="datos">
+          <div class="dato"><svg class="ico" aria-hidden="true"><use href="#i-reloj"/></svg><div><dt>Horario</dt><dd data-dato="horario">A confirmar</dd></div></div>
+          <div class="dato"><svg class="ico" aria-hidden="true"><use href="#i-pago"/></svg><div><dt>Medios de pago</dt><dd data-dato="pagos">A confirmar</dd></div></div>
+          <div class="dato"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg><div><dt>Dónde estamos</dt><dd data-dato="direccion">A confirmar</dd></div></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="contenedor pie-in">
+    <svg class="logo" viewBox="0 0 142 40" role="img" aria-label="Saldar">
+      <use href="#marca" width="40" height="40"/>
+      <text class="logo-nombre" x="50" y="25" font-size="27" textLength="84" lengthAdjust="spacingAndGlyphs">SALDAR</text>
+      <text class="logo-bajada" x="50.5" y="36.5" font-size="8.2" textLength="83" lengthAdjust="spacingAndGlyphs">LOGÍSTICA · MDP</text>
+    </svg>
+    <p>© <span id="anio">2026</span> Saldar · Logística y envíos en Mar del Plata</p>
+    <p class="pie-credito">Sitio hecho por Mateo</p>
+  </div>
+</footer>
+
+<script>
+"use strict";
+
+/* ============================================================
+   CÓMO FUNCIONA LA PÁGINA
+   Arriba están las funciones; las TARIFAS y los DATOS DEL NEGOCIO
+   están todos juntos AL FINAL de este script (buscá "DATOS DE SALDAR").
+   ============================================================ */
+
+const $ = (s, el = document) => el.querySelector(s);
+const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+const esc = (t) => String(t ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const formatoPesos = new Intl.NumberFormat("es-AR", { style: "currency", currency: "ARS", maximumFractionDigits: 0 });
+const pesos = (n) => formatoPesos.format(n);
+const redondear = (n) => { const r = TARIFAS.redondeo || 1; return Math.round(n / r) * r; };
+const suma = (lineas) => lineas.reduce((t, l) => t + l.v, 0);
+const lista = (xs) => xs.length < 2 ? xs.join("") : xs.slice(0, -1).join(", ") + " y " + xs[xs.length - 1];
+const buscarZona = (id) => ZONAS.find((z) => z.id === id);
+const servicioActivo = (id) => NEGOCIO.servicios.some((s) => s.id === id && s.activo);
+const valorRadio = (name) => $(`input[name="${name}"]:checked`)?.value;
+const icono = (id, clase = "ico") => `<svg class="${clase}" aria-hidden="true"><use href="#${id}"/></svg>`;
+
+let modo = "envio";          // "envio" o "flete"
+let ultimo = null;           // último cálculo
+
+/* ---------- Datos sueltos del negocio (horario, pagos, Instagram) ---------- */
+function pintarDatos() {
+  $$("[data-dato]").forEach((el) => {
+    const v = NEGOCIO[el.dataset.dato];
+    el.textContent = v || "A confirmar";
+    el.classList.toggle("confirmar", !v);
+  });
+  const ig = `https://www.instagram.com/${NEGOCIO.instagram}/`;
+  $$("[data-ig]").forEach((a) => (a.href = ig));
+  $$("[data-ig-usuario]").forEach((el) => (el.textContent = "@" + NEGOCIO.instagram));
+}
+
+function enlaceWhatsapp(texto) {
+  return `https://wa.me/${NEGOCIO.whatsapp}?text=${encodeURIComponent(texto)}`;
+}
+
+function enlazarWhatsapp() {
+  $$("[data-wa]").forEach((a) => {
+    const texto = a.dataset.wa === "empresas" ? NEGOCIO.mensajeEmpresas : NEGOCIO.mensajeGeneral;
+    a.href = enlaceWhatsapp(texto);
+    a.target = "_blank";
+    a.rel = "noopener";
+  });
+}
+
+/* ---------- Servicios ---------- */
+function pintarServicios() {
+  const activos = NEGOCIO.servicios.filter((s) => s.activo);
+  $("#lista-servicios").innerHTML = activos.map((s) => `
+    <article class="servicio">
+      ${icono(s.icono)}
+      <h3>${esc(s.titulo)}</h3>
+      <p>${esc(s.texto)}</p>
+      ${s.etiquetas?.length ? `<div class="servicio-etiquetas">${s.etiquetas.map((e) => `<span>${esc(e)}</span>`).join("")}</div>` : ""}
+    </article>`).join("") + `
+    <article class="servicio servicio-otro">
+      ${icono("i-chat")}
+      <h3>¿Necesitás otra cosa?</h3>
+      <p>Contanos qué hay que llevar y adónde, y lo vemos.</p>
+      <a class="btn btn-borde btn-chico" data-wa href="#contacto">${icono("i-wa")}Consultanos</a>
+    </article>`;
+  $("#empresas").hidden = !servicioActivo("tiendas");
+  $$('[data-solo="tiendas"]').forEach((el) => (el.hidden = !servicioActivo("tiendas")));
+}
+
+/* ---------- Cotizador: armar los controles ---------- */
+function opcionesZonas(placeholder) {
+  const grupos = [];
+  ZONAS.forEach((z) => {
+    let g = grupos.find((x) => x.nombre === z.grupo);
+    if (!g) grupos.push((g = { nombre: z.grupo, zonas: [] }));
+    g.zonas.push(z);
+  });
+  return `<option value="">${placeholder}</option>` + grupos.map((g) =>
+    `<optgroup label="${esc(g.nombre)}">${g.zonas.map((z) => `<option value="${z.id}">${esc(z.nombre)}</option>`).join("")}</optgroup>`
+  ).join("");
+}
+
+function tarjetaOpcion(name, item, detallePrecio, svg, clase = "") {
+  return `<label class="opcion ${clase}">
+    <input type="radio" name="${name}" value="${item.id}">
+    <span class="opcion-caja">
+      <span class="opcion-icono" aria-hidden="true">${svg}</span>
+      <span class="opcion-nombre">${esc(item.nombre)}</span>
+      <span class="opcion-detalle">${esc(item.detalle)}</span>
+      <span class="opcion-precio">${detallePrecio}</span>
+    </span>
+  </label>`;
+}
+
+function pintarCotizador() {
+  $("#origen").innerHTML = opcionesZonas("Elegí la zona");
+  $("#destino").innerHTML = opcionesZonas("Elegí la zona");
+  const inicial = ZONAS.find((z) => !z.extra) || ZONAS[0];
+  if (inicial) $("#origen").value = inicial.id;
+
+  $("#tamanos").innerHTML = TARIFAS.tamanos.map((t) =>
+    tarjetaOpcion("tamano", t, t.extra ? "+ " + pesos(t.extra) : "Sin recargo", icono(t.id === "sobre" ? "i-sobre" : "i-paquete"), "t-" + t.id)
+  ).join("");
+  const tamanoInicial = TARIFAS.tamanos.find((t) => t.id === "chico") || TARIFAS.tamanos[0];
+  if (tamanoInicial) $(`input[name="tamano"][value="${tamanoInicial.id}"]`).checked = true;
+
+  const recargos = RECARGOS.filter((r) => r.activo);
+  $("#grupo-recargos").hidden = !recargos.length;
+  $("#recargos").innerHTML = recargos.map((r) => `
+    <label class="extra">
+      <input type="checkbox" id="rec-${r.id}" value="${r.id}">
+      <span class="extra-caja" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+      <span><span class="extra-nombre">${esc(r.nombre)}</span><span class="extra-detalle">${esc(r.detalle)}</span></span>
+      <span class="extra-precio">${r.tipo === "porcentaje" ? "+" + r.valor + " %" : "+ " + pesos(r.valor)}</span>
+    </label>`).join("");
+
+  // Flete: solo si el servicio está activo
+  const hayFlete = servicioActivo("flete");
+  $("#pestanas").hidden = !hayFlete;
+  if (hayFlete) {
+    const f = TARIFAS.flete;
+    $("#panel-envio").setAttribute("role", "tabpanel");
+    $("#panel-flete").setAttribute("role", "tabpanel");
+    $("#vehiculos").innerHTML = f.vehiculos.map((v) =>
+      tarjetaOpcion("vehiculo", v, pesos(v.porHora) + " la hora", icono("i-camion"))
+    ).join("");
+    $(`input[name="vehiculo"][value="${f.vehiculos[0].id}"]`).checked = true;
+    const horas = $("#horas");
+    horas.min = f.minimoHoras;
+    horas.value = Math.max(f.minimoHoras, +horas.value || 0);
+    $("#flete-ayuda").textContent = `Mínimo ${f.minimoHoras} ${f.minimoHoras === 1 ? "hora" : "horas"}. Ayudante: ${pesos(f.ayudantePorHora)} la hora cada uno. Pisos por escalera: sumá los de retiro y entrega (${pesos(f.porPisoEscalera)} cada uno).`;
+  } else {
+    $("#panel-envio").removeAttribute("aria-labelledby");
+  }
+
+  // Día: no se puede elegir una fecha pasada
+  const hoy = new Date();
+  hoy.setMinutes(hoy.getMinutes() - hoy.getTimezoneOffset());
+  $("#dia").min = hoy.toISOString().slice(0, 10);
+
+  enlazarCotizador();
+  actualizar();
+}
+
+/* ---------- Cotizador: cálculos ---------- */
+// Lo que cuesta el viaje entre dos zonas (sin tamaño ni opciones).
+function lineasTramo(o, d) {
+  const lineas = [{ c: "Salida (retiro y entrega)", v: TARIFAS.salida }];
+  if (o === d) {
+    if (o.extra) lineas.push({ c: `Dentro de ${o.nombre}`, v: o.extra });
+  } else {
+    if (o.extra) lineas.push({ c: `Retiro en ${o.nombre}`, v: o.extra });
+    if (d.extra) lineas.push({ c: `Entrega en ${d.nombre}`, v: d.extra });
+  }
+  return lineas;
+}
+
+function calcularEnvio() {
+  const o = buscarZona($("#origen").value);
+  const d = buscarZona($("#destino").value);
+  const t = TARIFAS.tamanos.find((x) => x.id === valorRadio("tamano"));
+  if (!o || !d || !t) return { o, d, t, lineas: [], total: null };
+  const lineas = lineasTramo(o, d);
+  if (t.extra) lineas.push({ c: `Tamaño ${t.nombre.toLowerCase()}`, v: t.extra });
+  const base = suma(lineas);
+  const extras = RECARGOS.filter((r) => r.activo && $("#rec-" + r.id)?.checked);
+  extras.forEach((r) => lineas.push({
+    c: r.tipo === "porcentaje" ? `${r.nombre} (+${r.valor} %)` : r.nombre,
+    v: r.tipo === "porcentaje" ? redondear((base * r.valor) / 100) : r.valor,
+  }));
+  return { o, d, t, extras, lineas, total: redondear(suma(lineas)) };
+}
+
+function leerNumero(id) {
+  const el = $("#" + id);
+  const n = Math.round(+el.value);
+  const min = +el.min, max = +el.max;
+  return Math.min(max, Math.max(min, Number.isFinite(n) ? n : min));
+}
+
+function calcularFlete() {
+  const f = TARIFAS.flete;
+  const v = f.vehiculos.find((x) => x.id === valorRadio("vehiculo"));
+  const horas = leerNumero("horas"), ayudantes = leerNumero("ayudantes"), pisos = leerNumero("pisos");
+  if (!v) return { lineas: [], total: null };
+  const lineas = [{ c: `${v.nombre} (${horas} h × ${pesos(v.porHora)})`, v: v.porHora * horas }];
+  if (ayudantes) lineas.push({ c: `${ayudantes} ${ayudantes === 1 ? "ayudante" : "ayudantes"} × ${horas} h`, v: ayudantes * horas * f.ayudantePorHora });
+  if (pisos) lineas.push({ c: `${pisos} ${pisos === 1 ? "piso" : "pisos"} por escalera`, v: pisos * f.porPisoEscalera });
+  return { v, horas, ayudantes, pisos, lineas, total: redondear(suma(lineas)) };
+}
+
+/* ---------- Cotizador: mostrar el precio ---------- */
+function actualizar() {
+  const r = modo === "flete" ? calcularFlete() : calcularEnvio();
+  ultimo = r;
+  if (modo === "flete") {
+    $("#tr-et-1").textContent = "Vehículo";
+    $("#tr-et-2").textContent = "Tiempo";
+    $("#tr-1").textContent = r.v ? r.v.nombre : "—";
+    $("#tr-2").textContent = r.v ? `${r.horas} h${r.ayudantes ? ` · ${r.ayudantes} ${r.ayudantes === 1 ? "ayudante" : "ayudantes"}` : ""}` : "—";
+  } else {
+    $("#tr-et-1").textContent = "Retiro";
+    $("#tr-et-2").textContent = "Entrega";
+    $("#tr-1").textContent = r.o ? r.o.nombre : "Elegí la zona";
+    $("#tr-2").textContent = r.d ? r.d.nombre : "Elegí la zona";
+  }
+  $("#ticket-lineas").innerHTML = r.lineas.map((l) => `<li><span>${esc(l.c)}</span><span>${pesos(l.v)}</span></li>`).join("");
+  $("#ticket-lineas").hidden = !r.lineas.length;
+  const total = $("#ticket-total");
+  if (r.total == null) {
+    total.classList.add("vacio");
+    total.textContent = modo === "flete" ? "Elegí el vehículo para ver el precio." : "Elegí la zona de entrega para ver el precio.";
+    $("#enviar-total").textContent = "—";
+  } else {
+    total.classList.remove("vacio");
+    total.innerHTML = `<span class="sr">Total estimado: </span>${pesos(r.total)}`;
+    $("#enviar-total").textContent = pesos(r.total);
+  }
+  return r;
+}
+
+/* ---------- Cotizador: interacción ---------- */
+function cambiarModo(nuevo, enfocar) {
+  modo = nuevo;
+  $$(".pestana").forEach((b) => {
+    const activa = b.dataset.modo === nuevo;
+    b.setAttribute("aria-selected", activa);
+    b.tabIndex = activa ? 0 : -1;
+    if (activa && enfocar) b.focus();
+  });
+  $("#panel-envio").hidden = nuevo !== "envio";
+  $("#panel-flete").hidden = nuevo !== "flete";
+  actualizar();
+}
+
+function enlazarCotizador() {
+  const form = $("#form-cot");
+  form.addEventListener("input", (e) => { e.target.removeAttribute("aria-invalid"); actualizar(); });
+  form.addEventListener("change", actualizar);
+  form.addEventListener("submit", (e) => { e.preventDefault(); enviarPedido(); });
+
+  $$(".contador-btn").forEach((b) => b.addEventListener("click", () => {
+    const el = $("#" + b.dataset.para);
+    el.value = Math.min(+el.max, Math.max(+el.min, (+el.value || 0) + +b.dataset.paso));
+    actualizar();
+  }));
+  $$(".contador-ctrl input").forEach((el) => el.addEventListener("blur", () => { el.value = leerNumero(el.id); actualizar(); }));
+
+  const pestanas = $$(".pestana");
+  pestanas.forEach((b, i) => {
+    b.addEventListener("click", () => cambiarModo(b.dataset.modo));
+    b.addEventListener("keydown", (e) => {
+      let j = null;
+      if (e.key === "ArrowRight") j = (i + 1) % pestanas.length;
+      if (e.key === "ArrowLeft") j = (i - 1 + pestanas.length) % pestanas.length;
+      if (e.key === "Home") j = 0;
+      if (e.key === "End") j = pestanas.length - 1;
+      if (j !== null) { e.preventDefault(); cambiarModo(pestanas[j].dataset.modo, true); }
+    });
+  });
+}
+
+function fechaLinda(valor) {
+  if (!valor) return "";
+  const [a, m, d] = valor.split("-").map(Number);
+  const dia = new Date(a, m - 1, d).toLocaleDateString("es-AR", { weekday: "long" });
+  return `${dia} ${d}/${m}`;
+}
+
+function armarMensaje(r) {
+  const val = (id) => $("#" + id).value.trim();
+  const L = [];
+  if (modo === "flete") {
+    L.push(`¡Hola ${NEGOCIO.nombre}! Quiero pedir un flete desde la web.`, "");
+    L.push(`*Vehículo:* ${r.v.nombre}`);
+    L.push(`*Horas estimadas:* ${r.horas}`);
+    if (r.ayudantes) L.push(`*Ayudantes:* ${r.ayudantes}`);
+    if (r.pisos) L.push(`*Pisos por escalera:* ${r.pisos}`);
+    L.push(`*Retiro:* ${val("dir-retiro")}`);
+    L.push(`*Entrega:* ${val("dir-entrega")}`);
+  } else {
+    L.push(`¡Hola ${NEGOCIO.nombre}! Quiero pedir un envío desde la web.`, "");
+    L.push(`*Retiro:* ${val("dir-retiro")} (${r.o.nombre})`);
+    L.push(`*Entrega:* ${val("dir-entrega")} (${r.d.nombre})`);
+    L.push(`*Tamaño:* ${r.t.nombre} (${r.t.detalle.toLowerCase()})`);
+    if (r.extras.length) L.push(`*Opciones:* ${r.extras.map((x) => x.nombre).join(", ")}`);
+  }
+  const cuando = [fechaLinda(val("dia")), val("franja").toLowerCase()].filter(Boolean).join(", ");
+  if (cuando) L.push(`*Cuándo:* ${cuando}`);
+  L.push(`*Nombre:* ${val("nombre")}`);
+  if (val("comentario")) L.push(`*Comentario:* ${val("comentario")}`);
+  L.push("", `*Total: ${pesos(r.total)}* (precio estimado, a confirmar)`);
+  r.lineas.forEach((l) => L.push(`• ${l.c}: ${pesos(l.v)}`));
+  return L.join("\n");
+}
+
+function enviarPedido() {
+  const r = actualizar();
+  const faltan = [];
+  if (modo === "envio") {
+    if (!$("#origen").value) faltan.push(["origen", "la zona de retiro"]);
+    if (!$("#destino").value) faltan.push(["destino", "la zona de entrega"]);
+  }
+  if (!$("#nombre").value.trim()) faltan.push(["nombre", "tu nombre"]);
+  if (!$("#dir-retiro").value.trim()) faltan.push(["dir-retiro", "la dirección de retiro"]);
+  if (!$("#dir-entrega").value.trim()) faltan.push(["dir-entrega", "la dirección de entrega"]);
+
+  $$("#form-cot [aria-invalid]").forEach((el) => el.removeAttribute("aria-invalid"));
+  if (faltan.length || r.total == null) {
+    faltan.forEach(([id]) => $("#" + id).setAttribute("aria-invalid", "true"));
+    $("#enviar-error").textContent = "Para mandar el pedido falta " + lista(faltan.map((f) => f[1])) + ".";
+    if (faltan.length) $("#" + faltan[0][0]).focus();
+    return;
+  }
+  $("#enviar-error").textContent = "";
+  window.open(enlaceWhatsapp(armarMensaje(r)), "_blank", "noopener");
+}
+
+/* ---------- Zonas: lista y mapa ---------- */
+function pintarZonas() {
+  const ref = ZONAS.find((z) => !z.extra) || ZONAS[0];
+  const sobre = TARIFAS.tamanos[0];
+  $("#zonas-nota").textContent = `Precio de un ${sobre.nombre.toLowerCase()} desde ${ref.nombre === "Centro" ? "el Centro" : ref.nombre}. Con el cotizador ves el precio exacto para tu envío.`;
+  $("#lista-zonas").innerHTML = ZONAS.map((z, i) => {
+    const desde = redondear(suma(lineasTramo(ref, z)) + sobre.extra);
+    return `<li class="zona${z.lejos ? " lejos" : ""}">
+      <span class="zona-num" aria-hidden="true">${String(i + 1).padStart(2, "0")}</span>
+      <div><h3>${esc(z.nombre)}</h3>${z.barrios ? `<p>${esc(z.barrios)}</p>` : ""}</div>
+      <div class="zona-precio"><span>desde</span><strong>${pesos(desde)}</strong></div>
+      <button class="zona-btn" type="button" data-zona="${z.id}" aria-label="Cotizar un envío a ${esc(z.nombre)}">Cotizar${icono("i-flecha")}</button>
+    </li>`;
+  }).join("");
+  $$(".zona-btn").forEach((b) => b.addEventListener("click", () => {
+    if (modo !== "envio") cambiarModo("envio");
+    $("#destino").value = b.dataset.zona;
+    actualizar();
+    $("#cotizador").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+    $("#destino").focus({ preventScroll: true });
+  }));
+}
+
+function pintarMapa() {
+  const ns = "http://www.w3.org/2000/svg";
+  const g = $("#mapa-zonas");
+  ZONAS.forEach((z, i) => (z.mapa || []).forEach((p) => {
+    const grupo = document.createElementNS(ns, "g");
+    grupo.setAttribute("class", "m-punto" + (z.lejos ? " lejos" : ""));
+    const c = document.createElementNS(ns, "circle");
+    c.setAttribute("cx", p.x); c.setAttribute("cy", p.y); c.setAttribute("r", 8);
+    const n = document.createElementNS(ns, "text");
+    n.setAttribute("class", "m-n"); n.setAttribute("x", p.x); n.setAttribute("y", p.y);
+    n.textContent = String(i + 1).padStart(2, "0");
+    const t = document.createElementNS(ns, "text");
+    const izq = p.lado === "izq";
+    t.setAttribute("class", "m-et");
+    t.setAttribute("x", p.x + (izq ? -12 : 12)); t.setAttribute("y", p.y + 4);
+    t.setAttribute("text-anchor", izq ? "end" : "start");
+    t.textContent = p.etiqueta || z.nombre;
+    grupo.append(c, n, t);
+    g.append(grupo);
+  }));
+}
+
+/* ---------- Preguntas ---------- */
+function pintarPreguntas() {
+  $("#lista-preguntas").innerHTML = NEGOCIO.preguntas.map((q) => {
+    const r = q.dato ? NEGOCIO[q.dato] : q.r;
+    return `<details class="pregunta"><summary>${esc(q.p)}</summary><p${r ? "" : ' class="confirmar"'}>${esc(r || "A confirmar.")}</p></details>`;
+  }).join("");
+}
+
+function iniciar() {
+  if (!NEGOCIO.tarifasDeEjemplo) {
+    $("#vista-previa")?.remove();
+    $("#ticket-ejemplo")?.remove();
+  }
+  pintarDatos();
+  pintarServicios();
+  pintarCotizador();
+  pintarZonas();
+  pintarMapa();
+  pintarPreguntas();
+  enlazarWhatsapp();
+  $("#anio").textContent = new Date().getFullYear();
+}
+
+/* ─────────────────────────────────────────────────────────────
+   SEGUNDA ETAPA (no está activa): precio por kilómetros reales.
+   Si algún día Saldar quiere cobrar por distancia en vez de por zona:
+     1. Pasar las dos direcciones a coordenadas (geocodificar).
+     2. Pedir la distancia en auto entre esas coordenadas (ruteo).
+     3. precio = TARIFAS.salida + km × TARIFAS.porKm, y sumar tamaño y
+        opciones igual que ahora.
+   Hay servicios de OpenStreetMap sin costo ni clave (Nominatim para
+   geocodificar, OSRM para la distancia), pero sus servidores públicos
+   tienen límites de uso: para un negocio conviene uno propio o uno pago.
+   Nada de Google Maps (pide tarjeta).
+
+   async function kilometrosEntre(direccionA, direccionB) {
+     // const a = await geocodificar(direccionA + ", Mar del Plata");
+     // const b = await geocodificar(direccionB + ", Mar del Plata");
+     // const ruta = await fetch(`<servidor-osrm>/route/v1/driving/${a.lon},${a.lat};${b.lon},${b.lat}?overview=false`).then(r => r.json());
+     // return ruta.routes[0].distance / 1000;
+   }
+   ───────────────────────────────────────────────────────────── */
+
+
+/* ═════════════════════════════════════════════════════════════
+   DATOS DE SALDAR — ACÁ SE CAMBIAN LOS PRECIOS
+   ─────────────────────────────────────────────────────────────
+   Cómo cambiar un precio:
+     1. Buscá el número que querés cambiar (abajo, en ZONAS,
+        TARIFAS o RECARGOS).
+     2. Cambiá solo el número. Va entero, SIN puntos ni signo $:
+        5500 está bien; "5.500" o "$5500" rompen la página.
+     3. Guardá. La página hace sola el formato ($ 5.500), el total
+        y el mensaje de WhatsApp.
+
+   Cómo se calcula un envío:
+     salida + recargo de la zona de retiro + recargo de la zona de
+     entrega + tamaño + opciones (urgente, ida y vuelta…).
+     Si retiro y entrega son en la misma zona, el recargo de esa zona
+     se cobra una sola vez. Los porcentajes se aplican sobre el viaje
+     más el tamaño. Todo se redondea a TARIFAS.redondeo.
+
+   IMPORTANTE: estas tarifas son DE EJEMPLO (inventadas para la demo).
+   Cuando estén las reales de Saldar, cargalas y poné
+   NEGOCIO.tarifasDeEjemplo = false para que se vaya la barra
+   "VISTA PREVIA".
+   ═════════════════════════════════════════════════════════════ */
+
+const NEGOCIO = {
+  nombre: "Saldar",                // nombre exacto: a confirmar
+  // WhatsApp que recibe los pedidos. POR AHORA ES EL DE MATEO (pruebas).
+  // Formato: 549 + característica sin el 0 + número sin el 15. Ej.: 5492231234567
+  whatsapp: "5492235337853",
+  instagram: "saldar223",
+  tarifasDeEjemplo: true,          // true = muestra "VISTA PREVIA: tarifas de ejemplo"
+
+  // Vacío ("") = la página muestra "A confirmar".
+  horario: "",                     // ej.: "Lunes a viernes de 9 a 18 h"
+  pagos: "",                       // ej.: "Efectivo y transferencia"
+  direccion: "",                   // solo si tiene local o depósito
+  noSeEnvia: "",                   // qué no transporta
+  sinNadie: "",                    // qué pasa si no hay nadie para recibir
+
+  mensajeGeneral: "¡Hola Saldar! Te escribo desde la web, quería hacerte una consulta.",
+  mensajeEmpresas: "¡Hola Saldar! Te escribo desde la web: tengo una tienda/comercio y quiero coordinar envíos.",
+
+  // activo: false = no se muestra. "flete" prende la pestaña Flete del
+  // cotizador; "tiendas" prende la sección "Para empresas y tiendas online".
+  servicios: [
+    { id: "mensajeria", activo: true, icono: "i-paquete", titulo: "Envíos y mensajería",
+      texto: "Llevamos sobres y paquetes de un punto a otro de Mar del Plata y alrededores.",
+      etiquetas: ["Sobres", "Paquetes", "Por zona"] },
+    { id: "flete", activo: false, icono: "i-camion", titulo: "Fletes y mudanzas",
+      texto: "Muebles, electrodomésticos y mudanzas, con ayudantes si hace falta." },
+    { id: "tiendas", activo: false, icono: "i-tienda", titulo: "Envíos para tiendas online",
+      texto: "Retiramos los pedidos de tu tienda y los entregamos a tus clientes." },
+  ],
+
+  // dato: "horario" = usa el mismo texto de arriba. r = respuesta fija.
+  preguntas: [
+    { p: "¿El precio del cotizador es el final?", r: "Es un precio estimado. Cuando nos escribís por WhatsApp te confirmamos el precio final antes de retirar." },
+    { p: "¿En qué horario trabajan?", dato: "horario" },
+    { p: "¿Cómo se paga?", dato: "pagos" },
+    { p: "¿Qué cosas no se pueden enviar?", dato: "noSeEnvia" },
+    { p: "¿Qué pasa si no hay nadie para recibir?", dato: "sinNadie" },
+    { p: "¿Y si mi dirección no está en ninguna zona?", r: "Escribinos por WhatsApp con la dirección y te decimos si llegamos y cuánto sale." },
+  ],
+};
+
+// Zonas: "extra" es lo que se suma si se retira o se entrega en esa zona.
+// "mapa" son los puntos del esquema (x de 0 a 340, y de 0 a 400; lado "izq" = etiqueta a la izquierda).
+const ZONAS = [
+  { id: "centro",      grupo: "En la ciudad", nombre: "Centro",      extra: 0,
+    barrios: "Microcentro, Plaza San Martín, Plaza Colón",          mapa: [{ x: 276, y: 168 }] },
+  { id: "macrocentro", grupo: "En la ciudad", nombre: "Macrocentro", extra: 900,
+    barrios: "La Perla, Plaza Mitre, Los Troncos, Playa Grande",    mapa: [{ x: 232, y: 196, lado: "izq" }] },
+  { id: "puerto",      grupo: "En la ciudad", nombre: "Puerto",      extra: 1800,
+    barrios: "Puerto y alrededores",                                mapa: [{ x: 252, y: 236 }] },
+  { id: "norte",       grupo: "En la ciudad", nombre: "Zona Norte",  extra: 2000,
+    barrios: "Constitución, Parque Luro, Camet, Zacagnini",         mapa: [{ x: 262, y: 74, lado: "izq" }] },
+  { id: "sur",         grupo: "En la ciudad", nombre: "Zona Sur",    extra: 2000,
+    barrios: "Punta Mogotes, Faro, Alfar, Acantilados",             mapa: [{ x: 212, y: 302 }] },
+  { id: "batan-sierra", grupo: "Alrededores", nombre: "Batán y Sierra de los Padres", extra: 6500,
+    barrios: "",                                                    mapa: [{ x: 70, y: 151, etiqueta: "Sierra de los Padres" }, { x: 98, y: 263, etiqueta: "Batán" }] },
+  { id: "miramar",     grupo: "Larga distancia", nombre: "Miramar",  extra: 18000, lejos: true,
+    barrios: "Larga distancia",                                     mapa: [{ x: 118, y: 380, lado: "izq" }] },
+];
+
+const TARIFAS = {
+  salida: 4000,        // lo mínimo: retiro y entrega dentro del Centro, un sobre
+  redondeo: 100,       // los totales se redondean a $100
+
+  // Tamaños: "extra" se suma al viaje. El primero es el más chico.
+  tamanos: [
+    { id: "sobre",   nombre: "Sobre",   detalle: "Papeles, documentos, llaves",      extra: 0 },
+    { id: "chico",   nombre: "Chico",   detalle: "Entra en una mochila",             extra: 600 },
+    { id: "mediano", nombre: "Mediano", detalle: "Una caja que se lleva en brazos",  extra: 1800 },
+    { id: "grande",  nombre: "Grande",  detalle: "Bulto grande, va en auto",          extra: 4500 },
+  ],
+
+  // Fletes: solo se usan si el servicio "flete" está activo en NEGOCIO.
+  flete: {
+    minimoHoras: 2,
+    ayudantePorHora: 9000,
+    porPisoEscalera: 4000,
+    vehiculos: [
+      { id: "utilitario", nombre: "Utilitario",         detalle: "Cajas, electrodomésticos y muebles chicos", porHora: 22000 },
+      { id: "camioneta",  nombre: "Camioneta con caja", detalle: "Muebles grandes y varios bultos",           porHora: 30000 },
+      { id: "camion",     nombre: "Camión chico",       detalle: "Mudanzas",                                  porHora: 42000 },
+    ],
+  },
+};
+
+// Opciones del envío. tipo "porcentaje": valor = % sobre el viaje + tamaño.
+// tipo "fijo": valor = pesos que se suman. activo: false = no se muestra.
+const RECARGOS = [
+  { id: "urgente",    activo: true, nombre: "Urgente / en el día",  detalle: "Para que llegue hoy mismo",                    tipo: "porcentaje", valor: 40 },
+  { id: "idaVuelta",  activo: true, nombre: "Ida y vuelta",         detalle: "Lleva algo y vuelve (una firma, un cambio)",   tipo: "porcentaje", valor: 70 },
+  { id: "contraEntrega", activo: true, nombre: "Cobro contra entrega", detalle: "Le cobramos al que recibe",               tipo: "fijo",       valor: 1500 },
+];
+
+iniciar();
+</script>
+</body>
+</html>
