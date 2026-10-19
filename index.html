@@ -157,7 +157,11 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 /* Cinta de embalaje */
 .cinta{overflow:hidden;padding:18px 0;margin:0}
 .cinta-banda{background:var(--senal);color:var(--tinta);transform:rotate(-1.4deg);margin:0 -40px;padding:.6rem 0;white-space:nowrap;overflow:hidden;font:600 .9rem/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;box-shadow:0 2px 0 rgba(20,33,30,.12)}
-.cinta-banda span{display:inline-block;padding-left:1rem}
+/* Las letras corren hacia la izquierda: dos tiras iguales que se corren su propio ancho y vuelven a empezar */
+.cinta-banda span{display:inline-block;will-change:transform}
+@media (prefers-reduced-motion:no-preference){.cinta-banda span{animation:cinta-corre 60s linear infinite}}
+.cinta:hover .cinta-banda span{animation-play-state:paused}
+@keyframes cinta-corre{to{transform:translateX(-100%)}}
 
 /* Secciones */
 .seccion{padding:clamp(3.5rem,8vw,6rem) 0}
@@ -465,7 +469,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
   </section>
 
   <div class="cinta" aria-hidden="true">
-    <div class="cinta-banda" id="cinta-banda"><span>Saldar · Envíos · Mar del Plata · Saldar · Envíos · Mar del Plata · Saldar · Envíos · Mar del Plata · Saldar · Envíos · Mar del Plata · Saldar · Envíos · Mar del Plata ·</span></div>
+    <div class="cinta-banda" id="cinta-banda"><span>Saldar · Envíos · Mar del Plata · Saldar · Envíos · Mar del Plata · Saldar · Envíos · Mar del Plata · Saldar · Envíos · Mar del Plata · Saldar · Envíos · Mar del Plata · Saldar · Envíos · Mar del Plata · Saldar · Envíos · Mar del Plata · Saldar · Envíos · Mar del Plata ·&nbsp;</span><span>Saldar · Envíos · Mar del Plata · Saldar · Envíos · Mar del Plata · Saldar · Envíos · Mar del Plata · Saldar · Envíos · Mar del Plata · Saldar · Envíos · Mar del Plata · Saldar · Envíos · Mar del Plata · Saldar · Envíos · Mar del Plata · Saldar · Envíos · Mar del Plata ·&nbsp;</span></div>
   </div>
 
   <!-- SERVICIOS -->

@@ -105,6 +105,10 @@ Nada de Google Maps (pide tarjeta).
 - Idea: **etiqueta de envío**. Guía de envío con código de barras en la
   portada, cinta de embalaje naranja con el nombre, el presupuesto como ticket,
   numeración de secciones en tipografía mono.
+- La cinta naranja tiene las letras **corriendo hacia la izquierda** (pedido
+  de Mateo, 19/10/2026): dos tiras iguales que se corren su propio ancho en
+  60 s. Se frena al pasar el mouse y queda quieta si el celular tiene
+  "reducir movimiento".
 - Tipografías: Barlow Condensed (títulos, aire de cartel de ruta), Barlow
   (texto) e IBM Plex Mono (etiquetas, precios del detalle).
 - Logo provisorio: cuadrado petróleo con una "S" que es un recorrido (punto de
@@ -152,6 +156,8 @@ Nada de Google Maps (pide tarjeta).
 
 ## Registro de cambios
 
+- 19/10/2026 — Mateo pidió (comentario en el Artifact) que las letras de la
+  cinta naranja se muevan hacia la izquierda → animación continua.
 - 19/10/2026 — Mateo habló con el dueño y pidió publicar → Artifact privado
   publicado. El botón de pedido pasó a ser un link común a WhatsApp.
 - 19/10/2026 — Demo inicial: portada, servicios, cotizador por zonas (y flete
