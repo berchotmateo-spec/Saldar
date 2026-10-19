@@ -98,10 +98,15 @@ Nada de Google Maps (pide tarjeta).
 ## Decisiones de diseño (respetarlas)
 
 - **Fondo claro** (pedido de Mateo para todas las webs). Sin tema oscuro.
-- Paleta propia, que no repite ninguna de las demos gastronómicas:
-  **papel/cartón claro** `#F4F1E9`, **verde petróleo** `#0B5A52` (confianza,
-  botones, precios) y **naranja señal** `#FF6B1A` (rapidez; solo como fondo,
-  con texto oscuro encima: el naranja como texto es `#A84300`).
+- **Colores de la marca: azul y blanco, con detalles en negro** (el dueño,
+  vía Mateo, 19/10/2026). Reemplazan la paleta inventada del primer borrador.
+  - Azul `--azul` `#1847D6` (botones, precios, cinta, franja "Cómo
+    funciona", logo). **Tono provisorio**: ajustarlo cuando llegue el logo.
+  - Blanco y casi blanco `#F5F7FC` de fondo; tarjetas blancas.
+  - Negro `--tinta` `#0C1018` para los detalles: cabecera del presupuesto,
+    números de paso, barra de VISTA PREVIA, tarjeta de contacto, código de
+    barras, punto de destino y Miramar en el mapa.
+  - Los tokens están en `:root`; no hay naranja ni verde en ningún lado.
 - Idea: **etiqueta de envío**. Guía de envío con código de barras en la
   portada, cinta de embalaje naranja con el nombre, el presupuesto como ticket,
   numeración de secciones en tipografía mono.
@@ -139,7 +144,7 @@ Nada de Google Maps (pide tarjeta).
 | Franjas horarias del formulario (mañana / mediodía / tarde) | Puestas sin horario exacto |
 | Clientes o marcas que se puedan nombrar (con permiso) | No hay ninguno en la web |
 | Algo que lo distinga (envío en el día, seguimiento, horario extendido…) | No se puso nada |
-| Logo real (captura de la foto de perfil) | Logo tipográfico provisorio |
+| Logo real (captura de la foto de perfil) | Logo tipográfico provisorio; también sirve para sacar el tono exacto de azul |
 | Fotos propias (vehículos, moto, equipo, entregas) | Ninguna |
 
 ## Para publicar (cuando cierre)
@@ -155,6 +160,8 @@ Nada de Google Maps (pide tarjeta).
 
 ## Registro de cambios
 
+- 19/10/2026 — Mateo pasó los colores de Saldar: azul y blanco, con detalles
+  en negro → toda la página pasó a esa paleta (azul provisorio `#1847D6`).
 - 19/10/2026 — Mateo confirmó con el dueño: el nombre es **Saldar** y **hacen
   fletes** (el resto lo pasa después) → pestaña "Flete" y servicio "Fletes"
   prendidos (sin hablar de mudanzas, que no está confirmado); título, bajada,
