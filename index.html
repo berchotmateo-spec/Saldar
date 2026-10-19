@@ -104,7 +104,8 @@ button,input,select,textarea{font:inherit;color:inherit}
 .ico{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
 
 /* Cabecera */
-.cabecera{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:saturate(1.4) blur(8px);-webkit-backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid var(--linea)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:#fff}
+.cabecera{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(255,255,255,.94);backdrop-filter:saturate(1.4) blur(8px);-webkit-backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid var(--linea)}
 .cabecera-in{display:flex;align-items:center;gap:12px;min-height:68px}
 .marca{display:inline-flex;align-items:center;text-decoration:none;color:var(--tinta);margin-right:auto;min-height:44px}
 .logo{height:38px;width:auto;display:block}
@@ -612,7 +613,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
 
         <div class="cot-enviar">
           <p class="enviar-total"><span>Total estimado</span><strong id="enviar-total">—</strong></p>
-          <button class="btn btn-primario btn-grande" type="submit"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Pedir por WhatsApp</button>
+          <a class="btn btn-primario btn-grande" id="pedir" href="#cotizador" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Pedir por WhatsApp</a>
           <p class="error" id="enviar-error" role="alert"></p>
           <p class="nota">Se abre WhatsApp con el pedido armado. Es un precio estimado: te lo confirmamos por chat antes de retirar.</p>
         </div>
@@ -977,6 +978,7 @@ function actualizar() {
     total.innerHTML = `<span class="sr">Total estimado: </span>${pesos(r.total)}`;
     $("#enviar-total").textContent = pesos(r.total);
   }
+  $("#pedir").href = r.total == null ? "#cotizador" : enlaceWhatsapp(armarMensaje(r));
   return r;
 }
 
@@ -998,7 +1000,9 @@ function enlazarCotizador() {
   const form = $("#form-cot");
   form.addEventListener("input", (e) => { e.target.removeAttribute("aria-invalid"); actualizar(); });
   form.addEventListener("change", actualizar);
-  form.addEventListener("submit", (e) => { e.preventDefault(); enviarPedido(); });
+  form.addEventListener("submit", (e) => e.preventDefault());
+  // El link ya tiene el mensaje armado; si falta algo, no se abre y avisa qué completar.
+  $("#pedir").addEventListener("click", (e) => { if (!validarPedido()) e.preventDefault(); });
 
   $$(".contador-btn").forEach((b) => b.addEventListener("click", () => {
     const el = $("#" + b.dataset.para);
@@ -1055,7 +1059,7 @@ function armarMensaje(r) {
   return L.join("\n");
 }
 
-function enviarPedido() {
+function validarPedido() {
   const r = actualizar();
   const faltan = [];
   if (modo === "envio") {
@@ -1071,10 +1075,10 @@ function enviarPedido() {
     faltan.forEach(([id]) => $("#" + id).setAttribute("aria-invalid", "true"));
     $("#enviar-error").textContent = "Para mandar el pedido falta " + lista(faltan.map((f) => f[1])) + ".";
     if (faltan.length) $("#" + faltan[0][0]).focus();
-    return;
+    return false;
   }
   $("#enviar-error").textContent = "";
-  window.open(enlaceWhatsapp(armarMensaje(r)), "_blank", "noopener");
+  return true;
 }
 
 /* ---------- Zonas: lista y mapa ---------- */

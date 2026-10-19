@@ -15,8 +15,13 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
 - Repo: `berchotmateo-spec/Saldar` — rama de trabajo `claude/new-session-2zu43k` (todavía no hay `main`).
 - Archivo único: `index.html` (HTML + CSS + JS, sin build; solo Google Fonts).
 - Sitio publicado: todavía no. Dominio: todavía no.
-- Vista previa (Artifact): no se publicó, porque la página lleva el nombre de
-  un negocio real que todavía no la aprobó. Se ve abriendo `index.html`.
+- Vista previa (Artifact): https://claude.ai/artifact/BFzHpRD3RUbbA9wNtDmvHT
+  (privado: el dueño la ve recién cuando Mateo la comparte desde el menú
+  Compartir). Se publicó el 19/10/2026, después de que Mateo habló con el
+  dueño y le dio el OK.
+- Para actualizar la vista previa: `python3 armar-artifact.py` (genera
+  `saldar-artifact.html`, que no se sube al repo) y publicar ese archivo con
+  `url` = el link de arriba, así queda el mismo link.
 
 ## Estado (19/10/2026)
 
@@ -30,6 +35,9 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
 - Probado en Chromium a 1366 y 390 px: 0 errores de JS, sin desborde
   horizontal, mensaje de WhatsApp bien armado (envío y flete), pestañas con
   teclado, botón "Cotizar" de cada zona.
+- "Pedir por WhatsApp" es un link común (`#pedir`) cuyo `href` se rearma con
+  cada cambio del formulario; si falta un dato, el clic se cancela y avisa.
+  No usar `window.open`: dentro del Artifact no anda para gente de afuera.
 
 ## Datos del negocio
 
@@ -144,6 +152,8 @@ Nada de Google Maps (pide tarjeta).
 
 ## Registro de cambios
 
+- 19/10/2026 — Mateo habló con el dueño y pidió publicar → Artifact privado
+  publicado. El botón de pedido pasó a ser un link común a WhatsApp.
 - 19/10/2026 — Demo inicial: portada, servicios, cotizador por zonas (y flete
   apagado), cómo funciona, zonas con mapa esquemático, empresas (apagado),
   preguntas, contacto. Tarifas de ejemplo; pedidos al WhatsApp de Mateo.
