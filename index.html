@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Saldar · Fletes en Mar del Plata</title>
-<meta name="description" content="Saldar: fletes en Mar del Plata. Cotizá tu flete en un minuto y pedilo por WhatsApp. Pasamos a buscar y lo llevamos.">
+<title>Saldar · Fletes Mar del Plata – Buenos Aires</title>
+<meta name="description" content="Saldar: fletes en camión entre Mar del Plata y Buenos Aires, ida y vuelta. Cotizá por cantidad de bultos y pedilo por WhatsApp.">
 <!-- DEMO: mientras sea vista previa no queremos que Google la indexe. Sacar esta línea al publicar de verdad (ver CLAUDE.md). -->
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#1847D6">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_AR">
 <meta property="og:site_name" content="Saldar">
-<meta property="og:title" content="Saldar · Fletes en Mar del Plata">
-<meta property="og:description" content="Cotizá tu flete en un minuto y pedilo por WhatsApp.">
+<meta property="og:title" content="Saldar · Fletes Mar del Plata – Buenos Aires">
+<meta property="og:description" content="Fletes en camión entre Mar del Plata y Buenos Aires. Cotizá por bulto y pedilo por WhatsApp.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%231847D6'/%3E%3Cpath d='M27 9H16a6 6 0 0 0 0 12h8a6 6 0 0 1 0 12H13' fill='none' stroke='%23fff' stroke-width='4' stroke-linecap='round'/%3E%3Ccircle cx='10.5' cy='33' r='3.6' fill='%230C1018' stroke='%23fff' stroke-width='1.5'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,18 +23,18 @@
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Saldar",
-  "description": "Fletes en Mar del Plata. Cotización en la web y pedidos por WhatsApp.",
+  "description": "Fletes en camión entre Mar del Plata y Buenos Aires, en los dos sentidos. Se cobra por viaje según la cantidad de bultos.",
   "address": {
     "@type": "PostalAddress",
+    "streetAddress": "Victoriano Montes 1963",
     "addressLocality": "Mar del Plata",
     "addressRegion": "Buenos Aires",
     "addressCountry": "AR"
   },
+  "hasMap": "https://www.google.com/maps/search/?api=1&query=Victoriano%20Montes%201963%2C%20Mar%20del%20Plata",
   "areaServed": [
     { "@type": "City", "name": "Mar del Plata" },
-    { "@type": "Place", "name": "Batán" },
-    { "@type": "Place", "name": "Sierra de los Padres" },
-    { "@type": "City", "name": "Miramar" }
+    { "@type": "City", "name": "Buenos Aires" }
   ],
   "sameAs": ["https://www.instagram.com/saldar223/"]
 }
@@ -147,6 +147,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .guia-top{padding-bottom:.85rem;border-bottom:2px dashed var(--linea);color:var(--azul)}
 .recorrido{display:block;width:100%;height:auto;margin:.9rem 0 .4rem}
 .recorrido-linea{fill:none;stroke:var(--azul);stroke-width:4;stroke-linecap:round;stroke-dasharray:420;stroke-dashoffset:0}
+.recorrido-et{font:600 11px var(--f-mono);fill:var(--tinta-2);letter-spacing:.1em}
 .recorrido-punteada{fill:none;stroke:var(--linea);stroke-width:4;stroke-linecap:round;stroke-dasharray:2 9}
 .punto-origen{fill:#fff;stroke:var(--azul);stroke-width:4}
 .punto-destino{fill:var(--tinta);stroke:var(--tinta);stroke-width:2.5}
@@ -221,7 +222,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
 .grupo{border:0;padding:0;margin:1.5rem 0 0;min-width:0}
 .grupo legend{font-weight:600;padding:0;margin-bottom:.6rem}
 .opciones{display:grid;grid-template-columns:1fr;gap:10px}
-@media (min-width:600px){.opciones{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (min-width:600px){.opciones{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .opcion{position:relative;display:block;cursor:pointer}
 .opcion input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
 .opcion-caja{display:flex;flex-direction:column;gap:.2rem;height:100%;min-height:44px;padding:.85rem .85rem .8rem;border:1.5px solid var(--borde-campo);border-radius:14px;background:#fff;transition:border-color .15s,background-color .15s}
@@ -233,8 +234,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
 .opcion-nombre{font-weight:700;font-size:1.05rem}
 .opcion-detalle{font-size:.88rem;line-height:1.3;color:var(--tinta-2)}
 .opcion-precio{font:600 .78rem/1.2 var(--f-mono);color:var(--azul);margin-top:auto;padding-top:.35rem}
-.contadores{display:grid;gap:14px;margin-top:1.5rem}
-@media (min-width:600px){.contadores{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.contadores{display:grid;gap:14px;margin-top:1.5rem;max-width:340px}
 .contador-ctrl{display:grid;grid-template-columns:48px minmax(0,1fr) 48px;gap:6px}
 .contador-ctrl input{text-align:center;font-weight:700;-moz-appearance:textfield;appearance:textfield}
 .contador-ctrl input::-webkit-inner-spin-button,.contador-ctrl input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
@@ -286,32 +286,33 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
 .paso .ico{position:absolute;right:1.4rem;top:1.25rem;width:30px;height:30px;color:#fff}
 .pasos-cta{margin-top:2rem}
 
-/* Zonas */
-.zonas-in{display:grid;gap:clamp(1.5rem,4vw,2.5rem);align-items:start}
-@media (min-width:900px){.zonas-in{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}}
+/* Recorrido Mar del Plata – Buenos Aires */
+.ruta-in{display:grid;gap:clamp(1.5rem,4vw,2.5rem);align-items:start}
+@media (min-width:900px){.ruta-in{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
 .mapa{background:var(--superficie);border:1px solid var(--linea);border-radius:var(--radio);padding:.75rem;margin:0}
 .mapa svg{display:block;width:100%;height:auto}
 .mapa figcaption{font-size:.85rem;color:var(--tinta-2);padding:.5rem .4rem .1rem}
 .m-tierra{fill:var(--papel)}
-.m-ciudad{fill:var(--papel-2)}
 .m-mar{fill:var(--mar)}
 .m-ola{fill:none;stroke:#A8BDEB;stroke-width:1.4;stroke-linecap:round}
 .m-costa{fill:none;stroke:var(--azul);stroke-width:2}
-.m-ruta{fill:none;stroke:var(--tinta-2);stroke-width:1.6;stroke-dasharray:5 4;opacity:.55}
-.m-ruta-et{font:600 9px var(--f-mono);fill:var(--tinta-2);letter-spacing:.04em}
 .m-mar-et{font:600 10px var(--f-mono);fill:var(--azul);letter-spacing:.3em;opacity:.7}
 .m-norte{font:700 11px var(--f-mono);fill:var(--tinta)}
-.m-punto circle{fill:var(--azul);stroke:#fff;stroke-width:2}
-.m-punto.lejos circle{fill:var(--tinta);stroke:#fff;stroke-width:2}
-.m-punto .m-n{font:600 8.5px var(--f-mono);fill:#fff;text-anchor:middle;dominant-baseline:central}
-.m-punto.lejos .m-n{fill:#fff}
-.m-et{font:700 11.5px var(--f-texto);fill:var(--tinta);paint-order:stroke;stroke:rgba(255,255,255,.9);stroke-width:3px;stroke-linejoin:round}
-.lista-zonas{list-style:none;margin:0;padding:0;display:grid;gap:10px}
-.zona{display:grid;grid-template-columns:auto minmax(0,1fr);gap:.4rem .9rem;align-items:center;background:var(--superficie);border:1px solid var(--linea);border-radius:16px;padding:.85rem .95rem}
-.zona-num{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--azul);color:#fff;font:600 .78rem/1 var(--f-mono)}
-.zona.lejos .zona-num{background:var(--tinta);color:#fff}
-.zona h3{font:700 1.2rem/1.1 var(--f-titulo);text-transform:uppercase}
-.zona p{font-size:.9rem;color:var(--tinta-2);line-height:1.3;margin-top:.15rem}
+.m-camino-fondo{fill:none;stroke:#fff;stroke-width:10;stroke-linecap:round}
+.m-camino{fill:none;stroke:var(--azul);stroke-width:4;stroke-linecap:round;stroke-dasharray:10 8}
+@media (prefers-reduced-motion:no-preference){.m-camino{animation:camino 1.6s linear infinite}}
+@keyframes camino{to{stroke-dashoffset:-18}}
+.m-ciudad-punto{fill:var(--azul);stroke:#fff;stroke-width:3}
+.m-ciudad-punto.base{fill:var(--tinta)}
+.m-et{font:700 12.5px var(--f-texto);fill:var(--tinta);paint-order:stroke;stroke:rgba(255,255,255,.9);stroke-width:3px;stroke-linejoin:round}
+.m-sub{font:600 9px var(--f-mono);fill:var(--tinta-2);letter-spacing:.04em;paint-order:stroke;stroke:rgba(255,255,255,.9);stroke-width:3px}
+.m-km{font:700 12px var(--f-mono);fill:var(--azul);paint-order:stroke;stroke:rgba(255,255,255,.9);stroke-width:3px}
+.ruta-cards{display:grid;gap:12px}
+.ruta-card{background:var(--superficie);border:1px solid var(--linea);border-radius:var(--radio);padding:1.25rem 1.35rem;display:grid;gap:.45rem;justify-items:start}
+.ruta-card .mono{color:var(--azul)}
+.ruta-card h3{font:700 1.6rem/1.05 var(--f-titulo);text-transform:uppercase}
+.ruta-card p{color:var(--tinta-2)}
+.ruta-card .btn{margin-top:.5rem}
 
 /* Preguntas */
 .preguntas{display:grid;gap:10px;max-width:820px}
@@ -392,7 +393,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
     <nav aria-label="Secciones">
       <ul class="menu">
         <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#zonas">Zonas</a></li>
+        <li><a href="#recorrido">Recorrido</a></li>
         <li><a href="#preguntas">Preguntas</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
@@ -408,9 +409,9 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
   <section class="portada" aria-labelledby="titulo">
     <div class="contenedor portada-in">
       <div>
-        <p class="portada-eyebrow mono">Fletes · Mar del Plata</p>
-        <h1 id="titulo">Fletes en Mar del Plata, <span class="cinta-texto-h1">sin vueltas.</span></h1>
-        <p class="portada-bajada">Cotizá tu flete en un minuto, mandanos el pedido por WhatsApp y nosotros pasamos a buscar y lo llevamos.</p>
+        <p class="portada-eyebrow mono">Fletes en camión · Mar del Plata – Buenos Aires</p>
+        <h1 id="titulo">Mar del Plata – Buenos Aires, <span class="cinta-texto-h1">ida y vuelta.</span></h1>
+        <p class="portada-bajada">Llevamos tu carga en camión de Mar del Plata a Buenos Aires y de Buenos Aires a Mar del Plata. Cotizá por cantidad de bultos y pedilo por WhatsApp.</p>
         <div class="portada-botones">
           <a class="btn btn-primario" href="#cotizador"><svg class="ico" aria-hidden="true"><use href="#i-cotizar"/></svg>Cotizá tu flete</a>
           <a class="btn btn-borde" data-wa href="#contacto"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Escribinos por WhatsApp</a>
@@ -419,16 +420,19 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
 
       <div class="guia" aria-hidden="true">
         <div class="guia-fila guia-top"><span>Saldar</span><span>Hoja de ruta</span></div>
-        <svg class="recorrido" viewBox="0 0 260 112">
+        <svg class="recorrido" viewBox="0 0 260 124">
           <path class="recorrido-punteada" d="M20 92 C 70 92, 64 22, 128 22 S 190 92, 240 92"/>
           <path class="recorrido-linea" d="M20 92 C 70 92, 64 22, 128 22 S 190 92, 240 92"/>
           <circle class="punto-origen" cx="20" cy="92" r="8"/>
           <circle class="punto-destino" cx="240" cy="92" r="10"/>
+          <text class="recorrido-et" x="20" y="120" text-anchor="middle">MDP</text>
+          <text class="recorrido-et" x="240" y="120" text-anchor="middle">BA</text>
         </svg>
         <dl class="guia-datos">
-          <div><dt>De</dt><dd>Donde estés</dd></div>
-          <div><dt>Para</dt><dd>Donde lo necesites</dd></div>
-          <div><dt>Cómo</dt><dd>Cotizás acá, confirmamos por WhatsApp y lo llevamos.</dd></div>
+          <div><dt>De</dt><dd>Mar del Plata</dd></div>
+          <div><dt>Para</dt><dd>Buenos Aires</dd></div>
+          <div><dt>Vuelta</dt><dd>De Buenos Aires a Mar del Plata, también</dd></div>
+          <div><dt>Cobro</dt><dd>Por viaje, según los bultos</dd></div>
         </dl>
         <div class="barras"></div>
         <div class="guia-fila guia-pie"><span>Mar del Plata</span><span>(223)</span></div>
@@ -437,7 +441,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
   </section>
 
   <div class="cinta" aria-hidden="true">
-    <div class="cinta-banda" id="cinta-banda"><span>Saldar · Fletes · Mar del Plata · Saldar · Fletes · Mar del Plata · Saldar · Fletes · Mar del Plata · Saldar · Fletes · Mar del Plata · Saldar · Fletes · Mar del Plata · Saldar · Fletes · Mar del Plata · Saldar · Fletes · Mar del Plata · Saldar · Fletes · Mar del Plata ·&nbsp;</span><span>Saldar · Fletes · Mar del Plata · Saldar · Fletes · Mar del Plata · Saldar · Fletes · Mar del Plata · Saldar · Fletes · Mar del Plata · Saldar · Fletes · Mar del Plata · Saldar · Fletes · Mar del Plata · Saldar · Fletes · Mar del Plata · Saldar · Fletes · Mar del Plata ·&nbsp;</span></div>
+    <div class="cinta-banda" id="cinta-banda"><span>Saldar · Fletes en camión · Mar del Plata ↔ Buenos Aires · Saldar · Fletes en camión · Mar del Plata ↔ Buenos Aires · Saldar · Fletes en camión · Mar del Plata ↔ Buenos Aires · Saldar · Fletes en camión · Mar del Plata ↔ Buenos Aires · Saldar · Fletes en camión · Mar del Plata ↔ Buenos Aires ·&nbsp;</span><span>Saldar · Fletes en camión · Mar del Plata ↔ Buenos Aires · Saldar · Fletes en camión · Mar del Plata ↔ Buenos Aires · Saldar · Fletes en camión · Mar del Plata ↔ Buenos Aires · Saldar · Fletes en camión · Mar del Plata ↔ Buenos Aires · Saldar · Fletes en camión · Mar del Plata ↔ Buenos Aires ·&nbsp;</span></div>
   </div>
 
   <!-- SERVICIOS -->
@@ -457,7 +461,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
       <header class="seccion-cabeza">
         <p class="seccion-num mono">02 · Cotizador</p>
         <h2 id="t-cotizador">Cotizá tu flete</h2>
-        <p>Elegí el vehículo y cuánto tiempo calculás: el precio estimado sale al instante. Después lo mandás por WhatsApp y te lo confirmamos.</p>
+        <p>Elegí para dónde va y cuántos bultos son: el precio estimado sale al instante. Después lo mandás por WhatsApp y te lo confirmamos.</p>
       </header>
 
       <noscript><p class="hoja">El cotizador necesita JavaScript activado. También podés escribirnos por Instagram.</p></noscript>
@@ -465,38 +469,22 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
       <form class="cot" id="form-cot" novalidate>
         <div class="cot-paso1 hoja">
           <div>
-            <h3 class="paso-titulo"><span class="paso-num" aria-hidden="true">1</span>Qué hay que mover</h3>
+            <h3 class="paso-titulo"><span class="paso-num" aria-hidden="true">1</span>Qué llevamos y para dónde</h3>
             <fieldset class="grupo" style="margin-top:0">
-              <legend>Vehículo</legend>
-              <div class="opciones" id="vehiculos"></div>
+              <legend>Para dónde va</legend>
+              <div class="opciones" id="sentidos"></div>
             </fieldset>
             <div class="contadores">
               <div class="campo">
-                <label for="horas">Horas estimadas</label>
+                <label for="bultos">Cantidad de bultos</label>
                 <div class="contador-ctrl">
-                  <button class="contador-btn" type="button" data-para="horas" data-paso="-1" aria-label="Una hora menos">−</button>
-                  <input id="horas" name="horas" type="number" inputmode="numeric" value="2" min="1" max="12">
-                  <button class="contador-btn" type="button" data-para="horas" data-paso="1" aria-label="Una hora más">+</button>
-                </div>
-              </div>
-              <div class="campo">
-                <label for="ayudantes">Ayudantes</label>
-                <div class="contador-ctrl">
-                  <button class="contador-btn" type="button" data-para="ayudantes" data-paso="-1" aria-label="Un ayudante menos">−</button>
-                  <input id="ayudantes" name="ayudantes" type="number" inputmode="numeric" value="0" min="0" max="4">
-                  <button class="contador-btn" type="button" data-para="ayudantes" data-paso="1" aria-label="Un ayudante más">+</button>
-                </div>
-              </div>
-              <div class="campo">
-                <label for="pisos">Pisos por escalera</label>
-                <div class="contador-ctrl">
-                  <button class="contador-btn" type="button" data-para="pisos" data-paso="-1" aria-label="Un piso menos">−</button>
-                  <input id="pisos" name="pisos" type="number" inputmode="numeric" value="0" min="0" max="20">
-                  <button class="contador-btn" type="button" data-para="pisos" data-paso="1" aria-label="Un piso más">+</button>
+                  <button class="contador-btn" type="button" data-para="bultos" data-paso="-1" aria-label="Un bulto menos">−</button>
+                  <input id="bultos" name="bultos" type="number" inputmode="numeric" value="1" min="1" max="200">
+                  <button class="contador-btn" type="button" data-para="bultos" data-paso="1" aria-label="Un bulto más">+</button>
                 </div>
               </div>
             </div>
-            <p class="ayuda" id="flete-ayuda"></p>
+            <p class="ayuda" id="bultos-ayuda"></p>
           </div>
         </div>
 
@@ -504,13 +492,13 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
           <div class="ticket-cabeza"><span id="ticket-titulo">Presupuesto estimado</span><span class="ticket-ejemplo" id="ticket-ejemplo">Tarifas de ejemplo</span></div>
           <div class="ticket-cuerpo">
             <div class="ticket-ruta">
-              <div class="tr-punto"><span class="tr-et">Vehículo</span><span class="tr-valor" id="tr-1">—</span></div>
-              <div class="tr-punto tr-destino"><span class="tr-et">Tiempo</span><span class="tr-valor" id="tr-2">—</span></div>
+              <div class="tr-punto"><span class="tr-et">Sale de</span><span class="tr-valor" id="tr-1">—</span></div>
+              <div class="tr-punto tr-destino"><span class="tr-et">Llega a</span><span class="tr-valor" id="tr-2">—</span></div>
             </div>
             <ul class="ticket-lineas" id="ticket-lineas"></ul>
             <div class="ticket-total-fila">
               <span aria-hidden="true">Total</span>
-              <output class="ticket-total" id="ticket-total" for="horas ayudantes pisos" aria-live="polite" aria-atomic="true"></output>
+              <output class="ticket-total" id="ticket-total" for="bultos" aria-live="polite" aria-atomic="true"></output>
             </div>
             <p class="ticket-aviso">Precio estimado, a confirmar por WhatsApp.</p>
           </div>
@@ -525,17 +513,17 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
           </div>
           <div class="campos-2">
             <div class="campo">
-              <label for="dir-retiro">Dirección de retiro</label>
-              <input id="dir-retiro" name="dir-retiro" type="text" autocomplete="street-address" placeholder="Calle, número y entre calles" required>
+              <label for="dir-retiro">¿Dónde está la carga?</label>
+              <input id="dir-retiro" name="dir-retiro" type="text" autocomplete="street-address" placeholder="Dirección o barrio" required>
             </div>
             <div class="campo">
-              <label for="dir-entrega">Dirección de entrega</label>
-              <input id="dir-entrega" name="dir-entrega" type="text" placeholder="Calle, número y entre calles" required>
+              <label for="dir-entrega">¿Adónde va?</label>
+              <input id="dir-entrega" name="dir-entrega" type="text" placeholder="Dirección o barrio" required>
             </div>
           </div>
           <div class="campos-2">
             <div class="campo">
-              <label for="dia">Día <span class="opcional">(opcional)</span></label>
+              <label for="dia">¿Para cuándo? <span class="opcional">(opcional)</span></label>
               <input id="dia" name="dia" type="date">
             </div>
             <div class="campo">
@@ -544,14 +532,13 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
                 <option value="">Elegí una franja</option>
                 <option>Por la mañana</option>
                 <option>Al mediodía</option>
-                <option>Por la tarde</option>
                 <option>Cualquier horario</option>
               </select>
             </div>
           </div>
           <div class="campo" style="margin-top:14px">
             <label for="comentario">Comentario <span class="opcional">(opcional)</span></label>
-            <textarea id="comentario" name="comentario" placeholder="Qué hay que llevar, en qué piso, si hay ascensor…"></textarea>
+            <textarea id="comentario" name="comentario" placeholder="Qué es, más o menos cuánto pesa, si hay algo frágil…"></textarea>
           </div>
         </div>
 
@@ -559,7 +546,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
           <p class="enviar-total"><span>Total estimado</span><strong id="enviar-total">—</strong></p>
           <a class="btn btn-primario btn-grande" id="pedir" href="#cotizador" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Pedir por WhatsApp</a>
           <p class="error" id="enviar-error" role="alert"></p>
-          <p class="nota">Se abre WhatsApp con el pedido armado. Es un precio estimado: te lo confirmamos por chat antes de retirar.</p>
+          <p class="nota">Se abre WhatsApp con el pedido armado. Es un precio estimado: te lo confirmamos por chat antes del viaje.</p>
         </div>
       </form>
     </div>
@@ -577,62 +564,72 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
           <svg class="ico" aria-hidden="true"><use href="#i-cotizar"/></svg>
           <span class="paso-n">Paso 01</span>
           <h3>Cotizás</h3>
-          <p>Elegís el vehículo y cuánto tiempo calculás. El precio estimado sale al instante, sin esperar respuesta.</p>
+          <p>Elegís para dónde va y cuántos bultos son. El precio estimado sale al instante, sin esperar respuesta.</p>
         </li>
         <li class="paso">
           <svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg>
           <span class="paso-n">Paso 02</span>
           <h3>Confirmamos por WhatsApp</h3>
-          <p>Te llega el pedido armado al chat. Te confirmamos el precio final y cuándo pasamos.</p>
+          <p>Te llega el pedido armado al chat. Te confirmamos el precio final y los detalles del viaje.</p>
         </li>
         <li class="paso">
           <svg class="ico" aria-hidden="true"><use href="#i-camion"/></svg>
           <span class="paso-n">Paso 03</span>
-          <h3>Retiramos y entregamos</h3>
-          <p>Pasamos a buscarlo por la dirección de retiro y lo llevamos a destino.</p>
+          <h3>Viaja en camión</h3>
+          <p>Tu carga va de Mar del Plata a Buenos Aires, o de Buenos Aires a Mar del Plata.</p>
         </li>
       </ol>
       <div class="pasos-cta"><a class="btn btn-claro" href="#cotizador">Cotizá tu flete<svg class="ico" aria-hidden="true"><use href="#i-flecha"/></svg></a></div>
     </div>
   </section>
 
-  <!-- ZONAS -->
-  <section class="seccion" id="zonas" aria-labelledby="t-zonas">
+  <!-- RECORRIDO -->
+  <section class="seccion" id="recorrido" aria-labelledby="t-recorrido">
     <div class="contenedor">
       <header class="seccion-cabeza">
-        <p class="seccion-num mono">04 · Zonas</p>
-        <h2 id="t-zonas">Zonas que cubrimos</h2>
-        <p>Mar del Plata y alrededores. Si tu dirección no está, escribinos y te decimos si llegamos.</p>
+        <p class="seccion-num mono">04 · Recorrido</p>
+        <h2 id="t-recorrido">Mar del Plata – Buenos Aires</h2>
+        <p>Llevamos de Mar del Plata a Buenos Aires y traemos de Buenos Aires a Mar del Plata, en camión.</p>
       </header>
-      <div class="zonas-in">
+      <div class="ruta-in">
         <figure class="mapa">
-          <svg viewBox="0 0 340 400" role="img" aria-labelledby="mapa-titulo">
-            <title id="mapa-titulo">Esquema de las zonas de Mar del Plata y alrededores, con el mar al este</title>
-            <rect class="m-tierra" width="340" height="400"/>
-            <path class="m-ciudad" d="M300 30 C 262 40 214 110 196 180 C 180 240 166 300 178 352 C 200 330 230 292 250 250 C 266 220 282 186 292 140 C 298 100 304 60 300 30 Z"/>
-            <path class="m-mar" d="M306 0 C 302 60 296 120 286 166 C 280 194 272 214 264 230 L 276 236 L 271 244 L 258 241 C 246 268 230 300 208 334 C 186 364 150 386 104 400 L 340 400 L 340 0 Z"/>
-            <g class="m-olas" aria-hidden="true">
-              <path class="m-ola" d="M318 70 q5 -4 10 0 t10 0"/>
-              <path class="m-ola" d="M306 190 q5 -4 10 0 t10 0"/>
-              <path class="m-ola" d="M292 286 q5 -4 10 0 t10 0"/>
-              <path class="m-ola" d="M250 360 q5 -4 10 0 t10 0"/>
+          <svg viewBox="0 0 340 320" role="img" aria-labelledby="mapa-titulo">
+            <title id="mapa-titulo">Esquema del recorrido en camión entre Buenos Aires y Mar del Plata, unos 400 kilómetros, en los dos sentidos</title>
+            <rect class="m-tierra" width="340" height="320"/>
+            <path class="m-mar" d="M-5 30 C 40 40 70 52 96 66 C 130 84 160 100 182 124 C 196 140 200 150 228 150 C 258 150 276 158 280 172 C 282 190 268 214 256 232 C 246 248 236 262 228 274 C 220 290 206 306 190 325 L 345 325 L 345 -5 L -5 -5 Z"/>
+            <g aria-hidden="true">
+              <path class="m-ola" d="M300 60 q5 -4 10 0 t10 0"/>
+              <path class="m-ola" d="M250 300 q5 -4 10 0 t10 0"/>
             </g>
-            <path class="m-costa" d="M306 0 C 302 60 296 120 286 166 C 280 194 272 214 264 230 L 276 236 L 271 244 L 258 241 C 246 268 230 300 208 334 C 186 364 150 386 104 400"/>
-            <text class="m-mar-et" transform="translate(300 346) rotate(-70)">MAR ARGENTINO</text>
-            <path class="m-ruta" d="M232 186 C 214 130 196 70 176 0"/>
-            <path class="m-ruta" d="M228 198 C 170 182 110 162 0 142"/>
-            <path class="m-ruta" d="M226 214 C 170 236 120 256 0 302"/>
-            <path class="m-ruta" d="M248 250 C 228 290 200 326 172 352 C 156 366 138 376 122 382"/>
-            <text class="m-ruta-et" x="184" y="40">RN 2</text>
-            <text class="m-ruta-et" x="8" y="132">RN 226</text>
-            <text class="m-ruta-et" x="8" y="320">RN 88</text>
-            <text class="m-ruta-et" x="128" y="350">RP 11</text>
-            <text class="m-norte" x="14" y="22">N ↑</text>
-            <g id="mapa-zonas"></g>
+            <path class="m-costa" d="M-5 30 C 40 40 70 52 96 66 C 130 84 160 100 182 124 C 196 140 200 150 228 150 C 258 150 276 158 280 172 C 282 190 268 214 256 232 C 246 248 236 262 228 274 C 220 290 206 306 190 325"/>
+            <text class="m-mar-et" transform="translate(118 30) rotate(18)">RÍO DE LA PLATA</text>
+            <text class="m-mar-et" transform="translate(306 305) rotate(-80)">MAR ARGENTINO</text>
+            <path class="m-camino-fondo" d="M84 78 C 110 122 150 170 175 200 C 195 225 210 245 219 262"/>
+            <path class="m-camino" d="M84 78 C 110 122 150 170 175 200 C 195 225 210 245 219 262"/>
+            <circle class="m-ciudad-punto" cx="84" cy="78" r="8"/>
+            <circle class="m-ciudad-punto base" cx="219" cy="262" r="9"/>
+            <text class="m-et" x="48" y="100" text-anchor="middle">Buenos Aires</text>
+            <text class="m-et" x="204" y="266" text-anchor="end">Mar del Plata</text>
+            <text class="m-sub" x="204" y="280" text-anchor="end">VICTORIANO MONTES 1963</text>
+            <text class="m-km" x="138" y="178" text-anchor="end">≈ 400 km</text>
+            <text class="m-sub" x="138" y="192" text-anchor="end">IDA Y VUELTA</text>
+            <text class="m-norte" x="300" y="22">N ↑</text>
           </svg>
           <figcaption>Esquema de referencia, no está a escala.</figcaption>
         </figure>
-        <ol class="lista-zonas" id="lista-zonas"></ol>
+        <div class="ruta-cards">
+          <article class="ruta-card">
+            <p class="mono">Dónde estamos · Mar del Plata</p>
+            <h3 data-dato="direccion">A confirmar</h3>
+            <p>Horario: <span data-dato="horario">A confirmar</span></p>
+            <a class="btn btn-borde btn-chico" data-mapa href="#contacto"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Ver en Google Maps</a>
+          </article>
+          <article class="ruta-card">
+            <p class="mono">Destino</p>
+            <h3>Buenos Aires</h3>
+            <p>A qué partes llegamos: <span data-dato="zonasBA">A confirmar</span></p>
+          </article>
+        </div>
       </div>
     </div>
   </section>
@@ -657,7 +654,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
       </header>
       <div class="contacto">
         <div class="contacto-principal">
-          <h3>¿Tenés algo para mover?</h3>
+          <h3>¿Tenés carga para mandar?</h3>
           <p>Escribinos por WhatsApp o mandanos un mensaje por Instagram.</p>
           <div class="contacto-botones">
             <a class="btn btn-claro" data-wa href="#contacto"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Escribinos por WhatsApp</a>
@@ -667,7 +664,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
         <dl class="datos">
           <div class="dato"><svg class="ico" aria-hidden="true"><use href="#i-reloj"/></svg><div><dt>Horario</dt><dd data-dato="horario">A confirmar</dd></div></div>
           <div class="dato"><svg class="ico" aria-hidden="true"><use href="#i-pago"/></svg><div><dt>Medios de pago</dt><dd data-dato="pagos">A confirmar</dd></div></div>
-          <div class="dato"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg><div><dt>Dónde estamos</dt><dd data-dato="direccion">A confirmar</dd></div></div>
+          <div class="dato"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg><div><dt>Dónde estamos</dt><dd><span data-dato="direccionCompleta">A confirmar</span> <a data-mapa href="#contacto">Ver en el mapa</a></dd></div></div>
         </dl>
       </div>
     </div>
@@ -681,7 +678,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
       <text class="logo-nombre" x="50" y="25" font-size="27" textLength="84" lengthAdjust="spacingAndGlyphs">SALDAR</text>
       <text class="logo-bajada" x="50.5" y="36.5" font-size="8.2" textLength="83" lengthAdjust="spacingAndGlyphs">LOGÍSTICA · MDP</text>
     </svg>
-    <p>© <span id="anio">2026</span> Saldar · Fletes en Mar del Plata</p>
+    <p>© <span id="anio">2026</span> Saldar · Fletes Mar del Plata – Buenos Aires</p>
     <p class="pie-credito">Desarrollado por ConnectHUB</p>
   </div>
 </footer>
@@ -707,12 +704,29 @@ const plural = (n, uno, varios) => `${n} ${n === 1 ? uno : varios}`;
 const valorRadio = (name) => $(`input[name="${name}"]:checked`)?.value;
 const icono = (id, clase = "ico") => `<svg class="${clase}" aria-hidden="true"><use href="#${id}"/></svg>`;
 
-/* ---------- Datos sueltos del negocio (horario, pagos, Instagram) ---------- */
+/* ---------- Datos sueltos del negocio (horario, dirección, Instagram) ---------- */
+// Los datos de NEGOCIO más un par que se arman con ellos.
+function dato(clave) {
+  if (clave === "direccionCompleta") return NEGOCIO.direccion && `${NEGOCIO.direccion}, ${NEGOCIO.ciudad}`;
+  return NEGOCIO[clave];
+}
+
+function enlaceMapa() {
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(dato("direccionCompleta"))}`;
+}
+
 function pintarDatos() {
   $$("[data-dato]").forEach((el) => {
-    const v = NEGOCIO[el.dataset.dato];
+    const v = dato(el.dataset.dato);
     el.textContent = v || "A confirmar";
     el.classList.toggle("confirmar", !v);
+  });
+  // Links a Google Maps (solo un link: no usa la API ni pide clave)
+  $$("[data-mapa]").forEach((a) => {
+    a.hidden = !NEGOCIO.direccion;
+    a.href = enlaceMapa();
+    a.target = "_blank";
+    a.rel = "noopener";
   });
   const ig = `https://www.instagram.com/${NEGOCIO.instagram}/`;
   $$("[data-ig]").forEach((a) => (a.href = ig));
@@ -749,7 +763,7 @@ function pintarServicios() {
     </article>`;
 }
 
-/* ---------- Cotizador de fletes: armar los controles ---------- */
+/* ---------- Cotizador: armar los controles ---------- */
 function tarjetaOpcion(name, item, detallePrecio, svg) {
   return `<label class="opcion">
     <input type="radio" name="${name}" value="${item.id}">
@@ -763,14 +777,12 @@ function tarjetaOpcion(name, item, detallePrecio, svg) {
 }
 
 function pintarCotizador() {
-  $("#vehiculos").innerHTML = TARIFAS.vehiculos.map((v) =>
-    tarjetaOpcion("vehiculo", v, pesos(v.porHora) + " la hora", icono("i-camion"))
+  $("#sentidos").innerHTML = TARIFAS.sentidos.map((s) =>
+    tarjetaOpcion("sentido", s, pesos(s.porBulto) + " por bulto", icono("i-camion"))
   ).join("");
-  $(`input[name="vehiculo"][value="${TARIFAS.vehiculos[0].id}"]`).checked = true;
-  const horas = $("#horas");
-  horas.min = TARIFAS.minimoHoras;
-  horas.value = Math.max(TARIFAS.minimoHoras, +horas.value || 0);
-  $("#flete-ayuda").textContent = `Mínimo ${plural(TARIFAS.minimoHoras, "hora", "horas")}. Ayudante: ${pesos(TARIFAS.ayudantePorHora)} la hora cada uno. Pisos por escalera: sumá los de retiro y entrega (${pesos(TARIFAS.porPisoEscalera)} cada uno).`;
+  $(`input[name="sentido"][value="${TARIFAS.sentidos[0].id}"]`).checked = true;
+  $("#bultos").max = TARIFAS.maxBultos;
+  $("#bultos-ayuda").textContent = "Se cobra por viaje, según la cantidad de bultos.";
 
   // Día: no se puede elegir una fecha pasada
   const hoy = new Date();
@@ -789,28 +801,30 @@ function leerNumero(id) {
   return Math.min(max, Math.max(min, Number.isFinite(n) ? n : min));
 }
 
-// vehículo × horas + ayudantes × horas + pisos por escalera
+// cantidad de bultos × precio por bulto del sentido elegido
 function calcular() {
-  const v = TARIFAS.vehiculos.find((x) => x.id === valorRadio("vehiculo"));
-  const horas = leerNumero("horas"), ayudantes = leerNumero("ayudantes"), pisos = leerNumero("pisos");
-  if (!v) return { lineas: [], total: null };
-  const lineas = [{ c: `${v.nombre} (${horas} h × ${pesos(v.porHora)})`, v: v.porHora * horas }];
-  if (ayudantes) lineas.push({ c: `${plural(ayudantes, "ayudante", "ayudantes")} × ${horas} h`, v: ayudantes * horas * TARIFAS.ayudantePorHora });
-  if (pisos) lineas.push({ c: `${plural(pisos, "piso", "pisos")} por escalera`, v: pisos * TARIFAS.porPisoEscalera });
-  return { v, horas, ayudantes, pisos, lineas, total: redondear(suma(lineas)) };
+  const s = TARIFAS.sentidos.find((x) => x.id === valorRadio("sentido"));
+  const bultos = leerNumero("bultos");
+  if (!s) return { lineas: [], total: null };
+  const lineas = [{ c: `${plural(bultos, "bulto", "bultos")} × ${pesos(s.porBulto)}`, v: bultos * s.porBulto }];
+  return { s, bultos, lineas, total: redondear(suma(lineas)) };
 }
 
 /* ---------- Cotizador: mostrar el precio ---------- */
 function actualizar() {
   const r = calcular();
-  $("#tr-1").textContent = r.v ? r.v.nombre : "—";
-  $("#tr-2").textContent = r.v ? `${r.horas} h${r.ayudantes ? " · " + plural(r.ayudantes, "ayudante", "ayudantes") : ""}` : "—";
+  $("#tr-1").textContent = r.s ? r.s.desde : "—";
+  $("#tr-2").textContent = r.s ? `${r.s.hasta} · ${plural(r.bultos, "bulto", "bultos")}` : "—";
+  if (r.s) {
+    $("#dir-retiro").placeholder = `Dirección o barrio en ${r.s.desde}`;
+    $("#dir-entrega").placeholder = `Dirección o barrio en ${r.s.hasta}`;
+  }
   $("#ticket-lineas").innerHTML = r.lineas.map((l) => `<li><span>${esc(l.c)}</span><span>${pesos(l.v)}</span></li>`).join("");
   $("#ticket-lineas").hidden = !r.lineas.length;
   const total = $("#ticket-total");
   if (r.total == null) {
     total.classList.add("vacio");
-    total.textContent = "Elegí el vehículo para ver el precio.";
+    total.textContent = "Elegí para dónde va para ver el precio.";
     $("#enviar-total").textContent = "—";
   } else {
     total.classList.remove("vacio");
@@ -847,13 +861,11 @@ function fechaLinda(valor) {
 
 function armarMensaje(r) {
   const val = (id) => $("#" + id).value.trim();
-  const L = [`¡Hola ${NEGOCIO.nombre}! Quiero pedir un flete desde la web.`, ""];
-  L.push(`*Vehículo:* ${r.v.nombre}`);
-  L.push(`*Horas estimadas:* ${r.horas}`);
-  if (r.ayudantes) L.push(`*Ayudantes:* ${r.ayudantes}`);
-  if (r.pisos) L.push(`*Pisos por escalera:* ${r.pisos}`);
-  L.push(`*Retiro:* ${val("dir-retiro")}`);
-  L.push(`*Entrega:* ${val("dir-entrega")}`);
+  const L = [`¡Hola ${NEGOCIO.nombre}! Quiero cotizar un flete desde la web.`, ""];
+  L.push(`*Viaje:* ${r.s.desde} → ${r.s.hasta}`);
+  L.push(`*Bultos:* ${r.bultos}`);
+  L.push(`*Dónde está la carga:* ${val("dir-retiro")} (${r.s.desde})`);
+  L.push(`*Adónde va:* ${val("dir-entrega")} (${r.s.hasta})`);
   const cuando = [fechaLinda(val("dia")), val("franja").toLowerCase()].filter(Boolean).join(", ");
   if (cuando) L.push(`*Cuándo:* ${cuando}`);
   L.push(`*Nombre:* ${val("nombre")}`);
@@ -867,13 +879,13 @@ function validarPedido() {
   const r = actualizar();
   const faltan = [];
   if (!$("#nombre").value.trim()) faltan.push(["nombre", "tu nombre"]);
-  if (!$("#dir-retiro").value.trim()) faltan.push(["dir-retiro", "la dirección de retiro"]);
-  if (!$("#dir-entrega").value.trim()) faltan.push(["dir-entrega", "la dirección de entrega"]);
+  if (!$("#dir-retiro").value.trim()) faltan.push(["dir-retiro", "dónde está la carga"]);
+  if (!$("#dir-entrega").value.trim()) faltan.push(["dir-entrega", "adónde va"]);
 
   $$("#form-cot [aria-invalid]").forEach((el) => el.removeAttribute("aria-invalid"));
   if (faltan.length || r.total == null) {
     faltan.forEach(([id]) => $("#" + id).setAttribute("aria-invalid", "true"));
-    $("#enviar-error").textContent = faltan.length ? "Para mandar el pedido falta " + lista(faltan.map((f) => f[1])) + "." : "Elegí el vehículo para ver el precio.";
+    $("#enviar-error").textContent = faltan.length ? "Para mandar el pedido falta " + lista(faltan.map((f) => f[1])) + "." : "Elegí para dónde va para ver el precio.";
     if (faltan.length) $("#" + faltan[0][0]).focus();
     return false;
   }
@@ -881,40 +893,10 @@ function validarPedido() {
   return true;
 }
 
-/* ---------- Zonas: lista y mapa ---------- */
-function pintarZonas() {
-  $("#lista-zonas").innerHTML = ZONAS.map((z, i) => `<li class="zona${z.lejos ? " lejos" : ""}">
-      <span class="zona-num" aria-hidden="true">${String(i + 1).padStart(2, "0")}</span>
-      <div><h3>${esc(z.nombre)}</h3>${z.barrios ? `<p>${esc(z.barrios)}</p>` : ""}</div>
-    </li>`).join("");
-}
-
-function pintarMapa() {
-  const ns = "http://www.w3.org/2000/svg";
-  const g = $("#mapa-zonas");
-  ZONAS.forEach((z, i) => (z.mapa || []).forEach((p) => {
-    const grupo = document.createElementNS(ns, "g");
-    grupo.setAttribute("class", "m-punto" + (z.lejos ? " lejos" : ""));
-    const c = document.createElementNS(ns, "circle");
-    c.setAttribute("cx", p.x); c.setAttribute("cy", p.y); c.setAttribute("r", 8);
-    const n = document.createElementNS(ns, "text");
-    n.setAttribute("class", "m-n"); n.setAttribute("x", p.x); n.setAttribute("y", p.y);
-    n.textContent = String(i + 1).padStart(2, "0");
-    const t = document.createElementNS(ns, "text");
-    const izq = p.lado === "izq";
-    t.setAttribute("class", "m-et");
-    t.setAttribute("x", p.x + (izq ? -12 : 12)); t.setAttribute("y", p.y + 4);
-    t.setAttribute("text-anchor", izq ? "end" : "start");
-    t.textContent = p.etiqueta || z.nombre;
-    grupo.append(c, n, t);
-    g.append(grupo);
-  }));
-}
-
 /* ---------- Preguntas ---------- */
 function pintarPreguntas() {
   $("#lista-preguntas").innerHTML = NEGOCIO.preguntas.map((q) => {
-    const r = q.dato ? NEGOCIO[q.dato] : q.r;
+    const r = q.dato ? dato(q.dato) : q.r;
     return `<details class="pregunta"><summary>${esc(q.p)}</summary><p${r ? "" : ' class="confirmar"'}>${esc(r || "A confirmar.")}</p></details>`;
   }).join("");
 }
@@ -927,32 +909,10 @@ function iniciar() {
   pintarDatos();
   pintarServicios();
   pintarCotizador();
-  pintarZonas();
-  pintarMapa();
   pintarPreguntas();
   enlazarWhatsapp();
   $("#anio").textContent = new Date().getFullYear();
 }
-
-/* ─────────────────────────────────────────────────────────────
-   SEGUNDA ETAPA (no está activa): precio por kilómetros reales.
-   Si algún día Saldar cobra el flete por distancia en vez de por hora:
-     1. Pasar las dos direcciones a coordenadas (geocodificar).
-     2. Pedir la distancia en auto entre esas coordenadas (ruteo).
-     3. precio = km × un precio por km de cada vehículo, y sumar
-        ayudantes y pisos igual que ahora.
-   Hay servicios de OpenStreetMap sin costo ni clave (Nominatim para
-   geocodificar, OSRM para la distancia), pero sus servidores públicos
-   tienen límites de uso: para un negocio conviene uno propio o uno pago.
-   Nada de Google Maps (pide tarjeta).
-
-   async function kilometrosEntre(direccionA, direccionB) {
-     // const a = await geocodificar(direccionA + ", Mar del Plata");
-     // const b = await geocodificar(direccionB + ", Mar del Plata");
-     // const ruta = await fetch(`<servidor-osrm>/route/v1/driving/${a.lon},${a.lat};${b.lon},${b.lat}?overview=false`).then(r => r.json());
-     // return ruta.routes[0].distance / 1000;
-   }
-   ───────────────────────────────────────────────────────────── */
 
 
 /* ═════════════════════════════════════════════════════════════
@@ -961,14 +921,13 @@ function iniciar() {
    Cómo cambiar un precio:
      1. Buscá el número que querés cambiar (abajo, en TARIFAS).
      2. Cambiá solo el número. Va entero, SIN puntos ni signo $:
-        22000 está bien; "22.000" o "$22000" rompen la página.
-     3. Guardá. La página hace sola el formato ($ 22.000), el total
+        10000 está bien; "10.000" o "$10000" rompen la página.
+     3. Guardá. La página hace sola el formato ($ 10.000), el total
         y el mensaje de WhatsApp.
 
    Cómo se calcula un flete:
-     precio por hora del vehículo × horas (nunca menos que el mínimo)
-     + ayudantes × horas × precio por hora del ayudante
-     + pisos por escalera × precio por piso.
+     cantidad de bultos × precio por bulto del sentido elegido
+     (Mar del Plata → Buenos Aires, o Buenos Aires → Mar del Plata).
      El total se redondea a TARIFAS.redondeo.
 
    IMPORTANTE: estas tarifas son DE EJEMPLO (inventadas para la demo).
@@ -985,54 +944,51 @@ const NEGOCIO = {
   instagram: "saldar223",
   tarifasDeEjemplo: true,          // true = muestra "VISTA PREVIA: tarifas de ejemplo"
 
-  // Vacío ("") = la página muestra "A confirmar".
-  horario: "",                     // ej.: "Lunes a viernes de 9 a 18 h"
+  // Datos del dueño (20/10/2026). Vacío ("") = la página muestra "A confirmar".
+  horario: "De 6 a 15 h",          // los días todavía no los pasó
+  direccion: "Victoriano Montes 1963",
+  ciudad: "Mar del Plata",
   pagos: "",                       // ej.: "Efectivo y transferencia"
-  direccion: "",                   // solo si tiene local o depósito
   noLlevan: "",                    // qué cosas no llevan
-  sinNadie: "",                    // qué pasa si no hay nadie para recibir
+  domicilio: "",                   // si retiran y entregan a domicilio
+  frecuencia: "",                  // cada cuánto viajan
+  zonasBA: "",                     // a qué partes de Buenos Aires llegan
 
   mensajeGeneral: "¡Hola Saldar! Te escribo desde la web, quería hacerte una consulta.",
 
-  // Saldar hace fletes; NO tiene mensajería (el dueño, 19/10/2026).
-  // activo: false = no se muestra.
+  // Saldar hace fletes en camión entre Mar del Plata y Buenos Aires, en los
+  // dos sentidos; NO tiene mensajería (el dueño, 19 y 20/10/2026).
   servicios: [
-    { id: "flete", activo: true, icono: "i-camion", titulo: "Fletes",
-      texto: "Muebles, electrodomésticos y bultos grandes de un lugar a otro." },
+    { id: "mdp-ba", activo: true, icono: "i-camion", titulo: "Mar del Plata → Buenos Aires",
+      texto: "Llevamos tu carga en camión desde Mar del Plata hasta Buenos Aires.",
+      etiquetas: ["En camión", "Por bulto"] },
+    { id: "ba-mdp", activo: true, icono: "i-camion", titulo: "Buenos Aires → Mar del Plata",
+      texto: "Y al revés: traemos tu carga en camión desde Buenos Aires a Mar del Plata.",
+      etiquetas: ["En camión", "Por bulto"] },
   ],
 
   // dato: "horario" = usa el mismo texto de arriba. r = respuesta fija.
   preguntas: [
-    { p: "¿El precio del cotizador es el final?", r: "Es un precio estimado. Cuando nos escribís por WhatsApp te confirmamos el precio final antes de retirar." },
+    { p: "¿El precio del cotizador es el final?", r: "Es un precio estimado. Cuando nos escribís por WhatsApp te confirmamos el precio final antes del viaje." },
     { p: "¿En qué horario trabajan?", dato: "horario" },
+    { p: "¿Dónde están?", dato: "direccionCompleta" },
+    { p: "¿Cada cuánto viajan?", dato: "frecuencia" },
+    { p: "¿Retiran y entregan a domicilio?", dato: "domicilio" },
+    { p: "¿A qué partes de Buenos Aires llegan?", dato: "zonasBA" },
     { p: "¿Cómo se paga?", dato: "pagos" },
     { p: "¿Qué cosas no llevan?", dato: "noLlevan" },
-    { p: "¿Qué pasa si no hay nadie para recibir?", dato: "sinNadie" },
-    { p: "¿Y si mi dirección no está en ninguna zona?", r: "Escribinos por WhatsApp con la dirección y te decimos si llegamos y cuánto sale." },
   ],
 };
 
-// Zonas que cubre (solo para mostrar; el precio del flete no depende de la zona).
-// "mapa" son los puntos del esquema (x de 0 a 340, y de 0 a 400; lado "izq" = etiqueta a la izquierda).
-const ZONAS = [
-  { id: "centro",      nombre: "Centro",      barrios: "Microcentro, Plaza San Martín, Plaza Colón",       mapa: [{ x: 276, y: 168 }] },
-  { id: "macrocentro", nombre: "Macrocentro", barrios: "La Perla, Plaza Mitre, Los Troncos, Playa Grande", mapa: [{ x: 232, y: 196, lado: "izq" }] },
-  { id: "puerto",      nombre: "Puerto",      barrios: "Puerto y alrededores",                             mapa: [{ x: 252, y: 236 }] },
-  { id: "norte",       nombre: "Zona Norte",  barrios: "Constitución, Parque Luro, Camet, Zacagnini",      mapa: [{ x: 262, y: 74, lado: "izq" }] },
-  { id: "sur",         nombre: "Zona Sur",    barrios: "Punta Mogotes, Faro, Alfar, Acantilados",          mapa: [{ x: 212, y: 302 }] },
-  { id: "batan-sierra", nombre: "Batán y Sierra de los Padres", barrios: "",                               mapa: [{ x: 70, y: 151, etiqueta: "Sierra de los Padres" }, { x: 98, y: 263, etiqueta: "Batán" }] },
-  { id: "miramar",     nombre: "Miramar",     barrios: "Larga distancia", lejos: true,                     mapa: [{ x: 118, y: 380, lado: "izq" }] },
-];
-
 const TARIFAS = {
   redondeo: 100,          // los totales se redondean a $100
-  minimoHoras: 2,         // horas mínimas que se cobran
-  ayudantePorHora: 9000,  // cada ayudante, por hora
-  porPisoEscalera: 4000,  // cada piso por escalera (retiro + entrega)
-  vehiculos: [
-    { id: "utilitario", nombre: "Utilitario",         detalle: "Cajas, electrodomésticos y muebles chicos", porHora: 22000 },
-    { id: "camioneta",  nombre: "Camioneta con caja", detalle: "Muebles grandes y varios bultos",           porHora: 30000 },
-    { id: "camion",     nombre: "Camión chico",       detalle: "Cargas grandes o muchos bultos",            porHora: 42000 },
+  maxBultos: 200,         // lo máximo que se puede poner en el cotizador
+  // Precio por bulto en cada sentido (si cobra igual, poné el mismo número).
+  sentidos: [
+    { id: "mdp-ba", nombre: "Mar del Plata → Buenos Aires", desde: "Mar del Plata", hasta: "Buenos Aires",
+      detalle: "Llevamos tu carga a Buenos Aires", porBulto: 10000 },
+    { id: "ba-mdp", nombre: "Buenos Aires → Mar del Plata", desde: "Buenos Aires", hasta: "Mar del Plata",
+      detalle: "Traemos tu carga a Mar del Plata", porBulto: 10000 },
   ],
 };
 
