@@ -8,8 +8,10 @@ o volverse público).
 ## Qué es
 
 Web de una página para **Saldar** (Instagram [@saldar223](https://www.instagram.com/saldar223/)),
-empresa de **fletes en camión entre Mar del Plata y Buenos Aires** (en los dos
-sentidos), con base en Victoriano Montes 1963, Mar del Plata. Es una **demo de venta** de Mateo
+empresa de **logística en camión entre Mar del Plata y Buenos Aires** (en los
+dos sentidos), con depósito en Victoriano Montes 1963, Mar del Plata, y
+sucursal en Buenos Aires. **En la web se dice "logística", nunca "fletes"**
+(pedido de Mateo, 20/10/2026). Es una **demo de venta** de Mateo
 Berchot: se le muestra al dueño funcionando y se le ofrece con abono mensual.
 Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
 
@@ -35,7 +37,8 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
   demo (precios de ejemplo y WhatsApp de Mateo). **Sacarlo al publicar.**
 - Probado en Chromium a 1366 y 390 px: 0 errores de JS, sin desborde
   horizontal, mensaje de WhatsApp bien armado en los dos sentidos, aviso
-  cuando falta un dato, links a Google Maps, ninguna mención a mensajería.
+  cuando falta un dato, links a Google Maps, ninguna mención a "fletes" ni a
+  mensajería en el texto visible.
 - "Pedir por WhatsApp" es un link común (`#pedir`) cuyo `href` se rearma con
   cada cambio del formulario; si falta un dato, el clic se cancela y avisa.
   No usar `window.open`: dentro del Artifact no anda para gente de afuera.
@@ -45,19 +48,21 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
 | Dato | Valor en la web | Fuente y fecha |
 |---|---|---|
 | Nombre comercial | "Saldar" | El dueño, vía Mateo, 19/10/2026 ✅ |
-| Rubro | Fletes en camión Mar del Plata ⇄ Buenos Aires | El dueño, vía Mateo, 20/10/2026 ✅ |
-| Dirección | Victoriano Montes 1963, Mar del Plata (link a Google Maps) | El dueño, vía Mateo, 20/10/2026 ✅. Mateo escribió "victoriano monte"; la calle es Dr. Victoriano E. Montes |
+| Rubro | Logística en camión Mar del Plata ⇄ Buenos Aires | El dueño, vía Mateo, 20/10/2026 ✅ ("logística", no "fletes") |
+| Depósito | Victoriano Montes 1963, Mar del Plata (link a Google Maps). La carga sale desde acá | El dueño, vía Mateo, 20/10/2026 ✅. Mateo escribió "victoriano monte"; la calle es Dr. Victoriano E. Montes |
 | Servicios | Mar del Plata → Buenos Aires y Buenos Aires → Mar del Plata | El dueño, vía Mateo, 19 y 20/10/2026 ✅. **No tiene mensajería** |
 | Vehículos | Camiones | El dueño, vía Mateo, 20/10/2026 ✅ |
-| Cómo cobra | Por viaje, según la cantidad de bultos | El dueño, vía Mateo, 20/10/2026 ✅ (los montos faltan) |
-| Tarifas | $ 10.000 por bulto en cada sentido | ⚠️ Inventadas para la demo |
+| Cómo cobra | Según el peso (y la cantidad de bultos) | El dueño, vía Mateo, 20/10/2026 ✅ (los montos y los rangos faltan) |
+| Entrega | A domicilio | El dueño, vía Mateo, 20/10/2026 ✅ |
+| Sucursal Buenos Aires | Existe; dirección "A confirmar" | El dueño, vía Mateo, 20/10/2026 ✅ (los datos los pasa después) |
+| Tarifas | Por bulto según rango de peso: hasta 5 kg $ 6.000, 5–15 kg $ 9.000, 15–30 kg $ 14.000, 30–50 kg $ 20.000 | ⚠️ Inventadas para la demo |
 | WhatsApp | El de Mateo (pruebas) | ⚠️ Falta el del negocio |
-| Horario | "De 6 a 15 h" | El dueño, vía Mateo, 20/10/2026 ✅ (faltan los días) |
-| Medios de pago | "A confirmar" | — |
+| Horario | Lunes a sábados, de 6 a 15 h | El dueño, vía Mateo, 20/10/2026 ✅ (también en el JSON-LD) |
+| Medios de pago | "Todos los medios de pago" | El dueño, vía Mateo, 20/10/2026 ✅ |
 | Qué no llevan | "A confirmar" | — |
 | Cada cuánto viajan | "A confirmar" | — |
-| Retiro / entrega a domicilio | "A confirmar" | — |
-| Zonas de Buenos Aires | "A confirmar" | — |
+
+| Zonas de entrega en Buenos Aires | "A confirmar" | — |
 | Instagram | @saldar223 | — |
 | Logo | Logotipo tipográfico hecho para la demo (SVG en el HTML) | ⚠️ Falta el real |
 | Fotos | Ninguna (la web se ve bien sin fotos) | ⚠️ Faltan las reales |
@@ -73,6 +78,8 @@ Al sacar algo, buscarlo en **todo** el `index.html`: textos, `<title>`,
   contra entrega), los precios por zona y la sección "Para empresas y
   tiendas online". Si algún día la suma, está en el historial de git
   (commit anterior a "Sacar la mensajería").
+- **La palabra "fletes"**: Mateo prefiere "logística" (20/10/2026). Buscar
+  "flete" en todo el archivo antes de publicar.
 - **Fletes dentro de la ciudad por hora** (vehículo, horas, ayudantes, pisos)
   y las zonas de Mar del Plata: se sacaron el 20/10/2026 cuando el dueño
   explicó que hace Mar del Plata ⇄ Buenos Aires en camión y cobra por bultos.
@@ -83,18 +90,24 @@ Todo lo que cambia está **al final del `<script>`** de `index.html`, debajo del
 comentario **"DATOS DE SALDAR — ACÁ SE CAMBIAN LOS PRECIOS"**:
 
 - `NEGOCIO`: nombre, `whatsapp`, `instagram`, `tarifasDeEjemplo`, `horario`,
-  `direccion` + `ciudad` (arman el link a Google Maps), pagos, qué no llevan
-  (`noLlevan`), `domicilio`, `frecuencia`, `zonasBA`, servicios (con
-  `activo: true/false`) y preguntas frecuentes.
-- `TARIFAS`: `redondeo`, `maxBultos` y `sentidos` (Mar del Plata → Buenos
-  Aires y Buenos Aires → Mar del Plata, cada uno con su `porBulto`).
+  `direccion` + `ciudad` (depósito; arman el link a Google Maps),
+  **`sucursalBA`** (cuando Mateo pase la dirección de la sucursal, va acá y
+  aparece sola en recorrido, contacto, preguntas, cotizador y mensaje),
+  `pagos`, `domicilio`, `noLlevan`, `frecuencia`, `zonasBA`, servicios y
+  preguntas frecuentes.
+- `TARIFAS`: `redondeo`, `maxBultos`, `pesoMaximo`, **`pesos`** (rangos de
+  peso, cada uno con `nombre`, `frase` y `porBulto`) y `sentidos` (de dónde
+  sale la carga en cada sentido: depósito de Mar del Plata o sucursal de
+  Buenos Aires).
 
-Reglas: los precios van **enteros, sin puntos ni $** (`10000`). El formato
-`$ 10.000` lo hace la función `pesos()`.
+Reglas: los precios van **enteros, sin puntos ni $** (`9000`). El formato
+`$ 9.000` lo hace la función `pesos()`.
 
-Cálculo (`calcular()`): `cantidad de bultos × porBulto del sentido elegido`,
-redondeado a `TARIFAS.redondeo`. Si Saldar cobra distinto (mínimo por viaje,
-precio según tamaño o peso, tramos por cantidad), cambiar `calcular()`.
+Cálculo (`calcular()`): cada bulto se cobra según su rango de peso;
+`total = suma de (bultos de cada rango × porBulto)`, igual en los dos
+sentidos, redondeado a `TARIFAS.redondeo`. Si Saldar cobra por kilo, con
+mínimo por viaje, o distinto según el sentido, cambiar `calcular()` y
+`TARIFAS`.
 
 El link a Google Maps es un link común (`https://www.google.com/maps/search/?api=1&query=…`):
 no usa la API ni pide clave. Está en la tarjeta del recorrido, en contacto y
@@ -123,7 +136,12 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
   barras en la portada, cinta de embalaje azul con el nombre, el presupuesto
   como ticket, numeración de secciones en tipografía mono.
 - Titular: "Mar del Plata – Buenos Aires, ida y vuelta." (lo resaltado es
-  "ida y vuelta", porque los camiones van y vienen).
+  "ida y vuelta", porque los camiones van y vienen). Arriba dice "Logística ·
+  Mar del Plata – Buenos Aires".
+- Cotizador: sentido (dos tarjetas) + una fila por rango de peso con su
+  contador; las filas con bultos se marcan en azul. En "Tus datos" un aviso
+  dice desde dónde sale la carga según el sentido; solo se pide la dirección
+  de entrega (entregan a domicilio, la carga sale del depósito).
 - La cinta azul tiene las letras **corriendo hacia la izquierda** (pedido
   de Mateo, 19/10/2026): dos tiras iguales que se corren su propio ancho en
   60 s. Se frena al pasar el mouse y queda quieta si el celular tiene
@@ -142,24 +160,23 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 - Recorrido: esquema SVG propio (Río de la Plata, costa atlántica, Buenos
   Aires, Mar del Plata, "≈ 400 km · ida y vuelta"), con la línea del camino
   animada (se queda quieta con "reducir movimiento"). Sin API de mapas.
-- Nada inventado sobre el negocio: sin años, cantidad de fletes, clientes,
+- Nada inventado sobre el negocio: sin años, cantidad de envíos, clientes,
   reseñas, seguros ni garantías. Lo que falta dice "A confirmar".
 - Crédito al pie: "Desarrollado por ConnectHUB" (pedido de Mateo, 19/10/2026).
-- Si llegan fotos reales (vehículos, fletes), usarlas **sin recortar**.
+- Si llegan fotos reales (camiones, depósito, cargas), usarlas **sin recortar**.
 
 ## PENDIENTES — confirmar con el dueño
 
 | Qué | Por qué hay duda |
 |---|---|
-| Precio por bulto real, y si es igual en los dos sentidos | Hoy $ 10.000 de ejemplo en cada sentido |
-| ¿El precio depende del tamaño o el peso del bulto? ¿Hay mínimo por viaje o precio por tramos? | El cotizador hoy es solo bultos × precio |
-| Qué días trabaja (el horario es de 6 a 15) | La web dice "De 6 a 15 h", sin días; el JSON-LD no tiene horario |
+| Datos de la sucursal de Buenos Aires (dirección, horario) | Mateo los pasa después; hoy "A confirmar" |
+| Precios reales según el peso: ¿por kilo o por rangos? ¿qué rangos y cuánto? ¿hay mínimo? ¿igual en los dos sentidos? | Hoy 4 rangos de ejemplo por bulto, iguales en los dos sentidos |
+| Más de 50 kg: ¿lo llevan? ¿cómo se cobra? | Hoy dice "escribinos y lo cotizamos" |
+| Que en Buenos Aires la carga también sale de la sucursal | Inferido de "sale desde el depósito" + "hay sucursal en Buenos Aires" |
+| ¿Retiran a domicilio además de entregar? | Se entendió que no: la carga sale del depósito; el formulario no pide dirección de retiro |
 | Cada cuánto viajan (días de salida a Buenos Aires y de vuelta) | "A confirmar" en preguntas |
-| ¿Retiran y entregan a domicilio o se lleva y se busca en el depósito? | "A confirmar"; el formulario pide "dónde está la carga" y "adónde va" |
-| A qué partes de Buenos Aires llegan (CABA, GBA, ¿otras ciudades en el camino?) | "A confirmar" |
-| Máximo de bultos por pedido | El cotizador deja hasta 200 |
+| A qué partes de Buenos Aires entregan (CABA, GBA…) | "A confirmar" |
 | WhatsApp del negocio | Hoy todo va al de Mateo |
-| Medios de pago | "A confirmar" |
 | Qué no llevan | "A confirmar" en preguntas |
 | Franjas horarias del formulario (mañana / mediodía / cualquier horario) | Puestas sin horario exacto; se sacó "tarde" porque cierran a las 15 |
 | Clientes o marcas que se puedan nombrar (con permiso) | No hay ninguno en la web |
@@ -172,13 +189,21 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 - [ ] Cargar datos y tarifas reales; `tarifasDeEjemplo: false`.
 - [ ] Cambiar `NEGOCIO.whatsapp` por el del negocio.
 - [ ] Sacar `<meta name="robots" content="noindex">`.
-- [ ] Revisar el JSON-LD: sumar `openingHoursSpecification` cuando estén los
-      días, y `telephone` y `url` solo si el dueño los confirma.
+- [ ] Revisar el JSON-LD: sumar la sucursal de Buenos Aires (como segundo
+      `LocalBusiness` o `department`) cuando estén sus datos, y `telephone` y
+      `url` solo si el dueño los confirma.
 - [ ] Imagen `og.jpg` 1200×630 para cuando se comparte por WhatsApp, y `canonical` con el dominio.
 - [ ] `publicar.py` de la skill → `docs/`, GitHub Pages, dominio, Search Console, Perfil de Empresa.
 
 ## Registro de cambios
 
+- 20/10/2026 — Mateo: "logística" en vez de "fletes"; todos los medios de
+  pago; hay sucursal en Buenos Aires (datos después); lunes a sábados;
+  entregan a domicilio; sale desde el depósito; el precio es según el peso →
+  todos los textos pasaron a logística, el cotizador cobra por bulto según
+  rango de peso, el formulario pide solo la dirección de entrega, aviso de
+  desde dónde sale la carga, tarjeta y dato de la sucursal "A confirmar",
+  preguntas nuevas y horario en el JSON-LD.
 - 20/10/2026 — Mateo pasó datos del dueño: horario de 6 a 15, dirección
   Victoriano Montes 1963 (con link a Maps), los camiones llevan de Mar del
   Plata a Buenos Aires y traen de Buenos Aires a Mar del Plata, cobra por
