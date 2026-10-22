@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Saldar · Logística Mar del Plata – Buenos Aires</title>
-<meta name="description" content="Saldar: logística entre Mar del Plata y Buenos Aires, ida y vuelta. Cargas en camión con entrega a domicilio y precio según el peso. Cotizá y pedilo por WhatsApp.">
+<meta name="description" content="Saldar: logística entre Mar del Plata y Buenos Aires. Cargas en camión con entrega a domicilio, precio según el peso, congelados y mudanzas. Cotizá y pedilo por WhatsApp.">
 <!-- DEMO: mientras sea vista previa no queremos que Google la indexe. Sacar esta línea al publicar de verdad (ver CLAUDE.md). -->
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#1847D6">
@@ -21,9 +21,9 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": ["LocalBusiness", "MovingCompany"],
   "name": "Saldar",
-  "description": "Logística entre Mar del Plata y Buenos Aires, en los dos sentidos: cargas en camión con entrega a domicilio y precio según el peso.",
+  "description": "Logística entre Mar del Plata y Buenos Aires: cargas en camión con entrega a domicilio, precio según el peso, congelados y mudanzas. Factura A.",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Victoriano Montes 1963",
@@ -34,13 +34,16 @@
   "hasMap": "https://www.google.com/maps/search/?api=1&query=Victoriano%20Montes%201963%2C%20Mar%20del%20Plata",
   "openingHoursSpecification": [{
     "@type": "OpeningHoursSpecification",
-    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-    "opens": "06:00",
-    "closes": "15:00"
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    "opens": "08:00",
+    "closes": "16:30"
   }],
+  "paymentAccepted": "Efectivo, transferencia",
   "areaServed": [
     { "@type": "City", "name": "Mar del Plata" },
-    { "@type": "City", "name": "Buenos Aires" }
+    { "@type": "City", "name": "Buenos Aires" },
+    { "@type": "Place", "name": "Batán" },
+    { "@type": "Place", "name": "Sierra de los Padres" }
   ],
   "sameAs": ["https://www.instagram.com/saldar223/"]
 }
@@ -196,7 +199,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .servicio h3{font:700 1.6rem/1.05 var(--f-titulo);text-transform:uppercase}
 .servicio p{color:var(--tinta-2)}
 .servicio-otro{background:transparent;border:2px dashed var(--borde-campo)}
-.servicio-otro .btn{align-self:flex-start;margin-top:auto}
+.servicio .btn{align-self:flex-start;margin-top:auto}
 .servicio-etiquetas{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:.25rem}
 .servicio-etiquetas span{font:600 .72rem/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;padding:.45rem .6rem;border-radius:3px;background:var(--azul-claro);color:var(--azul-osc)}
 
@@ -384,6 +387,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
     <symbol id="i-pago" viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="2.5"/><path d="M2.5 10h19M6.5 15h4"/></symbol>
     <symbol id="i-flecha" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
     <symbol id="i-cotizar" viewBox="0 0 24 24"><rect x="5" y="2.5" width="14" height="19" rx="2.5"/><path d="M8.5 6.5h7M8.5 11h1M12 11h1M15.5 11h0M8.5 14.5h1M12 14.5h1M8.5 18h1M12 18h1M15.5 14.5V18"/></symbol>
+    <symbol id="i-casa" viewBox="0 0 24 24"><path d="M3.5 11 12 4l8.5 7"/><path d="M5.5 9.5V20h13V9.5"/><path d="M9.5 20v-5h5v5"/></symbol>
     <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5.5h16v10H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></symbol>
   </defs>
 </svg>
@@ -425,7 +429,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
       <div>
         <p class="portada-eyebrow mono">Logística · Mar del Plata – Buenos Aires</p>
         <h1 id="titulo">Mar del Plata – Buenos Aires, <span class="cinta-texto-h1">ida y vuelta.</span></h1>
-        <p class="portada-bajada">Llevamos tu carga en camión de Mar del Plata a Buenos Aires y de Buenos Aires a Mar del Plata, con entrega a domicilio. Cotizá según el peso y pedilo por WhatsApp.</p>
+        <p class="portada-bajada">Llevamos tu carga en camión de Mar del Plata a Buenos Aires y de Buenos Aires a Mar del Plata, con entrega a domicilio. Cotizá según el peso y pedilo por WhatsApp. También hacemos mudanzas.</p>
         <div class="portada-botones">
           <a class="btn btn-primario" href="#cotizador"><svg class="ico" aria-hidden="true"><use href="#i-cotizar"/></svg>Cotizá tu envío</a>
           <a class="btn btn-borde" data-wa href="#contacto"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Escribinos por WhatsApp</a>
@@ -455,7 +459,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
   </section>
 
   <div class="cinta" aria-hidden="true">
-    <div class="cinta-banda" id="cinta-banda"><span>Saldar · Logística · Mar del Plata ↔ Buenos Aires · Entrega a domicilio · Saldar · Logística · Mar del Plata ↔ Buenos Aires · Entrega a domicilio · Saldar · Logística · Mar del Plata ↔ Buenos Aires · Entrega a domicilio · Saldar · Logística · Mar del Plata ↔ Buenos Aires · Entrega a domicilio ·&nbsp;</span><span>Saldar · Logística · Mar del Plata ↔ Buenos Aires · Entrega a domicilio · Saldar · Logística · Mar del Plata ↔ Buenos Aires · Entrega a domicilio · Saldar · Logística · Mar del Plata ↔ Buenos Aires · Entrega a domicilio · Saldar · Logística · Mar del Plata ↔ Buenos Aires · Entrega a domicilio ·&nbsp;</span></div>
+    <div class="cinta-banda" id="cinta-banda"><span>Saldar · Logística · Mar del Plata ↔ Buenos Aires · Entrega a domicilio · Mudanzas · Saldar · Logística · Mar del Plata ↔ Buenos Aires · Entrega a domicilio · Mudanzas · Saldar · Logística · Mar del Plata ↔ Buenos Aires · Entrega a domicilio · Mudanzas · Saldar · Logística · Mar del Plata ↔ Buenos Aires · Entrega a domicilio ·&nbsp;</span><span>Saldar · Logística · Mar del Plata ↔ Buenos Aires · Entrega a domicilio · Mudanzas · Saldar · Logística · Mar del Plata ↔ Buenos Aires · Entrega a domicilio · Mudanzas · Saldar · Logística · Mar del Plata ↔ Buenos Aires · Entrega a domicilio · Mudanzas · Saldar · Logística · Mar del Plata ↔ Buenos Aires · Entrega a domicilio ·&nbsp;</span></div>
   </div>
 
   <!-- SERVICIOS -->
@@ -494,6 +498,10 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
               <div class="pesos" id="pesos"></div>
             </fieldset>
             <p class="ayuda" id="pesos-ayuda"></p>
+            <div class="campo" id="campo-zona" style="margin-top:1.25rem" hidden>
+              <label for="zona-entrega">¿Dónde se entrega?</label>
+              <select id="zona-entrega" name="zona-entrega"></select>
+            </div>
           </div>
         </div>
 
@@ -528,7 +536,8 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
           <div class="campos-2" style="margin-top:14px">
             <div class="campo">
               <label for="dia">¿Para cuándo? <span class="opcional">(opcional)</span></label>
-              <input id="dia" name="dia" type="date">
+              <input id="dia" name="dia" type="date" aria-describedby="dia-ayuda">
+              <p class="ayuda" id="dia-ayuda">La carga sale de lunes a viernes.</p>
             </div>
             <div class="campo">
               <label for="franja">Franja horaria <span class="opcional">(opcional)</span></label>
@@ -626,14 +635,15 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
           <article class="ruta-card">
             <p class="mono">Depósito · Mar del Plata</p>
             <h3 data-dato="direccion">A confirmar</h3>
-            <p><span data-dato="horario">A confirmar</span>. La carga sale desde acá.</p>
+            <p>Recibimos la carga <span data-dato="recepcionFrase">A confirmar</span>. Los sábados el depósito está cerrado.</p>
+            <p>Entregamos en Mar del Plata, y en Batán y Sierra de los Padres con costo extra.</p>
             <a class="btn btn-borde btn-chico" data-mapa href="#contacto"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Ver en Google Maps</a>
           </article>
           <article class="ruta-card">
             <p class="mono">Sucursal · Buenos Aires</p>
             <h3>Buenos Aires</h3>
             <p>Dirección: <span data-dato="sucursalBA">A confirmar</span></p>
-            <p>Zonas de entrega: <span data-dato="zonasBA">A confirmar</span></p>
+            <p>Entregamos a domicilio en Buenos Aires.</p>
           </article>
         </div>
       </div>
@@ -668,8 +678,8 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
           </div>
         </div>
         <dl class="datos">
-          <div class="dato"><svg class="ico" aria-hidden="true"><use href="#i-reloj"/></svg><div><dt>Horario</dt><dd data-dato="horario">A confirmar</dd></div></div>
-          <div class="dato"><svg class="ico" aria-hidden="true"><use href="#i-pago"/></svg><div><dt>Medios de pago</dt><dd data-dato="pagos">A confirmar</dd></div></div>
+          <div class="dato"><svg class="ico" aria-hidden="true"><use href="#i-reloj"/></svg><div><dt>Horario</dt><dd data-dato="horarioCompleto">A confirmar</dd></div></div>
+          <div class="dato"><svg class="ico" aria-hidden="true"><use href="#i-pago"/></svg><div><dt>Medios de pago</dt><dd data-dato="pagosCompleto">A confirmar</dd></div></div>
           <div class="dato"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg><div><dt>Depósito</dt><dd><span data-dato="direccionCompleta">A confirmar</span> <a data-mapa href="#contacto">Ver en el mapa</a></dd></div></div>
           <div class="dato"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg><div><dt>Sucursal Buenos Aires</dt><dd data-dato="sucursalBA">A confirmar</dd></div></div>
         </dl>
@@ -717,6 +727,10 @@ function dato(clave) {
   if (clave === "direccionCompleta") return NEGOCIO.direccion && `${NEGOCIO.direccion}, ${NEGOCIO.ciudad}`;
   if (clave === "salidaCarga") return NEGOCIO.direccion && `Desde nuestro depósito, en ${NEGOCIO.direccion} (${NEGOCIO.ciudad}).`;
   if (clave === "sucursal") return "Sí, tenemos sucursal en Buenos Aires." + (NEGOCIO.sucursalBA ? ` Está en ${NEGOCIO.sucursalBA}.` : "");
+  if (clave === "recepcionFrase") return NEGOCIO.recepcion && NEGOCIO.recepcion.charAt(0).toLowerCase() + NEGOCIO.recepcion.slice(1);
+  if (clave === "horarioCompleto") return `${NEGOCIO.horario}. Recepción de carga en el depósito: ${dato("recepcionFrase")}. ${NEGOCIO.sabados}`;
+  if (clave === "recepcionCarga") return `En el depósito, ${dato("recepcionFrase")}. ${NEGOCIO.sabados}`;
+  if (clave === "pagosCompleto") return NEGOCIO.pagos && `${NEGOCIO.pagos}. ${NEGOCIO.factura}`;
   return NEGOCIO[clave];
 }
 
@@ -748,7 +762,7 @@ function enlaceWhatsapp(texto) {
 
 function enlazarWhatsapp() {
   $$("[data-wa]").forEach((a) => {
-    a.href = enlaceWhatsapp(NEGOCIO.mensajeGeneral);
+    a.href = enlaceWhatsapp(a.dataset.wa || NEGOCIO.mensajeGeneral);
     a.target = "_blank";
     a.rel = "noopener";
   });
@@ -763,6 +777,7 @@ function pintarServicios() {
       <h3>${esc(s.titulo)}</h3>
       <p>${esc(s.texto)}</p>
       ${s.etiquetas?.length ? `<div class="servicio-etiquetas">${s.etiquetas.map((e) => `<span>${esc(e)}</span>`).join("")}</div>` : ""}
+      ${s.boton ? `<a class="btn btn-borde btn-chico" data-wa="${esc(s.boton.mensaje)}" href="#contacto">${icono("i-wa")}${esc(s.boton.texto)}</a>` : ""}
     </article>`).join("") + `
     <article class="servicio servicio-otro">
       ${icono("i-chat")}
@@ -804,6 +819,9 @@ function pintarCotizador() {
   $(`input[name="sentido"][value="${TARIFAS.sentidos[0].id}"]`).checked = true;
   $("#pesos").innerHTML = TARIFAS.pesos.map(filaPeso).join("");
   $("#pesos-ayuda").textContent = `¿Algún bulto pesa más de ${TARIFAS.pesoMaximo} kg? Escribinos y lo cotizamos.`;
+  $("#zona-entrega").innerHTML = TARIFAS.zonasMdp.map((z) =>
+    `<option value="${z.id}">${esc(z.nombre)}${z.extra ? ` (costo extra: ${pesos(z.extra)})` : ""}</option>`
+  ).join("");
 
   // Día: no se puede elegir una fecha pasada
   const hoy = new Date();
@@ -829,7 +847,10 @@ function calcular() {
   const bultos = filas.reduce((t, f) => t + f.n, 0);
   if (!s || !bultos) return { s, filas, bultos, lineas: [], total: null };
   const lineas = filas.map((f) => ({ c: `${plural(f.n, "bulto", "bultos")} de ${f.p.frase} × ${pesos(f.p.porBulto)}`, v: f.n * f.p.porBulto }));
-  return { s, filas, bultos, lineas, total: redondear(suma(lineas)) };
+  // Si se entrega en Mar del Plata, puede ser en Batán o Sierra de los Padres (costo extra)
+  const zona = s.hasta === "Mar del Plata" ? TARIFAS.zonasMdp.find((z) => z.id === $("#zona-entrega").value) : null;
+  if (zona?.extra) lineas.push({ c: `Entrega en ${zona.nombre} (costo extra)`, v: zona.extra });
+  return { s, filas, bultos, zona, lineas, total: redondear(suma(lineas)) };
 }
 
 // De dónde sale la carga en cada sentido (depósito o sucursal, con su dirección si la hay)
@@ -844,11 +865,12 @@ function actualizar() {
   $("#tr-1").textContent = r.s ? r.s.salida : "—";
   $("#tr-2").textContent = r.s ? `${r.s.hasta}${r.bultos ? " · " + plural(r.bultos, "bulto", "bultos") : ""}` : "—";
   $$(".peso-fila").forEach((fila, i) => fila.classList.toggle("con-bultos", leerNumero("peso-" + i) > 0));
+  $("#campo-zona").hidden = !r.s || r.s.hasta !== "Mar del Plata";
   if (r.s) {
-    $("#dir-entrega").placeholder = `Calle, número y localidad en ${r.s.hasta}`;
+    $("#dir-entrega").placeholder = `Calle, número y localidad en ${r.zona ? r.zona.nombre : r.s.hasta}`;
     const dir = NEGOCIO[r.s.direccionSalida];
     const mapa = r.s.direccionSalida === "direccion" && dir ? ` (<a href="${enlaceMapa()}" target="_blank" rel="noopener">ver en el mapa</a>)` : "";
-    $("#aviso-salida").innerHTML = `La carga sale desde ${r.s.salidaEnFrase}${dir ? `: <strong>${esc(dir)}</strong>${mapa}` : ` <span class="confirmar">(dirección a confirmar)</span>`}. Te la entregamos a domicilio.`;
+    $("#aviso-salida").innerHTML = `La carga sale desde ${r.s.salidaEnFrase}${dir ? `: <strong>${esc(dir)}</strong>${mapa}` : ` <span class="confirmar">(dirección a confirmar)</span>`}.${r.s.direccionSalida === "direccion" && NEGOCIO.recepcion ? ` Recibimos la carga ${esc(dato("recepcionFrase"))}.` : ""} Te la entregamos a domicilio.`;
   }
   $("#ticket-lineas").innerHTML = r.lineas.map((l) => `<li><span>${esc(l.c)}</span><span>${pesos(l.v)}</span></li>`).join("");
   $("#ticket-lineas").hidden = !r.lineas.length;
@@ -896,7 +918,7 @@ function armarMensaje(r) {
   L.push(`*Viaje:* ${r.s.desde} → ${r.s.hasta}`);
   L.push(`*Sale de:* ${lugarSalida(r.s)}`);
   L.push(`*Bultos:* ${r.filas.map((f) => `${f.n} de ${f.p.frase}`).join(", ")}`);
-  L.push(`*Entrega a domicilio:* ${val("dir-entrega")} (${r.s.hasta})`);
+  L.push(`*Entrega a domicilio:* ${val("dir-entrega")} (${r.zona ? r.zona.nombre : r.s.hasta})`);
   const cuando = [fechaLinda(val("dia")), val("franja").toLowerCase()].filter(Boolean).join(", ");
   if (cuando) L.push(`*Cuándo:* ${cuando}`);
   L.push(`*Nombre:* ${val("nombre")}`);
@@ -977,15 +999,19 @@ const NEGOCIO = {
   tarifasDeEjemplo: true,          // true = muestra "VISTA PREVIA: tarifas de ejemplo"
 
   // Datos del dueño (20/10/2026). Vacío ("") = la página muestra "A confirmar".
-  horario: "Lunes a sábados, de 6 a 15 h",
+  horario: "Trabajamos de lunes a sábados",
+  recepcion: "De lunes a viernes, de 8 a 16:30",   // recepción de carga en el depósito
+  sabados: "Los sábados el depósito está cerrado y no sale mercadería.",
   direccion: "Victoriano Montes 1963",   // el depósito, en Mar del Plata
   ciudad: "Mar del Plata",
   sucursalBA: "",                  // dirección de la sucursal de Buenos Aires (la pasa después)
-  pagos: "Todos los medios de pago",
+  pagos: "Efectivo y transferencia",  // tarjeta: se puede habilitar (en la web y posnet en el depósito)
+  factura: "Hacemos Factura A.",
+  congelados: "Sí, se pueden enviar productos congelados.",
   domicilio: "Sí, entregamos a domicilio.",
   noLlevan: "",                    // qué cosas no llevan
   frecuencia: "",                  // cada cuánto viajan
-  zonasBA: "",                     // a qué partes de Buenos Aires entregan
+  zonas: "En Mar del Plata y en Buenos Aires. En Mar del Plata también entregamos en Batán y Sierra de los Padres, con costo extra.",
 
   mensajeGeneral: "¡Hola Saldar! Te escribo desde la web, quería hacerte una consulta.",
 
@@ -994,22 +1020,28 @@ const NEGOCIO = {
   servicios: [
     { id: "mdp-ba", activo: true, icono: "i-camion", titulo: "Mar del Plata → Buenos Aires",
       texto: "Tu carga sale de nuestro depósito en Mar del Plata, viaja en camión y la entregamos a domicilio en Buenos Aires.",
-      etiquetas: ["En camión", "Según el peso", "A domicilio"] },
+      etiquetas: ["En camión", "Según el peso", "A domicilio", "Congelados"] },
     { id: "ba-mdp", activo: true, icono: "i-camion", titulo: "Buenos Aires → Mar del Plata",
       texto: "Y al revés: traemos tu carga desde Buenos Aires y la entregamos a domicilio en Mar del Plata.",
-      etiquetas: ["En camión", "Según el peso", "A domicilio"] },
+      etiquetas: ["En camión", "Según el peso", "A domicilio", "Congelados"] },
+    { id: "mudanzas", activo: true, icono: "i-casa", titulo: "Mudanzas",
+      texto: "También hacemos mudanzas. Contanos qué hay que mover y adónde, y te pasamos el presupuesto.",
+      boton: { texto: "Pedir presupuesto", mensaje: "¡Hola Saldar! Te escribo desde la web: quiero un presupuesto para una mudanza." } },
   ],
 
   // dato: "horario" = usa el mismo texto de arriba. r = respuesta fija.
   preguntas: [
     { p: "¿Cómo se calcula el precio?", r: "Según el peso de cada bulto. El del cotizador es un precio estimado: cuando nos escribís por WhatsApp te confirmamos el final antes del viaje." },
     { p: "¿Entregan a domicilio?", dato: "domicilio" },
+    { p: "¿A qué zonas entregan?", dato: "zonas" },
     { p: "¿Desde dónde sale la carga?", dato: "salidaCarga" },
     { p: "¿Tienen sucursal en Buenos Aires?", dato: "sucursal" },
-    { p: "¿En qué horario trabajan?", dato: "horario" },
+    { p: "¿En qué horario reciben la carga?", dato: "recepcionCarga" },
+    { p: "¿Llevan productos congelados?", dato: "congelados" },
+    { p: "¿Hacen mudanzas?", r: "Sí. Escribinos por WhatsApp contándonos qué hay que mover y adónde, y te pasamos el presupuesto." },
     { p: "¿Cómo se paga?", dato: "pagos" },
+    { p: "¿Hacen factura?", r: "Sí, hacemos Factura A." },
     { p: "¿Cada cuánto viajan?", dato: "frecuencia" },
-    { p: "¿A qué partes de Buenos Aires entregan?", dato: "zonasBA" },
     { p: "¿Qué cosas no llevan?", dato: "noLlevan" },
   ],
 };
@@ -1028,7 +1060,14 @@ const TARIFAS = {
     { nombre: "De 30 a 50 kg", frase: "30 a 50 kg", porBulto: 20000 },
   ],
 
-  // De dónde sale la carga en cada sentido. "direccionSalida" = qué dato de
+  // Zonas de entrega en Mar del Plata. "extra" = costo extra por envío (0 = sin extra).
+  zonasMdp: [
+    { id: "mdp",    nombre: "Mar del Plata",        extra: 0 },
+    { id: "batan",  nombre: "Batán",                extra: 5000 },
+    { id: "sierra", nombre: "Sierra de los Padres", extra: 5000 },
+  ],
+
+  // De dónde sale la carga en cada sentido. "direccionSalida" = qué dato de "direccionSalida" = qué dato de
   // NEGOCIO tiene la dirección de ese lugar.
   sentidos: [
     { id: "mdp-ba", nombre: "Mar del Plata → Buenos Aires", desde: "Mar del Plata", hasta: "Buenos Aires",

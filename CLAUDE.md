@@ -10,7 +10,7 @@ o volverse público).
 Web de una página para **Saldar** (Instagram [@saldar223](https://www.instagram.com/saldar223/)),
 empresa de **logística en camión entre Mar del Plata y Buenos Aires** (en los
 dos sentidos), con depósito en Victoriano Montes 1963, Mar del Plata, y
-sucursal en Buenos Aires. **En la web se dice "logística", nunca "fletes"**
+sucursal en Buenos Aires. También hace **mudanzas** y lleva **congelados**. **En la web se dice "logística", nunca "fletes"**
 (pedido de Mateo, 20/10/2026). Es una **demo de venta** de Mateo
 Berchot: se le muestra al dueño funcionando y se le ofrece con abono mensual.
 Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
@@ -50,19 +50,21 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
 | Nombre comercial | "Saldar" | El dueño, vía Mateo, 19/10/2026 ✅ |
 | Rubro | Logística en camión Mar del Plata ⇄ Buenos Aires | El dueño, vía Mateo, 20/10/2026 ✅ ("logística", no "fletes") |
 | Depósito | Victoriano Montes 1963, Mar del Plata (link a Google Maps). La carga sale desde acá | El dueño, vía Mateo, 20/10/2026 ✅. Mateo escribió "victoriano monte"; la calle es Dr. Victoriano E. Montes |
-| Servicios | Mar del Plata → Buenos Aires y Buenos Aires → Mar del Plata | El dueño, vía Mateo, 19 y 20/10/2026 ✅. **No tiene mensajería** |
+| Servicios | Mar del Plata → Buenos Aires y Buenos Aires → Mar del Plata, y mudanzas | El dueño, vía Mateo, 19, 20 y 22/10/2026 ✅. **No tiene mensajería** |
+| Congelados | Se permiten | El dueño, vía Mateo, 22/10/2026 ✅ |
+| Factura | Hace Factura A | El dueño, vía Mateo, 22/10/2026 ✅ |
 | Vehículos | Camiones | El dueño, vía Mateo, 20/10/2026 ✅ |
 | Cómo cobra | Según el peso (y la cantidad de bultos) | El dueño, vía Mateo, 20/10/2026 ✅ (los montos y los rangos faltan) |
 | Entrega | A domicilio | El dueño, vía Mateo, 20/10/2026 ✅ |
 | Sucursal Buenos Aires | Existe; dirección "A confirmar" | El dueño, vía Mateo, 20/10/2026 ✅ (los datos los pasa después) |
 | Tarifas | Por bulto según rango de peso: hasta 5 kg $ 6.000, 5–15 kg $ 9.000, 15–30 kg $ 14.000, 30–50 kg $ 20.000 | ⚠️ Inventadas para la demo |
 | WhatsApp | El de Mateo (pruebas) | ⚠️ Falta el del negocio |
-| Horario | Lunes a sábados, de 6 a 15 h | El dueño, vía Mateo, 20/10/2026 ✅ (también en el JSON-LD) |
-| Medios de pago | "Todos los medios de pago" | El dueño, vía Mateo, 20/10/2026 ✅ |
+| Horario | Trabaja de lunes a sábados. Recepción de carga en el depósito: lunes a viernes de 8 a 16:30. Sábados el depósito está cerrado y no sale mercadería | El dueño, vía Mateo, 22/10/2026 ✅. Reemplaza el "de 6 a 15" del 20/10. En el JSON-LD: lunes a viernes 8 a 16:30 |
+| Medios de pago | Efectivo y transferencia | El dueño, vía Mateo, 22/10/2026 ✅ (reemplaza "todos los medios"). Tarjeta: "se puede habilitar" en la web y posnet en el depósito |
+| Zonas de entrega | Mar del Plata y Buenos Aires; en Mar del Plata también Batán y Sierra de los Padres con costo extra | El dueño, vía Mateo, 22/10/2026 ✅ (el monto del extra falta) |
 | Qué no llevan | "A confirmar" | — |
 | Cada cuánto viajan | "A confirmar" | — |
 
-| Zonas de entrega en Buenos Aires | "A confirmar" | — |
 | Instagram | @saldar223 | — |
 | Logo | Logotipo tipográfico hecho para la demo (SVG en el HTML) | ⚠️ Falta el real |
 | Fotos | Ninguna (la web se ve bien sin fotos) | ⚠️ Faltan las reales |
@@ -90,13 +92,17 @@ Todo lo que cambia está **al final del `<script>`** de `index.html`, debajo del
 comentario **"DATOS DE SALDAR — ACÁ SE CAMBIAN LOS PRECIOS"**:
 
 - `NEGOCIO`: nombre, `whatsapp`, `instagram`, `tarifasDeEjemplo`, `horario`,
-  `direccion` + `ciudad` (depósito; arman el link a Google Maps),
-  **`sucursalBA`** (cuando Mateo pase la dirección de la sucursal, va acá y
-  aparece sola en recorrido, contacto, preguntas, cotizador y mensaje),
-  `pagos`, `domicilio`, `noLlevan`, `frecuencia`, `zonasBA`, servicios y
+  `recepcion` y `sabados` (horario de recepción del depósito), `direccion` +
+  `ciudad` (depósito; arman el link a Google Maps), **`sucursalBA`** (cuando
+  Mateo pase la dirección de la sucursal, va acá y aparece sola en recorrido,
+  contacto, preguntas, cotizador y mensaje), `pagos`, `factura`,
+  `congelados`, `domicilio`, `zonas`, `noLlevan`, `frecuencia`, servicios
+  (la tarjeta de Mudanzas tiene su propio botón de WhatsApp con `boton`) y
   preguntas frecuentes.
 - `TARIFAS`: `redondeo`, `maxBultos`, `pesoMaximo`, **`pesos`** (rangos de
-  peso, cada uno con `nombre`, `frase` y `porBulto`) y `sentidos` (de dónde
+  peso, cada uno con `nombre`, `frase` y `porBulto`), **`zonasMdp`** (Mar del
+  Plata sin extra, Batán y Sierra de los Padres con `extra`; solo aparece
+  cuando la entrega es en Mar del Plata) y `sentidos` (de dónde
   sale la carga en cada sentido: depósito de Mar del Plata o sucursal de
   Buenos Aires).
 
@@ -104,8 +110,9 @@ Reglas: los precios van **enteros, sin puntos ni $** (`9000`). El formato
 `$ 9.000` lo hace la función `pesos()`.
 
 Cálculo (`calcular()`): cada bulto se cobra según su rango de peso;
-`total = suma de (bultos de cada rango × porBulto)`, igual en los dos
-sentidos, redondeado a `TARIFAS.redondeo`. Si Saldar cobra por kilo, con
+`total = suma de (bultos de cada rango × porBulto) + extra de la zona`
+(solo Batán / Sierra de los Padres), igual en los dos sentidos, redondeado a
+`TARIFAS.redondeo`. Si Saldar cobra por kilo, con
 mínimo por viaje, o distinto según el sentido, cambiar `calcular()` y
 `TARIFAS`.
 
@@ -139,7 +146,12 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
   "ida y vuelta", porque los camiones van y vienen). Arriba dice "Logística ·
   Mar del Plata – Buenos Aires".
 - Cotizador: sentido (dos tarjetas) + una fila por rango de peso con su
-  contador; las filas con bultos se marcan en azul. En "Tus datos" un aviso
+  contador; las filas con bultos se marcan en azul; si llega a Mar del Plata,
+  se elige la zona (Batán y Sierra con costo extra). Debajo del día dice "La
+  carga sale de lunes a viernes".
+- Servicios: los dos sentidos (con etiquetas En camión, Según el peso, A
+  domicilio, Congelados), Mudanzas (botón "Pedir presupuesto" que abre
+  WhatsApp con un mensaje de mudanza) y "¿Necesitás otra cosa?". En "Tus datos" un aviso
   dice desde dónde sale la carga según el sentido; solo se pide la dirección
   de entrega (entregan a domicilio, la carga sale del depósito).
 - La cinta azul tiene las letras **corriendo hacia la izquierda** (pedido
@@ -170,12 +182,17 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 | Qué | Por qué hay duda |
 |---|---|
 | Datos de la sucursal de Buenos Aires (dirección, horario) | Mateo los pasa después; hoy "A confirmar" |
+| ¿Los envíos son solo de Mar del Plata a Buenos Aires, o también de Buenos Aires a Mar del Plata? | El 20/10 dijo "y viceversa"; el 22/10 escribió "se realizan envíos de mdp a bs as". La web sigue con los dos sentidos |
+| ¿El "de 6 a 15" sigue valiendo para algo (entregas, oficina)? | Se sacó porque choca con la recepción hasta las 16:30 |
+| Costo extra de Batán y Sierra de los Padres: ¿cuánto? ¿por envío o por bulto? | Hoy $ 5.000 de ejemplo por envío |
+| Mudanzas: ¿dentro de Mar del Plata, a Buenos Aires o las dos? ¿cómo se cotizan? | Hoy solo "pedí presupuesto por WhatsApp" |
+| Pago con tarjeta: "se puede habilitar" en la web y posnet en el depósito | Para la web hace falta la cuenta de Mercado Pago (u otra) del negocio: link o botón de pago. Cuando haya posnet, sumar "tarjeta en el depósito" a `pagos` |
 | Precios reales según el peso: ¿por kilo o por rangos? ¿qué rangos y cuánto? ¿hay mínimo? ¿igual en los dos sentidos? | Hoy 4 rangos de ejemplo por bulto, iguales en los dos sentidos |
 | Más de 50 kg: ¿lo llevan? ¿cómo se cobra? | Hoy dice "escribinos y lo cotizamos" |
 | Que en Buenos Aires la carga también sale de la sucursal | Inferido de "sale desde el depósito" + "hay sucursal en Buenos Aires" |
 | ¿Retiran a domicilio además de entregar? | Se entendió que no: la carga sale del depósito; el formulario no pide dirección de retiro |
 | Cada cuánto viajan (días de salida a Buenos Aires y de vuelta) | "A confirmar" en preguntas |
-| A qué partes de Buenos Aires entregan (CABA, GBA…) | "A confirmar" |
+| A qué partes de Buenos Aires entregan (CABA, GBA…) | La web dice "Buenos Aires" |
 | WhatsApp del negocio | Hoy todo va al de Mateo |
 | Qué no llevan | "A confirmar" en preguntas |
 | Franjas horarias del formulario (mañana / mediodía / cualquier horario) | Puestas sin horario exacto; se sacó "tarde" porque cierran a las 15 |
@@ -197,6 +214,14 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 
 ## Registro de cambios
 
+- 22/10/2026 — Mateo pasó: congelados sí; zonas MDP, Buenos Aires y Batán /
+  Sierras con costo extra; pagos en efectivo o transferencia (tarjeta se puede
+  habilitar); Factura A; lunes a sábados, recepción lunes a viernes de 8 a
+  16:30, sábados no sale mercadería ni hay nadie en el depósito; envíos MDP →
+  BA; mudanzas → zona de entrega con extra en el cotizador, aviso de días,
+  tarjeta y pregunta de Mudanzas, etiqueta Congelados, preguntas de
+  congelados, factura, zonas y recepción, horario y pagos nuevos en contacto y
+  JSON-LD (`MovingCompany`, `paymentAccepted`, horario lunes a viernes).
 - 20/10/2026 — Mateo: "logística" en vez de "fletes"; todos los medios de
   pago; hay sucursal en Buenos Aires (datos después); lunes a sábados;
   entregan a domicilio; sale desde el depósito; el precio es según el peso →
