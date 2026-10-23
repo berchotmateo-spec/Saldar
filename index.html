@@ -604,7 +604,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
             <div class="campo">
               <label for="dia">¿Para cuándo? <span class="opcional">(opcional)</span></label>
               <input id="dia" name="dia" type="date" aria-describedby="dia-ayuda">
-              <p class="ayuda" id="dia-ayuda">La carga sale de lunes a viernes.</p>
+              <p class="ayuda" id="dia-ayuda">Recibimos la carga de lunes a viernes y sale el sábado.</p>
             </div>
             <div class="campo">
               <label for="franja">Franja horaria <span class="opcional">(opcional)</span></label>
@@ -702,7 +702,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
           <article class="ruta-card">
             <p class="mono">Sucursal · <span data-dato="barrioBA">Buenos Aires</span>, CABA</p>
             <h3 data-dato="sucursalBA">A confirmar</h3>
-            <p>Recibimos la carga <span data-dato="recepcionFraseBA">A confirmar</span>.</p>
+            <p>Recibimos la carga <span data-dato="recepcionFraseBA">A confirmar</span>. El sábado sale para Mar del Plata.</p>
             <p>Entregamos a domicilio en Buenos Aires.</p>
             <a class="btn btn-borde btn-chico" data-mapa="sucursal" href="#contacto"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Ver en Google Maps</a>
           </article>
@@ -1022,6 +1022,7 @@ function actualizar() {
     const dir = dato(r.s.direccionSalida);
     const completa = dato(r.s.direccionSalida === "direccion" ? "direccionCompleta" : "sucursalCompleta");
     const mapa = completa ? ` (<a href="${enlaceMapa(completa)}" target="_blank" rel="noopener">ver en el mapa</a>)` : "";
+    $("#dia-ayuda").textContent = r.s.cuandoSale;
     $("#aviso-salida").innerHTML = `La carga sale desde ${r.s.salidaEnFrase}${dir ? `: <strong>${esc(dir)}</strong>${mapa}` : ` <span class="confirmar">(dirección a confirmar)</span>`}.${NEGOCIO[r.s.recepcionSalida] ? ` Recibimos la carga ${esc(minuscula(NEGOCIO[r.s.recepcionSalida]))}.` : ""} Te la entregamos a domicilio.`;
   }
   $("#ticket-lineas").innerHTML = r.lineas.map((l) => `<li><span>${esc(l.c)}</span><span>${pesos(l.v)}</span></li>`).join("");
@@ -1191,7 +1192,7 @@ const NEGOCIO = {
   horario: "Trabajamos de lunes a sábados",
   recepcion: "De lunes a viernes, de 8 a 15",     // recepción de carga en el depósito de Mar del Plata (el dueño, 23/10/2026)
   recepcionBA: "De lunes a viernes, de 8 a 17",   // recepción de carga en la sucursal de Buenos Aires (el dueño, 23/10/2026)
-  sabados: "Los sábados el depósito está cerrado y no sale mercadería.",
+  sabados: "Los sábados el depósito de Mar del Plata está cerrado.",
   direccion: "Victoriano Montes 1963",   // el depósito, en Mar del Plata
   ciudad: "Mar del Plata",
   sucursalBA: "John William Cooke 3155",   // dirección de la sucursal (el dueño, vía Mateo, 23/10/2026)
@@ -1202,7 +1203,7 @@ const NEGOCIO = {
   congelados: "Sí, se pueden enviar productos congelados.",
   domicilio: "Sí, entregamos a domicilio.",
   noLlevan: "",                    // qué cosas no llevan
-  frecuencia: "",                  // cada cuánto viajan
+  frecuencia: "De Buenos Aires, la carga que recibimos de lunes a viernes sale el sábado para Mar del Plata.",   // el dueño, 23/10/2026 (falta Mar del Plata → Buenos Aires)
   zonas: "En Mar del Plata y en Buenos Aires. En Mar del Plata también entregamos en Batán y Sierra de los Padres, con costo extra.",
 
   mensajeGeneral: "¡Hola Saldar! Te escribo desde la web, quería hacerte una consulta.",
@@ -1218,7 +1219,7 @@ const NEGOCIO = {
       texto: "Y al revés: tu carga sale de nuestro depósito en Mar del Plata y la entregamos a domicilio en Buenos Aires.",
       etiquetas: ["En camión", "Por peso y bulto", "Opción palet", "A domicilio", "Congelados"] },
     { id: "mudanzas", activo: true, icono: "i-casa", titulo: "Mudanzas",
-      texto: "Hacemos mudanzas dentro de Mar del Plata y también a Buenos Aires. Contanos qué hay que mover y adónde, y te pasamos el presupuesto.",
+      texto: "Hacemos mudanzas dentro de Mar del Plata y entre Buenos Aires y Mar del Plata, de ida y de vuelta. Contanos qué hay que mover y adónde, y te pasamos el presupuesto.",
       boton: { texto: "Pedir presupuesto", mensaje: "¡Hola Saldar! Te escribo desde la web: quiero un presupuesto para una mudanza." } },
   ],
 
@@ -1233,7 +1234,7 @@ const NEGOCIO = {
     { p: "¿Tienen sucursal en Buenos Aires?", dato: "sucursal" },
     { p: "¿En qué horario reciben la carga?", dato: "recepcionCarga" },
     { p: "¿Llevan productos congelados?", dato: "congelados" },
-    { p: "¿Hacen mudanzas?", r: "Sí, dentro de Mar del Plata y también a Buenos Aires. Escribinos por WhatsApp contándonos qué hay que mover y adónde, y te pasamos el presupuesto." },
+    { p: "¿Hacen mudanzas?", r: "Sí, dentro de Mar del Plata y entre Buenos Aires y Mar del Plata, de ida y de vuelta. Escribinos por WhatsApp contándonos qué hay que mover y adónde, y te pasamos el presupuesto." },
     { p: "¿Cómo se paga?", dato: "pagos" },
     { p: "¿Hacen factura?", r: "Sí, hacemos Factura A." },
     { p: "¿Cada cuánto viajan?", dato: "frecuencia" },
@@ -1263,17 +1264,19 @@ const TARIFAS = {
 
   // De dónde sale la carga en cada sentido. "direccionSalida" y
   // "recepcionSalida" = qué datos de NEGOCIO tienen la dirección y el horario
-  // de recepción de ese lugar. El primero es el que viene
+  // de recepción de ese lugar; "cuandoSale" va debajo del día. El primero es el que viene
   // elegido: Buenos Aires → Mar del Plata, que es el que más hacen.
   sentidos: [
     { id: "ba-mdp", nombre: "Buenos Aires → Mar del Plata", desde: "Buenos Aires", hasta: "Mar del Plata",
       detalle: "Sale de nuestra sucursal de Buenos Aires", salida: "Sucursal de Buenos Aires",
       salidaEnFrase: "nuestra sucursal de Buenos Aires", direccionSalida: "sucursalConBarrio",
-      recepcionSalida: "recepcionBA", recargo: 0 },
+      recepcionSalida: "recepcionBA", recargo: 0,
+      cuandoSale: "Recibimos la carga de lunes a viernes y sale el sábado." },   // el dueño, 23/10/2026
     { id: "mdp-ba", nombre: "Mar del Plata → Buenos Aires", desde: "Mar del Plata", hasta: "Buenos Aires",
       detalle: "Sale de nuestro depósito en Mar del Plata", salida: "Depósito de Mar del Plata",
       salidaEnFrase: "nuestro depósito de Mar del Plata", direccionSalida: "direccion",
-      recepcionSalida: "recepcion", recargo: 20 },   // % que se suma sobre todo: bultos y palets (el dueño, 23/10/2026)
+      recepcionSalida: "recepcion", recargo: 20,
+      cuandoSale: "Recibimos la carga de lunes a viernes." },   // % que se suma sobre todo: bultos y palets (el dueño, 23/10/2026)
   ],
 };
 

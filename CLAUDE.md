@@ -53,7 +53,7 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
 | Nombre comercial | "Saldar" | El dueño, vía Mateo, 19/10/2026 ✅ |
 | Rubro | Logística en camión Buenos Aires ⇄ Mar del Plata, en los dos sentidos | El dueño, vía Mateo, 20 y 23/10/2026 ✅ ("logística", no "fletes"; "ambos" sentidos) |
 | Depósito | Victoriano Montes 1963, Mar del Plata (link a Google Maps). La carga sale desde acá | El dueño, vía Mateo, 20/10/2026 ✅. Mateo escribió "victoriano monte"; la calle es Dr. Victoriano E. Montes |
-| Servicios | Buenos Aires → Mar del Plata y Mar del Plata → Buenos Aires, y mudanzas (dentro de Mar del Plata y también a Buenos Aires) | El dueño, vía Mateo, 19, 20, 22 y 23/10/2026 ✅. **No tiene mensajería** |
+| Servicios | Buenos Aires → Mar del Plata y Mar del Plata → Buenos Aires, y mudanzas (dentro de Mar del Plata y entre Buenos Aires y Mar del Plata, de ida y de vuelta) | El dueño, vía Mateo, 19, 20, 22 y 23/10/2026 ✅. **No tiene mensajería** |
 | Congelados | Se permiten | El dueño, vía Mateo, 22/10/2026 ✅ |
 | Factura | Hace Factura A | El dueño, vía Mateo, 22/10/2026 ✅ |
 | Vehículos | Camiones | El dueño, vía Mateo, 20/10/2026 ✅ |
@@ -64,11 +64,11 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
 | Tarifas | 1–10 kg $ 9.181,97 (real). Cada 10 kg más: + $ 1.800 | ⚠️ El mínimo es real; el "+ $ 1.800" es de ejemplo (`kilos.ejemplo: true`, se ve "(ejemplo)") |
 | Palet | $ 86.260,40 el palet completo | El dueño, vía Mateo, 23/10/2026 ✅ |
 | WhatsApp | El de Mateo (pruebas) | ⚠️ Falta el del negocio |
-| Horario | Trabaja de lunes a sábados. Recepción de carga: **sucursal de Buenos Aires de 8 a 17**, **depósito de Mar del Plata de 8 a 15**, de lunes a viernes. Sábados el depósito está cerrado y no sale mercadería | El dueño, vía Mateo, 22 y 23/10/2026 ✅. El 23/10 reemplaza el "8 a 16:30" y aclara el "6 a 15": el galpón de Mar del Plata abre a las 5, pero la mercadería se recibe desde las 8 aprox. (en la web va solo la recepción, para que nadie llegue a las 5). Lo de "lunes a viernes" en Buenos Aires se infirió del 22/10. En el JSON-LD (depósito): lunes a viernes 8 a 15 |
+| Horario | Trabaja de lunes a sábados. Recepción de carga: **sucursal de Buenos Aires de 8 a 17**, **depósito de Mar del Plata de 8 a 15**, de lunes a viernes. **De Buenos Aires la carga sale el sábado.** Sábados el depósito de Mar del Plata está cerrado | El dueño, vía Mateo, 22 y 23/10/2026 ✅ ("de lunes a viernes se recibe mercadería, porque ya sale el sábado"). El 23/10 reemplaza el "8 a 16:30" y aclara el "6 a 15": el galpón de Mar del Plata abre a las 5, pero la mercadería se recibe desde las 8 aprox. (en la web va solo la recepción, para que nadie llegue a las 5). El 22/10 había dicho "los sábados no sale la mercadería" (se entendió del depósito de Mar del Plata); la web ya no lo dice. En el JSON-LD (depósito): lunes a viernes 8 a 15 |
 | Medios de pago | Efectivo y transferencia | El dueño, vía Mateo, 22/10/2026 ✅ (reemplaza "todos los medios"). Tarjeta: el dueño prefiere esperar (23/10/2026); en la web no se menciona |
 | Zonas de entrega | Mar del Plata y Buenos Aires; en Mar del Plata también Batán y Sierra de los Padres con costo extra | El dueño, vía Mateo, 22/10/2026 ✅ (el monto del extra falta) |
 | Qué no llevan | "A confirmar" | — |
-| Cada cuánto viajan | "A confirmar" | — |
+| Cada cuánto viajan | De Buenos Aires sale el sábado (lo recibido de lunes a viernes) | El dueño, vía Mateo, 23/10/2026 ✅ (falta Mar del Plata → Buenos Aires) |
 
 | Instagram | @saldar223 | — |
 | Logo | Logotipo tipográfico hecho para la demo (SVG en el HTML) | ⚠️ Falta el real |
@@ -179,8 +179,10 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
   palet"): el precio es **por peso y por bulto**, el palet es una opción
   (pedido del dueño, 23/10/2026); se puede cotizar solo
   bultos, solo palets o las dos cosas; las filas con bultos se marcan en azul; si llega a Mar del Plata,
-  se elige la zona (Batán y Sierra con costo extra). Debajo del día dice "La
-  carga sale de lunes a viernes".
+  se elige la zona (Batán y Sierra con costo extra). Debajo del día dice
+  `cuandoSale` del sentido: "Recibimos la carga de lunes a viernes y sale
+  el sábado" (Buenos Aires → Mar del Plata) o "Recibimos la carga de lunes
+  a viernes" (Mar del Plata → Buenos Aires).
 - Servicios: los dos sentidos (con etiquetas En camión, Según el peso, A
   domicilio, Congelados), Mudanzas (botón "Pedir presupuesto" que abre
   WhatsApp con un mensaje de mudanza) y "¿Necesitás otra cosa?". En "Tus datos" un aviso
@@ -213,16 +215,15 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 
 | Qué | Por qué hay duda |
 |---|---|
-| ¿La sucursal de Buenos Aires también recibe de lunes a viernes (y los sábados no)? | El dueño pasó solo la hora (8 a 17); los días se tomaron del depósito |
+| ¿De Mar del Plata a Buenos Aires qué días sale la carga? ¿También el sábado? | El 22/10 dijo "los sábados no sale la mercadería" y el 23/10 "ya sale el sábado" (pregunta sobre Buenos Aires). La web dice el sábado solo para Buenos Aires → Mar del Plata |
 | Costo extra de Batán y Sierra de los Padres: ¿cuánto? ¿por envío o por bulto? | Hoy $ 5.000 de ejemplo por envío |
-| Mudanzas: ¿también de Buenos Aires a Mar del Plata? ¿cómo se cotizan? | El dueño dijo "ambas" (dentro de Mar del Plata y a Buenos Aires); la web dice eso y "pedí presupuesto por WhatsApp" |
+| Mudanzas: ¿cómo se cotizan? | Confirmado: dentro de Mar del Plata y entre Buenos Aires y Mar del Plata, de ida y de vuelta. Hoy "pedí presupuesto por WhatsApp" |
 | Pago con tarjeta (más adelante) | El dueño prefiere esperar (23/10/2026). Cuando quiera: cuenta de Mercado Pago (u otra) para el link o botón de pago en la web; con posnet, sumar "tarjeta en el depósito" a `pagos` |
 | Cuánto suma cada 10 kg más (o la tabla de precios de 10 a 400 kg) | Solo está el mínimo de 1 a 10 kg ($ 9.181,97); hoy + $ 1.800 de ejemplo por cada 10 kg |
 | Valor declarado: ¿cambia el precio (seguro, un %)? ¿Es obligatorio? | Hoy solo va en el mensaje y es obligatorio para mandar el pedido |
 | Más de 400 kg en un bulto | Hoy "escribinos"; el campo no deja pasar de 400 |
 | Que en Buenos Aires la carga también sale de la sucursal | Inferido de "sale desde el depósito" + "hay sucursal en Buenos Aires" |
 | ¿Retiran a domicilio además de entregar? | Se entendió que no: la carga sale del depósito; el formulario no pide dirección de retiro |
-| Cada cuánto viajan (días de salida a Buenos Aires y de vuelta) | "A confirmar" en preguntas |
 | A qué partes de Buenos Aires entregan (CABA, GBA…) | La web dice "Buenos Aires" |
 | WhatsApp del negocio | Hoy todo va al de Mateo |
 | Qué no llevan | "A confirmar" en preguntas |
@@ -245,6 +246,13 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 
 ## Registro de cambios
 
+- 23/10/2026 — Mateo: "de lunes a viernes se recibe mercadería, porque ya
+  sale el sábado"; "las mudanzas son para ambas también" → tarjeta de la
+  sucursal "El sábado sale para Mar del Plata"; debajo del día, texto según
+  el sentido (`cuandoSale`); "¿Cada cuánto viajan?" con la salida del
+  sábado desde Buenos Aires; `sabados` = "el depósito de Mar del Plata está
+  cerrado" (se sacó "no sale mercadería", que chocaba); mudanzas "dentro de
+  Mar del Plata y entre Buenos Aires y Mar del Plata, de ida y de vuelta".
 - 23/10/2026 — Mateo: "es la dirección de la sucursal de Buenos Aires, buscá
   dónde está" → buscado: John W. Cooke 3155 queda en Villa Soldati, CABA
   (C1437). `barrioBA: "Villa Soldati"`, `ciudadBA: "Ciudad de Buenos
