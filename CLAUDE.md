@@ -8,8 +8,9 @@ o volverse público).
 ## Qué es
 
 Web de una página para **Saldar** (Instagram [@saldar223](https://www.instagram.com/saldar223/)),
-empresa de **logística en camión entre Mar del Plata y Buenos Aires** (en los
-dos sentidos), con depósito en Victoriano Montes 1963, Mar del Plata, y
+empresa de **logística en camión entre Buenos Aires y Mar del Plata** (en los
+dos sentidos; **predomina Buenos Aires → Mar del Plata**, por eso va primero en
+toda la web), con depósito en Victoriano Montes 1963, Mar del Plata, y
 sucursal en Buenos Aires. También hace **mudanzas** y lleva **congelados**. **En la web se dice "logística", nunca "fletes"**
 (pedido de Mateo, 20/10/2026). Es una **demo de venta** de Mateo
 Berchot: se le muestra al dueño funcionando y se le ofrece con abono mensual.
@@ -30,8 +31,10 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
 
 - Demo armada **sin la ficha del negocio**: Instagram no se pudo leer desde la
   sesión y Saldar no aparece en Google ni en directorios de logística de MDP.
-- **Todas las tarifas son de ejemplo** → barra "VISTA PREVIA: tarifas de ejemplo"
-  arriba y etiqueta "Tarifas de ejemplo" en el presupuesto.
+- **Casi todas las tarifas son de ejemplo** (salvo el mínimo de 1 a 10 kg y
+  el recargo del 20 %) → barra "VISTA PREVIA: Precios de ejemplo, salvo…"
+  arriba, etiqueta "Vista previa" en el presupuesto y "· ejemplo" en cada
+  rango de peso inventado.
 - **Todos los pedidos van al WhatsApp de Mateo** (5492235337853) para pruebas.
 - Tiene `<meta name="robots" content="noindex">` para que Google no indexe la
   demo (precios de ejemplo y WhatsApp de Mateo). **Sacarlo al publicar.**
@@ -54,10 +57,10 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
 | Congelados | Se permiten | El dueño, vía Mateo, 22/10/2026 ✅ |
 | Factura | Hace Factura A | El dueño, vía Mateo, 22/10/2026 ✅ |
 | Vehículos | Camiones | El dueño, vía Mateo, 20/10/2026 ✅ |
-| Cómo cobra | Según el peso (y la cantidad de bultos). **De Mar del Plata a Buenos Aires, recargo del 20 %** | El dueño, vía Mateo, 20 y 23/10/2026 ✅ (los montos y los rangos faltan; el 20 % es real) |
+| Cómo cobra | Por bulto según el peso, en rangos de a 10 kg. **De 1 a 10 kg se cobra el mínimo: $ 9.181,97.** De Mar del Plata a Buenos Aires, recargo del 20 % | El dueño, vía Mateo, 20 y 23/10/2026 ✅ (faltan los precios de 10 a 20 kg en adelante) |
 | Entrega | A domicilio | El dueño, vía Mateo, 20/10/2026 ✅ |
 | Sucursal Buenos Aires | Existe; dirección "A confirmar" | El dueño, vía Mateo, 20/10/2026 ✅ (los datos los pasa después) |
-| Tarifas | Por bulto según rango de peso: hasta 5 kg $ 6.000, 5–15 kg $ 9.000, 15–30 kg $ 14.000, 30–50 kg $ 20.000 | ⚠️ Inventadas para la demo |
+| Tarifas | 1–10 kg $ 9.181,97 (real). 10–20 kg $ 15.000, 20–30 $ 21.000, 30–40 $ 27.000, 40–50 $ 33.000 | ⚠️ Solo el mínimo es real; los otros son de ejemplo (`ejemplo: true`, se ven con "· ejemplo") |
 | WhatsApp | El de Mateo (pruebas) | ⚠️ Falta el del negocio |
 | Horario | Trabaja de lunes a sábados. Recepción de carga en el depósito: lunes a viernes de 8 a 16:30. Sábados el depósito está cerrado y no sale mercadería | El dueño, vía Mateo, 22/10/2026 ✅. Reemplaza el "de 6 a 15" del 20/10. En el JSON-LD: lunes a viernes 8 a 16:30 |
 | Medios de pago | Efectivo y transferencia | El dueño, vía Mateo, 22/10/2026 ✅ (reemplaza "todos los medios"). Tarjeta: "se puede habilitar" en la web y posnet en el depósito |
@@ -99,16 +102,18 @@ comentario **"DATOS DE SALDAR — ACÁ SE CAMBIAN LOS PRECIOS"**:
   `congelados`, `domicilio`, `zonas`, `noLlevan`, `frecuencia`, servicios
   (la tarjeta de Mudanzas tiene su propio botón de WhatsApp con `boton`) y
   preguntas frecuentes.
-- `TARIFAS`: `redondeo`, `maxBultos`, `pesoMaximo`, **`pesos`** (rangos de
-  peso, cada uno con `nombre`, `frase` y `porBulto`), **`zonasMdp`** (Mar del
+- `TARIFAS`: `redondeo` (0 = no redondea y muestra centavos), `maxBultos`,
+  `pesoMaximo`, **`pesos`** (rangos de a 10 kg, cada uno con `nombre`,
+  `frase`, `porBulto`, y opcionales `nota: "mínimo"` y `ejemplo: true`), **`zonasMdp`** (Mar del
   Plata sin extra, Batán y Sierra de los Padres con `extra`; solo aparece
   cuando la entrega es en Mar del Plata) y `sentidos` (de dónde
   sale la carga en cada sentido: depósito de Mar del Plata o sucursal de
   Buenos Aires; `recargo` en %: 20 para Mar del Plata → Buenos Aires, 0 para
   la vuelta).
 
-Reglas: los precios van **enteros, sin puntos ni $** (`9000`). El formato
-`$ 9.000` lo hace la función `pesos()`.
+Reglas: los precios van **sin puntos de miles ni $; los centavos con punto**
+(`9181.97`, `15000`). El formato (`$ 9.181,97`, `$ 15.000`) lo hace la
+función `pesos()`: muestra centavos solo si el monto los tiene.
 
 Cálculo (`calcular()`): cada bulto se cobra según su rango de peso;
 `total = suma de (bultos de cada rango × porBulto) + recargo del sentido
@@ -143,9 +148,13 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 - Idea: **etiqueta / hoja de ruta**. Hoja de ruta MDP → BA con código de
   barras en la portada, cinta de embalaje azul con el nombre, el presupuesto
   como ticket, numeración de secciones en tipografía mono.
-- Titular: "Mar del Plata – Buenos Aires, ida y vuelta." (lo resaltado es
+- **Orden: Buenos Aires → Mar del Plata primero** (el que más hacen; pedido de
+  Mateo, 23/10/2026): título, portada, hoja de ruta (BA → MDP), cinta,
+  servicios, cotizador (viene elegido), recorrido (primero la sucursal de
+  Buenos Aires), ficha de Google y pie.
+- Titular: "Buenos Aires – Mar del Plata, ida y vuelta." (lo resaltado es
   "ida y vuelta", porque los camiones van y vienen). Arriba dice "Logística ·
-  Mar del Plata – Buenos Aires".
+  Buenos Aires – Mar del Plata".
 - Cotizador: sentido (dos tarjetas) + una fila por rango de peso con su
   contador; las filas con bultos se marcan en azul; si llega a Mar del Plata,
   se elige la zona (Batán y Sierra con costo extra). Debajo del día dice "La
@@ -187,8 +196,8 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 | Costo extra de Batán y Sierra de los Padres: ¿cuánto? ¿por envío o por bulto? | Hoy $ 5.000 de ejemplo por envío |
 | Mudanzas: ¿dentro de Mar del Plata, a Buenos Aires o las dos? ¿cómo se cotizan? | Hoy solo "pedí presupuesto por WhatsApp" |
 | Pago con tarjeta: "se puede habilitar" en la web y posnet en el depósito | Para la web hace falta la cuenta de Mercado Pago (u otra) del negocio: link o botón de pago. Cuando haya posnet, sumar "tarjeta en el depósito" a `pagos` |
-| Precios reales según el peso: ¿por kilo o por rangos? ¿qué rangos y cuánto? ¿hay mínimo? ¿igual en los dos sentidos? | Hoy 4 rangos de ejemplo por bulto, iguales en los dos sentidos |
-| Más de 50 kg: ¿lo llevan? ¿cómo se cobra? | Hoy dice "escribinos y lo cotizamos" |
+| Precios de 10 a 20 kg en adelante (rangos de a 10 kg) | Solo está el mínimo de 1 a 10 kg ($ 9.181,97); el resto es de ejemplo |
+| ¿Hasta cuántos kilos por bulto? | El cotizador llega a 50 kg; más, "escribinos y lo cotizamos" |
 | Que en Buenos Aires la carga también sale de la sucursal | Inferido de "sale desde el depósito" + "hay sucursal en Buenos Aires" |
 | ¿Retiran a domicilio además de entregar? | Se entendió que no: la carga sale del depósito; el formulario no pide dirección de retiro |
 | Cada cuánto viajan (días de salida a Buenos Aires y de vuelta) | "A confirmar" en preguntas |
@@ -214,6 +223,11 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 
 ## Registro de cambios
 
+- 23/10/2026 — Mateo: de 1 a 10 kg se cobra el mínimo ($ 9.181,97), después
+  de a 10 kg; predominan los viajes de Buenos Aires a Mar del Plata → rangos
+  nuevos de a 10 kg (el primero real, el resto marcado "ejemplo"), precios
+  con centavos sin redondear, y Buenos Aires → Mar del Plata primero en toda
+  la web (viene elegido en el cotizador).
 - 23/10/2026 — Mateo: "de Mar del Plata a Buenos Aires tiene un recargo del
   20 %" → `recargo: 20` en ese sentido; el cotizador suma la línea del
   recargo, la tarjeta del sentido dice "Recargo del 20 %" (la otra "Sin

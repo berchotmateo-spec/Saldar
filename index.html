@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Saldar · Logística Mar del Plata – Buenos Aires</title>
-<meta name="description" content="Saldar: logística entre Mar del Plata y Buenos Aires. Cargas en camión con entrega a domicilio, precio según el peso, congelados y mudanzas. Cotizá y pedilo por WhatsApp.">
+<title>Saldar · Logística Buenos Aires – Mar del Plata</title>
+<meta name="description" content="Saldar: logística entre Buenos Aires y Mar del Plata. Cargas en camión con entrega a domicilio, precio según el peso, congelados y mudanzas. Cotizá y pedilo por WhatsApp.">
 <!-- DEMO: mientras sea vista previa no queremos que Google la indexe. Sacar esta línea al publicar de verdad (ver CLAUDE.md). -->
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#1847D6">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_AR">
 <meta property="og:site_name" content="Saldar">
-<meta property="og:title" content="Saldar · Logística Mar del Plata – Buenos Aires">
-<meta property="og:description" content="Logística en camión entre Mar del Plata y Buenos Aires, con entrega a domicilio. Cotizá según el peso y pedilo por WhatsApp.">
+<meta property="og:title" content="Saldar · Logística Buenos Aires – Mar del Plata">
+<meta property="og:description" content="Logística en camión entre Buenos Aires y Mar del Plata, con entrega a domicilio. Cotizá según el peso y pedilo por WhatsApp.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%231847D6'/%3E%3Cpath d='M27 9H16a6 6 0 0 0 0 12h8a6 6 0 0 1 0 12H13' fill='none' stroke='%23fff' stroke-width='4' stroke-linecap='round'/%3E%3Ccircle cx='10.5' cy='33' r='3.6' fill='%230C1018' stroke='%23fff' stroke-width='1.5'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,7 +23,7 @@
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "MovingCompany"],
   "name": "Saldar",
-  "description": "Logística entre Mar del Plata y Buenos Aires: cargas en camión con entrega a domicilio, precio según el peso, congelados y mudanzas. Factura A.",
+  "description": "Logística entre Buenos Aires y Mar del Plata: cargas en camión con entrega a domicilio, precio según el peso, congelados y mudanzas. Factura A.",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Victoriano Montes 1963",
@@ -40,8 +40,8 @@
   }],
   "paymentAccepted": "Efectivo, transferencia",
   "areaServed": [
-    { "@type": "City", "name": "Mar del Plata" },
     { "@type": "City", "name": "Buenos Aires" },
+    { "@type": "City", "name": "Mar del Plata" },
     { "@type": "Place", "name": "Batán" },
     { "@type": "Place", "name": "Sierra de los Padres" }
   ],
@@ -303,7 +303,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
 .paso .ico{position:absolute;right:1.4rem;top:1.25rem;width:30px;height:30px;color:#fff}
 .pasos-cta{margin-top:2rem}
 
-/* Recorrido Mar del Plata – Buenos Aires */
+/* Recorrido Buenos Aires – Mar del Plata */
 .ruta-in{display:grid;gap:clamp(1.5rem,4vw,2.5rem);align-items:start}
 @media (min-width:900px){.ruta-in{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
 .mapa{background:var(--superficie);border:1px solid var(--linea);border-radius:var(--radio);padding:.75rem;margin:0}
@@ -396,7 +396,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
 
 <!-- VISTA PREVIA: se saca sola poniendo NEGOCIO.tarifasDeEjemplo = false (o borrando este bloque) -->
 <div class="vista-previa" id="vista-previa" role="note">
-  <strong>VISTA PREVIA</strong>Tarifas de ejemplo: los precios todavía no son los de Saldar.
+  <strong>VISTA PREVIA</strong>Precios de ejemplo, salvo el mínimo de 1 a 10 kg y el recargo del 20 %.
 </div>
 
 <header class="cabecera">
@@ -427,9 +427,9 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
   <section class="portada" aria-labelledby="titulo">
     <div class="contenedor portada-in">
       <div>
-        <p class="portada-eyebrow mono">Logística · Mar del Plata – Buenos Aires</p>
-        <h1 id="titulo">Mar del Plata – Buenos Aires, <span class="cinta-texto-h1">ida y vuelta.</span></h1>
-        <p class="portada-bajada">Llevamos tu carga en camión de Mar del Plata a Buenos Aires y de Buenos Aires a Mar del Plata, con entrega a domicilio. Cotizá según el peso y pedilo por WhatsApp. También hacemos mudanzas.</p>
+        <p class="portada-eyebrow mono">Logística · Buenos Aires – Mar del Plata</p>
+        <h1 id="titulo">Buenos Aires – Mar del Plata, <span class="cinta-texto-h1">ida y vuelta.</span></h1>
+        <p class="portada-bajada">Traemos tu carga en camión de Buenos Aires a Mar del Plata y la llevamos de Mar del Plata a Buenos Aires, con entrega a domicilio. Cotizá según el peso y pedilo por WhatsApp. También hacemos mudanzas.</p>
         <div class="portada-botones">
           <a class="btn btn-primario" href="#cotizador"><svg class="ico" aria-hidden="true"><use href="#i-cotizar"/></svg>Cotizá tu envío</a>
           <a class="btn btn-borde" data-wa href="#contacto"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Escribinos por WhatsApp</a>
@@ -443,12 +443,12 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
           <path class="recorrido-linea" d="M20 92 C 70 92, 64 22, 128 22 S 190 92, 240 92"/>
           <circle class="punto-origen" cx="20" cy="92" r="8"/>
           <circle class="punto-destino" cx="240" cy="92" r="10"/>
-          <text class="recorrido-et" x="20" y="120" text-anchor="middle">MDP</text>
-          <text class="recorrido-et" x="240" y="120" text-anchor="middle">BA</text>
+          <text class="recorrido-et" x="20" y="120" text-anchor="middle">BA</text>
+          <text class="recorrido-et" x="240" y="120" text-anchor="middle">MDP</text>
         </svg>
         <dl class="guia-datos">
-          <div><dt>De</dt><dd>Mar del Plata</dd></div>
-          <div><dt>Para</dt><dd>Buenos Aires, y de vuelta</dd></div>
+          <div><dt>De</dt><dd>Buenos Aires</dd></div>
+          <div><dt>Para</dt><dd>Mar del Plata, y de vuelta</dd></div>
           <div><dt>Entrega</dt><dd>A domicilio</dd></div>
           <div><dt>Precio</dt><dd>Según el peso</dd></div>
         </dl>
@@ -459,7 +459,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
   </section>
 
   <div class="cinta" aria-hidden="true">
-    <div class="cinta-banda" id="cinta-banda"><span>Saldar · Logística · Mar del Plata ↔ Buenos Aires · Entrega a domicilio · Mudanzas · Saldar · Logística · Mar del Plata ↔ Buenos Aires · Entrega a domicilio · Mudanzas · Saldar · Logística · Mar del Plata ↔ Buenos Aires · Entrega a domicilio · Mudanzas · Saldar · Logística · Mar del Plata ↔ Buenos Aires · Entrega a domicilio ·&nbsp;</span><span>Saldar · Logística · Mar del Plata ↔ Buenos Aires · Entrega a domicilio · Mudanzas · Saldar · Logística · Mar del Plata ↔ Buenos Aires · Entrega a domicilio · Mudanzas · Saldar · Logística · Mar del Plata ↔ Buenos Aires · Entrega a domicilio · Mudanzas · Saldar · Logística · Mar del Plata ↔ Buenos Aires · Entrega a domicilio ·&nbsp;</span></div>
+    <div class="cinta-banda" id="cinta-banda"><span>Saldar · Logística · Buenos Aires ↔ Mar del Plata · Entrega a domicilio · Mudanzas · Saldar · Logística · Buenos Aires ↔ Mar del Plata · Entrega a domicilio · Mudanzas · Saldar · Logística · Buenos Aires ↔ Mar del Plata · Entrega a domicilio · Mudanzas · Saldar · Logística · Buenos Aires ↔ Mar del Plata · Entrega a domicilio ·&nbsp;</span><span>Saldar · Logística · Buenos Aires ↔ Mar del Plata · Entrega a domicilio · Mudanzas · Saldar · Logística · Buenos Aires ↔ Mar del Plata · Entrega a domicilio · Mudanzas · Saldar · Logística · Buenos Aires ↔ Mar del Plata · Entrega a domicilio · Mudanzas · Saldar · Logística · Buenos Aires ↔ Mar del Plata · Entrega a domicilio ·&nbsp;</span></div>
   </div>
 
   <!-- SERVICIOS -->
@@ -506,7 +506,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
         </div>
 
         <aside class="ticket" aria-labelledby="ticket-titulo">
-          <div class="ticket-cabeza"><span id="ticket-titulo">Presupuesto estimado</span><span class="ticket-ejemplo" id="ticket-ejemplo">Tarifas de ejemplo</span></div>
+          <div class="ticket-cabeza"><span id="ticket-titulo">Presupuesto estimado</span><span class="ticket-ejemplo" id="ticket-ejemplo">Vista previa</span></div>
           <div class="ticket-cuerpo">
             <div class="ticket-ruta">
               <div class="tr-punto"><span class="tr-et">Sale de</span><span class="tr-valor" id="tr-1">—</span></div>
@@ -601,8 +601,8 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
     <div class="contenedor">
       <header class="seccion-cabeza">
         <p class="seccion-num mono">04 · Recorrido</p>
-        <h2 id="t-recorrido">Mar del Plata – Buenos Aires</h2>
-        <p>Llevamos de Mar del Plata a Buenos Aires y traemos de Buenos Aires a Mar del Plata, en camión y con entrega a domicilio.</p>
+        <h2 id="t-recorrido">Buenos Aires – Mar del Plata</h2>
+        <p>Traemos de Buenos Aires a Mar del Plata y llevamos de Mar del Plata a Buenos Aires, en camión y con entrega a domicilio.</p>
       </header>
       <div class="ruta-in">
         <figure class="mapa">
@@ -633,17 +633,17 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
         </figure>
         <div class="ruta-cards">
           <article class="ruta-card">
+            <p class="mono">Sucursal · Buenos Aires</p>
+            <h3>Buenos Aires</h3>
+            <p>Dirección: <span data-dato="sucursalBA">A confirmar</span></p>
+            <p>Entregamos a domicilio en Buenos Aires.</p>
+          </article>
+          <article class="ruta-card">
             <p class="mono">Depósito · Mar del Plata</p>
             <h3 data-dato="direccion">A confirmar</h3>
             <p>Recibimos la carga <span data-dato="recepcionFrase">A confirmar</span>. Los sábados el depósito está cerrado.</p>
             <p>Entregamos en Mar del Plata, y en Batán y Sierra de los Padres con costo extra.</p>
             <a class="btn btn-borde btn-chico" data-mapa href="#contacto"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Ver en Google Maps</a>
-          </article>
-          <article class="ruta-card">
-            <p class="mono">Sucursal · Buenos Aires</p>
-            <h3>Buenos Aires</h3>
-            <p>Dirección: <span data-dato="sucursalBA">A confirmar</span></p>
-            <p>Entregamos a domicilio en Buenos Aires.</p>
           </article>
         </div>
       </div>
@@ -695,7 +695,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
       <text class="logo-nombre" x="50" y="25" font-size="27" textLength="84" lengthAdjust="spacingAndGlyphs">SALDAR</text>
       <text class="logo-bajada" x="50.5" y="36.5" font-size="8.2" textLength="83" lengthAdjust="spacingAndGlyphs">LOGÍSTICA · MDP</text>
     </svg>
-    <p>© <span id="anio">2026</span> Saldar · Logística Mar del Plata – Buenos Aires</p>
+    <p>© <span id="anio">2026</span> Saldar · Logística Buenos Aires – Mar del Plata</p>
     <p class="pie-credito">Desarrollado por ConnectHUB</p>
   </div>
 </footer>
@@ -713,8 +713,11 @@ const $ = (s, el = document) => el.querySelector(s);
 const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 const esc = (t) => String(t ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const formatoPesos = new Intl.NumberFormat("es-AR", { style: "currency", currency: "ARS", maximumFractionDigits: 0 });
-const pesos = (n) => formatoPesos.format(n);
-const redondear = (n) => { const r = TARIFAS.redondeo || 1; return Math.round(n / r) * r; };
+const formatoCentavos = new Intl.NumberFormat("es-AR", { style: "currency", currency: "ARS", minimumFractionDigits: 2, maximumFractionDigits: 2 });
+// Muestra centavos solo si el monto los tiene: $ 9.181,97 / $ 15.000
+const pesos = (n) => (Math.round(n * 100) % 100 ? formatoCentavos : formatoPesos).format(n);
+// redondeo 0 = no redondea (deja los centavos)
+const redondear = (n) => { const r = TARIFAS.redondeo; return r ? Math.round(n / r) * r : Math.round(n * 100) / 100; };
 const suma = (lineas) => lineas.reduce((t, l) => t + l.v, 0);
 const lista = (xs) => xs.length < 2 ? xs.join("") : xs.slice(0, -1).join(", ") + " y " + xs[xs.length - 1];
 const plural = (n, uno, varios) => `${n} ${n === 1 ? uno : varios}`;
@@ -803,7 +806,7 @@ function tarjetaOpcion(name, item, detallePrecio, svg) {
 function filaPeso(p, i) {
   const id = "peso-" + i;
   return `<div class="peso-fila">
-    <label class="peso-et" for="${id}"><strong>${esc(p.nombre)}</strong><span>${pesos(p.porBulto)} por bulto</span></label>
+    <label class="peso-et" for="${id}"><strong>${esc(p.nombre)}</strong><span>${pesos(p.porBulto)} por bulto${p.nota ? " · " + esc(p.nota) : ""}${p.ejemplo && NEGOCIO.tarifasDeEjemplo ? " · ejemplo" : ""}</span></label>
     <div class="contador-ctrl">
       <button class="contador-btn" type="button" data-para="${id}" data-paso="-1" aria-label="Un bulto de ${esc(p.frase)} menos">−</button>
       <input id="${id}" name="${id}" type="number" inputmode="numeric" value="${i === 0 ? 1 : 0}" min="0" max="${TARIFAS.maxBultos}">
@@ -846,7 +849,7 @@ function calcular() {
   const filas = TARIFAS.pesos.map((p, i) => ({ p, n: leerNumero("peso-" + i) })).filter((f) => f.n > 0);
   const bultos = filas.reduce((t, f) => t + f.n, 0);
   if (!s || !bultos) return { s, filas, bultos, lineas: [], total: null };
-  const lineas = filas.map((f) => ({ c: `${plural(f.n, "bulto", "bultos")} de ${f.p.frase} × ${pesos(f.p.porBulto)}`, v: f.n * f.p.porBulto }));
+  const lineas = filas.map((f) => ({ c: `${plural(f.n, "bulto", "bultos")} de ${f.p.frase} × ${pesos(f.p.porBulto)}`, v: redondear(f.n * f.p.porBulto) }));
   // Si se entrega en Mar del Plata, puede ser en Batán o Sierra de los Padres (costo extra)
   // Recargo del sentido (de Mar del Plata a Buenos Aires: 20 % sobre los bultos)
   if (s.recargo) lineas.push({ c: `Recargo ${s.desde} → ${s.hasta} (+${s.recargo} %)`, v: redondear((suma(lineas) * s.recargo) / 100) });
@@ -976,13 +979,14 @@ function iniciar() {
    ─────────────────────────────────────────────────────────────
    Cómo cambiar un precio:
      1. Buscá el número que querés cambiar (abajo, en TARIFAS.pesos).
-     2. Cambiá solo el número. Va entero, SIN puntos ni signo $:
-        9000 está bien; "9.000" o "$9000" rompen la página.
+     2. Cambiá solo el número, SIN puntos de miles ni signo $. Los
+        centavos van con punto: 9181.97 está bien; "9.181,97" o
+        "$9181" rompen la página.
      3. Guardá. La página hace sola el formato ($ 9.000), el total
         y el mensaje de WhatsApp.
 
    Cómo se calcula un envío:
-     cada bulto se cobra según su peso (rangos de TARIFAS.pesos):
+     cada bulto se cobra según su peso (rangos de a 10 kg en TARIFAS.pesos):
      total = suma de (cantidad de bultos de cada rango × su precio)
      + recargo del sentido (de Mar del Plata a Buenos Aires: 20 %)
      + costo extra de la zona (Batán / Sierra de los Padres).
@@ -1019,14 +1023,15 @@ const NEGOCIO = {
 
   mensajeGeneral: "¡Hola Saldar! Te escribo desde la web, quería hacerte una consulta.",
 
-  // Saldar es logística en camión entre Mar del Plata y Buenos Aires, en los
-  // dos sentidos, con entrega a domicilio; NO tiene mensajería (el dueño, 19 y 20/10/2026).
+  // Saldar es logística en camión entre Buenos Aires y Mar del Plata, en los
+  // dos sentidos (predomina Buenos Aires → Mar del Plata), con entrega a
+  // domicilio; NO tiene mensajería (el dueño, 19, 20 y 23/10/2026).
   servicios: [
-    { id: "mdp-ba", activo: true, icono: "i-camion", titulo: "Mar del Plata → Buenos Aires",
-      texto: "Tu carga sale de nuestro depósito en Mar del Plata, viaja en camión y la entregamos a domicilio en Buenos Aires.",
-      etiquetas: ["En camión", "Según el peso", "A domicilio", "Congelados"] },
     { id: "ba-mdp", activo: true, icono: "i-camion", titulo: "Buenos Aires → Mar del Plata",
-      texto: "Y al revés: traemos tu carga desde Buenos Aires y la entregamos a domicilio en Mar del Plata.",
+      texto: "Traemos tu carga en camión desde Buenos Aires y la entregamos a domicilio en Mar del Plata.",
+      etiquetas: ["En camión", "Según el peso", "A domicilio", "Congelados"] },
+    { id: "mdp-ba", activo: true, icono: "i-camion", titulo: "Mar del Plata → Buenos Aires",
+      texto: "Y al revés: tu carga sale de nuestro depósito en Mar del Plata y la entregamos a domicilio en Buenos Aires.",
       etiquetas: ["En camión", "Según el peso", "A domicilio", "Congelados"] },
     { id: "mudanzas", activo: true, icono: "i-casa", titulo: "Mudanzas",
       texto: "También hacemos mudanzas. Contanos qué hay que mover y adónde, y te pasamos el presupuesto.",
@@ -1051,17 +1056,20 @@ const NEGOCIO = {
 };
 
 const TARIFAS = {
-  redondeo: 100,          // los totales se redondean a $100
+  redondeo: 0,            // 0 = no se redondea (se muestran los centavos)
   maxBultos: 200,         // lo máximo por rango que se puede poner en el cotizador
   pesoMaximo: 50,         // más de esto, "escribinos y lo cotizamos"
 
-  // Precio por bulto según su peso (igual en los dos sentidos).
-  // "frase" es cómo se lee en el detalle: "2 bultos de hasta 5 kg".
+  // Precio por bulto según su peso, en rangos de a 10 kg. De 1 a 10 kg se
+  // cobra el mínimo (dato real del dueño, 23/10/2026). Los demás precios son
+  // DE EJEMPLO ("ejemplo: true"): cuando estén los reales, cambiá el número
+  // y borrá "ejemplo: true". "frase" es cómo se lee: "2 bultos de 1 a 10 kg".
   pesos: [
-    { nombre: "Hasta 5 kg",    frase: "hasta 5 kg", porBulto: 6000 },
-    { nombre: "De 5 a 15 kg",  frase: "5 a 15 kg",  porBulto: 9000 },
-    { nombre: "De 15 a 30 kg", frase: "15 a 30 kg", porBulto: 14000 },
-    { nombre: "De 30 a 50 kg", frase: "30 a 50 kg", porBulto: 20000 },
+    { nombre: "De 1 a 10 kg",  frase: "1 a 10 kg",  porBulto: 9181.97, nota: "mínimo" },
+    { nombre: "De 10 a 20 kg", frase: "10 a 20 kg", porBulto: 15000, ejemplo: true },
+    { nombre: "De 20 a 30 kg", frase: "20 a 30 kg", porBulto: 21000, ejemplo: true },
+    { nombre: "De 30 a 40 kg", frase: "30 a 40 kg", porBulto: 27000, ejemplo: true },
+    { nombre: "De 40 a 50 kg", frase: "40 a 50 kg", porBulto: 33000, ejemplo: true },
   ],
 
   // Zonas de entrega en Mar del Plata. "extra" = costo extra por envío (0 = sin extra).
@@ -1071,17 +1079,18 @@ const TARIFAS = {
     { id: "sierra", nombre: "Sierra de los Padres", extra: 5000 },
   ],
 
-  // De dónde sale la carga en cada sentido. "direccionSalida" = qué dato de "direccionSalida" = qué dato de
-  // NEGOCIO tiene la dirección de ese lugar.
+  // De dónde sale la carga en cada sentido. "direccionSalida" = qué dato de
+  // NEGOCIO tiene la dirección de ese lugar. El primero es el que viene
+  // elegido: Buenos Aires → Mar del Plata, que es el que más hacen.
   sentidos: [
-    { id: "mdp-ba", nombre: "Mar del Plata → Buenos Aires", desde: "Mar del Plata", hasta: "Buenos Aires",
-      detalle: "Sale de nuestro depósito en Mar del Plata", salida: "Depósito de Mar del Plata",
-      salidaEnFrase: "nuestro depósito de Mar del Plata", direccionSalida: "direccion",
-      recargo: 20 },   // % que se suma sobre los bultos (el dueño, 23/10/2026)
     { id: "ba-mdp", nombre: "Buenos Aires → Mar del Plata", desde: "Buenos Aires", hasta: "Mar del Plata",
       detalle: "Sale de nuestra sucursal de Buenos Aires", salida: "Sucursal de Buenos Aires",
       salidaEnFrase: "nuestra sucursal de Buenos Aires", direccionSalida: "sucursalBA",
       recargo: 0 },
+    { id: "mdp-ba", nombre: "Mar del Plata → Buenos Aires", desde: "Mar del Plata", hasta: "Buenos Aires",
+      detalle: "Sale de nuestro depósito en Mar del Plata", salida: "Depósito de Mar del Plata",
+      salidaEnFrase: "nuestro depósito de Mar del Plata", direccionSalida: "direccion",
+      recargo: 20 },   // % que se suma sobre los bultos (el dueño, 23/10/2026)
   ],
 };
 
