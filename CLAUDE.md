@@ -57,7 +57,8 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
 | Congelados | Se permiten | El dueño, vía Mateo, 22/10/2026 ✅ |
 | Factura | Hace Factura A | El dueño, vía Mateo, 22/10/2026 ✅ |
 | Vehículos | Camiones | El dueño, vía Mateo, 20/10/2026 ✅ |
-| Cómo cobra | Por bulto según sus kilos, de a 10 kg, **hasta unos 400 kg por bulto**. **De 1 a 10 kg se cobra el mínimo: $ 9.181,97.** **Palet completo: $ 86.260,40.** De Mar del Plata a Buenos Aires, recargo del 20 % sobre todo (bultos y palets) | El dueño, vía Mateo, 20 y 23/10/2026 ✅ (falta cuánto suma cada 10 kg) |
+| Cómo cobra | Por bulto según sus kilos, de a 10 kg, **hasta unos 400 kg por bulto**. **De 1 a 10 kg se cobra el mínimo: $ 9.181,97.** **Opción palet** (aparte, para el que embala toda la carga en un palet; con muchos bultos le conviene): **$ 86.260,40 el palet completo.** De Mar del Plata a Buenos Aires, recargo del 20 % sobre todo (bultos y palets) | El dueño, vía Mateo, 20 y 23/10/2026 ✅ (falta cuánto suma cada 10 kg). Audios del 23/10: "primero es por peso y por bulto, y después los que lo quieran mandar en palet, por palet" |
+| Valor declarado | El cliente pone cuánto vale la mercadería (obligatorio para mandar el pedido); va en el mensaje de WhatsApp, no cambia el precio | Pedido del dueño, vía Mateo, 23/10/2026 ✅ |
 | Entrega | A domicilio | El dueño, vía Mateo, 20/10/2026 ✅ |
 | Sucursal Buenos Aires | Existe; dirección "A confirmar" | El dueño, vía Mateo, 20/10/2026 ✅ (los datos los pasa después) |
 | Tarifas | 1–10 kg $ 9.181,97 (real). Cada 10 kg más: + $ 1.800 | ⚠️ El mínimo es real; el "+ $ 1.800" es de ejemplo (`kilos.ejemplo: true`, se ve "(ejemplo)") |
@@ -168,8 +169,14 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 - Cotizador: sentido (dos tarjetas) + filas de bultos (peso en kg +
   cantidad + ×, cada una muestra su precio "c/u · de 20 a 30 kg"; botón "+
   Agregar un bulto de otro peso"; arranca con 1 bulto de 10 kg; el peso
-  queda entre 1 y 400 al salir del campo) + una fila "Palet completo"
-  ("¿Mandás palets completos?"); se puede cotizar solo
+  queda entre 1 y 400 al salir del campo) + **"Opción palet"** cerrada
+  ("¿Embalás todo en un palet?"; al abrirla suma 1 palet y muestra el
+  contador, al cerrarla lo saca; si los bultos ya suman lo que vale un palet,
+  se pinta de azul y dice "te puede convenir") + "Valor declarado de la
+  mercadería" (`#valor`, acepta 250000 o 250.000; obligatorio). Nunca
+  presentar el palet como alternativa al mismo nivel ("por peso o por
+  palet"): el precio es **por peso y por bulto**, el palet es una opción
+  (pedido del dueño, 23/10/2026); se puede cotizar solo
   bultos, solo palets o las dos cosas; las filas con bultos se marcan en azul; si llega a Mar del Plata,
   se elige la zona (Batán y Sierra con costo extra). Debajo del día dice "La
   carga sale de lunes a viernes".
@@ -211,6 +218,7 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 | Mudanzas: ¿también de Buenos Aires a Mar del Plata? ¿cómo se cotizan? | El dueño dijo "ambas" (dentro de Mar del Plata y a Buenos Aires); la web dice eso y "pedí presupuesto por WhatsApp" |
 | Pago con tarjeta (más adelante) | El dueño prefiere esperar (23/10/2026). Cuando quiera: cuenta de Mercado Pago (u otra) para el link o botón de pago en la web; con posnet, sumar "tarjeta en el depósito" a `pagos` |
 | Cuánto suma cada 10 kg más (o la tabla de precios de 10 a 400 kg) | Solo está el mínimo de 1 a 10 kg ($ 9.181,97); hoy + $ 1.800 de ejemplo por cada 10 kg |
+| Valor declarado: ¿cambia el precio (seguro, un %)? ¿Es obligatorio? | Hoy solo va en el mensaje y es obligatorio para mandar el pedido |
 | Más de 400 kg en un bulto | Hoy "escribinos"; el campo no deja pasar de 400 |
 | Que en Buenos Aires la carga también sale de la sucursal | Inferido de "sale desde el depósito" + "hay sucursal en Buenos Aires" |
 | ¿Retiran a domicilio además de entregar? | Se entendió que no: la carga sale del depósito; el formulario no pide dirección de retiro |
@@ -237,6 +245,14 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 
 ## Registro de cambios
 
+- 23/10/2026 — Audios de Mateo (el dueño): el precio es por peso y por
+  bulto; el palet es un tipo de bulto, una opción aparte para el que embala
+  todo junto y le conviene por la cantidad de bultos; agregar valor
+  declarado → "Opción palet" cerrada debajo de los bultos (aviso "te puede
+  convenir"), campo "Valor declarado" obligatorio que va en el mensaje, y
+  "por peso o por palet" pasó a "por peso y por bulto" en portada, hoja de
+  ruta, cotizador, etiquetas ("Por peso y bulto", "Opción palet"),
+  preguntas, Open Graph y JSON-LD.
 - 23/10/2026 — Mateo: el galpón de Mar del Plata abre a las 5, pero se
   empieza a recibir mercadería a las 8 aprox. → la web queda igual (muestra
   la recepción, de 8 a 15); anotado en Datos del negocio.
