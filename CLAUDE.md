@@ -60,7 +60,7 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
 | Cómo cobra | Por bulto según sus kilos, de a 10 kg, **hasta unos 400 kg por bulto**. **De 1 a 10 kg se cobra el mínimo: $ 9.181,97.** **Opción palet** (aparte, para el que embala toda la carga en un palet; con muchos bultos le conviene): **$ 86.260,40 el palet completo.** De Mar del Plata a Buenos Aires, recargo del 20 % sobre todo (bultos y palets) | El dueño, vía Mateo, 20 y 23/10/2026 ✅ (falta cuánto suma cada 10 kg). Audios del 23/10: "primero es por peso y por bulto, y después los que lo quieran mandar en palet, por palet" |
 | Valor declarado | El cliente pone cuánto vale la mercadería (obligatorio para mandar el pedido); va en el mensaje de WhatsApp, no cambia el precio | Pedido del dueño, vía Mateo, 23/10/2026 ✅ |
 | Entrega | A domicilio | El dueño, vía Mateo, 20/10/2026 ✅ |
-| Sucursal Buenos Aires | **John William Cooke 3155**, Buenos Aires (link a Google Maps). La carga de Buenos Aires → Mar del Plata sale de acá. Recibe de 8 a 17 | El dueño, vía Mateo, 20 y 23/10/2026 ✅. Mateo escribió "Cooke John William 3155". Una guía de transporte (Moovit) la ubica en la Ciudad de Buenos Aires, C1437; falta confirmar el barrio |
+| Sucursal Buenos Aires | **John William Cooke 3155, Villa Soldati (CABA)**, C1437 (link a Google Maps). La carga de Buenos Aires → Mar del Plata sale de acá. Recibe de 8 a 17 | Dirección: el dueño, vía Mateo, 23/10/2026 ✅ (escribió "Cooke John William 3155"). Barrio: buscado por Claude el 23/10/2026 (Waze, directorios de transporte y un aviso de galpón en Cooke 3200 dicen CABA, C1437, Villa Soldati). En esa altura hay un predio con varios expresos (Tres Lomas, Veninga, TransRE…), uno con horario de lunes a viernes de 8 a 17 |
 | Tarifas | 1–10 kg $ 9.181,97 (real). Cada 10 kg más: + $ 1.800 | ⚠️ El mínimo es real; el "+ $ 1.800" es de ejemplo (`kilos.ejemplo: true`, se ve "(ejemplo)") |
 | Palet | $ 86.260,40 el palet completo | El dueño, vía Mateo, 23/10/2026 ✅ |
 | WhatsApp | El de Mateo (pruebas) | ⚠️ Falta el del negocio |
@@ -99,8 +99,8 @@ comentario **"DATOS DE SALDAR — ACÁ SE CAMBIAN LOS PRECIOS"**:
 - `NEGOCIO`: nombre, `whatsapp`, `instagram`, `tarifasDeEjemplo`, `horario`,
   `recepcion` (recepción en el depósito de Mar del Plata), `recepcionBA`
   (recepción en la sucursal de Buenos Aires) y `sabados`, `direccion` +
-  `ciudad` (depósito; arman el link a Google Maps), **`sucursalBA`** +
-  `ciudadBA` (sucursal; aparecen solas en recorrido, contacto, preguntas,
+  `ciudad` (depósito; arman el link a Google Maps), **`sucursalBA`** (calle
+  y número) + `barrioBA` + `ciudadBA` (sucursal; aparecen solas en recorrido, contacto, preguntas,
   cotizador, mensaje y link a Google Maps; en el JSON-LD van a mano, en
   `department`), `pagos`, `factura`,
   `congelados`, `domicilio`, `zonas`, `noLlevan`, `frecuencia`, servicios
@@ -213,7 +213,6 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 
 | Qué | Por qué hay duda |
 |---|---|
-| Sucursal: ¿es en Capital (CABA)? ¿qué barrio? | La web dice "John William Cooke 3155, Buenos Aires" y deja que Google Maps la ubique |
 | ¿La sucursal de Buenos Aires también recibe de lunes a viernes (y los sábados no)? | El dueño pasó solo la hora (8 a 17); los días se tomaron del depósito |
 | Costo extra de Batán y Sierra de los Padres: ¿cuánto? ¿por envío o por bulto? | Hoy $ 5.000 de ejemplo por envío |
 | Mudanzas: ¿también de Buenos Aires a Mar del Plata? ¿cómo se cotizan? | El dueño dijo "ambas" (dentro de Mar del Plata y a Buenos Aires); la web dice eso y "pedí presupuesto por WhatsApp" |
@@ -238,14 +237,20 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 - [ ] Cargar datos y tarifas reales; `tarifasDeEjemplo: false`.
 - [ ] Cambiar `NEGOCIO.whatsapp` por el del negocio.
 - [ ] Sacar `<meta name="robots" content="noindex">`.
-- [ ] Revisar el JSON-LD: la sucursal ya está como `department` (sumar
-      `addressRegion` cuando se confirme si es CABA), y `telephone` y `url`
-      solo si el dueño los confirma.
+- [ ] Revisar el JSON-LD: la sucursal ya está como `department` (Villa
+      Soldati, CABA, C1437), y `telephone` y `url` solo si el dueño los
+      confirma.
 - [ ] Imagen `og.jpg` 1200×630 para cuando se comparte por WhatsApp, y `canonical` con el dominio.
 - [ ] `publicar.py` de la skill → `docs/`, GitHub Pages, dominio, Search Console, Perfil de Empresa.
 
 ## Registro de cambios
 
+- 23/10/2026 — Mateo: "es la dirección de la sucursal de Buenos Aires, buscá
+  dónde está" → buscado: John W. Cooke 3155 queda en Villa Soldati, CABA
+  (C1437). `barrioBA: "Villa Soldati"`, `ciudadBA: "Ciudad de Buenos
+  Aires"`; tarjeta "Sucursal · Villa Soldati, CABA" con la calle como
+  título; el barrio va en contacto, aviso del cotizador, mensaje, preguntas,
+  link a Maps y JSON-LD (`addressLocality`, `addressRegion`, `postalCode`).
 - 23/10/2026 — Mateo pasó la dirección de la sucursal: "Cooke John William
   3155" → `sucursalBA: "John William Cooke 3155"` y `ciudadBA`; la tarjeta
   de la sucursal en Recorrido lleva la dirección como título y botón "Ver en
