@@ -45,6 +45,23 @@
     { "@type": "Place", "name": "Batán" },
     { "@type": "Place", "name": "Sierra de los Padres" }
   ],
+  "department": {
+    "@type": "LocalBusiness",
+    "name": "Saldar · Sucursal Buenos Aires",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "John William Cooke 3155",
+      "addressLocality": "Buenos Aires",
+      "addressCountry": "AR"
+    },
+    "hasMap": "https://www.google.com/maps/search/?api=1&query=John%20William%20Cooke%203155%2C%20Buenos%20Aires",
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "08:00",
+      "closes": "17:00"
+    }]
+  },
   "sameAs": ["https://www.instagram.com/saldar223/"]
 }
 </script>
@@ -682,10 +699,10 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
         <div class="ruta-cards">
           <article class="ruta-card">
             <p class="mono">Sucursal · Buenos Aires</p>
-            <h3>Buenos Aires</h3>
-            <p>Dirección: <span data-dato="sucursalBA">A confirmar</span></p>
+            <h3 data-dato="sucursalBA">A confirmar</h3>
             <p>Recibimos la carga <span data-dato="recepcionFraseBA">A confirmar</span>.</p>
             <p>Entregamos a domicilio en Buenos Aires.</p>
+            <a class="btn btn-borde btn-chico" data-mapa="sucursal" href="#contacto"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Ver en Google Maps</a>
           </article>
           <article class="ruta-card">
             <p class="mono">Depósito · Mar del Plata</p>
@@ -730,7 +747,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
           <div class="dato"><svg class="ico" aria-hidden="true"><use href="#i-reloj"/></svg><div><dt>Horario</dt><dd data-dato="horarioCompleto">A confirmar</dd></div></div>
           <div class="dato"><svg class="ico" aria-hidden="true"><use href="#i-pago"/></svg><div><dt>Medios de pago</dt><dd data-dato="pagosCompleto">A confirmar</dd></div></div>
           <div class="dato"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg><div><dt>Depósito</dt><dd><span data-dato="direccionCompleta">A confirmar</span> <a data-mapa href="#contacto">Ver en el mapa</a></dd></div></div>
-          <div class="dato"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg><div><dt>Sucursal Buenos Aires</dt><dd data-dato="sucursalBA">A confirmar</dd></div></div>
+          <div class="dato"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg><div><dt>Sucursal Buenos Aires</dt><dd><span data-dato="sucursalCompleta">A confirmar</span> <a data-mapa="sucursal" href="#contacto">Ver en el mapa</a></dd></div></div>
         </dl>
       </div>
     </div>
@@ -779,7 +796,8 @@ const icono = (id, clase = "ico") => `<svg class="${clase}" aria-hidden="true"><
 // Los datos de NEGOCIO más un par que se arman con ellos.
 function dato(clave) {
   if (clave === "direccionCompleta") return NEGOCIO.direccion && `${NEGOCIO.direccion}, ${NEGOCIO.ciudad}`;
-  if (clave === "salidaCarga") return NEGOCIO.direccion && `Desde nuestro depósito, en ${NEGOCIO.direccion} (${NEGOCIO.ciudad}).`;
+  if (clave === "sucursalCompleta") return NEGOCIO.sucursalBA && `${NEGOCIO.sucursalBA}, ${NEGOCIO.ciudadBA}`;
+  if (clave === "salidaCarga") return `De Buenos Aires sale desde nuestra sucursal${NEGOCIO.sucursalBA ? `, en ${NEGOCIO.sucursalBA}` : ""}. De Mar del Plata, desde nuestro depósito${NEGOCIO.direccion ? `, en ${NEGOCIO.direccion}` : ""}.`;
   if (clave === "comoSeCalcula") {
     const k = TARIFAS.kilos, rec = TARIFAS.sentidos.find((x) => x.recargo);
     return `Por bulto, según sus kilos: de 1 a ${k.tramo} kg se cobra el mínimo (${pesos(k.minimo)}) y el precio sube cada ${k.tramo} kg, hasta unos ${k.maximo} kg por bulto. Si embalás la carga en un palet completo, se cobra por palet: ${pesos(TARIFAS.palet.porPalet)}.`
@@ -788,7 +806,8 @@ function dato(clave) {
   }
   if (clave === "palets") return `Sí. Si embalás toda la carga en un palet completo, se cobra por palet: ${pesos(TARIFAS.palet.porPalet)}. Cuando son muchos bultos, te puede convenir.`;
   if (clave === "maxKilos") return `Hasta unos ${TARIFAS.kilos.maximo} kg por bulto. Si pesa más, escribinos y lo vemos.`;
-  if (clave === "sucursal") return "Sí, tenemos sucursal en Buenos Aires." + (NEGOCIO.sucursalBA ? ` Está en ${NEGOCIO.sucursalBA}.` : "");
+  if (clave === "sucursal") return "Sí, tenemos sucursal en Buenos Aires." + (NEGOCIO.sucursalBA ? ` Está en ${NEGOCIO.sucursalBA}.` : "")
+    + (NEGOCIO.recepcionBA ? ` Recibimos la carga ${dato("recepcionFraseBA")}.` : "");
   if (clave === "recepcionFrase") return minuscula(NEGOCIO.recepcion);
   if (clave === "recepcionFraseBA") return minuscula(NEGOCIO.recepcionBA);
   // Buenos Aires primero (es de donde sale la mayoría de la carga)
@@ -802,8 +821,8 @@ function dato(clave) {
   return NEGOCIO[clave];
 }
 
-function enlaceMapa() {
-  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(dato("direccionCompleta"))}`;
+function enlaceMapa(direccion = dato("direccionCompleta")) {
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(direccion)}`;
 }
 
 function pintarDatos() {
@@ -814,8 +833,9 @@ function pintarDatos() {
   });
   // Links a Google Maps (solo un link: no usa la API ni pide clave)
   $$("[data-mapa]").forEach((a) => {
-    a.hidden = !NEGOCIO.direccion;
-    a.href = enlaceMapa();
+    const dir = dato(a.dataset.mapa === "sucursal" ? "sucursalCompleta" : "direccionCompleta");
+    a.hidden = !dir;
+    a.href = enlaceMapa(dir || "");
     a.target = "_blank";
     a.rel = "noopener";
   });
@@ -997,7 +1017,8 @@ function actualizar() {
   if (r.s) {
     $("#dir-entrega").placeholder = `Calle, número y localidad en ${r.zona ? r.zona.nombre : r.s.hasta}`;
     const dir = NEGOCIO[r.s.direccionSalida];
-    const mapa = r.s.direccionSalida === "direccion" && dir ? ` (<a href="${enlaceMapa()}" target="_blank" rel="noopener">ver en el mapa</a>)` : "";
+    const completa = dato(r.s.direccionSalida === "sucursalBA" ? "sucursalCompleta" : "direccionCompleta");
+    const mapa = completa ? ` (<a href="${enlaceMapa(completa)}" target="_blank" rel="noopener">ver en el mapa</a>)` : "";
     $("#aviso-salida").innerHTML = `La carga sale desde ${r.s.salidaEnFrase}${dir ? `: <strong>${esc(dir)}</strong>${mapa}` : ` <span class="confirmar">(dirección a confirmar)</span>`}.${NEGOCIO[r.s.recepcionSalida] ? ` Recibimos la carga ${esc(minuscula(NEGOCIO[r.s.recepcionSalida]))}.` : ""} Te la entregamos a domicilio.`;
   }
   $("#ticket-lineas").innerHTML = r.lineas.map((l) => `<li><span>${esc(l.c)}</span><span>${pesos(l.v)}</span></li>`).join("");
@@ -1170,7 +1191,8 @@ const NEGOCIO = {
   sabados: "Los sábados el depósito está cerrado y no sale mercadería.",
   direccion: "Victoriano Montes 1963",   // el depósito, en Mar del Plata
   ciudad: "Mar del Plata",
-  sucursalBA: "",                  // dirección de la sucursal de Buenos Aires (la pasa después)
+  sucursalBA: "John William Cooke 3155",   // dirección de la sucursal (el dueño, vía Mateo, 23/10/2026)
+  ciudadBA: "Buenos Aires",                // para el link a Google Maps de la sucursal
   pagos: "Efectivo y transferencia",  // tarjeta: más adelante (el dueño prefiere esperar, 23/10/2026)
   factura: "Hacemos Factura A.",
   congelados: "Sí, se pueden enviar productos congelados.",
