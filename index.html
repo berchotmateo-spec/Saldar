@@ -756,7 +756,7 @@ function dato(clave) {
   if (clave === "comoSeCalcula") {
     const k = TARIFAS.kilos, rec = TARIFAS.sentidos.find((x) => x.recargo);
     return `Por bulto, según sus kilos: de 1 a ${k.tramo} kg se cobra el mínimo (${pesos(k.minimo)}) y el precio sube cada ${k.tramo} kg, hasta unos ${k.maximo} kg por bulto. El palet completo sale ${pesos(TARIFAS.palet.porPalet)}.`
-      + (rec ? ` De ${rec.desde} a ${rec.hasta} tiene un recargo del ${rec.recargo} %.` : "")
+      + (rec ? ` De ${rec.desde} a ${rec.hasta} tiene un recargo del ${rec.recargo} % sobre todo el envío (bultos y palets).` : "")
       + " El del cotizador es un precio estimado: cuando nos escribís por WhatsApp te confirmamos el final antes del viaje.";
   }
   if (clave === "palets") return `Sí. El palet completo sale ${pesos(TARIFAS.palet.porPalet)}.`;
@@ -922,7 +922,7 @@ function calcular() {
   if (!s || (!bultos && !palets)) return { s, filas, bultos, palets, lineas: [], total: null };
   const lineas = filas.map((f) => ({ c: `${plural(f.n, "bulto", "bultos")} de ${f.kg} kg × ${pesos(f.precio)}`, v: redondear(f.n * f.precio) }));
   if (palets) lineas.push({ c: `${plural(palets, "palet completo", "palets completos")} × ${pesos(TARIFAS.palet.porPalet)}`, v: redondear(palets * TARIFAS.palet.porPalet) });
-  // Recargo del sentido (de Mar del Plata a Buenos Aires: 20 % sobre la carga)
+  // Recargo del sentido (de Mar del Plata a Buenos Aires: 20 % sobre bultos y palets)
   if (s.recargo) lineas.push({ c: `Recargo ${s.desde} → ${s.hasta} (+${s.recargo} %)`, v: redondear((suma(lineas) * s.recargo) / 100) });
   // Si se entrega en Mar del Plata, puede ser en Batán o Sierra de los Padres (costo extra)
   const zona = s.hasta === "Mar del Plata" ? TARIFAS.zonasMdp.find((z) => z.id === $("#zona-entrega").value) : null;
@@ -1187,7 +1187,7 @@ const TARIFAS = {
     { id: "mdp-ba", nombre: "Mar del Plata → Buenos Aires", desde: "Mar del Plata", hasta: "Buenos Aires",
       detalle: "Sale de nuestro depósito en Mar del Plata", salida: "Depósito de Mar del Plata",
       salidaEnFrase: "nuestro depósito de Mar del Plata", direccionSalida: "direccion",
-      recargo: 20 },   // % que se suma sobre los bultos (el dueño, 23/10/2026)
+      recargo: 20 },   // % que se suma sobre todo: bultos y palets (el dueño, 23/10/2026)
   ],
 };
 

@@ -57,7 +57,7 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
 | Congelados | Se permiten | El dueño, vía Mateo, 22/10/2026 ✅ |
 | Factura | Hace Factura A | El dueño, vía Mateo, 22/10/2026 ✅ |
 | Vehículos | Camiones | El dueño, vía Mateo, 20/10/2026 ✅ |
-| Cómo cobra | Por bulto según sus kilos, de a 10 kg, **hasta unos 400 kg por bulto**. **De 1 a 10 kg se cobra el mínimo: $ 9.181,97.** **Palet completo: $ 86.260,40.** De Mar del Plata a Buenos Aires, recargo del 20 % | El dueño, vía Mateo, 20 y 23/10/2026 ✅ (falta cuánto suma cada 10 kg) |
+| Cómo cobra | Por bulto según sus kilos, de a 10 kg, **hasta unos 400 kg por bulto**. **De 1 a 10 kg se cobra el mínimo: $ 9.181,97.** **Palet completo: $ 86.260,40.** De Mar del Plata a Buenos Aires, recargo del 20 % sobre todo (bultos y palets) | El dueño, vía Mateo, 20 y 23/10/2026 ✅ (falta cuánto suma cada 10 kg) |
 | Entrega | A domicilio | El dueño, vía Mateo, 20/10/2026 ✅ |
 | Sucursal Buenos Aires | Existe; dirección "A confirmar" | El dueño, vía Mateo, 20/10/2026 ✅ (los datos los pasa después) |
 | Tarifas | 1–10 kg $ 9.181,97 (real). Cada 10 kg más: + $ 1.800 | ⚠️ El mínimo es real; el "+ $ 1.800" es de ejemplo (`kilos.ejemplo: true`, se ve "(ejemplo)") |
@@ -208,7 +208,6 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 | Mudanzas: ¿dentro de Mar del Plata, a Buenos Aires o las dos? ¿cómo se cotizan? | Hoy solo "pedí presupuesto por WhatsApp" |
 | Pago con tarjeta: "se puede habilitar" en la web y posnet en el depósito | Para la web hace falta la cuenta de Mercado Pago (u otra) del negocio: link o botón de pago. Cuando haya posnet, sumar "tarjeta en el depósito" a `pagos` |
 | Cuánto suma cada 10 kg más (o la tabla de precios de 10 a 400 kg) | Solo está el mínimo de 1 a 10 kg ($ 9.181,97); hoy + $ 1.800 de ejemplo por cada 10 kg |
-| ¿El recargo del 20 % también va sobre los palets? | Hoy se aplica a todo (bultos y palets) |
 | Más de 400 kg en un bulto | Hoy "escribinos"; el campo no deja pasar de 400 |
 | Que en Buenos Aires la carga también sale de la sucursal | Inferido de "sale desde el depósito" + "hay sucursal en Buenos Aires" |
 | ¿Retiran a domicilio además de entregar? | Se entendió que no: la carga sale del depósito; el formulario no pide dirección de retiro |
@@ -235,6 +234,9 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 
 ## Registro de cambios
 
+- 23/10/2026 — Mateo: el recargo del 20 % (Mar del Plata → Buenos Aires) es
+  para todo → confirmado sobre bultos y palets (ya se calculaba así); la
+  pregunta "¿Cómo se calcula el precio?" lo aclara.
 - 23/10/2026 — Mateo: el palet completo vale $ 86.260,40 y el cotizador
   tiene que aceptar un bulto con sus kilos puntuales, de cualquier peso hasta
   unos 400 kg → las filas fijas por rango de peso pasaron a filas de bultos
