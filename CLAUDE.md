@@ -63,7 +63,7 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
 | Tarifas | 1–10 kg $ 9.181,97 (real). Cada 10 kg más: + $ 1.800 | ⚠️ El mínimo es real; el "+ $ 1.800" es de ejemplo (`kilos.ejemplo: true`, se ve "(ejemplo)") |
 | Palet | $ 86.260,40 el palet completo | El dueño, vía Mateo, 23/10/2026 ✅ |
 | WhatsApp | El de Mateo (pruebas) | ⚠️ Falta el del negocio |
-| Horario | Trabaja de lunes a sábados. Recepción de carga: **sucursal de Buenos Aires de 8 a 17**, **depósito de Mar del Plata de 8 a 15**, de lunes a viernes. Sábados el depósito está cerrado y no sale mercadería | El dueño, vía Mateo, 22 y 23/10/2026 ✅. El 23/10 reemplaza el "8 a 16:30" y aclara el "6 a 15". Lo de "lunes a viernes" en Buenos Aires se infirió del 22/10. En el JSON-LD (depósito): lunes a viernes 8 a 15 |
+| Horario | Trabaja de lunes a sábados. Recepción de carga: **sucursal de Buenos Aires de 8 a 17**, **depósito de Mar del Plata de 8 a 15**, de lunes a viernes. Sábados el depósito está cerrado y no sale mercadería | El dueño, vía Mateo, 22 y 23/10/2026 ✅. El 23/10 reemplaza el "8 a 16:30" y aclara el "6 a 15": el galpón de Mar del Plata abre a las 5, pero la mercadería se recibe desde las 8 aprox. (en la web va solo la recepción, para que nadie llegue a las 5). Lo de "lunes a viernes" en Buenos Aires se infirió del 22/10. En el JSON-LD (depósito): lunes a viernes 8 a 15 |
 | Medios de pago | Efectivo y transferencia | El dueño, vía Mateo, 22/10/2026 ✅ (reemplaza "todos los medios"). Tarjeta: el dueño prefiere esperar (23/10/2026); en la web no se menciona |
 | Zonas de entrega | Mar del Plata y Buenos Aires; en Mar del Plata también Batán y Sierra de los Padres con costo extra | El dueño, vía Mateo, 22/10/2026 ✅ (el monto del extra falta) |
 | Qué no llevan | "A confirmar" | — |
@@ -237,6 +237,9 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 
 ## Registro de cambios
 
+- 23/10/2026 — Mateo: el galpón de Mar del Plata abre a las 5, pero se
+  empieza a recibir mercadería a las 8 aprox. → la web queda igual (muestra
+  la recepción, de 8 a 15); anotado en Datos del negocio.
 - 23/10/2026 — Mateo pasó respuestas del dueño: los envíos son en los dos
   sentidos; mudanzas dentro de Mar del Plata y también a Buenos Aires;
   recepción de mercadería de 8 a 17 en Buenos Aires y de 8 a 15 en Mar del
