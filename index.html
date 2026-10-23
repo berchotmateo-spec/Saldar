@@ -36,7 +36,7 @@
     "@type": "OpeningHoursSpecification",
     "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
     "opens": "08:00",
-    "closes": "16:30"
+    "closes": "15:00"
   }],
   "paymentAccepted": "Efectivo, transferencia",
   "areaServed": [
@@ -660,6 +660,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
             <p class="mono">Sucursal · Buenos Aires</p>
             <h3>Buenos Aires</h3>
             <p>Dirección: <span data-dato="sucursalBA">A confirmar</span></p>
+            <p>Recibimos la carga <span data-dato="recepcionFraseBA">A confirmar</span>.</p>
             <p>Entregamos a domicilio en Buenos Aires.</p>
           </article>
           <article class="ruta-card">
@@ -745,6 +746,8 @@ const redondear = (n) => { const r = TARIFAS.redondeo; return r ? Math.round(n /
 const suma = (lineas) => lineas.reduce((t, l) => t + l.v, 0);
 const lista = (xs) => xs.length < 2 ? xs.join("") : xs.slice(0, -1).join(", ") + " y " + xs[xs.length - 1];
 const plural = (n, uno, varios) => `${n} ${n === 1 ? uno : varios}`;
+const minuscula = (t) => t && t.charAt(0).toLowerCase() + t.slice(1);
+const mayuscula = (t) => t && t.charAt(0).toUpperCase() + t.slice(1);
 const valorRadio = (name) => $(`input[name="${name}"]:checked`)?.value;
 const icono = (id, clase = "ico") => `<svg class="${clase}" aria-hidden="true"><use href="#${id}"/></svg>`;
 
@@ -762,9 +765,15 @@ function dato(clave) {
   if (clave === "palets") return `Sí. El palet completo sale ${pesos(TARIFAS.palet.porPalet)}.`;
   if (clave === "maxKilos") return `Hasta unos ${TARIFAS.kilos.maximo} kg por bulto. Si pesa más, escribinos y lo vemos.`;
   if (clave === "sucursal") return "Sí, tenemos sucursal en Buenos Aires." + (NEGOCIO.sucursalBA ? ` Está en ${NEGOCIO.sucursalBA}.` : "");
-  if (clave === "recepcionFrase") return NEGOCIO.recepcion && NEGOCIO.recepcion.charAt(0).toLowerCase() + NEGOCIO.recepcion.slice(1);
-  if (clave === "horarioCompleto") return `${NEGOCIO.horario}. Recepción de carga en el depósito: ${dato("recepcionFrase")}. ${NEGOCIO.sabados}`;
-  if (clave === "recepcionCarga") return `En el depósito, ${dato("recepcionFrase")}. ${NEGOCIO.sabados}`;
+  if (clave === "recepcionFrase") return minuscula(NEGOCIO.recepcion);
+  if (clave === "recepcionFraseBA") return minuscula(NEGOCIO.recepcionBA);
+  // Buenos Aires primero (es de donde sale la mayoría de la carga)
+  if (clave === "recepcionCompleta") return [
+    NEGOCIO.recepcionBA && `en Buenos Aires, ${dato("recepcionFraseBA")}`,
+    NEGOCIO.recepcion && `en Mar del Plata, ${dato("recepcionFrase")}`,
+  ].filter(Boolean).join("; ");
+  if (clave === "horarioCompleto") return `${NEGOCIO.horario}. Recibimos la carga ${dato("recepcionCompleta")}. ${NEGOCIO.sabados}`;
+  if (clave === "recepcionCarga") return `${mayuscula(dato("recepcionCompleta"))}. ${NEGOCIO.sabados}`;
   if (clave === "pagosCompleto") return NEGOCIO.pagos && `${NEGOCIO.pagos}. ${NEGOCIO.factura}`;
   return NEGOCIO[clave];
 }
@@ -952,7 +961,7 @@ function actualizar() {
     $("#dir-entrega").placeholder = `Calle, número y localidad en ${r.zona ? r.zona.nombre : r.s.hasta}`;
     const dir = NEGOCIO[r.s.direccionSalida];
     const mapa = r.s.direccionSalida === "direccion" && dir ? ` (<a href="${enlaceMapa()}" target="_blank" rel="noopener">ver en el mapa</a>)` : "";
-    $("#aviso-salida").innerHTML = `La carga sale desde ${r.s.salidaEnFrase}${dir ? `: <strong>${esc(dir)}</strong>${mapa}` : ` <span class="confirmar">(dirección a confirmar)</span>`}.${r.s.direccionSalida === "direccion" && NEGOCIO.recepcion ? ` Recibimos la carga ${esc(dato("recepcionFrase"))}.` : ""} Te la entregamos a domicilio.`;
+    $("#aviso-salida").innerHTML = `La carga sale desde ${r.s.salidaEnFrase}${dir ? `: <strong>${esc(dir)}</strong>${mapa}` : ` <span class="confirmar">(dirección a confirmar)</span>`}.${NEGOCIO[r.s.recepcionSalida] ? ` Recibimos la carga ${esc(minuscula(NEGOCIO[r.s.recepcionSalida]))}.` : ""} Te la entregamos a domicilio.`;
   }
   $("#ticket-lineas").innerHTML = r.lineas.map((l) => `<li><span>${esc(l.c)}</span><span>${pesos(l.v)}</span></li>`).join("");
   $("#ticket-lineas").hidden = !r.lineas.length;
@@ -1107,12 +1116,13 @@ const NEGOCIO = {
 
   // Datos del dueño (20/10/2026). Vacío ("") = la página muestra "A confirmar".
   horario: "Trabajamos de lunes a sábados",
-  recepcion: "De lunes a viernes, de 8 a 16:30",   // recepción de carga en el depósito
+  recepcion: "De lunes a viernes, de 8 a 15",     // recepción de carga en el depósito de Mar del Plata (el dueño, 23/10/2026)
+  recepcionBA: "De lunes a viernes, de 8 a 17",   // recepción de carga en la sucursal de Buenos Aires (el dueño, 23/10/2026)
   sabados: "Los sábados el depósito está cerrado y no sale mercadería.",
   direccion: "Victoriano Montes 1963",   // el depósito, en Mar del Plata
   ciudad: "Mar del Plata",
   sucursalBA: "",                  // dirección de la sucursal de Buenos Aires (la pasa después)
-  pagos: "Efectivo y transferencia",  // tarjeta: se puede habilitar (en la web y posnet en el depósito)
+  pagos: "Efectivo y transferencia",  // tarjeta: más adelante (el dueño prefiere esperar, 23/10/2026)
   factura: "Hacemos Factura A.",
   congelados: "Sí, se pueden enviar productos congelados.",
   domicilio: "Sí, entregamos a domicilio.",
@@ -1133,7 +1143,7 @@ const NEGOCIO = {
       texto: "Y al revés: tu carga sale de nuestro depósito en Mar del Plata y la entregamos a domicilio en Buenos Aires.",
       etiquetas: ["En camión", "Por peso o palet", "A domicilio", "Congelados"] },
     { id: "mudanzas", activo: true, icono: "i-casa", titulo: "Mudanzas",
-      texto: "También hacemos mudanzas. Contanos qué hay que mover y adónde, y te pasamos el presupuesto.",
+      texto: "Hacemos mudanzas dentro de Mar del Plata y también a Buenos Aires. Contanos qué hay que mover y adónde, y te pasamos el presupuesto.",
       boton: { texto: "Pedir presupuesto", mensaje: "¡Hola Saldar! Te escribo desde la web: quiero un presupuesto para una mudanza." } },
   ],
 
@@ -1148,7 +1158,7 @@ const NEGOCIO = {
     { p: "¿Tienen sucursal en Buenos Aires?", dato: "sucursal" },
     { p: "¿En qué horario reciben la carga?", dato: "recepcionCarga" },
     { p: "¿Llevan productos congelados?", dato: "congelados" },
-    { p: "¿Hacen mudanzas?", r: "Sí. Escribinos por WhatsApp contándonos qué hay que mover y adónde, y te pasamos el presupuesto." },
+    { p: "¿Hacen mudanzas?", r: "Sí, dentro de Mar del Plata y también a Buenos Aires. Escribinos por WhatsApp contándonos qué hay que mover y adónde, y te pasamos el presupuesto." },
     { p: "¿Cómo se paga?", dato: "pagos" },
     { p: "¿Hacen factura?", r: "Sí, hacemos Factura A." },
     { p: "¿Cada cuánto viajan?", dato: "frecuencia" },
@@ -1176,18 +1186,19 @@ const TARIFAS = {
     { id: "sierra", nombre: "Sierra de los Padres", extra: 5000 },
   ],
 
-  // De dónde sale la carga en cada sentido. "direccionSalida" = qué dato de
-  // NEGOCIO tiene la dirección de ese lugar. El primero es el que viene
+  // De dónde sale la carga en cada sentido. "direccionSalida" y
+  // "recepcionSalida" = qué datos de NEGOCIO tienen la dirección y el horario
+  // de recepción de ese lugar. El primero es el que viene
   // elegido: Buenos Aires → Mar del Plata, que es el que más hacen.
   sentidos: [
     { id: "ba-mdp", nombre: "Buenos Aires → Mar del Plata", desde: "Buenos Aires", hasta: "Mar del Plata",
       detalle: "Sale de nuestra sucursal de Buenos Aires", salida: "Sucursal de Buenos Aires",
       salidaEnFrase: "nuestra sucursal de Buenos Aires", direccionSalida: "sucursalBA",
-      recargo: 0 },
+      recepcionSalida: "recepcionBA", recargo: 0 },
     { id: "mdp-ba", nombre: "Mar del Plata → Buenos Aires", desde: "Mar del Plata", hasta: "Buenos Aires",
       detalle: "Sale de nuestro depósito en Mar del Plata", salida: "Depósito de Mar del Plata",
       salidaEnFrase: "nuestro depósito de Mar del Plata", direccionSalida: "direccion",
-      recargo: 20 },   // % que se suma sobre todo: bultos y palets (el dueño, 23/10/2026)
+      recepcionSalida: "recepcion", recargo: 20 },   // % que se suma sobre todo: bultos y palets (el dueño, 23/10/2026)
   ],
 };
 
