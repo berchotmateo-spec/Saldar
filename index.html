@@ -12,7 +12,7 @@
 <meta property="og:locale" content="es_AR">
 <meta property="og:site_name" content="Saldar">
 <meta property="og:title" content="Saldar · Logística Buenos Aires – Mar del Plata">
-<meta property="og:description" content="Logística en camión entre Buenos Aires y Mar del Plata, con entrega a domicilio. Cotizá según el peso y pedilo por WhatsApp.">
+<meta property="og:description" content="Logística en camión entre Buenos Aires y Mar del Plata, con entrega a domicilio. Cotizá por peso o por palet y pedilo por WhatsApp.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%231847D6'/%3E%3Cpath d='M27 9H16a6 6 0 0 0 0 12h8a6 6 0 0 1 0 12H13' fill='none' stroke='%23fff' stroke-width='4' stroke-linecap='round'/%3E%3Ccircle cx='10.5' cy='33' r='3.6' fill='%230C1018' stroke='%23fff' stroke-width='1.5'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,7 +23,7 @@
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "MovingCompany"],
   "name": "Saldar",
-  "description": "Logística entre Buenos Aires y Mar del Plata: cargas en camión con entrega a domicilio, precio según el peso, congelados y mudanzas. Factura A.",
+  "description": "Logística entre Buenos Aires y Mar del Plata: cargas en camión con entrega a domicilio, precio por peso o por palet, congelados y mudanzas. Factura A.",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Victoriano Montes 1963",
@@ -429,7 +429,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
       <div>
         <p class="portada-eyebrow mono">Logística · Buenos Aires – Mar del Plata</p>
         <h1 id="titulo">Buenos Aires – Mar del Plata, <span class="cinta-texto-h1">ida y vuelta.</span></h1>
-        <p class="portada-bajada">Traemos tu carga en camión de Buenos Aires a Mar del Plata y la llevamos de Mar del Plata a Buenos Aires, con entrega a domicilio. Cotizá según el peso y pedilo por WhatsApp. También hacemos mudanzas.</p>
+        <p class="portada-bajada">Traemos tu carga en camión de Buenos Aires a Mar del Plata y la llevamos de Mar del Plata a Buenos Aires, con entrega a domicilio. Cotizá por peso o por palet y pedilo por WhatsApp. También hacemos mudanzas.</p>
         <div class="portada-botones">
           <a class="btn btn-primario" href="#cotizador"><svg class="ico" aria-hidden="true"><use href="#i-cotizar"/></svg>Cotizá tu envío</a>
           <a class="btn btn-borde" data-wa href="#contacto"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Escribinos por WhatsApp</a>
@@ -450,7 +450,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
           <div><dt>De</dt><dd>Buenos Aires</dd></div>
           <div><dt>Para</dt><dd>Mar del Plata, y de vuelta</dd></div>
           <div><dt>Entrega</dt><dd>A domicilio</dd></div>
-          <div><dt>Precio</dt><dd>Según el peso</dd></div>
+          <div><dt>Precio</dt><dd>Por peso o por palet</dd></div>
         </dl>
         <div class="barras"></div>
         <div class="guia-fila guia-pie"><span>Mar del Plata</span><span>(223)</span></div>
@@ -479,7 +479,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
       <header class="seccion-cabeza">
         <p class="seccion-num mono">02 · Cotizador</p>
         <h2 id="t-cotizador">Cotizá tu envío</h2>
-        <p>Elegí para dónde va y cuánto pesa cada bulto: el precio estimado sale al instante. Después lo mandás por WhatsApp y te lo confirmamos.</p>
+        <p>Elegí para dónde va y cuánto pesa cada bulto, o cuántos palets son: el precio estimado sale al instante. Después lo mandás por WhatsApp y te lo confirmamos.</p>
       </header>
 
       <noscript><p class="hoja">El cotizador necesita JavaScript activado. También podés escribirnos por Instagram.</p></noscript>
@@ -498,6 +498,10 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
               <div class="pesos" id="pesos"></div>
             </fieldset>
             <p class="ayuda" id="pesos-ayuda"></p>
+            <fieldset class="grupo">
+              <legend>¿Mandás palets?</legend>
+              <div class="pesos" id="palets-fila"></div>
+            </fieldset>
             <div class="campo" id="campo-zona" style="margin-top:1.25rem" hidden>
               <label for="zona-entrega">¿Dónde se entrega?</label>
               <select id="zona-entrega" name="zona-entrega"></select>
@@ -815,12 +819,25 @@ function filaPeso(p, i) {
   </div>`;
 }
 
+function filaPalet() {
+  const pa = TARIFAS.palet;
+  return `<div class="peso-fila">
+    <label class="peso-et" for="palets"><strong>Palets</strong><span>${pesos(pa.porPalet)} por palet${pa.ejemplo && NEGOCIO.tarifasDeEjemplo ? " · ejemplo" : ""}</span></label>
+    <div class="contador-ctrl">
+      <button class="contador-btn" type="button" data-para="palets" data-paso="-1" aria-label="Un palet menos">−</button>
+      <input id="palets" name="palets" type="number" inputmode="numeric" value="0" min="0" max="${pa.max}">
+      <button class="contador-btn" type="button" data-para="palets" data-paso="1" aria-label="Un palet más">+</button>
+    </div>
+  </div>`;
+}
+
 function pintarCotizador() {
   $("#sentidos").innerHTML = TARIFAS.sentidos.map((s) =>
     tarjetaOpcion("sentido", s, s.recargo ? `Recargo del ${s.recargo} %` : "Sin recargo", icono("i-camion"))
   ).join("");
   $(`input[name="sentido"][value="${TARIFAS.sentidos[0].id}"]`).checked = true;
   $("#pesos").innerHTML = TARIFAS.pesos.map(filaPeso).join("");
+  $("#palets-fila").innerHTML = filaPalet();
   $("#pesos-ayuda").textContent = `¿Algún bulto pesa más de ${TARIFAS.pesoMaximo} kg? Escribinos y lo cotizamos.`;
   $("#zona-entrega").innerHTML = TARIFAS.zonasMdp.map((z) =>
     `<option value="${z.id}">${esc(z.nombre)}${z.extra ? ` (costo extra: ${pesos(z.extra)})` : ""}</option>`
@@ -843,19 +860,21 @@ function leerNumero(id) {
   return Math.min(max, Math.max(min, Number.isFinite(n) ? n : min));
 }
 
-// Cada bulto se cobra según su peso: suma de (cantidad × precio de su rango)
+// Cada bulto se cobra según su peso (cantidad × precio de su rango) y cada palet a su precio
 function calcular() {
   const s = TARIFAS.sentidos.find((x) => x.id === valorRadio("sentido"));
   const filas = TARIFAS.pesos.map((p, i) => ({ p, n: leerNumero("peso-" + i) })).filter((f) => f.n > 0);
   const bultos = filas.reduce((t, f) => t + f.n, 0);
-  if (!s || !bultos) return { s, filas, bultos, lineas: [], total: null };
+  const palets = leerNumero("palets");
+  if (!s || (!bultos && !palets)) return { s, filas, bultos, palets, lineas: [], total: null };
   const lineas = filas.map((f) => ({ c: `${plural(f.n, "bulto", "bultos")} de ${f.p.frase} × ${pesos(f.p.porBulto)}`, v: redondear(f.n * f.p.porBulto) }));
-  // Si se entrega en Mar del Plata, puede ser en Batán o Sierra de los Padres (costo extra)
-  // Recargo del sentido (de Mar del Plata a Buenos Aires: 20 % sobre los bultos)
+  if (palets) lineas.push({ c: `${plural(palets, "palet", "palets")} × ${pesos(TARIFAS.palet.porPalet)}`, v: redondear(palets * TARIFAS.palet.porPalet) });
+  // Recargo del sentido (de Mar del Plata a Buenos Aires: 20 % sobre la carga)
   if (s.recargo) lineas.push({ c: `Recargo ${s.desde} → ${s.hasta} (+${s.recargo} %)`, v: redondear((suma(lineas) * s.recargo) / 100) });
+  // Si se entrega en Mar del Plata, puede ser en Batán o Sierra de los Padres (costo extra)
   const zona = s.hasta === "Mar del Plata" ? TARIFAS.zonasMdp.find((z) => z.id === $("#zona-entrega").value) : null;
   if (zona?.extra) lineas.push({ c: `Entrega en ${zona.nombre} (costo extra)`, v: zona.extra });
-  return { s, filas, bultos, zona, lineas, total: redondear(suma(lineas)) };
+  return { s, filas, bultos, palets, zona, lineas, total: redondear(suma(lineas)) };
 }
 
 // De dónde sale la carga en cada sentido (depósito o sucursal, con su dirección si la hay)
@@ -868,8 +887,9 @@ function lugarSalida(s) {
 function actualizar() {
   const r = calcular();
   $("#tr-1").textContent = r.s ? r.s.salida : "—";
-  $("#tr-2").textContent = r.s ? `${r.s.hasta}${r.bultos ? " · " + plural(r.bultos, "bulto", "bultos") : ""}` : "—";
-  $$(".peso-fila").forEach((fila, i) => fila.classList.toggle("con-bultos", leerNumero("peso-" + i) > 0));
+  const carga = [r.bultos && plural(r.bultos, "bulto", "bultos"), r.palets && plural(r.palets, "palet", "palets")].filter(Boolean);
+  $("#tr-2").textContent = r.s ? [r.s.hasta, ...carga].join(" · ") : "—";
+  $$(".peso-fila").forEach((fila) => fila.classList.toggle("con-bultos", +fila.querySelector("input").value > 0));
   $("#campo-zona").hidden = !r.s || r.s.hasta !== "Mar del Plata";
   if (r.s) {
     $("#dir-entrega").placeholder = `Calle, número y localidad en ${r.zona ? r.zona.nombre : r.s.hasta}`;
@@ -882,7 +902,7 @@ function actualizar() {
   const total = $("#ticket-total");
   if (r.total == null) {
     total.classList.add("vacio");
-    total.textContent = "Agregá al menos un bulto para ver el precio.";
+    total.textContent = "Agregá al menos un bulto o un palet para ver el precio.";
     $("#enviar-total").textContent = "—";
   } else {
     total.classList.remove("vacio");
@@ -922,7 +942,8 @@ function armarMensaje(r) {
   const L = [`¡Hola ${NEGOCIO.nombre}! Quiero cotizar un envío desde la web.`, ""];
   L.push(`*Viaje:* ${r.s.desde} → ${r.s.hasta}`);
   L.push(`*Sale de:* ${lugarSalida(r.s)}`);
-  L.push(`*Bultos:* ${r.filas.map((f) => `${f.n} de ${f.p.frase}`).join(", ")}`);
+  if (r.bultos) L.push(`*Bultos:* ${r.filas.map((f) => `${f.n} de ${f.p.frase}`).join(", ")}`);
+  if (r.palets) L.push(`*Palets:* ${r.palets}`);
   L.push(`*Entrega a domicilio:* ${val("dir-entrega")} (${r.zona ? r.zona.nombre : r.s.hasta})`);
   const cuando = [fechaLinda(val("dia")), val("franja").toLowerCase()].filter(Boolean).join(", ");
   if (cuando) L.push(`*Cuándo:* ${cuando}`);
@@ -936,14 +957,14 @@ function armarMensaje(r) {
 function validarPedido() {
   const r = actualizar();
   const faltan = [];
-  if (r.total == null) faltan.push(["peso-0", "al menos un bulto"]);
+  if (r.total == null) faltan.push(["peso-0", "al menos un bulto o un palet"]);
   if (!$("#nombre").value.trim()) faltan.push(["nombre", "tu nombre"]);
   if (!$("#dir-entrega").value.trim()) faltan.push(["dir-entrega", "la dirección de entrega"]);
 
   $$("#form-cot [aria-invalid]").forEach((el) => el.removeAttribute("aria-invalid"));
   if (faltan.length || r.total == null) {
     faltan.forEach(([id]) => $("#" + id).setAttribute("aria-invalid", "true"));
-    $("#enviar-error").textContent = faltan.length ? "Para mandar el pedido falta " + lista(faltan.map((f) => f[1])) + "." : "Agregá al menos un bulto.";
+    $("#enviar-error").textContent = faltan.length ? "Para mandar el pedido falta " + lista(faltan.map((f) => f[1])) + "." : "Agregá al menos un bulto o un palet.";
     if (faltan.length) $("#" + faltan[0][0]).focus();
     return false;
   }
@@ -988,6 +1009,7 @@ function iniciar() {
    Cómo se calcula un envío:
      cada bulto se cobra según su peso (rangos de a 10 kg en TARIFAS.pesos):
      total = suma de (cantidad de bultos de cada rango × su precio)
+     + palets × precio por palet
      + recargo del sentido (de Mar del Plata a Buenos Aires: 20 %)
      + costo extra de la zona (Batán / Sierra de los Padres).
      Se redondea a TARIFAS.redondeo.
@@ -1029,10 +1051,10 @@ const NEGOCIO = {
   servicios: [
     { id: "ba-mdp", activo: true, icono: "i-camion", titulo: "Buenos Aires → Mar del Plata",
       texto: "Traemos tu carga en camión desde Buenos Aires y la entregamos a domicilio en Mar del Plata.",
-      etiquetas: ["En camión", "Según el peso", "A domicilio", "Congelados"] },
+      etiquetas: ["En camión", "Por peso o palet", "A domicilio", "Congelados"] },
     { id: "mdp-ba", activo: true, icono: "i-camion", titulo: "Mar del Plata → Buenos Aires",
       texto: "Y al revés: tu carga sale de nuestro depósito en Mar del Plata y la entregamos a domicilio en Buenos Aires.",
-      etiquetas: ["En camión", "Según el peso", "A domicilio", "Congelados"] },
+      etiquetas: ["En camión", "Por peso o palet", "A domicilio", "Congelados"] },
     { id: "mudanzas", activo: true, icono: "i-casa", titulo: "Mudanzas",
       texto: "También hacemos mudanzas. Contanos qué hay que mover y adónde, y te pasamos el presupuesto.",
       boton: { texto: "Pedir presupuesto", mensaje: "¡Hola Saldar! Te escribo desde la web: quiero un presupuesto para una mudanza." } },
@@ -1040,7 +1062,8 @@ const NEGOCIO = {
 
   // dato: "horario" = usa el mismo texto de arriba. r = respuesta fija.
   preguntas: [
-    { p: "¿Cómo se calcula el precio?", r: "Según el peso de cada bulto. De Mar del Plata a Buenos Aires tiene un recargo del 20 %. El del cotizador es un precio estimado: cuando nos escribís por WhatsApp te confirmamos el final antes del viaje." },
+    { p: "¿Cómo se calcula el precio?", r: "Según el peso de cada bulto (de a 10 kg; de 1 a 10 kg es el mínimo) o por palet. De Mar del Plata a Buenos Aires tiene un recargo del 20 %. El del cotizador es un precio estimado: cuando nos escribís por WhatsApp te confirmamos el final antes del viaje." },
+    { p: "¿Llevan palets?", r: "Sí, también llevamos palets, con precio por palet." },
     { p: "¿Entregan a domicilio?", dato: "domicilio" },
     { p: "¿A qué zonas entregan?", dato: "zonas" },
     { p: "¿Desde dónde sale la carga?", dato: "salidaCarga" },
@@ -1059,6 +1082,10 @@ const TARIFAS = {
   redondeo: 0,            // 0 = no se redondea (se muestran los centavos)
   maxBultos: 200,         // lo máximo por rango que se puede poner en el cotizador
   pesoMaximo: 50,         // más de esto, "escribinos y lo cotizamos"
+
+  // Precio por palet (el dueño dice que hay valor por palet, 23/10/2026).
+  // El monto es DE EJEMPLO: cuando esté el real, cambiá el número y borrá "ejemplo: true".
+  palet: { porPalet: 150000, max: 30, ejemplo: true },
 
   // Precio por bulto según su peso, en rangos de a 10 kg. De 1 a 10 kg se
   // cobra el mínimo (dato real del dueño, 23/10/2026). Los demás precios son

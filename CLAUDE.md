@@ -57,10 +57,11 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
 | Congelados | Se permiten | El dueño, vía Mateo, 22/10/2026 ✅ |
 | Factura | Hace Factura A | El dueño, vía Mateo, 22/10/2026 ✅ |
 | Vehículos | Camiones | El dueño, vía Mateo, 20/10/2026 ✅ |
-| Cómo cobra | Por bulto según el peso, en rangos de a 10 kg. **De 1 a 10 kg se cobra el mínimo: $ 9.181,97.** De Mar del Plata a Buenos Aires, recargo del 20 % | El dueño, vía Mateo, 20 y 23/10/2026 ✅ (faltan los precios de 10 a 20 kg en adelante) |
+| Cómo cobra | Por bulto según el peso, en rangos de a 10 kg. **De 1 a 10 kg se cobra el mínimo: $ 9.181,97.** También hay **valor por palet**. De Mar del Plata a Buenos Aires, recargo del 20 % | El dueño, vía Mateo, 20 y 23/10/2026 ✅ (faltan los precios de 10 a 20 kg en adelante) |
 | Entrega | A domicilio | El dueño, vía Mateo, 20/10/2026 ✅ |
 | Sucursal Buenos Aires | Existe; dirección "A confirmar" | El dueño, vía Mateo, 20/10/2026 ✅ (los datos los pasa después) |
 | Tarifas | 1–10 kg $ 9.181,97 (real). 10–20 kg $ 15.000, 20–30 $ 21.000, 30–40 $ 27.000, 40–50 $ 33.000 | ⚠️ Solo el mínimo es real; los otros son de ejemplo (`ejemplo: true`, se ven con "· ejemplo") |
+| Palet | $ 150.000 por palet | ⚠️ De ejemplo (el dueño confirmó que hay valor por palet, 23/10/2026) |
 | WhatsApp | El de Mateo (pruebas) | ⚠️ Falta el del negocio |
 | Horario | Trabaja de lunes a sábados. Recepción de carga en el depósito: lunes a viernes de 8 a 16:30. Sábados el depósito está cerrado y no sale mercadería | El dueño, vía Mateo, 22/10/2026 ✅. Reemplaza el "de 6 a 15" del 20/10. En el JSON-LD: lunes a viernes 8 a 16:30 |
 | Medios de pago | Efectivo y transferencia | El dueño, vía Mateo, 22/10/2026 ✅ (reemplaza "todos los medios"). Tarjeta: "se puede habilitar" en la web y posnet en el depósito |
@@ -104,7 +105,8 @@ comentario **"DATOS DE SALDAR — ACÁ SE CAMBIAN LOS PRECIOS"**:
   preguntas frecuentes.
 - `TARIFAS`: `redondeo` (0 = no redondea y muestra centavos), `maxBultos`,
   `pesoMaximo`, **`pesos`** (rangos de a 10 kg, cada uno con `nombre`,
-  `frase`, `porBulto`, y opcionales `nota: "mínimo"` y `ejemplo: true`), **`zonasMdp`** (Mar del
+  `frase`, `porBulto`, y opcionales `nota: "mínimo"` y `ejemplo: true`),
+  **`palet`** (`porPalet`, `max`, `ejemplo`), **`zonasMdp`** (Mar del
   Plata sin extra, Batán y Sierra de los Padres con `extra`; solo aparece
   cuando la entrega es en Mar del Plata) y `sentidos` (de dónde
   sale la carga en cada sentido: depósito de Mar del Plata o sucursal de
@@ -116,8 +118,9 @@ Reglas: los precios van **sin puntos de miles ni $; los centavos con punto**
 función `pesos()`: muestra centavos solo si el monto los tiene.
 
 Cálculo (`calcular()`): cada bulto se cobra según su rango de peso;
-`total = suma de (bultos de cada rango × porBulto) + recargo del sentido
-(20 % sobre los bultos de Mar del Plata a Buenos Aires) + extra de la zona`
+`total = suma de (bultos de cada rango × porBulto) + palets × porPalet +
+recargo del sentido (20 % sobre bultos y palets, de Mar del Plata a Buenos
+Aires) + extra de la zona`
 (solo Batán / Sierra de los Padres), redondeado a `TARIFAS.redondeo`. Si Saldar cobra por kilo, con
 mínimo por viaje, o distinto según el sentido, cambiar `calcular()` y
 `TARIFAS`.
@@ -156,7 +159,8 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
   "ida y vuelta", porque los camiones van y vienen). Arriba dice "Logística ·
   Buenos Aires – Mar del Plata".
 - Cotizador: sentido (dos tarjetas) + una fila por rango de peso con su
-  contador; las filas con bultos se marcan en azul; si llega a Mar del Plata,
+  contador + una fila de palets ("¿Mandás palets?"); se puede cotizar solo
+  bultos, solo palets o las dos cosas; las filas con bultos se marcan en azul; si llega a Mar del Plata,
   se elige la zona (Batán y Sierra con costo extra). Debajo del día dice "La
   carga sale de lunes a viernes".
 - Servicios: los dos sentidos (con etiquetas En camión, Según el peso, A
@@ -197,6 +201,7 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 | Mudanzas: ¿dentro de Mar del Plata, a Buenos Aires o las dos? ¿cómo se cotizan? | Hoy solo "pedí presupuesto por WhatsApp" |
 | Pago con tarjeta: "se puede habilitar" en la web y posnet en el depósito | Para la web hace falta la cuenta de Mercado Pago (u otra) del negocio: link o botón de pago. Cuando haya posnet, sumar "tarjeta en el depósito" a `pagos` |
 | Precios de 10 a 20 kg en adelante (rangos de a 10 kg) | Solo está el mínimo de 1 a 10 kg ($ 9.181,97); el resto es de ejemplo |
+| Precio por palet (¿uno solo o según tamaño/peso?) y si el 20 % de recargo también va sobre los palets | Hoy $ 150.000 de ejemplo y el recargo se aplica a todo |
 | ¿Hasta cuántos kilos por bulto? | El cotizador llega a 50 kg; más, "escribinos y lo cotizamos" |
 | Que en Buenos Aires la carga también sale de la sucursal | Inferido de "sale desde el depósito" + "hay sucursal en Buenos Aires" |
 | ¿Retiran a domicilio además de entregar? | Se entendió que no: la carga sale del depósito; el formulario no pide dirección de retiro |
@@ -223,6 +228,10 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 
 ## Registro de cambios
 
+- 23/10/2026 — Mateo: "también hay valor por palet" → fila de palets en el
+  cotizador (precio de ejemplo), línea en el presupuesto y en el mensaje,
+  pregunta "¿Llevan palets?", y "por peso o por palet" en portada, hoja de
+  ruta, etiquetas y ficha de Google.
 - 23/10/2026 — Mateo: de 1 a 10 kg se cobra el mínimo ($ 9.181,97), después
   de a 10 kg; predominan los viajes de Buenos Aires a Mar del Plata → rangos
   nuevos de a 10 kg (el primero real, el resto marcado "ejemplo"), precios
