@@ -814,7 +814,7 @@ function filaPeso(p, i) {
 
 function pintarCotizador() {
   $("#sentidos").innerHTML = TARIFAS.sentidos.map((s) =>
-    tarjetaOpcion("sentido", s, "Entrega a domicilio", icono("i-camion"))
+    tarjetaOpcion("sentido", s, s.recargo ? `Recargo del ${s.recargo} %` : "Sin recargo", icono("i-camion"))
   ).join("");
   $(`input[name="sentido"][value="${TARIFAS.sentidos[0].id}"]`).checked = true;
   $("#pesos").innerHTML = TARIFAS.pesos.map(filaPeso).join("");
@@ -848,6 +848,8 @@ function calcular() {
   if (!s || !bultos) return { s, filas, bultos, lineas: [], total: null };
   const lineas = filas.map((f) => ({ c: `${plural(f.n, "bulto", "bultos")} de ${f.p.frase} × ${pesos(f.p.porBulto)}`, v: f.n * f.p.porBulto }));
   // Si se entrega en Mar del Plata, puede ser en Batán o Sierra de los Padres (costo extra)
+  // Recargo del sentido (de Mar del Plata a Buenos Aires: 20 % sobre los bultos)
+  if (s.recargo) lineas.push({ c: `Recargo ${s.desde} → ${s.hasta} (+${s.recargo} %)`, v: redondear((suma(lineas) * s.recargo) / 100) });
   const zona = s.hasta === "Mar del Plata" ? TARIFAS.zonasMdp.find((z) => z.id === $("#zona-entrega").value) : null;
   if (zona?.extra) lineas.push({ c: `Entrega en ${zona.nombre} (costo extra)`, v: zona.extra });
   return { s, filas, bultos, zona, lineas, total: redondear(suma(lineas)) };
@@ -981,8 +983,10 @@ function iniciar() {
 
    Cómo se calcula un envío:
      cada bulto se cobra según su peso (rangos de TARIFAS.pesos):
-     total = suma de (cantidad de bultos de cada rango × su precio).
-     Es igual en los dos sentidos. Se redondea a TARIFAS.redondeo.
+     total = suma de (cantidad de bultos de cada rango × su precio)
+     + recargo del sentido (de Mar del Plata a Buenos Aires: 20 %)
+     + costo extra de la zona (Batán / Sierra de los Padres).
+     Se redondea a TARIFAS.redondeo.
 
    IMPORTANTE: estas tarifas son DE EJEMPLO (inventadas para la demo).
    Cuando estén las reales de Saldar, cargalas y poné
@@ -1031,7 +1035,7 @@ const NEGOCIO = {
 
   // dato: "horario" = usa el mismo texto de arriba. r = respuesta fija.
   preguntas: [
-    { p: "¿Cómo se calcula el precio?", r: "Según el peso de cada bulto. El del cotizador es un precio estimado: cuando nos escribís por WhatsApp te confirmamos el final antes del viaje." },
+    { p: "¿Cómo se calcula el precio?", r: "Según el peso de cada bulto. De Mar del Plata a Buenos Aires tiene un recargo del 20 %. El del cotizador es un precio estimado: cuando nos escribís por WhatsApp te confirmamos el final antes del viaje." },
     { p: "¿Entregan a domicilio?", dato: "domicilio" },
     { p: "¿A qué zonas entregan?", dato: "zonas" },
     { p: "¿Desde dónde sale la carga?", dato: "salidaCarga" },
@@ -1072,10 +1076,12 @@ const TARIFAS = {
   sentidos: [
     { id: "mdp-ba", nombre: "Mar del Plata → Buenos Aires", desde: "Mar del Plata", hasta: "Buenos Aires",
       detalle: "Sale de nuestro depósito en Mar del Plata", salida: "Depósito de Mar del Plata",
-      salidaEnFrase: "nuestro depósito de Mar del Plata", direccionSalida: "direccion" },
+      salidaEnFrase: "nuestro depósito de Mar del Plata", direccionSalida: "direccion",
+      recargo: 20 },   // % que se suma sobre los bultos (el dueño, 23/10/2026)
     { id: "ba-mdp", nombre: "Buenos Aires → Mar del Plata", desde: "Buenos Aires", hasta: "Mar del Plata",
       detalle: "Sale de nuestra sucursal de Buenos Aires", salida: "Sucursal de Buenos Aires",
-      salidaEnFrase: "nuestra sucursal de Buenos Aires", direccionSalida: "sucursalBA" },
+      salidaEnFrase: "nuestra sucursal de Buenos Aires", direccionSalida: "sucursalBA",
+      recargo: 0 },
   ],
 };
 

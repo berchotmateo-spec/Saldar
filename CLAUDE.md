@@ -54,7 +54,7 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
 | Congelados | Se permiten | El dueño, vía Mateo, 22/10/2026 ✅ |
 | Factura | Hace Factura A | El dueño, vía Mateo, 22/10/2026 ✅ |
 | Vehículos | Camiones | El dueño, vía Mateo, 20/10/2026 ✅ |
-| Cómo cobra | Según el peso (y la cantidad de bultos) | El dueño, vía Mateo, 20/10/2026 ✅ (los montos y los rangos faltan) |
+| Cómo cobra | Según el peso (y la cantidad de bultos). **De Mar del Plata a Buenos Aires, recargo del 20 %** | El dueño, vía Mateo, 20 y 23/10/2026 ✅ (los montos y los rangos faltan; el 20 % es real) |
 | Entrega | A domicilio | El dueño, vía Mateo, 20/10/2026 ✅ |
 | Sucursal Buenos Aires | Existe; dirección "A confirmar" | El dueño, vía Mateo, 20/10/2026 ✅ (los datos los pasa después) |
 | Tarifas | Por bulto según rango de peso: hasta 5 kg $ 6.000, 5–15 kg $ 9.000, 15–30 kg $ 14.000, 30–50 kg $ 20.000 | ⚠️ Inventadas para la demo |
@@ -104,15 +104,16 @@ comentario **"DATOS DE SALDAR — ACÁ SE CAMBIAN LOS PRECIOS"**:
   Plata sin extra, Batán y Sierra de los Padres con `extra`; solo aparece
   cuando la entrega es en Mar del Plata) y `sentidos` (de dónde
   sale la carga en cada sentido: depósito de Mar del Plata o sucursal de
-  Buenos Aires).
+  Buenos Aires; `recargo` en %: 20 para Mar del Plata → Buenos Aires, 0 para
+  la vuelta).
 
 Reglas: los precios van **enteros, sin puntos ni $** (`9000`). El formato
 `$ 9.000` lo hace la función `pesos()`.
 
 Cálculo (`calcular()`): cada bulto se cobra según su rango de peso;
-`total = suma de (bultos de cada rango × porBulto) + extra de la zona`
-(solo Batán / Sierra de los Padres), igual en los dos sentidos, redondeado a
-`TARIFAS.redondeo`. Si Saldar cobra por kilo, con
+`total = suma de (bultos de cada rango × porBulto) + recargo del sentido
+(20 % sobre los bultos de Mar del Plata a Buenos Aires) + extra de la zona`
+(solo Batán / Sierra de los Padres), redondeado a `TARIFAS.redondeo`. Si Saldar cobra por kilo, con
 mínimo por viaje, o distinto según el sentido, cambiar `calcular()` y
 `TARIFAS`.
 
@@ -182,7 +183,6 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 | Qué | Por qué hay duda |
 |---|---|
 | Datos de la sucursal de Buenos Aires (dirección, horario) | Mateo los pasa después; hoy "A confirmar" |
-| ¿Los envíos son solo de Mar del Plata a Buenos Aires, o también de Buenos Aires a Mar del Plata? | El 20/10 dijo "y viceversa"; el 22/10 escribió "se realizan envíos de mdp a bs as". La web sigue con los dos sentidos |
 | ¿El "de 6 a 15" sigue valiendo para algo (entregas, oficina)? | Se sacó porque choca con la recepción hasta las 16:30 |
 | Costo extra de Batán y Sierra de los Padres: ¿cuánto? ¿por envío o por bulto? | Hoy $ 5.000 de ejemplo por envío |
 | Mudanzas: ¿dentro de Mar del Plata, a Buenos Aires o las dos? ¿cómo se cotizan? | Hoy solo "pedí presupuesto por WhatsApp" |
@@ -214,6 +214,11 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 
 ## Registro de cambios
 
+- 23/10/2026 — Mateo: "de Mar del Plata a Buenos Aires tiene un recargo del
+  20 %" → `recargo: 20` en ese sentido; el cotizador suma la línea del
+  recargo, la tarjeta del sentido dice "Recargo del 20 %" (la otra "Sin
+  recargo") y la pregunta del precio lo explica. Con esto quedan confirmados
+  los dos sentidos.
 - 22/10/2026 — Mateo pasó: congelados sí; zonas MDP, Buenos Aires y Batán /
   Sierras con costo extra; pagos en efectivo o transferencia (tarjeta se puede
   habilitar); Factura A; lunes a sábados, recepción lunes a viernes de 8 a
