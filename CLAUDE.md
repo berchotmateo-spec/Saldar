@@ -209,7 +209,9 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
   (texto) e IBM Plex Mono (etiquetas, precios del detalle).
 - **Logo real** (imagen `img/saldar-logo.webp`): 44 px de alto en la cabecera
   desde 900 px, 38 px en el celular y en el pie. No deformarlo ni recortarlo.
-- **Club CUDS** (sección 05, después de Recorrido): escudo a la izquierda,
+- **Club CUDS** (sección 05, después de Recorrido): recuadro con los dos
+  logos "CUDS × SALDAR" (`.cuds-dupla`: escudo, una ×, logo de Saldar; a la
+  izquierda desde 900 px, arriba en el celular; pedido de Mateo, 27/10/2026),
   "Sponsors del CUDS" ("Saldar es sponsor del CUDS, club de rugby de Mar
   del Plata") y una tarjeta negra "¿Sos socio del CUDS?" con
   botón de WhatsApp ("Soy socio del CUDS y quiero consultar por el
@@ -267,6 +269,10 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 
 ## Registro de cambios
 
+- 27/10/2026 — Mateo: "agregá el logo del CUDS, una X y el logo de Saldar;
+  abajo, lo de socio está excelente" → en la sección del CUDS el escudo solo
+  pasó a un recuadro "CUDS × SALDAR"; la tarjeta "¿Sos socio del CUDS?"
+  quedó igual.
 - 27/10/2026 — Mateo: "sí, son sponsors del club" → sección del CUDS: título
   "Sponsors del CUDS" y "Saldar es sponsor del CUDS, club de rugby de Mar
   del Plata" (antes decía "acompaña").
