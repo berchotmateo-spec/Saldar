@@ -18,7 +18,13 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
 
 - Repo: `berchotmateo-spec/Saldar` — rama de trabajo `claude/new-session-2zu43k` (todavía no hay `main`).
 - Archivo único: `index.html` (HTML + CSS + JS, sin build; solo Google Fonts).
-- Sitio publicado: todavía no. Dominio: todavía no.
+- Sitio publicado: todavía no. Dominio: todavía no. Recomendado (27/10/2026):
+  **`saldar.com.ar`** (corto, igual a la marca, fácil de escribir en un
+  cartel); si está tomado, `saldarlogistica.com.ar`. `saldar.com` está
+  registrado por otro desde 2004; `saldarlogistica.com` figuraba libre. Desde
+  la sesión no se puede consultar NIC.ar: lo confirma Mateo en nic.ar. El
+  dueño quiere la web en internet antes del fin de semana del 31/10 para
+  poner QR en carteles.
 - Vista previa (Artifact): https://claude.ai/artifact/BFzHpRD3RUbbA9wNtDmvHT
   (privado: el dueño la ve recién cuando Mateo la comparte desde el menú
   Compartir). Se publicó el 19/10/2026, después de que Mateo habló con el
@@ -255,6 +261,7 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 | Clientes o marcas que se puedan nombrar (con permiso) | No hay ninguno en la web |
 | Algo que lo distinga (frecuencia, años haciendo el recorrido, seguimiento…) | No se puso nada |
 | Sector CUDS: ¿cuál de los 3 prototipos? (1 banda azul con sticker "Descuento", 2 carnet de socio con pasos, 3 etiqueta de envío con sello) | Prototipos en https://claude.ai/artifact/3RK6JhcF3Jyu78mrMxh1od (27/10/2026). La web no se toca hasta que Mateo elija |
+| Dominio: ¿`saldar.com.ar` está libre? ¿A nombre de quién (CUIT del dueño)? | Recomendado el 27/10/2026; lo compra Mateo en NIC.ar |
 | Mail para los CV de "Trabajá con nosotros" | Mateo se lo pidió al dueño (27/10/2026). Va en `NEGOCIO.mailCV` |
 | Fotos propias (los camiones, el depósito, cargas) | Ninguna |
 
