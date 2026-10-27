@@ -35,6 +35,11 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
   a `185.199.108.153`, `.109.153`, `.110.153`, `.111.153` y CNAME `www` →
   `berchotmateo-spec.github.io`, todo en gris, "DNS only") → GitHub Pages
   (Custom domain `saldarlogistica.com.ar`, después Enforce HTTPS).
+  Estado 27/10/2026: repo público ✅, Pages desde la rama `/docs` con el
+  Custom domain ✅ (el github.io ya redirige al dominio), cuenta de
+  Cloudflare con el sitio agregado ✅; nameservers de Cloudflare:
+  **`nina.ns.cloudflare.com`** y **`sergi.ns.cloudflare.com`**. Faltan los
+  registros en Cloudflare y la delegación en NIC.ar.
 - **El DNS se puede revisar desde la sesión** con DNS por HTTPS (el `dig`
   no anda): `curl -sS -H 'accept: application/dns-json'
   'https://cloudflare-dns.com/dns-query?name=saldarlogistica.com.ar&type=NS'`.
