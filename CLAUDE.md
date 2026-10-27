@@ -11,7 +11,7 @@ Web de una página para **Saldar** (Instagram [@saldar223](https://www.instagram
 empresa de **logística y distribución en camión entre Buenos Aires y Mar del Plata** (en los
 dos sentidos; **predomina Buenos Aires → Mar del Plata**, por eso va primero en
 toda la web), con depósito en Victoriano Montes 1963, Mar del Plata, y
-sucursal en Buenos Aires. También hace **mudanzas** y lleva **congelados**. **En la web se dice "logística y distribución", nunca "fletes"**
+sucursal en Buenos Aires. Está **desde 2015**. También hace **mudanzas** y lleva **congelados**. **En la web se dice "logística y distribución", nunca "fletes"**
 (pedido de Mateo, 20 y 27/10/2026). Es una **demo de venta** de Mateo
 Berchot: se le muestra al dueño funcionando y se le ofrece con abono mensual.
 Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
@@ -64,28 +64,29 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
 |---|---|---|
 | Nombre comercial | "Saldar" | El dueño, vía Mateo, 19/10/2026 ✅ |
 | Rubro | Logística y distribución en camión Buenos Aires ⇄ Mar del Plata, en los dos sentidos | El dueño, vía Mateo, 20, 23 y 27/10/2026 ✅ ("logística y distribución", no "fletes"; "ambos" sentidos) |
+| Trayectoria | **Desde 2015**: bajada de la portada, hoja de ruta ("Saldar · desde 2015"), pregunta "¿Desde cuándo están?", pie, description, Open Graph y JSON-LD (`foundingDate`) | El dueño, vía Mateo, 27/10/2026 ✅ |
 | Depósito | Victoriano Montes 1963, Mar del Plata (link a Google Maps). La carga sale desde acá | El dueño, vía Mateo, 20/10/2026 ✅. Mateo escribió "victoriano monte"; la calle es Dr. Victoriano E. Montes |
 | Servicios | Buenos Aires → Mar del Plata y Mar del Plata → Buenos Aires, y mudanzas (dentro de Mar del Plata y entre Buenos Aires y Mar del Plata, de ida y de vuelta) | El dueño, vía Mateo, 19, 20, 22 y 23/10/2026 ✅. **No tiene mensajería** |
 | Congelados | Se permiten | El dueño, vía Mateo, 22/10/2026 ✅ |
 | Factura | Hace Factura A | El dueño, vía Mateo, 22/10/2026 ✅ |
 | Vehículos | Camiones | El dueño, vía Mateo, 20/10/2026 ✅ |
-| Cómo cobra | Por bulto según sus kilos, de a 10 kg, **hasta unos 400 kg por bulto**. **De 1 a 10 kg se cobra el mínimo: $ 9.181,97.** **Opción palet** (aparte, para el que embala toda la carga en un palet; con muchos bultos le conviene): **$ 86.260,40 el palet completo.** De Mar del Plata a Buenos Aires, recargo del 20 % sobre todo (bultos y palets) | El dueño, vía Mateo, 20 y 23/10/2026 ✅ (falta cuánto suma cada 10 kg). Audios del 23/10: "primero es por peso y por bulto, y después los que lo quieran mandar en palet, por palet" |
-| Valor declarado | El cliente pone cuánto vale **toda** la mercadería, bultos y palets (**obligatorio**, "sí o sí"), en **pesos, dólares o euros** (Saldar lo pasa a pesos); va en el mensaje de WhatsApp ("$ 250.000", "US$ 1.500", "€ 1.200"), no cambia el precio | Pedido del dueño, vía Mateo, 23/10/2026 ✅. Monedas y "para todo": audio del dueño, 27/10/2026 ✅ |
-| Entrega | A domicilio | El dueño, vía Mateo, 20/10/2026 ✅ |
-| Sucursal Buenos Aires | **John William Cooke 3155, Villa Soldati (CABA)**, C1437 (link a Google Maps). La carga de Buenos Aires → Mar del Plata sale de acá. Recibe de 8 a 17 | Dirección: el dueño, vía Mateo, 23/10/2026 ✅ (escribió "Cooke John William 3155"). Barrio: buscado por Claude el 23/10/2026 (Waze, directorios de transporte y un aviso de galpón en Cooke 3200 dicen CABA, C1437, Villa Soldati). En esa altura hay un predio con varios expresos (Tres Lomas, Veninga, TransRE…), uno con horario de lunes a viernes de 8 a 17 |
+| Cómo cobra | Por bulto según sus kilos, de a 10 kg. **Llevan cargas de hasta 4.000 kg, e incluso más** (27/10; antes "unos 400 kg por bulto"): el campo de kilos llega a 4.000 y la pregunta dice "si pesa más, escribinos". **De 1 a 10 kg se cobra el mínimo: $ 9.181,97.** **Opción palet** (aparte, para el que embala toda la carga en un palet; con muchos bultos le conviene): **$ 86.260,40 el palet completo.** De Mar del Plata a Buenos Aires, recargo del 20 % sobre todo (bultos y palets) | El dueño, vía Mateo, 20 y 23/10/2026 ✅ (falta cuánto suma cada 10 kg). Audios del 23/10: "primero es por peso y por bulto, y después los que lo quieran mandar en palet, por palet" |
+| Valor declarado | El cliente pone cuánto vale **toda** la mercadería, bultos y palets (**obligatorio**, "sí o sí"), en **pesos, dólares o euros** (Saldar lo pasa a pesos); va en el mensaje de WhatsApp ("$ 250.000", "US$ 1.500", "€ 1.200"). **Con él se calcula el seguro: valor × 6 ÷ 1.000 (0,6 %)**. En pesos se suma al total como una línea más; en dólares o euros va aparte, en esa moneda ("+ seguro US$ 9", "lo pasamos a pesos al confirmar"), porque la web no inventa cotización | Pedido del dueño, vía Mateo, 23/10/2026 ✅. Monedas y "para todo": audio del dueño, 27/10/2026 ✅. Seguro: el dueño, vía Mateo, 27/10/2026 ✅ ("valor declarado x 6 dividido 1000") |
+| Entrega | **Buenos Aires → Mar del Plata: a domicilio.** **Mar del Plata → Buenos Aires: se retira por la sucursal de Buenos Aires** (el formulario esconde la dirección de entrega, el aviso y el mensaje dicen "Retira en: Sucursal de Buenos Aires…") | El dueño, vía Mateo, 20/10/2026 ✅. Retiro: 27/10/2026 ("cuando sale de mdp a bs as se retira por el depósito"; ⚠️ se entendió que en Buenos Aires se retira por la sucursal de Villa Soldati, falta confirmarlo) |
+| Sucursal Buenos Aires | **John William Cooke 3155, Villa Soldati (CABA)**, C1437 (link a Google Maps). La carga de Buenos Aires → Mar del Plata sale de acá, y acá se retira la que viene de Mar del Plata. Recibe de 8 a 17 | Dirección: el dueño, vía Mateo, 23/10/2026 ✅ (escribió "Cooke John William 3155"). Barrio: buscado por Claude el 23/10/2026 (Waze, directorios de transporte y un aviso de galpón en Cooke 3200 dicen CABA, C1437, Villa Soldati). En esa altura hay un predio con varios expresos (Tres Lomas, Veninga, TransRE…), uno con horario de lunes a viernes de 8 a 17 |
 | Tarifas | 1–10 kg $ 9.181,97 (real). Cada 10 kg más: + $ 1.800 | ⚠️ El mínimo es real; el "+ $ 1.800" es de ejemplo (`kilos.ejemplo: true`, se ve "(ejemplo)") |
 | Palet | $ 86.260,40 el palet completo | El dueño, vía Mateo, 23/10/2026 ✅ |
 | WhatsApp | El de Mateo (pruebas) | ⚠️ Falta el del negocio |
-| Horario | Trabaja de lunes a sábados. Recepción de carga: **sucursal de Buenos Aires de 8 a 17**, **depósito de Mar del Plata de 8 a 15**, de lunes a viernes. **De Buenos Aires la carga sale el sábado.** Sábados el depósito de Mar del Plata está cerrado | El dueño, vía Mateo, 22 y 23/10/2026 ✅ ("de lunes a viernes se recibe mercadería, porque ya sale el sábado"). El 23/10 reemplaza el "8 a 16:30" y aclara el "6 a 15": el galpón de Mar del Plata abre a las 5, pero la mercadería se recibe desde las 8 aprox. (en la web va solo la recepción, para que nadie llegue a las 5). El 22/10 había dicho "los sábados no sale la mercadería" (se entendió del depósito de Mar del Plata); la web ya no lo dice. En el JSON-LD (depósito): lunes a viernes 8 a 15 |
+| Horario | Trabaja de lunes a sábados. Recepción de carga: **sucursal de Buenos Aires de 8 a 17**, **depósito de Mar del Plata de 8 a 13** (el depósito está abierto de 8 a 15), de lunes a viernes. **De Buenos Aires la carga sale el sábado.** Sábados el depósito de Mar del Plata está cerrado | El dueño, vía Mateo, 22, 23 y 27/10/2026 ✅ ("de lunes a viernes se recibe mercadería, porque ya sale el sábado"; 27/10: "en mdp de 8 a 15, pero para recibir mercadería de 8 a 13", `horarioMdp` y `recepcion`). El 23/10 reemplaza el "8 a 16:30" y aclara el "6 a 15": el galpón de Mar del Plata abre a las 5, pero la mercadería se recibe desde las 8 aprox. (en la web va solo la recepción, para que nadie llegue a las 5). El 22/10 había dicho "los sábados no sale la mercadería" (se entendió del depósito de Mar del Plata); la web ya no lo dice. En el JSON-LD (depósito): lunes a viernes 8 a 15 |
 | Medios de pago | Efectivo y transferencia | El dueño, vía Mateo, 22/10/2026 ✅ (reemplaza "todos los medios"). Tarjeta: el dueño prefiere esperar (23/10/2026); en la web no se menciona |
 | Zonas de entrega | Mar del Plata y Buenos Aires; en Mar del Plata también Batán y Sierra de los Padres con costo extra | El dueño, vía Mateo, 22/10/2026 ✅ (el monto del extra falta) |
-| Qué no llevan | "A confirmar" | — |
+| Qué no llevan | Cristalería no, salvo que esté bien embalada; en ese caso viaja sin seguro (solo en preguntas; el cotizador no lo controla) | El dueño, vía Mateo, 27/10/2026 ✅ |
 | Cada cuánto viajan | De Buenos Aires sale el sábado (lo recibido de lunes a viernes) | El dueño, vía Mateo, 23/10/2026 ✅ (falta Mar del Plata → Buenos Aires) |
 
 | Instagram | @saldar223 | — |
 | Logo | El real: `img/saldar-logo.webp` (708 × 140, sacado del PDF "SALDAR.pdf", que trae una imagen de 1201 × 281). Ícono de la pestaña: `img/favicon.png`, la "S" del logo en blanco sobre azul | El dueño, vía Mateo, 27/10/2026 ✅. Si pasan el logo en vector (SVG, AI, PDF sin imagen adentro), cambiarlo |
 | CUDS | Saldar es **sponsor** de CUDS, club de rugby de Mar del Plata; los socios de CUDS tienen un descuento en el servicio (se consulta por WhatsApp, sin monto en la web). Escudo: `img/cuds-logo.webp` (del PDF "cuds_logo.pdf", vectorial) | El dueño, vía Mateo, 27/10/2026 ✅ ("son sponsors del club"). En la web: "¡Somos sponsors de CUDS!" + carnet de socio (opción 2 elegida por Mateo) |
-| Trabajá con nosotros | Link en el pie y en el menú (no es sección) que abre el mail de la persona a logisticasaldar1963@gmail.com, asunto "CV - Trabajá con nosotros" y un modelo (nombre, teléfono, en qué le gustaría trabajar); el CV lo adjunta ella | Pedido del dueño, vía Mateo, 27/10/2026 ✅. Mail: **logisticasaldar1963@gmail.com** (`NEGOCIO.mailCV`, el dueño vía Mateo, 27/10/2026) |
+| Trabajá con nosotros | Recuadro en el pie con botón "Mandar mi CV" y link en el menú (no es sección) que abre el mail de la persona a logisticasaldar1963@gmail.com, asunto "CV - Trabajá con nosotros" y un modelo (nombre, teléfono, en qué le gustaría trabajar); el CV lo adjunta ella | Pedido del dueño, vía Mateo, 27/10/2026 ✅. Mail: **logisticasaldar1963@gmail.com** (`NEGOCIO.mailCV`, el dueño vía Mateo, 27/10/2026) |
 | Fotos | Ninguna (la web se ve bien sin fotos) | ⚠️ Faltan las reales |
 
 ## Lo que NO va en la web (pedido del dueño)
@@ -111,6 +112,7 @@ Todo lo que cambia está **al final del `<script>`** de `index.html`, debajo del
 comentario **"DATOS DE SALDAR — ACÁ SE CAMBIAN LOS PRECIOS"**:
 
 - `NEGOCIO`: nombre, `whatsapp`, `instagram`, `tarifasDeEjemplo`, `horario`,
+  `horarioMdp` (cuándo está abierto el depósito de Mar del Plata),
   `recepcion` (recepción en el depósito de Mar del Plata), `recepcionBA`
   (recepción en la sucursal de Buenos Aires) y `sabados`, `direccion` +
   `ciudad` (depósito; arman el link a Google Maps), **`sucursalBA`** (calle
@@ -124,15 +126,16 @@ comentario **"DATOS DE SALDAR — ACÁ SE CAMBIAN LOS PRECIOS"**:
 - `TARIFAS`: `redondeo` (0 = no redondea y muestra centavos), `maxBultos`
   (de un mismo peso), **`palet`** (`porPalet`, `max`), **`kilos`**
   (`minimo` = precio de 1 a `tramo` kg, `tramo` = 10, **`porTramoExtra`** =
-  lo que suma cada 10 kg más, `maximo` = 400 kg por bulto, `ejemplo`: sacarlo
+  lo que suma cada 10 kg más, `maximo` = 4000 kg, `ejemplo`: sacarlo
   cuando `porTramoExtra` sea real), **`zonasMdp`** (Mar del
   Plata sin extra, Batán y Sierra de los Padres con `extra`; solo aparece
-  cuando la entrega es en Mar del Plata) y `sentidos` (de dónde
+  cuando la entrega es en Mar del Plata) **`seguro`** (`porMil`: 6 = valor declarado × 6 ÷ 1.000) y `sentidos` (de dónde
   sale la carga en cada sentido: depósito de Mar del Plata o sucursal de
   Buenos Aires; `direccionSalida` y `recepcionSalida` dicen qué dato de
   `NEGOCIO` tiene la dirección y el horario de ese lugar, para el aviso del
   cotizador; `recargo` en %: 20 para Mar del Plata → Buenos Aires, 0 para
-  la vuelta).
+  la vuelta; `retiro: true` = en destino se retira por la sucursal, sin
+  dirección de entrega).
 
 Reglas: los precios van **sin puntos de miles ni $; los centavos con punto**
 (`9181.97`, `15000`). El formato (`$ 9.181,97`, `$ 15.000`) lo hace la
@@ -140,11 +143,11 @@ función `pesos()`: muestra centavos solo si el monto los tiene.
 
 Cálculo (`calcular()`): cada fila de bultos tiene kilos y cantidad; el
 precio de un bulto (`precioBulto()`) es `minimo + (tramos − 1) × porTramoExtra`,
-con `tramos = ⌈kg / 10⌉` (10 kg = mínimo, 25 kg = 3 tramos, 400 kg = 40);
+con `tramos = ⌈kg / 10⌉` (10 kg = mínimo, 25 kg = 3 tramos, 4.000 kg = 400);
 `total = suma de (cantidad × precio de cada fila) + palets × porPalet +
 recargo del sentido (20 % sobre bultos y palets, de Mar del Plata a Buenos
-Aires) + extra de la zona`
-(solo Batán / Sierra de los Padres), redondeado a `TARIFAS.redondeo`. Si
+Aires) + extra de la zona + seguro`
+(zona: solo Batán / Sierra de los Padres; seguro: valor × porMil ÷ 1.000, solo si el valor está en pesos — en dólares o euros se muestra aparte, debajo del total), redondeado a `TARIFAS.redondeo`. Si
 Saldar pasa una tabla con precios que no suben parejo cada 10 kg, o cobra
 por kilo exacto, cambiar `precioBulto()` (y `rangoBulto()`, que arma el
 texto "de 20 a 30 kg").
@@ -194,7 +197,12 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
   se pinta de azul y dice "te puede convenir") + "Valor declarado de la
   mercadería" (`#moneda` $ Pesos / US$ Dólares / € Euros + `#valor`, acepta
   250000 o 250.000; obligatorio; `MONEDAS` y `valorDeclarado()` arman el
-  texto del mensaje). Nunca
+  texto del mensaje). El seguro (0,6 %) sale en el presupuesto como una
+  línea más si es en pesos, o debajo del total (`#ticket-seguro`, "+ Seguro
+  (0,6 % del valor declarado): US$ 9. Lo pasamos a pesos al confirmar.") si
+  es en otra moneda; sin valor dice "completá el valor declarado". De Mar
+  del Plata a Buenos Aires se esconde la dirección de entrega (`#campo-dir`)
+  y el aviso dice que se retira por la sucursal (`retiroFrase()`). Nunca
   presentar el palet como alternativa al mismo nivel ("por peso o por
   palet"): el precio es **por peso y por bulto**, el palet es una opción
   (pedido del dueño, 23/10/2026); se puede cotizar solo
@@ -239,11 +247,14 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
   En el celular el talón va debajo. En el cotizador, casilla "Soy socio de CUDS" que suma una
   línea al pedido. Pregunta frecuente del descuento. Nada de montos.
 - **Trabajá con nosotros** **no es una sección** (pedido de Mateo,
-  27/10/2026): es un link en el pie ("Trabajá con nosotros: mandanos tu CV
-  a …") y otro en el menú, los dos `[data-mail-cv]`: `mailto:` a
+  27/10/2026): es un recuadro en el pie, arriba del logo (`.pie-trabajo`,
+  `[data-mail-cv-bloque]`: tarjeta blanca con borde negro y sombra azul,
+  ícono de sobre, título "Trabajá con nosotros", "Mandanos tu CV a …" y
+  botón "Mandar mi CV"; más a la vista por pedido del dueño, 27/10/2026), y
+  un link en el menú, los dos `[data-mail-cv]`: `mailto:` a
   `NEGOCIO.mailCV` con asunto "CV - Trabajá con nosotros" y un modelo en el
   cuerpo. Abren en pestaña nueva (como WhatsApp, para que anden en la vista
-  previa). Si `mailCV` quedara vacío, los links se esconden.
+  previa). Si `mailCV` quedara vacío, los links y el recuadro se esconden.
 - **Menú de las tres rayitas** (`#menu-boton` + `#menu-panel`, en todos los
   tamaños; pedido de Mateo, 27/10/2026): botón cuadrado con el mismo estilo
   que el WhatsApp de la cabecera (se pone negro con una × al abrir). El
@@ -272,16 +283,16 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 | Mudanzas: ¿cómo se cotizan? | Confirmado: dentro de Mar del Plata y entre Buenos Aires y Mar del Plata, de ida y de vuelta. Hoy "pedí presupuesto por WhatsApp" |
 | Pago con tarjeta (más adelante) | El dueño prefiere esperar (23/10/2026). Cuando quiera: cuenta de Mercado Pago (u otra) para el link o botón de pago en la web; con posnet, sumar "tarjeta en el depósito" a `pagos` |
 | Cuánto suma cada 10 kg más (o la tabla de precios de 10 a 400 kg) | Solo está el mínimo de 1 a 10 kg ($ 9.181,97); hoy + $ 1.800 de ejemplo por cada 10 kg |
-| Valor declarado: ¿cambia el precio (seguro, un %)? | Obligatorio confirmado (27/10/2026). Hoy solo va en el mensaje |
-| Más de 400 kg en un bulto | Hoy "escribinos"; el campo no deja pasar de 400 |
+| Retiro en Buenos Aires: ¿lo que va de Mar del Plata a Buenos Aires se retira por la sucursal de Villa Soldati (Cooke 3155)? ¿Nunca entregan a domicilio en Buenos Aires? | Dijo "se retira por el depósito"; en Buenos Aires lo que hay es la sucursal |
+| Los 4.000 kg: ¿son por bulto o por envío? ¿Y cómo sigue el precio hasta 4.000 kg? | Hoy el campo de kilos de cada bulto llega a 4.000 y el precio sube parejo cada 10 kg (de ejemplo) |
+| Seguro en dólares o euros: ¿con qué cotización lo pasan a pesos? | Hoy la web lo muestra aparte en esa moneda y dice "lo pasamos a pesos al confirmar" |
+| Cristalería sin seguro: ¿el cotizador tiene que preguntar si va cristalería? | Hoy solo está en preguntas frecuentes |
 | Que en Buenos Aires la carga también sale de la sucursal | Inferido de "sale desde el depósito" + "hay sucursal en Buenos Aires" |
 | ¿Retiran a domicilio además de entregar? | Se entendió que no: la carga sale del depósito; el formulario no pide dirección de retiro |
-| A qué partes de Buenos Aires entregan (CABA, GBA…) | La web dice "Buenos Aires" |
 | WhatsApp del negocio | Hoy todo va al de Mateo |
-| Qué no llevan | "A confirmar" en preguntas |
 | Franjas horarias del formulario (mañana / mediodía / cualquier horario) | Puestas sin horario exacto; se sacó "tarde". ¿En qué horario entregan? |
 | Clientes o marcas que se puedan nombrar (con permiso) | No hay ninguno en la web |
-| Algo que lo distinga (frecuencia, años haciendo el recorrido, seguimiento…) | No se puso nada |
+| Algo más que lo distinga (frecuencia, seguimiento…) | Ya está "desde 2015" (27/10/2026) |
 | Dominio: ¿cuál de las opciones? ¿A nombre de quién (CUIT del dueño)? | `saldar.com.ar` está tomado; lista de opciones arriba ("Qué es"). Lo compra Mateo en NIC.ar |
 | Fotos propias (los camiones, el depósito, cargas) | Ninguna |
 
@@ -298,6 +309,22 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 
 ## Registro de cambios
 
+- 27/10/2026 — Mateo pasó datos del dueño: de Mar del Plata a Buenos Aires
+  "se retira por el depósito"; está desde 2015; no llevan cristalería salvo
+  bien embalada y sin seguro; cargas de hasta 4.000 kg e incluso más; el
+  depósito de Mar del Plata abre de 8 a 15 pero recibe de 8 a 13; el CV más
+  a la vista; el seguro es valor declarado × 6 ÷ 1.000 → retiro por la
+  sucursal de Buenos Aires en ese sentido (sin dirección de entrega, aviso,
+  "Llega a: Buenos Aires (retiro en sucursal)", mensaje "Retira en:",
+  servicio con etiqueta "Retiro en sucursal", paso 3, recorrido, preguntas
+  de domicilio y zonas); "desde 2015" en portada, hoja de ruta, pregunta
+  nueva, pie, description, Open Graph y JSON-LD (`foundingDate`); pregunta
+  "¿Qué cosas no llevan?" con la cristalería; kilos hasta 4.000 (pregunta
+  "¿Hasta cuántos kilos llevan?", miles con punto: "de 3.990 a 4.000 kg");
+  `horarioMdp` 8 a 15 y `recepcion` 8 a 13 (tarjeta del depósito, contacto,
+  preguntas, aviso del cotizador); recuadro "Trabajá con nosotros" con
+  botón "Mandar mi CV" en el pie; seguro del 0,6 % en el presupuesto, el
+  mensaje y las preguntas (`TARIFAS.seguro`).
 - 27/10/2026 — Mateo (captura del celular): más espacio entre "TENÉS" y el
   recuadro azul de "DESCUENTO", y que diga "socio de CUDS", no "del" →
   interlineado del título del carnet de .95 a 1.14; "del CUDS" → "de CUDS"
