@@ -461,7 +461,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
 
 <!-- VISTA PREVIA: se saca sola poniendo NEGOCIO.tarifasDeEjemplo = false (o borrando este bloque) -->
 <div class="vista-previa" id="vista-previa" role="note">
-  <strong>VISTA PREVIA</strong>Faltan datos: lo que suma cada 10 kg y el extra de Batán y Sierras son de ejemplo, y falta el mail para los CV.
+  <strong>VISTA PREVIA</strong>Faltan datos: lo que suma cada 10 kg y el extra de Batán y Sierras son de ejemplo.
 </div>
 
 <header class="cabecera">
@@ -792,7 +792,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
           <textarea id="cv-mensaje" name="cv-mensaje" placeholder="Experiencia, si tenés registro, en qué horario podés…"></textarea>
         </div>
         <div class="trabajo-enviar">
-          <a class="btn btn-primario" id="cv-enviar" href="#trabajo"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg>Mandar mi CV por mail</a>
+          <a class="btn btn-primario" id="cv-enviar" href="#trabajo" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg>Mandar mi CV por mail</a>
           <p class="error" id="cv-error" role="alert"></p>
           <p class="nota">Se abre tu mail con tus datos ya escritos: adjuntá tu currículum (PDF o Word) y enviá. Si no se abre, escribinos a <a data-mail-cv>A confirmar</a>.</p>
         </div>
@@ -1239,7 +1239,7 @@ function enlazarCV() {
   $$("[data-mail-cv]").forEach((a) => {
     a.textContent = NEGOCIO.mailCV || "A confirmar";
     a.classList.toggle("confirmar", !NEGOCIO.mailCV);
-    if (NEGOCIO.mailCV) a.href = "mailto:" + NEGOCIO.mailCV;
+    if (NEGOCIO.mailCV) { a.href = "mailto:" + NEGOCIO.mailCV; a.target = "_blank"; a.rel = "noopener"; }
   });
   rearmar();
 }
@@ -1312,7 +1312,7 @@ const NEGOCIO = {
   frecuencia: "De Buenos Aires, la carga que recibimos de lunes a viernes sale el sábado para Mar del Plata.",   // el dueño, 23/10/2026 (falta Mar del Plata → Buenos Aires)
   zonas: "En Mar del Plata y en Buenos Aires. En Mar del Plata también entregamos en Batán y Sierra de los Padres, con costo extra.",
 
-  mailCV: "",                      // mail donde llegan los CV de "Trabajá con nosotros" (lo pasa el dueño)
+  mailCV: "logisticasaldar1963@gmail.com",   // mail donde llegan los CV de "Trabajá con nosotros" (el dueño, vía Mateo, 27/10/2026)
 
   mensajeGeneral: "¡Hola Saldar! Te escribo desde la web, quería hacerte una consulta.",
 
