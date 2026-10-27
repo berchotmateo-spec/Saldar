@@ -20,7 +20,9 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
 - Archivo único: `index.html` (HTML + CSS + JS, sin build; solo Google Fonts).
 - Sitio publicado: todavía no. Dominio: todavía no. **`saldar.com.ar` está
   tomado** (Mateo, 27/10/2026). Opciones en orden: `saldar.ar` (NIC.ar
-  vende ".ar" solo desde 2020; mínimo 4 letras), `logisticasaldar.com.ar`
+  vende ".ar" solo desde 2020; mínimo 4 letras; riesgo: quien lo escriba de
+  memoria con ".com.ar" por costumbre cae en el sitio de otro; por eso la
+  opción más segura es la siguiente), `logisticasaldar.com.ar`
   (igual que el mail logisticasaldar1963@gmail.com), `saldarlogistica.com.ar`,
   `saldardistribucion.com.ar`, `saldarcargas.com.ar`,
   `saldartransporte.com.ar`, `expresosaldar.com.ar`, `saldar223.com.ar`
