@@ -78,7 +78,7 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
 
 | Instagram | @saldar223 | — |
 | Logo | El real: `img/saldar-logo.webp` (708 × 140, sacado del PDF "SALDAR.pdf", que trae una imagen de 1201 × 281). Ícono de la pestaña: `img/favicon.png`, la "S" del logo en blanco sobre azul | El dueño, vía Mateo, 27/10/2026 ✅. Si pasan el logo en vector (SVG, AI, PDF sin imagen adentro), cambiarlo |
-| CUDS | Saldar es **sponsor** del CUDS, club de rugby de Mar del Plata; los socios del CUDS tienen un descuento en el servicio (se consulta por WhatsApp, sin monto en la web). Escudo: `img/cuds-logo.webp` (del PDF "cuds_logo.pdf", vectorial) | El dueño, vía Mateo, 27/10/2026 ✅ ("son sponsors del club"). En la web: "¡Somos sponsors!" arriba de los logos |
+| CUDS | Saldar es **sponsor** del CUDS, club de rugby de Mar del Plata; los socios del CUDS tienen un descuento en el servicio (se consulta por WhatsApp, sin monto en la web). Escudo: `img/cuds-logo.webp` (del PDF "cuds_logo.pdf", vectorial) | El dueño, vía Mateo, 27/10/2026 ✅ ("son sponsors del club"). En la web: "¡Somos sponsors del CUDS!" + carnet de socio (opción 2 elegida por Mateo) |
 | Trabajá con nosotros | Link en el pie y en el menú (no es sección) que abre el mail de la persona a logisticasaldar1963@gmail.com, asunto "CV - Trabajá con nosotros" y un modelo (nombre, teléfono, en qué le gustaría trabajar); el CV lo adjunta ella | Pedido del dueño, vía Mateo, 27/10/2026 ✅. Mail: **logisticasaldar1963@gmail.com** (`NEGOCIO.mailCV`, el dueño vía Mateo, 27/10/2026) |
 | Fotos | Ninguna (la web se ve bien sin fotos) | ⚠️ Faltan las reales |
 
@@ -215,14 +215,17 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
   (texto) e IBM Plex Mono (etiquetas, precios del detalle).
 - **Logo real** (imagen `img/saldar-logo.webp`): 44 px de alto en la cabecera
   desde 900 px, 38 px en el celular y en el pie. No deformarlo ni recortarlo.
-- **Club CUDS** (sección 05, después de Recorrido): título "¡Somos
-  sponsors!" y debajo un recuadro con los dos logos "CUDS × SALDAR"
-  (`.cuds-dupla`: escudo, una × grande dibujada en SVG, logo de Saldar), a la izquierda desde
-  900 px y arriba en el celular; a la derecha (o abajo) la tarjeta negra
-  "¿Sos socio del CUDS?". Sin más texto: Mateo pidió no repetir "CUDS" ni
-  "sponsor" (comentario en la vista previa, 27/10/2026). La tarjeta tiene
-  botón de WhatsApp ("Soy socio del CUDS y quiero consultar por el
-  descuento"). En el cotizador, casilla "Soy socio del CUDS" que suma una
+- **Club CUDS** (sección 05, después de Recorrido) = **opción 2 "Carnet de
+  socio"** de los prototipos, elegida por Mateo (27/10/2026): arriba
+  "¡Somos sponsors del CUDS!" con los logos "CUDS × SALDAR" al lado
+  (`.cuds-cabeza`, `.cuds-dupla`, × en SVG); después el **carnet** negro
+  (`.carnet`): escudo en un recuadro blanco, "Beneficio para socios del
+  CUDS" y "Tenés **descuento** en el servicio" (la palabra en azul), y un
+  **talón** troquelado (línea punteada con muescas del color del fondo) con
+  "¿Cómo lo pedís?" y el botón de WhatsApp "Pedir mi descuento" ("Soy socio
+  del CUDS y quiero consultar por el descuento"); abajo **3 pasos**: Sos
+  socio del CUDS · Nos escribís por WhatsApp · Te confirmamos el descuento.
+  En el celular el talón va debajo. En el cotizador, casilla "Soy socio del CUDS" que suma una
   línea al pedido. Pregunta frecuente del descuento. Nada de montos.
 - **Trabajá con nosotros** **no es una sección** (pedido de Mateo,
   27/10/2026): es un link en el pie ("Trabajá con nosotros: mandanos tu CV
@@ -268,7 +271,6 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 | Franjas horarias del formulario (mañana / mediodía / cualquier horario) | Puestas sin horario exacto; se sacó "tarde". ¿En qué horario entregan? |
 | Clientes o marcas que se puedan nombrar (con permiso) | No hay ninguno en la web |
 | Algo que lo distinga (frecuencia, años haciendo el recorrido, seguimiento…) | No se puso nada |
-| Sector CUDS: ¿cuál de los 3 prototipos? (1 banda azul con sticker "Descuento", 2 carnet de socio con pasos, 3 etiqueta de envío con sello) | Prototipos en https://claude.ai/artifact/3RK6JhcF3Jyu78mrMxh1od (27/10/2026). La web no se toca hasta que Mateo elija |
 | Dominio: ¿`saldar.com.ar` está libre? ¿A nombre de quién (CUIT del dueño)? | Recomendado el 27/10/2026; lo compra Mateo en NIC.ar |
 | Fotos propias (los camiones, el depósito, cargas) | Ninguna |
 
@@ -285,6 +287,10 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 
 ## Registro de cambios
 
+- 27/10/2026 — Mateo eligió la opción 2 de los prototipos del CUDS (carnet
+  de socio) → la sección 05 pasó a título + logos, carnet con talón y
+  botón "Pedir mi descuento", y 3 pasos. Prototipos:
+  https://claude.ai/artifact/3RK6JhcF3Jyu78mrMxh1od
 - 27/10/2026 — Mateo: "Trabajá con nosotros" que no sea una sección, que
   esté en el pie y lleve al mail; y un menú de tres rayitas con todo, eso
   incluido → se sacó la sección 07 (Contacto pasó a 07); link en el pie que
