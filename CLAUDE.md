@@ -254,6 +254,7 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 | Franjas horarias del formulario (mañana / mediodía / cualquier horario) | Puestas sin horario exacto; se sacó "tarde". ¿En qué horario entregan? |
 | Clientes o marcas que se puedan nombrar (con permiso) | No hay ninguno en la web |
 | Algo que lo distinga (frecuencia, años haciendo el recorrido, seguimiento…) | No se puso nada |
+| Sector CUDS: ¿cuál de los 3 prototipos? (1 banda azul con sticker "Descuento", 2 carnet de socio con pasos, 3 etiqueta de envío con sello) | Prototipos en https://claude.ai/artifact/3RK6JhcF3Jyu78mrMxh1od (27/10/2026). La web no se toca hasta que Mateo elija |
 | Mail para los CV de "Trabajá con nosotros" | Mateo se lo pidió al dueño (27/10/2026). Va en `NEGOCIO.mailCV` |
 | Fotos propias (los camiones, el depósito, cargas) | Ninguna |
 
@@ -270,6 +271,10 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 
 ## Registro de cambios
 
+- 27/10/2026 — 3 prototipos del sector CUDS (compu y celular) en un lienzo
+  de diseño aparte: https://claude.ai/artifact/3RK6JhcF3Jyu78mrMxh1od. Todos
+  con "¡Somos sponsors del CUDS!", los dos logos y el descuento para socios
+  por WhatsApp, sin montos.
 - 27/10/2026 — Mateo: "la x entre ambos logos hacela más grande" → la ×
   pasó de letra a una cruz dibujada (SVG, negra, 24 a 38 px). Pidió también
   3 prototipos del sector CUDS antes de tocar la web (página aparte).
