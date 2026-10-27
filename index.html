@@ -410,7 +410,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
 
 /* Pie */
 /* CUDS */
-.cuds{display:grid;gap:1.75rem;align-items:center}
+.cuds{display:grid;gap:1.75rem;align-items:end}
 @media (min-width:900px){.cuds{grid-template-columns:460px minmax(0,1fr);gap:3.5rem}}
 /* Los dos logos juntos: CUDS × Saldar */
 .cuds-dupla{display:flex;align-items:center;justify-content:center;gap:clamp(.6rem,2.5vw,1.25rem);padding:clamp(1.25rem,4vw,1.75rem);border:1px solid var(--linea);border-radius:var(--radio);background:var(--papel)}
@@ -733,22 +733,21 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
   <!-- CUDS -->
   <section class="seccion seccion-blanca" id="cuds" aria-labelledby="t-cuds">
     <div class="contenedor cuds">
-      <div class="cuds-dupla" role="img" aria-label="CUDS × Saldar">
-        <img class="cuds-logo" src="img/cuds-logo.webp" width="245" height="360" alt="" loading="lazy">
-        <span class="cuds-x" aria-hidden="true">×</span>
-        <img class="cuds-saldar" src="img/saldar-logo.webp" width="708" height="140" alt="" loading="lazy">
-      </div>
       <div>
         <header class="seccion-cabeza">
           <p class="seccion-num mono">05 · Club CUDS</p>
-          <h2 id="t-cuds">Sponsors del CUDS</h2>
-          <p>Saldar es sponsor del CUDS, club de rugby de Mar del Plata.</p>
+          <h2 id="t-cuds">¡Somos sponsors!</h2>
         </header>
-        <div class="cuds-socio">
-          <p class="cuds-socio-tit">¿Sos socio del CUDS?</p>
-          <p>Tenés un descuento en el servicio. Consultanos por WhatsApp y te contamos.</p>
-          <a class="btn btn-claro" data-wa="¡Hola Saldar! Soy socio del CUDS y quiero consultar por el descuento." href="#contacto"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Consultar el descuento</a>
+        <div class="cuds-dupla" role="img" aria-label="CUDS × Saldar">
+          <img class="cuds-logo" src="img/cuds-logo.webp" width="245" height="360" alt="" loading="lazy">
+          <span class="cuds-x" aria-hidden="true">×</span>
+          <img class="cuds-saldar" src="img/saldar-logo.webp" width="708" height="140" alt="" loading="lazy">
         </div>
+      </div>
+      <div class="cuds-socio">
+        <p class="cuds-socio-tit">¿Sos socio del CUDS?</p>
+        <p>Tenés un descuento en el servicio. Consultanos por WhatsApp y te contamos.</p>
+        <a class="btn btn-claro" data-wa="¡Hola Saldar! Soy socio del CUDS y quiero consultar por el descuento." href="#contacto"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Consultar el descuento</a>
       </div>
     </div>
   </section>

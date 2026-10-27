@@ -72,7 +72,7 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
 
 | Instagram | @saldar223 | — |
 | Logo | El real: `img/saldar-logo.webp` (708 × 140, sacado del PDF "SALDAR.pdf", que trae una imagen de 1201 × 281). Ícono de la pestaña: `img/favicon.png`, la "S" del logo en blanco sobre azul | El dueño, vía Mateo, 27/10/2026 ✅. Si pasan el logo en vector (SVG, AI, PDF sin imagen adentro), cambiarlo |
-| CUDS | Saldar es **sponsor** del CUDS, club de rugby de Mar del Plata; los socios del CUDS tienen un descuento en el servicio (se consulta por WhatsApp, sin monto en la web). Escudo: `img/cuds-logo.webp` (del PDF "cuds_logo.pdf", vectorial) | El dueño, vía Mateo, 27/10/2026 ✅ ("son sponsors del club"). En la web: "Sponsors del CUDS" |
+| CUDS | Saldar es **sponsor** del CUDS, club de rugby de Mar del Plata; los socios del CUDS tienen un descuento en el servicio (se consulta por WhatsApp, sin monto en la web). Escudo: `img/cuds-logo.webp` (del PDF "cuds_logo.pdf", vectorial) | El dueño, vía Mateo, 27/10/2026 ✅ ("son sponsors del club"). En la web: "¡Somos sponsors!" arriba de los logos |
 | Trabajá con nosotros | Formulario (nombre, teléfono, puesto, mensaje) que abre el mail de la persona con todo escrito; el CV lo adjunta ella | Pedido del dueño, vía Mateo, 27/10/2026 ✅. ⚠️ Falta el mail (`NEGOCIO.mailCV`) |
 | Fotos | Ninguna (la web se ve bien sin fotos) | ⚠️ Faltan las reales |
 
@@ -209,11 +209,12 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
   (texto) e IBM Plex Mono (etiquetas, precios del detalle).
 - **Logo real** (imagen `img/saldar-logo.webp`): 44 px de alto en la cabecera
   desde 900 px, 38 px en el celular y en el pie. No deformarlo ni recortarlo.
-- **Club CUDS** (sección 05, después de Recorrido): recuadro con los dos
-  logos "CUDS × SALDAR" (`.cuds-dupla`: escudo, una ×, logo de Saldar; a la
-  izquierda desde 900 px, arriba en el celular; pedido de Mateo, 27/10/2026),
-  "Sponsors del CUDS" ("Saldar es sponsor del CUDS, club de rugby de Mar
-  del Plata") y una tarjeta negra "¿Sos socio del CUDS?" con
+- **Club CUDS** (sección 05, después de Recorrido): título "¡Somos
+  sponsors!" y debajo un recuadro con los dos logos "CUDS × SALDAR"
+  (`.cuds-dupla`: escudo, una ×, logo de Saldar), a la izquierda desde
+  900 px y arriba en el celular; a la derecha (o abajo) la tarjeta negra
+  "¿Sos socio del CUDS?". Sin más texto: Mateo pidió no repetir "CUDS" ni
+  "sponsor" (comentario en la vista previa, 27/10/2026). La tarjeta tiene
   botón de WhatsApp ("Soy socio del CUDS y quiero consultar por el
   descuento"). En el cotizador, casilla "Soy socio del CUDS" que suma una
   línea al pedido. Pregunta frecuente del descuento. Nada de montos.
@@ -269,6 +270,11 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 
 ## Registro de cambios
 
+- 27/10/2026 — Mateo (comentario en la vista previa): sacar "Sponsors del
+  CUDS", que se repite; la tarjeta del socio está bien; "¡Somos sponsors!"
+  arriba de los logos → se sacaron el título y la frase "Saldar es sponsor
+  del CUDS, club de rugby de Mar del Plata"; el título nuevo va arriba del
+  recuadro de logos.
 - 27/10/2026 — Mateo: "agregá el logo del CUDS, una X y el logo de Saldar;
   abajo, lo de socio está excelente" → en la sección del CUDS el escudo solo
   pasó a un recuadro "CUDS × SALDAR"; la tarjeta "¿Sos socio del CUDS?"
