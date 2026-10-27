@@ -72,7 +72,7 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
 
 | Instagram | @saldar223 | — |
 | Logo | El real: `img/saldar-logo.webp` (708 × 140, sacado del PDF "SALDAR.pdf", que trae una imagen de 1201 × 281). Ícono de la pestaña: `img/favicon.png`, la "S" del logo en blanco sobre azul | El dueño, vía Mateo, 27/10/2026 ✅. Si pasan el logo en vector (SVG, AI, PDF sin imagen adentro), cambiarlo |
-| CUDS | Saldar "tiene al" CUDS, club de rugby de Mar del Plata; los socios del CUDS tienen un descuento en el servicio (se consulta por WhatsApp, sin monto en la web). Escudo: `img/cuds-logo.webp` (del PDF "cuds_logo.pdf", vectorial) | El dueño, vía Mateo, 27/10/2026 ✅. En la web dice "Saldar acompaña al CUDS" |
+| CUDS | Saldar es **sponsor** del CUDS, club de rugby de Mar del Plata; los socios del CUDS tienen un descuento en el servicio (se consulta por WhatsApp, sin monto en la web). Escudo: `img/cuds-logo.webp` (del PDF "cuds_logo.pdf", vectorial) | El dueño, vía Mateo, 27/10/2026 ✅ ("son sponsors del club"). En la web: "Sponsors del CUDS" |
 | Trabajá con nosotros | Formulario (nombre, teléfono, puesto, mensaje) que abre el mail de la persona con todo escrito; el CV lo adjunta ella | Pedido del dueño, vía Mateo, 27/10/2026 ✅. ⚠️ Falta el mail (`NEGOCIO.mailCV`) |
 | Fotos | Ninguna (la web se ve bien sin fotos) | ⚠️ Faltan las reales |
 
@@ -210,7 +210,8 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 - **Logo real** (imagen `img/saldar-logo.webp`): 44 px de alto en la cabecera
   desde 900 px, 38 px en el celular y en el pie. No deformarlo ni recortarlo.
 - **Club CUDS** (sección 05, después de Recorrido): escudo a la izquierda,
-  "Acompañamos al CUDS" y una tarjeta negra "¿Sos socio del CUDS?" con
+  "Sponsors del CUDS" ("Saldar es sponsor del CUDS, club de rugby de Mar
+  del Plata") y una tarjeta negra "¿Sos socio del CUDS?" con
   botón de WhatsApp ("Soy socio del CUDS y quiero consultar por el
   descuento"). En el cotizador, casilla "Soy socio del CUDS" que suma una
   línea al pedido. Pregunta frecuente del descuento. Nada de montos.
@@ -251,7 +252,6 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 | Clientes o marcas que se puedan nombrar (con permiso) | No hay ninguno en la web |
 | Algo que lo distinga (frecuencia, años haciendo el recorrido, seguimiento…) | No se puso nada |
 | Mail para los CV de "Trabajá con nosotros" | Mateo se lo pidió al dueño (27/10/2026). Va en `NEGOCIO.mailCV` |
-| CUDS: ¿cómo decir la relación (sponsor, dueño, acompaña)? ¿Se puede usar el escudo? | Mateo escribió "Saldar tiene al club de rugby CUDS"; la web dice "acompaña". El escudo lo pasó el dueño |
 | Fotos propias (los camiones, el depósito, cargas) | Ninguna |
 
 ## Para publicar (cuando cierre)
@@ -267,6 +267,9 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 
 ## Registro de cambios
 
+- 27/10/2026 — Mateo: "sí, son sponsors del club" → sección del CUDS: título
+  "Sponsors del CUDS" y "Saldar es sponsor del CUDS, club de rugby de Mar
+  del Plata" (antes decía "acompaña").
 - 27/10/2026 — Mateo pasó el logo de Saldar y el del CUDS (PDF) y pidió:
   "Trabajá con nosotros" para dejar el CV (el mail lo pasa el dueño), y un
   sector del CUDS con descuento para socios por WhatsApp → logo real en
