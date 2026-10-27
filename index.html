@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Saldar · Logística Buenos Aires – Mar del Plata</title>
-<meta name="description" content="Saldar: logística entre Buenos Aires y Mar del Plata. Cargas en camión con entrega a domicilio, precio según el peso, congelados y mudanzas. Cotizá y pedilo por WhatsApp.">
+<title>Saldar · Logística y distribución Buenos Aires – Mar del Plata</title>
+<meta name="description" content="Saldar: logística y distribución entre Buenos Aires y Mar del Plata. Cargas en camión con entrega a domicilio, precio según el peso, congelados y mudanzas. Cotizá y pedilo por WhatsApp.">
 <!-- DEMO: mientras sea vista previa no queremos que Google la indexe. Sacar esta línea al publicar de verdad (ver CLAUDE.md). -->
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#1847D6">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_AR">
 <meta property="og:site_name" content="Saldar">
-<meta property="og:title" content="Saldar · Logística Buenos Aires – Mar del Plata">
-<meta property="og:description" content="Logística en camión entre Buenos Aires y Mar del Plata, con entrega a domicilio. Cotizá por peso y por bulto y pedilo por WhatsApp.">
+<meta property="og:title" content="Saldar · Logística y distribución Buenos Aires – Mar del Plata">
+<meta property="og:description" content="Logística y distribución en camión entre Buenos Aires y Mar del Plata, con entrega a domicilio. Cotizá por peso y por bulto y pedilo por WhatsApp.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%231847D6'/%3E%3Cpath d='M27 9H16a6 6 0 0 0 0 12h8a6 6 0 0 1 0 12H13' fill='none' stroke='%23fff' stroke-width='4' stroke-linecap='round'/%3E%3Ccircle cx='10.5' cy='33' r='3.6' fill='%230C1018' stroke='%23fff' stroke-width='1.5'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,7 +23,7 @@
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "MovingCompany"],
   "name": "Saldar",
-  "description": "Logística entre Buenos Aires y Mar del Plata: cargas en camión con entrega a domicilio, precio por peso y por bulto (opción palet), congelados y mudanzas. Factura A.",
+  "description": "Logística y distribución entre Buenos Aires y Mar del Plata: cargas en camión con entrega a domicilio, precio por peso y por bulto (opción palet), congelados y mudanzas. Factura A.",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Victoriano Montes 1963",
@@ -145,6 +145,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .cabecera-in{display:flex;align-items:center;gap:12px;min-height:68px}
 .marca{display:inline-flex;align-items:center;text-decoration:none;color:var(--tinta);margin-right:auto;min-height:44px}
 .logo{height:38px;width:auto;display:block}
+@media (min-width:900px){.cabecera .logo{height:44px}}
 .logo-nombre{font-family:var(--f-titulo);font-weight:800;fill:var(--tinta)}
 .logo-bajada{font-family:var(--f-mono);font-weight:600;fill:var(--azul)}
 .menu{display:none;list-style:none;margin:0;padding:0;gap:4px}
@@ -413,7 +414,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
 .pie{border-top:1px solid var(--linea);padding:2rem 0 2.5rem;background:var(--papel)}
 .pie-in{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem}
 .pie p{font-size:.92rem;color:var(--tinta-2)}
-.pie .logo{height:32px}
+.pie .logo{height:38px}
 .pie-credito{width:100%;font-size:.8rem!important;opacity:.85;margin-top:.5rem}
 .pie-credito a{color:inherit}
 </style>
@@ -452,10 +453,10 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
 <header class="cabecera">
   <div class="contenedor cabecera-in">
     <a class="marca" href="#inicio" aria-label="Saldar, volver al inicio">
-      <svg class="logo" viewBox="0 0 142 40" aria-hidden="true" focusable="false">
+      <svg class="logo" viewBox="0 0 160 40" aria-hidden="true" focusable="false">
         <use href="#marca" width="40" height="40"/>
-        <text class="logo-nombre" x="50" y="25" font-size="27" textLength="84" lengthAdjust="spacingAndGlyphs">SALDAR</text>
-        <text class="logo-bajada" x="50.5" y="36.5" font-size="8.2" textLength="83" lengthAdjust="spacingAndGlyphs">LOGÍSTICA · MDP</text>
+        <text class="logo-nombre" x="50" y="25" font-size="27" textLength="101" lengthAdjust="spacing">SALDAR</text>
+        <text class="logo-bajada" x="50.5" y="36.5" font-size="7.1" textLength="102" lengthAdjust="spacingAndGlyphs">LOGÍSTICA Y DISTRIBUCIÓN</text>
       </svg>
     </a>
     <nav aria-label="Secciones">
@@ -477,7 +478,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
   <section class="portada" aria-labelledby="titulo">
     <div class="contenedor portada-in">
       <div>
-        <p class="portada-eyebrow mono">Logística · Buenos Aires – Mar del Plata</p>
+        <p class="portada-eyebrow mono">Logística y distribución · Buenos Aires – Mar del Plata</p>
         <h1 id="titulo">Buenos Aires – Mar del Plata, <span class="cinta-texto-h1">ida y vuelta.</span></h1>
         <p class="portada-bajada">Traemos tu carga en camión de Buenos Aires a Mar del Plata y la llevamos de Mar del Plata a Buenos Aires, con entrega a domicilio. El precio es por peso y por bulto (y si embalás todo en un palet, por palet). Cotizalo y pedilo por WhatsApp. También hacemos mudanzas.</p>
         <div class="portada-botones">
@@ -509,7 +510,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
   </section>
 
   <div class="cinta" aria-hidden="true">
-    <div class="cinta-banda" id="cinta-banda"><span>Saldar · Logística · Buenos Aires ↔ Mar del Plata · Entrega a domicilio · Mudanzas · Saldar · Logística · Buenos Aires ↔ Mar del Plata · Entrega a domicilio · Mudanzas · Saldar · Logística · Buenos Aires ↔ Mar del Plata · Entrega a domicilio · Mudanzas · Saldar · Logística · Buenos Aires ↔ Mar del Plata · Entrega a domicilio ·&nbsp;</span><span>Saldar · Logística · Buenos Aires ↔ Mar del Plata · Entrega a domicilio · Mudanzas · Saldar · Logística · Buenos Aires ↔ Mar del Plata · Entrega a domicilio · Mudanzas · Saldar · Logística · Buenos Aires ↔ Mar del Plata · Entrega a domicilio · Mudanzas · Saldar · Logística · Buenos Aires ↔ Mar del Plata · Entrega a domicilio ·&nbsp;</span></div>
+    <div class="cinta-banda" id="cinta-banda"><span>Saldar · Logística y distribución · Buenos Aires ↔ Mar del Plata · Entrega a domicilio · Mudanzas · Saldar · Logística y distribución · Buenos Aires ↔ Mar del Plata · Entrega a domicilio · Mudanzas · Saldar · Logística y distribución · Buenos Aires ↔ Mar del Plata · Entrega a domicilio · Mudanzas · Saldar · Logística y distribución · Buenos Aires ↔ Mar del Plata · Entrega a domicilio ·&nbsp;</span><span>Saldar · Logística y distribución · Buenos Aires ↔ Mar del Plata · Entrega a domicilio · Mudanzas · Saldar · Logística y distribución · Buenos Aires ↔ Mar del Plata · Entrega a domicilio · Mudanzas · Saldar · Logística y distribución · Buenos Aires ↔ Mar del Plata · Entrega a domicilio · Mudanzas · Saldar · Logística y distribución · Buenos Aires ↔ Mar del Plata · Entrega a domicilio ·&nbsp;</span></div>
   </div>
 
   <!-- SERVICIOS -->
@@ -758,12 +759,12 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
 
 <footer class="pie">
   <div class="contenedor pie-in">
-    <svg class="logo" viewBox="0 0 142 40" role="img" aria-label="Saldar">
+    <svg class="logo" viewBox="0 0 160 40" role="img" aria-label="Saldar">
       <use href="#marca" width="40" height="40"/>
-      <text class="logo-nombre" x="50" y="25" font-size="27" textLength="84" lengthAdjust="spacingAndGlyphs">SALDAR</text>
-      <text class="logo-bajada" x="50.5" y="36.5" font-size="8.2" textLength="83" lengthAdjust="spacingAndGlyphs">LOGÍSTICA · MDP</text>
+      <text class="logo-nombre" x="50" y="25" font-size="27" textLength="101" lengthAdjust="spacing">SALDAR</text>
+      <text class="logo-bajada" x="50.5" y="36.5" font-size="7.1" textLength="102" lengthAdjust="spacingAndGlyphs">LOGÍSTICA Y DISTRIBUCIÓN</text>
     </svg>
-    <p>© <span id="anio">2026</span> Saldar · Logística Buenos Aires – Mar del Plata</p>
+    <p>© <span id="anio">2026</span> Saldar · Logística y distribución Buenos Aires – Mar del Plata</p>
     <p class="pie-credito">Desarrollado por ConnectHUB</p>
   </div>
 </footer>
@@ -1208,7 +1209,7 @@ const NEGOCIO = {
 
   mensajeGeneral: "¡Hola Saldar! Te escribo desde la web, quería hacerte una consulta.",
 
-  // Saldar es logística en camión entre Buenos Aires y Mar del Plata, en los
+  // Saldar es logística y distribución en camión entre Buenos Aires y Mar del Plata, en los
   // dos sentidos (predomina Buenos Aires → Mar del Plata), con entrega a
   // domicilio; NO tiene mensajería (el dueño, 19, 20 y 23/10/2026).
   servicios: [

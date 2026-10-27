@@ -8,11 +8,11 @@ o volverse público).
 ## Qué es
 
 Web de una página para **Saldar** (Instagram [@saldar223](https://www.instagram.com/saldar223/)),
-empresa de **logística en camión entre Buenos Aires y Mar del Plata** (en los
+empresa de **logística y distribución en camión entre Buenos Aires y Mar del Plata** (en los
 dos sentidos; **predomina Buenos Aires → Mar del Plata**, por eso va primero en
 toda la web), con depósito en Victoriano Montes 1963, Mar del Plata, y
-sucursal en Buenos Aires. También hace **mudanzas** y lleva **congelados**. **En la web se dice "logística", nunca "fletes"**
-(pedido de Mateo, 20/10/2026). Es una **demo de venta** de Mateo
+sucursal en Buenos Aires. También hace **mudanzas** y lleva **congelados**. **En la web se dice "logística y distribución", nunca "fletes"**
+(pedido de Mateo, 20 y 27/10/2026). Es una **demo de venta** de Mateo
 Berchot: se le muestra al dueño funcionando y se le ofrece con abono mensual.
 Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
 
@@ -51,7 +51,7 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
 | Dato | Valor en la web | Fuente y fecha |
 |---|---|---|
 | Nombre comercial | "Saldar" | El dueño, vía Mateo, 19/10/2026 ✅ |
-| Rubro | Logística en camión Buenos Aires ⇄ Mar del Plata, en los dos sentidos | El dueño, vía Mateo, 20 y 23/10/2026 ✅ ("logística", no "fletes"; "ambos" sentidos) |
+| Rubro | Logística y distribución en camión Buenos Aires ⇄ Mar del Plata, en los dos sentidos | El dueño, vía Mateo, 20, 23 y 27/10/2026 ✅ ("logística y distribución", no "fletes"; "ambos" sentidos) |
 | Depósito | Victoriano Montes 1963, Mar del Plata (link a Google Maps). La carga sale desde acá | El dueño, vía Mateo, 20/10/2026 ✅. Mateo escribió "victoriano monte"; la calle es Dr. Victoriano E. Montes |
 | Servicios | Buenos Aires → Mar del Plata y Mar del Plata → Buenos Aires, y mudanzas (dentro de Mar del Plata y entre Buenos Aires y Mar del Plata, de ida y de vuelta) | El dueño, vía Mateo, 19, 20, 22 y 23/10/2026 ✅. **No tiene mensajería** |
 | Congelados | Se permiten | El dueño, vía Mateo, 22/10/2026 ✅ |
@@ -165,8 +165,8 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
   servicios, cotizador (viene elegido), recorrido (primero la sucursal de
   Buenos Aires), ficha de Google y pie.
 - Titular: "Buenos Aires – Mar del Plata, ida y vuelta." (lo resaltado es
-  "ida y vuelta", porque los camiones van y vienen). Arriba dice "Logística ·
-  Buenos Aires – Mar del Plata".
+  "ida y vuelta", porque los camiones van y vienen). Arriba dice "Logística y
+  distribución · Buenos Aires – Mar del Plata".
 - Cotizador: sentido (dos tarjetas) + filas de bultos (peso en kg +
   cantidad + ×, cada una muestra su precio "c/u · de 20 a 30 kg"; botón "+
   Agregar un bulto de otro peso"; arranca con 1 bulto de 10 kg; el peso
@@ -202,7 +202,10 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 - Tipografías: Barlow Condensed (títulos, aire de cartel de ruta), Barlow
   (texto) e IBM Plex Mono (etiquetas, precios del detalle).
 - Logo provisorio: cuadrado azul con una "S" que es un recorrido (punto de
-  origen → punto de destino negro) + "SALDAR / LOGÍSTICA · MDP".
+  origen → punto de destino negro) + "SALDAR / LOGÍSTICA Y DISTRIBUCIÓN" (viewBox 160 × 40;
+  "SALDAR" con `lengthAdjust="spacing"` para que ocupe el mismo ancho que la
+  bajada; 44 px de alto en la cabecera desde 900 px, 38 px en el celular y
+  en el pie).
 - Recorrido: esquema SVG propio (Río de la Plata, costa atlántica, Buenos
   Aires, Mar del Plata, "≈ 400 km · ida y vuelta"), con la línea del camino
   animada (se queda quieta con "reducir movimiento"). Sin API de mapas.
@@ -246,6 +249,10 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 
 ## Registro de cambios
 
+- 27/10/2026 — Mateo: "que diga logística y distribución" → `<title>`,
+  description, Open Graph, JSON-LD, bajada de la portada, cinta, pie y
+  comentario del código; el logo dice "LOGÍSTICA Y DISTRIBUCIÓN" (más
+  ancho, "SALDAR" espaciado para emparejar, un poco más grande en la compu).
 - 23/10/2026 — Mateo: "de lunes a viernes se recibe mercadería, porque ya
   sale el sábado"; "las mudanzas son para ambas también" → tarjeta de la
   sucursal "El sábado sale para Mar del Plata"; debajo del día, texto según
