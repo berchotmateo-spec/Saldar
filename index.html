@@ -153,6 +153,31 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .cab-wa:hover{background:var(--azul);color:#fff}
 .cab-wa:active{transform:translate(3px,3px);box-shadow:0 0 0 var(--tinta)}
 @media (min-width:900px){.menu{display:flex}}
+/* Menú de las tres rayitas: en todos los tamaños; en el celular reemplaza al WhatsApp de la cabecera (está adentro) */
+.menu-boton{display:inline-flex;align-items:center;justify-content:center;flex:none;width:44px;height:44px;padding:0;border-radius:5px;color:var(--tinta);background:#fff;border:2px solid var(--tinta);box-shadow:3px 3px 0 var(--tinta);cursor:pointer}
+.menu-boton:hover{background:var(--azul-claro)}
+.menu-boton:active{transform:translate(3px,3px);box-shadow:0 0 0 var(--tinta)}
+.menu-boton .ico{width:24px;height:24px;stroke-width:2.2}
+.menu-boton[aria-expanded="true"]{background:var(--tinta);color:#fff}
+.menu-boton[aria-expanded="true"] .ico-abrir,.menu-boton[aria-expanded="false"] .ico-cerrar{display:none}
+@media (max-width:599px){.cab-wa{display:none}.cabecera .logo{height:34px}}
+@media (max-width:379px){.cabecera .logo{height:30px}.cabecera-in{gap:10px}}
+.menu-panel{border-top:1px solid var(--linea);background:#fff;max-height:calc(100vh - 69px);max-height:calc(100dvh - 69px);overflow-y:auto;box-shadow:0 24px 40px -24px rgba(12,16,24,.35)}
+.menu-panel[hidden]{display:none}
+.menu-panel-in{display:grid;gap:1.5rem;padding-top:.75rem;padding-bottom:1.75rem}
+@media (min-width:900px){.menu-panel-in{grid-template-columns:minmax(0,1fr) 300px;gap:3rem;padding-top:1.5rem;padding-bottom:2.25rem}}
+.menu-lista{list-style:none;margin:0;padding:0;display:grid}
+@media (min-width:600px){.menu-lista{grid-template-columns:1fr 1fr;column-gap:2rem}}
+.menu-lista a{display:flex;align-items:baseline;gap:.85rem;min-height:54px;padding:.7rem 0;border-bottom:1px solid var(--linea);color:var(--tinta);text-decoration:none;font:800 1.6rem/1.1 var(--f-titulo);text-transform:uppercase}
+.menu-lista a .mono{font-size:.8rem;font-weight:600;color:var(--azul)}
+.menu-lista a:hover{color:var(--azul)}
+.menu-contacto{display:flex;flex-direction:column;align-items:stretch;gap:14px}
+.menu-contacto > .mono{font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-2)}
+.menu-trabajo{display:flex;align-items:center;gap:.85rem;margin-top:.4rem;padding:.85rem 1rem;border:1px solid var(--linea);border-radius:12px;color:var(--tinta);text-decoration:none;background:var(--papel)}
+.menu-trabajo:hover{border-color:var(--azul)}
+.menu-trabajo .ico{color:var(--azul)}
+.menu-trabajo span{font-size:.92rem;color:var(--tinta-2)}
+.menu-trabajo strong{display:block;font-size:1.05rem;color:var(--tinta)}
 
 /* Portada */
 .portada{padding:clamp(2.5rem,7vw,5.5rem) 0 clamp(2.5rem,6vw,4.5rem)}
@@ -426,14 +451,14 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
 .check-cuds{display:flex;gap:.7rem;align-items:flex-start;font-weight:600;cursor:pointer}
 .check-cuds input{flex:none;width:22px;height:22px;margin:.1rem 0 0;accent-color:var(--azul)}
 
-/* Trabajá con nosotros */
-.trabajo{max-width:760px}
-.trabajo-enviar{margin-top:1.25rem;display:flex;flex-direction:column;align-items:flex-start;gap:.6rem}
 
 .pie{border-top:1px solid var(--linea);padding:2rem 0 2.5rem;background:var(--papel)}
 .pie-in{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem}
 .pie p{font-size:.92rem;color:var(--tinta-2)}
 .pie .logo{height:38px}
+.pie-trabajo{width:100%}
+.pie-trabajo a{color:var(--tinta-2);overflow-wrap:anywhere}
+.pie-trabajo strong{color:var(--tinta)}
 .pie-credito{width:100%;font-size:.8rem!important;opacity:.85;margin-top:.5rem}
 .pie-credito a{color:inherit}
 </style>
@@ -479,6 +504,32 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
     </nav>
     <a class="cab-wa" data-wa href="#contacto" aria-label="Escribinos por WhatsApp"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg></a>
     <a class="btn btn-primario btn-chico" href="#cotizador">Cotizá</a>
+    <button class="menu-boton" id="menu-boton" type="button" aria-expanded="false" aria-controls="menu-panel" aria-label="Abrir el menú">
+      <svg class="ico ico-abrir" aria-hidden="true" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg class="ico ico-cerrar" aria-hidden="true" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <!-- MENÚ: todas las secciones, contacto y Trabajá con nosotros -->
+  <div class="menu-panel" id="menu-panel" hidden>
+    <div class="contenedor menu-panel-in">
+      <nav aria-label="Menú">
+        <ul class="menu-lista">
+          <li><a href="#servicios"><span class="mono">01</span>Servicios</a></li>
+          <li><a href="#cotizador"><span class="mono">02</span>Cotizá tu envío</a></li>
+          <li><a href="#como-funciona"><span class="mono">03</span>Cómo funciona</a></li>
+          <li><a href="#recorrido"><span class="mono">04</span>Recorrido</a></li>
+          <li><a href="#cuds"><span class="mono">05</span>Club CUDS</a></li>
+          <li><a href="#preguntas"><span class="mono">06</span>Preguntas frecuentes</a></li>
+          <li><a href="#contacto"><span class="mono">07</span>Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="menu-contacto">
+        <p class="mono">Escribinos</p>
+        <a class="btn btn-primario" data-wa href="#contacto"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
+        <a class="btn btn-borde" data-ig href="https://www.instagram.com/saldar223/" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-ig"/></svg><span data-ig-usuario>@saldar223</span></a>
+        <a class="menu-trabajo" data-mail-cv href="#contacto"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg><span><strong>Trabajá con nosotros</strong>Mandanos tu CV por mail</span></a>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -764,46 +815,10 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
   </section>
 
   <!-- CONTACTO -->
-  <!-- TRABAJÁ CON NOSOTROS: el CV llega por mail (NEGOCIO.mailCV) -->
-  <section class="seccion seccion-blanca" id="trabajo" aria-labelledby="t-trabajo">
-    <div class="contenedor">
-      <header class="seccion-cabeza">
-        <p class="seccion-num mono">07 · Trabajo</p>
-        <h2 id="t-trabajo">Trabajá con nosotros</h2>
-        <p>¿Querés sumarte a Saldar? Completá tus datos y mandanos tu currículum por mail.</p>
-      </header>
-      <form class="trabajo hoja" id="form-cv" novalidate>
-        <div class="campos-2">
-          <div class="campo">
-            <label for="cv-nombre">Nombre y apellido</label>
-            <input id="cv-nombre" name="cv-nombre" type="text" autocomplete="name" required>
-          </div>
-          <div class="campo">
-            <label for="cv-tel">Teléfono</label>
-            <input id="cv-tel" name="cv-tel" type="tel" autocomplete="tel" inputmode="tel" required>
-          </div>
-        </div>
-        <div class="campo" style="margin-top:14px">
-          <label for="cv-puesto">¿En qué te gustaría trabajar? <span class="opcional">(opcional)</span></label>
-          <input id="cv-puesto" name="cv-puesto" type="text">
-        </div>
-        <div class="campo" style="margin-top:14px">
-          <label for="cv-mensaje">Contanos algo de vos <span class="opcional">(opcional)</span></label>
-          <textarea id="cv-mensaje" name="cv-mensaje" placeholder="Experiencia, si tenés registro, en qué horario podés…"></textarea>
-        </div>
-        <div class="trabajo-enviar">
-          <a class="btn btn-primario" id="cv-enviar" href="#trabajo" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg>Mandar mi CV por mail</a>
-          <p class="error" id="cv-error" role="alert"></p>
-          <p class="nota">Se abre tu mail con tus datos ya escritos: adjuntá tu currículum (PDF o Word) y enviá. Si no se abre, escribinos a <a data-mail-cv>A confirmar</a>.</p>
-        </div>
-      </form>
-    </div>
-  </section>
-
   <section class="seccion" id="contacto" aria-labelledby="t-contacto">
     <div class="contenedor">
       <header class="seccion-cabeza">
-        <p class="seccion-num mono">08 · Contacto</p>
+        <p class="seccion-num mono">07 · Contacto</p>
         <h2 id="t-contacto">Hablemos</h2>
       </header>
       <div class="contacto">
@@ -830,7 +845,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
   <div class="contenedor pie-in">
     <img class="logo" src="img/saldar-logo.webp" width="708" height="140" alt="Saldar · Logística y distribución" loading="lazy">
     <p>© <span id="anio">2026</span> Saldar · Logística y distribución Buenos Aires – Mar del Plata</p>
-    <p><a href="#trabajo">Trabajá con nosotros</a></p>
+    <p class="pie-trabajo"><a data-mail-cv href="#contacto"><strong>Trabajá con nosotros:</strong> mandanos tu CV a <span data-mail-cv-texto>logisticasaldar1963@gmail.com</span></a></p>
     <p class="pie-credito">Desarrollado por ConnectHUB</p>
   </div>
 </footer>
@@ -1208,40 +1223,36 @@ function pintarPreguntas() {
 }
 
 /* ---------- Trabajá con nosotros: el CV va por mail ---------- */
-// El link abre el mail de la persona con sus datos; el CV lo adjunta ella.
+// Los links "Trabajá con nosotros" (pie y menú) abren el mail con un modelo; el CV lo adjunta la persona.
 function enlaceMailCV() {
-  const val = (id) => $("#" + id).value.trim();
-  const L = ["Hola Saldar, les mando mi currículum (va adjunto).", "", `Nombre: ${val("cv-nombre")}`, `Teléfono: ${val("cv-tel")}`];
-  if (val("cv-puesto")) L.push(`Me gustaría trabajar en: ${val("cv-puesto")}`);
-  if (val("cv-mensaje")) L.push("", val("cv-mensaje"));
-  L.push("", "(Enviado desde la web)");
-  const asunto = `CV - ${val("cv-nombre") || "Trabajá con nosotros"}`;
-  return `mailto:${NEGOCIO.mailCV}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(L.join("\n"))}`;
+  const cuerpo = ["Hola Saldar, les mando mi currículum (va adjunto).", "", "Nombre:", "Teléfono:", "¿En qué me gustaría trabajar?:", "", "(Enviado desde la web)"].join("\n");
+  return `mailto:${NEGOCIO.mailCV}?subject=${encodeURIComponent("CV - Trabajá con nosotros")}&body=${encodeURIComponent(cuerpo)}`;
 }
 
 function enlazarCV() {
-  const boton = $("#cv-enviar");
-  const rearmar = () => { boton.href = NEGOCIO.mailCV ? enlaceMailCV() : "#trabajo"; };
-  $("#form-cv").addEventListener("input", (e) => { e.target.removeAttribute("aria-invalid"); rearmar(); });
-  $("#form-cv").addEventListener("submit", (e) => e.preventDefault());
-  boton.addEventListener("click", (e) => {
-    const faltan = [["cv-nombre", "tu nombre"], ["cv-tel", "tu teléfono"]].filter(([id]) => !$("#" + id).value.trim());
-    $$("#form-cv [aria-invalid]").forEach((el) => el.removeAttribute("aria-invalid"));
-    faltan.forEach(([id]) => $("#" + id).setAttribute("aria-invalid", "true"));
-    const error = faltan.length ? "Para mandar tu CV falta " + lista(faltan.map((f) => f[1])) + "."
-      : !NEGOCIO.mailCV ? "Falta cargar el mail donde llegan los CV (vista previa)." : "";
-    $("#cv-error").textContent = error;
-    if (error) {
-      e.preventDefault();
-      if (faltan.length) $("#" + faltan[0][0]).focus();
-    }
-  });
   $$("[data-mail-cv]").forEach((a) => {
-    a.textContent = NEGOCIO.mailCV || "A confirmar";
-    a.classList.toggle("confirmar", !NEGOCIO.mailCV);
-    if (NEGOCIO.mailCV) { a.href = "mailto:" + NEGOCIO.mailCV; a.target = "_blank"; a.rel = "noopener"; }
+    a.hidden = !NEGOCIO.mailCV;
+    a.href = enlaceMailCV();
+    a.target = "_blank";
+    a.rel = "noopener";
   });
-  rearmar();
+  $$("[data-mail-cv-texto]").forEach((el) => (el.textContent = NEGOCIO.mailCV));
+}
+
+/* ---------- Menú (las tres rayitas) ---------- */
+function enlazarMenu() {
+  const boton = $("#menu-boton"), panel = $("#menu-panel");
+  const abrir = (si) => {
+    panel.hidden = !si;
+    boton.setAttribute("aria-expanded", si);
+    boton.setAttribute("aria-label", si ? "Cerrar el menú" : "Abrir el menú");
+  };
+  boton.addEventListener("click", () => abrir(panel.hidden));
+  // Al tocar un link se cierra (así se ve la sección a la que lleva)
+  panel.addEventListener("click", (e) => { if (e.target.closest("a")) abrir(false); });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !panel.hidden) { abrir(false); boton.focus(); }
+  });
 }
 
 function iniciar() {
@@ -1255,6 +1266,7 @@ function iniciar() {
   pintarPreguntas();
   enlazarWhatsapp();
   enlazarCV();
+  enlazarMenu();
   $("#anio").textContent = new Date().getFullYear();
 }
 

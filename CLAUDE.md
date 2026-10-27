@@ -79,7 +79,7 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
 | Instagram | @saldar223 | — |
 | Logo | El real: `img/saldar-logo.webp` (708 × 140, sacado del PDF "SALDAR.pdf", que trae una imagen de 1201 × 281). Ícono de la pestaña: `img/favicon.png`, la "S" del logo en blanco sobre azul | El dueño, vía Mateo, 27/10/2026 ✅. Si pasan el logo en vector (SVG, AI, PDF sin imagen adentro), cambiarlo |
 | CUDS | Saldar es **sponsor** del CUDS, club de rugby de Mar del Plata; los socios del CUDS tienen un descuento en el servicio (se consulta por WhatsApp, sin monto en la web). Escudo: `img/cuds-logo.webp` (del PDF "cuds_logo.pdf", vectorial) | El dueño, vía Mateo, 27/10/2026 ✅ ("son sponsors del club"). En la web: "¡Somos sponsors!" arriba de los logos |
-| Trabajá con nosotros | Formulario (nombre, teléfono, puesto, mensaje) que abre el mail de la persona con todo escrito; el CV lo adjunta ella | Pedido del dueño, vía Mateo, 27/10/2026 ✅. Mail: **logisticasaldar1963@gmail.com** (`NEGOCIO.mailCV`, el dueño vía Mateo, 27/10/2026) |
+| Trabajá con nosotros | Link en el pie y en el menú (no es sección) que abre el mail de la persona a logisticasaldar1963@gmail.com, asunto "CV - Trabajá con nosotros" y un modelo (nombre, teléfono, en qué le gustaría trabajar); el CV lo adjunta ella | Pedido del dueño, vía Mateo, 27/10/2026 ✅. Mail: **logisticasaldar1963@gmail.com** (`NEGOCIO.mailCV`, el dueño vía Mateo, 27/10/2026) |
 | Fotos | Ninguna (la web se ve bien sin fotos) | ⚠️ Faltan las reales |
 
 ## Lo que NO va en la web (pedido del dueño)
@@ -224,16 +224,23 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
   botón de WhatsApp ("Soy socio del CUDS y quiero consultar por el
   descuento"). En el cotizador, casilla "Soy socio del CUDS" que suma una
   línea al pedido. Pregunta frecuente del descuento. Nada de montos.
-- **Trabajá con nosotros** (sección 07, antes de Contacto; link en el pie):
-  pide nombre y teléfono (obligatorios), puesto y mensaje; el botón "Mandar
-  mi CV por mail" es un `mailto:` a `NEGOCIO.mailCV` con asunto "CV -
-  nombre" y los datos en el cuerpo. Sin servidor: el archivo lo adjunta la
-  persona en su mail. El botón y el link al mail abren en pestaña nueva
-  (`target="_blank"`, como WhatsApp, para que anden en la vista previa).
-  Si `mailCV` quedara vacío, avisa "Falta cargar el mail".
+- **Trabajá con nosotros** **no es una sección** (pedido de Mateo,
+  27/10/2026): es un link en el pie ("Trabajá con nosotros: mandanos tu CV
+  a …") y otro en el menú, los dos `[data-mail-cv]`: `mailto:` a
+  `NEGOCIO.mailCV` con asunto "CV - Trabajá con nosotros" y un modelo en el
+  cuerpo. Abren en pestaña nueva (como WhatsApp, para que anden en la vista
+  previa). Si `mailCV` quedara vacío, los links se esconden.
+- **Menú de las tres rayitas** (`#menu-boton` + `#menu-panel`, en todos los
+  tamaños; pedido de Mateo, 27/10/2026): botón cuadrado con el mismo estilo
+  que el WhatsApp de la cabecera (se pone negro con una × al abrir). El
+  panel baja debajo de la cabecera con las 7 secciones numeradas, WhatsApp,
+  Instagram y "Trabajá con nosotros". Se cierra al tocar un link o con Esc.
+  En la compu sigue también el menú corto (Servicios, Recorrido, Preguntas,
+  Contacto). En el celular (< 600 px) el WhatsApp de la cabecera se esconde
+  (está en el menú) y el logo baja a 34 px (30 px en < 380 px).
 - Orden de secciones: 01 Servicios, 02 Cotizador, 03 Cómo funciona, 04
-  Recorrido, 05 Club CUDS, 06 Preguntas, 07 Trabajo, 08 Contacto (fondos
-  blancos alternados: CUDS y Trabajo en `seccion-blanca`).
+  Recorrido, 05 Club CUDS, 06 Preguntas, 07 Contacto (CUDS en
+  `seccion-blanca`).
 - Recorrido: esquema SVG propio (Río de la Plata, costa atlántica, Buenos
   Aires, Mar del Plata, "≈ 400 km · ida y vuelta"), con la línea del camino
   animada (se queda quieta con "reducir movimiento"). Sin API de mapas.
@@ -278,6 +285,11 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 
 ## Registro de cambios
 
+- 27/10/2026 — Mateo: "Trabajá con nosotros" que no sea una sección, que
+  esté en el pie y lleve al mail; y un menú de tres rayitas con todo, eso
+  incluido → se sacó la sección 07 (Contacto pasó a 07); link en el pie que
+  abre el mail con un modelo; menú en la cabecera con las secciones,
+  WhatsApp, Instagram y "Trabajá con nosotros".
 - 27/10/2026 — Mateo pasó el mail para los CV: logisticasaldar1963@gmail.com
   → `NEGOCIO.mailCV`; "Trabajá con nosotros" ya abre el mail con los datos;
   la barra de VISTA PREVIA ya no menciona el mail.
