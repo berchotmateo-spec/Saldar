@@ -7,13 +7,13 @@
 <meta name="description" content="Saldar: logística y distribución entre Buenos Aires y Mar del Plata. Cargas en camión con entrega a domicilio, precio según el peso, congelados y mudanzas. Cotizá y pedilo por WhatsApp.">
 <!-- DEMO: mientras sea vista previa no queremos que Google la indexe. Sacar esta línea al publicar de verdad (ver CLAUDE.md). -->
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#1847D6">
+<meta name="theme-color" content="#0756DB">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_AR">
 <meta property="og:site_name" content="Saldar">
 <meta property="og:title" content="Saldar · Logística y distribución Buenos Aires – Mar del Plata">
 <meta property="og:description" content="Logística y distribución en camión entre Buenos Aires y Mar del Plata, con entrega a domicilio. Cotizá por peso y por bulto y pedilo por WhatsApp.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%231847D6'/%3E%3Cpath d='M27 9H16a6 6 0 0 0 0 12h8a6 6 0 0 1 0 12H13' fill='none' stroke='%23fff' stroke-width='4' stroke-linecap='round'/%3E%3Ccircle cx='10.5' cy='33' r='3.6' fill='%230C1018' stroke='%23fff' stroke-width='1.5'/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
@@ -78,10 +78,10 @@
   --tinta-2:#4A5568;
   --linea:#D8DFEB;
   --borde-campo:#7C8798;
-  --azul:#1847D6;
-  --azul-osc:#0F34A8;
-  --azul-claro:#E6EDFD;
-  --azul-suave:#C9D7FF;
+  --azul:#0756DB;        /* del logo (#0864FF), un punto más oscuro para que el texto azul se lea bien */
+  --azul-osc:#0544B0;
+  --azul-claro:#E7F0FF;
+  --azul-suave:#DFE9FF;
   --mar:#DCE6FA;
   --error:#B42318;
   --radio:20px;
@@ -146,8 +146,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .marca{display:inline-flex;align-items:center;text-decoration:none;color:var(--tinta);margin-right:auto;min-height:44px}
 .logo{height:38px;width:auto;display:block}
 @media (min-width:900px){.cabecera .logo{height:44px}}
-.logo-nombre{font-family:var(--f-titulo);font-weight:800;fill:var(--tinta)}
-.logo-bajada{font-family:var(--f-mono);font-weight:600;fill:var(--azul)}
 .menu{display:none;list-style:none;margin:0;padding:0;gap:4px}
 .menu a{display:inline-flex;align-items:center;min-height:44px;padding:0 .8rem;color:var(--tinta);text-decoration:none;font-weight:600}
 .menu a:hover{text-decoration:underline;text-decoration-color:var(--azul);text-decoration-thickness:2px;text-underline-offset:6px}
@@ -242,7 +240,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .campo .opcional{font-weight:400;color:var(--tinta-2)}
 .campo + .campo{margin-top:0}
 .campos-2 + .campo,.campo + .campos-2,.campos-2 + .campos-2{margin-top:14px}
-select,input[type=text],input[type=date],input[type=number],textarea{width:100%;min-height:48px;padding:.65rem .9rem;border:1.5px solid var(--borde-campo);border-radius:var(--radio-chico);background:#fff;color:var(--tinta);font-size:1rem}
+select,input[type=text],input[type=tel],input[type=date],input[type=number],textarea{width:100%;min-height:48px;padding:.65rem .9rem;border:1.5px solid var(--borde-campo);border-radius:var(--radio-chico);background:#fff;color:var(--tinta);font-size:1rem}
 textarea{min-height:88px;resize:vertical}
 select{appearance:none;-webkit-appearance:none;padding-right:2.6rem;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230C1018' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .8rem center;background-size:18px;cursor:pointer}
 select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--azul);outline-offset:1px;border-color:var(--azul)}
@@ -387,7 +385,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
 .pregunta{background:var(--superficie);border:1px solid var(--linea);border-radius:16px}
 .pregunta summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;min-height:56px;padding:.8rem 1.1rem;font-weight:700;font-size:1.08rem;cursor:pointer;border-radius:16px}
 .pregunta summary::-webkit-details-marker{display:none}
-.pregunta summary::after{content:"";flex:none;width:28px;height:28px;border-radius:4px;background:var(--papel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231847D6' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M12 6v12M6 12h12'/%3E%3C/svg%3E") center/16px no-repeat;transition:transform .2s}
+.pregunta summary::after{content:"";flex:none;width:28px;height:28px;border-radius:4px;background:var(--papel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230756DB' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M12 6v12M6 12h12'/%3E%3C/svg%3E") center/16px no-repeat;transition:transform .2s}
 .pregunta[open] summary::after{transform:rotate(45deg)}
 .pregunta p{padding:0 1.1rem 1.1rem;color:var(--tinta-2)}
 
@@ -411,6 +409,23 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
 .dato dd{margin:0;font-weight:600;overflow-wrap:anywhere}
 
 /* Pie */
+/* CUDS */
+.cuds{display:grid;gap:1.75rem;align-items:center}
+@media (min-width:760px){.cuds{grid-template-columns:200px minmax(0,1fr);gap:3rem}}
+.cuds-logo{width:clamp(110px,28vw,200px);height:auto}
+.cuds .seccion-cabeza{margin-bottom:1.5rem}
+.cuds-socio{background:var(--tinta);color:#fff;border-radius:var(--radio);padding:clamp(1.25rem,3vw,1.75rem);display:flex;flex-direction:column;align-items:flex-start;gap:.9rem;max-width:640px}
+.cuds-socio-tit{font:800 clamp(1.7rem,4.5vw,2.3rem)/1.02 var(--f-titulo);text-transform:uppercase}
+.cuds-socio p:not(.cuds-socio-tit){color:#C6CDDA}
+.cuds-socio .btn{--sombra-btn:var(--azul)}
+.cuds-socio :focus-visible{outline-color:#fff}
+.check-cuds{display:flex;gap:.7rem;align-items:flex-start;font-weight:600;cursor:pointer}
+.check-cuds input{flex:none;width:22px;height:22px;margin:.1rem 0 0;accent-color:var(--azul)}
+
+/* Trabajá con nosotros */
+.trabajo{max-width:760px}
+.trabajo-enviar{margin-top:1.25rem;display:flex;flex-direction:column;align-items:flex-start;gap:.6rem}
+
 .pie{border-top:1px solid var(--linea);padding:2rem 0 2.5rem;background:var(--papel)}
 .pie-in{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem}
 .pie p{font-size:.92rem;color:var(--tinta-2)}
@@ -424,12 +439,6 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
 <!-- Íconos (se usan con <use href="#i-...">) -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <defs>
-    <symbol id="marca" viewBox="0 0 40 40">
-      <rect width="40" height="40" rx="10" fill="#1847D6"/>
-      <path d="M27 9H16a6 6 0 0 0 0 12h8a6 6 0 0 1 0 12H13" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
-      <circle cx="29.6" cy="9" r="2.6" fill="#1847D6" stroke="#fff" stroke-width="2"/>
-      <circle cx="10.5" cy="33" r="3.6" fill="#0C1018" stroke="#fff" stroke-width="1.5"/>
-    </symbol>
     <symbol id="i-camion" viewBox="0 0 24 24"><path d="M2.5 6h11v10h-11zM13.5 9.5h4.2l3.3 3.4V16h-7.5"/><circle cx="6.5" cy="17.2" r="1.9"/><circle cx="17" cy="17.2" r="1.9"/></symbol>
     <symbol id="i-wa" viewBox="0 0 24 24"><path d="M20.5 11.7a8.5 8.5 0 0 1-12.6 7.4l-4.4 1.4 1.5-4.2a8.5 8.5 0 1 1 15.5-4.6z"/><path d="M9.1 8.4c.2-.5.5-.7.8-.7h.6c.2 0 .4.1.5.4l.7 1.7c.1.3 0 .5-.1.7l-.5.6c-.1.2-.1.4 0 .6a7 7 0 0 0 2.4 2.4c.2.1.4.1.6 0l.6-.5c.2-.2.5-.2.7-.1l1.7.7c.3.1.4.3.4.5v.6c0 .3-.2.6-.7.8-.6.3-1.6.4-2.8-.1a9.8 9.8 0 0 1-4.8-4.8c-.5-1.2-.4-2.2-.1-2.8z" fill="currentColor" stroke="none"/></symbol>
     <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></symbol>
@@ -439,6 +448,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
     <symbol id="i-flecha" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
     <symbol id="i-cotizar" viewBox="0 0 24 24"><rect x="5" y="2.5" width="14" height="19" rx="2.5"/><path d="M8.5 6.5h7M8.5 11h1M12 11h1M15.5 11h0M8.5 14.5h1M12 14.5h1M8.5 18h1M12 18h1M15.5 14.5V18"/></symbol>
     <symbol id="i-casa" viewBox="0 0 24 24"><path d="M3.5 11 12 4l8.5 7"/><path d="M5.5 9.5V20h13V9.5"/><path d="M9.5 20v-5h5v5"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="m3.5 7 8.5 6.5L20.5 7"/></symbol>
     <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5.5h16v10H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></symbol>
   </defs>
 </svg>
@@ -447,17 +457,13 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
 
 <!-- VISTA PREVIA: se saca sola poniendo NEGOCIO.tarifasDeEjemplo = false (o borrando este bloque) -->
 <div class="vista-previa" id="vista-previa" role="note">
-  <strong>VISTA PREVIA</strong>Falta un precio: lo que suma cada 10 kg (y el extra de Batán y Sierras) es de ejemplo.
+  <strong>VISTA PREVIA</strong>Faltan datos: lo que suma cada 10 kg y el extra de Batán y Sierras son de ejemplo, y falta el mail para los CV.
 </div>
 
 <header class="cabecera">
   <div class="contenedor cabecera-in">
     <a class="marca" href="#inicio" aria-label="Saldar, volver al inicio">
-      <svg class="logo" viewBox="0 0 160 40" aria-hidden="true" focusable="false">
-        <use href="#marca" width="40" height="40"/>
-        <text class="logo-nombre" x="50" y="25" font-size="27" textLength="101" lengthAdjust="spacing">SALDAR</text>
-        <text class="logo-bajada" x="50.5" y="36.5" font-size="7.1" textLength="102" lengthAdjust="spacingAndGlyphs">LOGÍSTICA Y DISTRIBUCIÓN</text>
-      </svg>
+      <img class="logo" src="img/saldar-logo.webp" width="708" height="140" alt="">
     </a>
     <nav aria-label="Secciones">
       <ul class="menu">
@@ -621,6 +627,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
             <label for="comentario">Comentario <span class="opcional">(opcional)</span></label>
             <textarea id="comentario" name="comentario" placeholder="Qué es, más o menos cuánto pesa, si hay algo frágil…"></textarea>
           </div>
+          <label class="check-cuds" style="margin-top:14px"><input type="checkbox" id="socio-cuds" name="socio-cuds"><span>Soy socio del CUDS <span class="opcional">(el descuento te lo confirmamos por WhatsApp)</span></span></label>
         </div>
 
         <div class="cot-enviar">
@@ -719,11 +726,30 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
     </div>
   </section>
 
+  <!-- CUDS -->
+  <section class="seccion seccion-blanca" id="cuds" aria-labelledby="t-cuds">
+    <div class="contenedor cuds">
+      <img class="cuds-logo" src="img/cuds-logo.webp" width="245" height="360" alt="Escudo del CUDS" loading="lazy">
+      <div>
+        <header class="seccion-cabeza">
+          <p class="seccion-num mono">05 · Club CUDS</p>
+          <h2 id="t-cuds">Acompañamos al CUDS</h2>
+          <p>Saldar acompaña al CUDS, club de rugby de Mar del Plata.</p>
+        </header>
+        <div class="cuds-socio">
+          <p class="cuds-socio-tit">¿Sos socio del CUDS?</p>
+          <p>Tenés un descuento en el servicio. Consultanos por WhatsApp y te contamos.</p>
+          <a class="btn btn-claro" data-wa="¡Hola Saldar! Soy socio del CUDS y quiero consultar por el descuento." href="#contacto"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Consultar el descuento</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- PREGUNTAS -->
-  <section class="seccion seccion-blanca" id="preguntas" aria-labelledby="t-preguntas">
+  <section class="seccion" id="preguntas" aria-labelledby="t-preguntas">
     <div class="contenedor">
       <header class="seccion-cabeza">
-        <p class="seccion-num mono">05 · Preguntas</p>
+        <p class="seccion-num mono">06 · Preguntas</p>
         <h2 id="t-preguntas">Preguntas frecuentes</h2>
       </header>
       <div class="preguntas" id="lista-preguntas"></div>
@@ -731,10 +757,46 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
   </section>
 
   <!-- CONTACTO -->
+  <!-- TRABAJÁ CON NOSOTROS: el CV llega por mail (NEGOCIO.mailCV) -->
+  <section class="seccion seccion-blanca" id="trabajo" aria-labelledby="t-trabajo">
+    <div class="contenedor">
+      <header class="seccion-cabeza">
+        <p class="seccion-num mono">07 · Trabajo</p>
+        <h2 id="t-trabajo">Trabajá con nosotros</h2>
+        <p>¿Querés sumarte a Saldar? Completá tus datos y mandanos tu currículum por mail.</p>
+      </header>
+      <form class="trabajo hoja" id="form-cv" novalidate>
+        <div class="campos-2">
+          <div class="campo">
+            <label for="cv-nombre">Nombre y apellido</label>
+            <input id="cv-nombre" name="cv-nombre" type="text" autocomplete="name" required>
+          </div>
+          <div class="campo">
+            <label for="cv-tel">Teléfono</label>
+            <input id="cv-tel" name="cv-tel" type="tel" autocomplete="tel" inputmode="tel" required>
+          </div>
+        </div>
+        <div class="campo" style="margin-top:14px">
+          <label for="cv-puesto">¿En qué te gustaría trabajar? <span class="opcional">(opcional)</span></label>
+          <input id="cv-puesto" name="cv-puesto" type="text">
+        </div>
+        <div class="campo" style="margin-top:14px">
+          <label for="cv-mensaje">Contanos algo de vos <span class="opcional">(opcional)</span></label>
+          <textarea id="cv-mensaje" name="cv-mensaje" placeholder="Experiencia, si tenés registro, en qué horario podés…"></textarea>
+        </div>
+        <div class="trabajo-enviar">
+          <a class="btn btn-primario" id="cv-enviar" href="#trabajo"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg>Mandar mi CV por mail</a>
+          <p class="error" id="cv-error" role="alert"></p>
+          <p class="nota">Se abre tu mail con tus datos ya escritos: adjuntá tu currículum (PDF o Word) y enviá. Si no se abre, escribinos a <a data-mail-cv>A confirmar</a>.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
   <section class="seccion" id="contacto" aria-labelledby="t-contacto">
     <div class="contenedor">
       <header class="seccion-cabeza">
-        <p class="seccion-num mono">06 · Contacto</p>
+        <p class="seccion-num mono">08 · Contacto</p>
         <h2 id="t-contacto">Hablemos</h2>
       </header>
       <div class="contacto">
@@ -759,12 +821,9 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
 
 <footer class="pie">
   <div class="contenedor pie-in">
-    <svg class="logo" viewBox="0 0 160 40" role="img" aria-label="Saldar">
-      <use href="#marca" width="40" height="40"/>
-      <text class="logo-nombre" x="50" y="25" font-size="27" textLength="101" lengthAdjust="spacing">SALDAR</text>
-      <text class="logo-bajada" x="50.5" y="36.5" font-size="7.1" textLength="102" lengthAdjust="spacingAndGlyphs">LOGÍSTICA Y DISTRIBUCIÓN</text>
-    </svg>
+    <img class="logo" src="img/saldar-logo.webp" width="708" height="140" alt="Saldar · Logística y distribución" loading="lazy">
     <p>© <span id="anio">2026</span> Saldar · Logística y distribución Buenos Aires – Mar del Plata</p>
+    <p><a href="#trabajo">Trabajá con nosotros</a></p>
     <p class="pie-credito">Desarrollado por ConnectHUB</p>
   </div>
 </footer>
@@ -1106,6 +1165,7 @@ function armarMensaje(r) {
   const cuando = [fechaLinda(val("dia")), val("franja").toLowerCase()].filter(Boolean).join(", ");
   if (cuando) L.push(`*Cuándo:* ${cuando}`);
   L.push(`*Nombre:* ${val("nombre")}`);
+  if ($("#socio-cuds").checked) L.push("*Socio del CUDS:* sí, quiero consultar el descuento");
   if (val("comentario")) L.push(`*Comentario:* ${val("comentario")}`);
   L.push("", `*Total: ${pesos(r.total)}* (precio estimado, a confirmar)`);
   r.lineas.forEach((l) => L.push(`• ${l.c}: ${pesos(l.v)}`));
@@ -1140,6 +1200,43 @@ function pintarPreguntas() {
   }).join("");
 }
 
+/* ---------- Trabajá con nosotros: el CV va por mail ---------- */
+// El link abre el mail de la persona con sus datos; el CV lo adjunta ella.
+function enlaceMailCV() {
+  const val = (id) => $("#" + id).value.trim();
+  const L = ["Hola Saldar, les mando mi currículum (va adjunto).", "", `Nombre: ${val("cv-nombre")}`, `Teléfono: ${val("cv-tel")}`];
+  if (val("cv-puesto")) L.push(`Me gustaría trabajar en: ${val("cv-puesto")}`);
+  if (val("cv-mensaje")) L.push("", val("cv-mensaje"));
+  L.push("", "(Enviado desde la web)");
+  const asunto = `CV - ${val("cv-nombre") || "Trabajá con nosotros"}`;
+  return `mailto:${NEGOCIO.mailCV}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(L.join("\n"))}`;
+}
+
+function enlazarCV() {
+  const boton = $("#cv-enviar");
+  const rearmar = () => { boton.href = NEGOCIO.mailCV ? enlaceMailCV() : "#trabajo"; };
+  $("#form-cv").addEventListener("input", (e) => { e.target.removeAttribute("aria-invalid"); rearmar(); });
+  $("#form-cv").addEventListener("submit", (e) => e.preventDefault());
+  boton.addEventListener("click", (e) => {
+    const faltan = [["cv-nombre", "tu nombre"], ["cv-tel", "tu teléfono"]].filter(([id]) => !$("#" + id).value.trim());
+    $$("#form-cv [aria-invalid]").forEach((el) => el.removeAttribute("aria-invalid"));
+    faltan.forEach(([id]) => $("#" + id).setAttribute("aria-invalid", "true"));
+    const error = faltan.length ? "Para mandar tu CV falta " + lista(faltan.map((f) => f[1])) + "."
+      : !NEGOCIO.mailCV ? "Falta cargar el mail donde llegan los CV (vista previa)." : "";
+    $("#cv-error").textContent = error;
+    if (error) {
+      e.preventDefault();
+      if (faltan.length) $("#" + faltan[0][0]).focus();
+    }
+  });
+  $$("[data-mail-cv]").forEach((a) => {
+    a.textContent = NEGOCIO.mailCV || "A confirmar";
+    a.classList.toggle("confirmar", !NEGOCIO.mailCV);
+    if (NEGOCIO.mailCV) a.href = "mailto:" + NEGOCIO.mailCV;
+  });
+  rearmar();
+}
+
 function iniciar() {
   if (!NEGOCIO.tarifasDeEjemplo) {
     $("#vista-previa")?.remove();
@@ -1150,6 +1247,7 @@ function iniciar() {
   pintarCotizador();
   pintarPreguntas();
   enlazarWhatsapp();
+  enlazarCV();
   $("#anio").textContent = new Date().getFullYear();
 }
 
@@ -1207,6 +1305,8 @@ const NEGOCIO = {
   frecuencia: "De Buenos Aires, la carga que recibimos de lunes a viernes sale el sábado para Mar del Plata.",   // el dueño, 23/10/2026 (falta Mar del Plata → Buenos Aires)
   zonas: "En Mar del Plata y en Buenos Aires. En Mar del Plata también entregamos en Batán y Sierra de los Padres, con costo extra.",
 
+  mailCV: "",                      // mail donde llegan los CV de "Trabajá con nosotros" (lo pasa el dueño)
+
   mensajeGeneral: "¡Hola Saldar! Te escribo desde la web, quería hacerte una consulta.",
 
   // Saldar es logística y distribución en camión entre Buenos Aires y Mar del Plata, en los
@@ -1238,6 +1338,7 @@ const NEGOCIO = {
     { p: "¿Hacen mudanzas?", r: "Sí, dentro de Mar del Plata y entre Buenos Aires y Mar del Plata, de ida y de vuelta. Escribinos por WhatsApp contándonos qué hay que mover y adónde, y te pasamos el presupuesto." },
     { p: "¿Cómo se paga?", dato: "pagos" },
     { p: "¿Hacen factura?", r: "Sí, hacemos Factura A." },
+    { p: "¿Hay descuento para socios del CUDS?", r: "Sí. Si sos socio del CUDS tenés un descuento en el servicio: consultanos por WhatsApp." },
     { p: "¿Cada cuánto viajan?", dato: "frecuencia" },
     { p: "¿Qué cosas no llevan?", dato: "noLlevan" },
   ],

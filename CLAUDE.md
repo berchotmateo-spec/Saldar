@@ -71,7 +71,9 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
 | Cada cuánto viajan | De Buenos Aires sale el sábado (lo recibido de lunes a viernes) | El dueño, vía Mateo, 23/10/2026 ✅ (falta Mar del Plata → Buenos Aires) |
 
 | Instagram | @saldar223 | — |
-| Logo | Logotipo tipográfico hecho para la demo (SVG en el HTML) | ⚠️ Falta el real |
+| Logo | El real: `img/saldar-logo.webp` (708 × 140, sacado del PDF "SALDAR.pdf", que trae una imagen de 1201 × 281). Ícono de la pestaña: `img/favicon.png`, la "S" del logo en blanco sobre azul | El dueño, vía Mateo, 27/10/2026 ✅. Si pasan el logo en vector (SVG, AI, PDF sin imagen adentro), cambiarlo |
+| CUDS | Saldar "tiene al" CUDS, club de rugby de Mar del Plata; los socios del CUDS tienen un descuento en el servicio (se consulta por WhatsApp, sin monto en la web). Escudo: `img/cuds-logo.webp` (del PDF "cuds_logo.pdf", vectorial) | El dueño, vía Mateo, 27/10/2026 ✅. En la web dice "Saldar acompaña al CUDS" |
+| Trabajá con nosotros | Formulario (nombre, teléfono, puesto, mensaje) que abre el mail de la persona con todo escrito; el CV lo adjunta ella | Pedido del dueño, vía Mateo, 27/10/2026 ✅. ⚠️ Falta el mail (`NEGOCIO.mailCV`) |
 | Fotos | Ninguna (la web se ve bien sin fotos) | ⚠️ Faltan las reales |
 
 ## Lo que NO va en la web (pedido del dueño)
@@ -103,7 +105,8 @@ comentario **"DATOS DE SALDAR — ACÁ SE CAMBIAN LOS PRECIOS"**:
   y número) + `barrioBA` + `ciudadBA` (sucursal; aparecen solas en recorrido, contacto, preguntas,
   cotizador, mensaje y link a Google Maps; en el JSON-LD van a mano, en
   `department`), `pagos`, `factura`,
-  `congelados`, `domicilio`, `zonas`, `noLlevan`, `frecuencia`, servicios
+  `congelados`, `domicilio`, `zonas`, `noLlevan`, `frecuencia`,
+  **`mailCV`** (mail donde llegan los CV; vacío = "A confirmar"), servicios
   (la tarjeta de Mudanzas tiene su propio botón de WhatsApp con `boton`) y
   preguntas frecuentes.
 - `TARIFAS`: `redondeo` (0 = no redondea y muestra centavos), `maxBultos`
@@ -150,8 +153,11 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 - **Fondo claro** (pedido de Mateo para todas las webs). Sin tema oscuro.
 - **Colores de la marca: azul y blanco, con detalles en negro** (el dueño,
   vía Mateo, 19/10/2026). Reemplazan la paleta inventada del primer borrador.
-  - Azul `--azul` `#1847D6` (botones, precios, cinta, franja "Cómo
-    funciona", logo). **Tono provisorio**: ajustarlo cuando llegue el logo.
+  - Azul `--azul` `#0756DB` (botones, precios, cinta, franja "Cómo
+    funciona"). Sale del logo real (`#0864FF`, 27/10/2026), un punto más
+    oscuro: con `#0864FF` el texto azul sobre los fondos celestes no llega
+    al contraste mínimo (4,3 a 1). `--azul-osc #0544B0`, `--azul-claro
+    #E7F0FF`, `--azul-suave #DFE9FF`.
   - Blanco y casi blanco `#F5F7FC` de fondo; tarjetas blancas.
   - Negro `--tinta` `#0C1018` para los detalles: cabecera del presupuesto,
     números de paso, barra de VISTA PREVIA, tarjeta de contacto, código de
@@ -201,11 +207,22 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
   contacto la sombra va en azul. No queda ningún `999px`.
 - Tipografías: Barlow Condensed (títulos, aire de cartel de ruta), Barlow
   (texto) e IBM Plex Mono (etiquetas, precios del detalle).
-- Logo provisorio: cuadrado azul con una "S" que es un recorrido (punto de
-  origen → punto de destino negro) + "SALDAR / LOGÍSTICA Y DISTRIBUCIÓN" (viewBox 160 × 40;
-  "SALDAR" con `lengthAdjust="spacing"` para que ocupe el mismo ancho que la
-  bajada; 44 px de alto en la cabecera desde 900 px, 38 px en el celular y
-  en el pie).
+- **Logo real** (imagen `img/saldar-logo.webp`): 44 px de alto en la cabecera
+  desde 900 px, 38 px en el celular y en el pie. No deformarlo ni recortarlo.
+- **Club CUDS** (sección 05, después de Recorrido): escudo a la izquierda,
+  "Acompañamos al CUDS" y una tarjeta negra "¿Sos socio del CUDS?" con
+  botón de WhatsApp ("Soy socio del CUDS y quiero consultar por el
+  descuento"). En el cotizador, casilla "Soy socio del CUDS" que suma una
+  línea al pedido. Pregunta frecuente del descuento. Nada de montos.
+- **Trabajá con nosotros** (sección 07, antes de Contacto; link en el pie):
+  pide nombre y teléfono (obligatorios), puesto y mensaje; el botón "Mandar
+  mi CV por mail" es un `mailto:` a `NEGOCIO.mailCV` con asunto "CV -
+  nombre" y los datos en el cuerpo. Sin servidor: el archivo lo adjunta la
+  persona en su mail. Mientras `mailCV` esté vacío, avisa "Falta cargar el
+  mail" y la barra de VISTA PREVIA lo menciona.
+- Orden de secciones: 01 Servicios, 02 Cotizador, 03 Cómo funciona, 04
+  Recorrido, 05 Club CUDS, 06 Preguntas, 07 Trabajo, 08 Contacto (fondos
+  blancos alternados: CUDS y Trabajo en `seccion-blanca`).
 - Recorrido: esquema SVG propio (Río de la Plata, costa atlántica, Buenos
   Aires, Mar del Plata, "≈ 400 km · ida y vuelta"), con la línea del camino
   animada (se queda quieta con "reducir movimiento"). Sin API de mapas.
@@ -233,7 +250,8 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 | Franjas horarias del formulario (mañana / mediodía / cualquier horario) | Puestas sin horario exacto; se sacó "tarde". ¿En qué horario entregan? |
 | Clientes o marcas que se puedan nombrar (con permiso) | No hay ninguno en la web |
 | Algo que lo distinga (frecuencia, años haciendo el recorrido, seguimiento…) | No se puso nada |
-| Logo real (captura de la foto de perfil) | Logo tipográfico provisorio; también sirve para sacar el tono exacto de azul |
+| Mail para los CV de "Trabajá con nosotros" | Mateo se lo pidió al dueño (27/10/2026). Va en `NEGOCIO.mailCV` |
+| CUDS: ¿cómo decir la relación (sponsor, dueño, acompaña)? ¿Se puede usar el escudo? | Mateo escribió "Saldar tiene al club de rugby CUDS"; la web dice "acompaña". El escudo lo pasó el dueño |
 | Fotos propias (los camiones, el depósito, cargas) | Ninguna |
 
 ## Para publicar (cuando cierre)
@@ -249,6 +267,16 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 
 ## Registro de cambios
 
+- 27/10/2026 — Mateo pasó el logo de Saldar y el del CUDS (PDF) y pidió:
+  "Trabajá con nosotros" para dejar el CV (el mail lo pasa el dueño), y un
+  sector del CUDS con descuento para socios por WhatsApp → logo real en
+  cabecera y pie (`img/saldar-logo.webp`), ícono de la pestaña con la "S",
+  se sacó el logo provisorio (símbolo `#marca`); azul de toda la web
+  ajustado al del logo (`#0756DB`); sección 05 Club CUDS con escudo y botón
+  de WhatsApp; casilla "Soy socio del CUDS" en el cotizador; pregunta del
+  descuento; sección 07 "Trabajá con nosotros" con `mailto:` (`mailCV`
+  vacío por ahora); link en el pie; barra de VISTA PREVIA con el mail que
+  falta; secciones renumeradas.
 - 27/10/2026 — Mateo: "que diga logística y distribución" → `<title>`,
   description, Open Graph, JSON-LD, bajada de la portada, cinta, pie y
   comentario del código; el logo dice "LOGÍSTICA Y DISTRIBUCIÓN" (más
