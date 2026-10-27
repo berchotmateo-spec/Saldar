@@ -18,11 +18,15 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
 
 - Repo: `berchotmateo-spec/Saldar` — rama de trabajo `claude/new-session-2zu43k` (todavía no hay `main`).
 - Archivo único: `index.html` (HTML + CSS + JS, sin build; solo Google Fonts).
-- Sitio publicado: todavía no. Dominio: todavía no. Recomendado (27/10/2026):
-  **`saldar.com.ar`** (corto, igual a la marca, fácil de escribir en un
-  cartel); si está tomado, `saldarlogistica.com.ar`. `saldar.com` está
-  registrado por otro desde 2004; `saldarlogistica.com` figuraba libre. Desde
-  la sesión no se puede consultar NIC.ar: lo confirma Mateo en nic.ar. El
+- Sitio publicado: todavía no. Dominio: todavía no. **`saldar.com.ar` está
+  tomado** (Mateo, 27/10/2026). Opciones en orden: `saldar.ar` (NIC.ar
+  vende ".ar" solo desde 2020; mínimo 4 letras), `logisticasaldar.com.ar`
+  (igual que el mail logisticasaldar1963@gmail.com), `saldarlogistica.com.ar`,
+  `saldardistribucion.com.ar`, `saldarcargas.com.ar`,
+  `saldartransporte.com.ar`, `expresosaldar.com.ar`, `saldar223.com.ar`
+  (como el Instagram). En `.com` y `.net` todas figuraban libres el
+  27/10/2026 (y `saldar.net`); `saldar.com` está tomado desde 2004. Desde la
+  sesión no se puede consultar NIC.ar: lo confirma Mateo en nic.ar. El
   dueño quiere la web en internet antes del fin de semana del 31/10 para
   poner QR en carteles.
 - Vista previa (Artifact): https://claude.ai/artifact/BFzHpRD3RUbbA9wNtDmvHT
@@ -271,7 +275,7 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 | Franjas horarias del formulario (mañana / mediodía / cualquier horario) | Puestas sin horario exacto; se sacó "tarde". ¿En qué horario entregan? |
 | Clientes o marcas que se puedan nombrar (con permiso) | No hay ninguno en la web |
 | Algo que lo distinga (frecuencia, años haciendo el recorrido, seguimiento…) | No se puso nada |
-| Dominio: ¿`saldar.com.ar` está libre? ¿A nombre de quién (CUIT del dueño)? | Recomendado el 27/10/2026; lo compra Mateo en NIC.ar |
+| Dominio: ¿cuál de las opciones? ¿A nombre de quién (CUIT del dueño)? | `saldar.com.ar` está tomado; lista de opciones arriba ("Qué es"). Lo compra Mateo en NIC.ar |
 | Fotos propias (los camiones, el depósito, cargas) | Ninguna |
 
 ## Para publicar (cuando cierre)
