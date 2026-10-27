@@ -664,7 +664,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
                 </select>
                 <input id="valor" name="valor" type="text" inputmode="decimal" autocomplete="off" placeholder="Ej.: 250.000" aria-describedby="valor-ayuda" required>
               </div>
-              <p class="ayuda" id="valor-ayuda" style="margin-top:.45rem">Cuánto vale toda la mercadería que mandás, bultos y palets. El seguro es el 0,6 % de este valor. Podés ponerlo en pesos, dólares o euros: nosotros lo pasamos a pesos.</p>
+              <p class="ayuda" id="valor-ayuda" style="margin-top:.45rem">Cuánto vale toda la mercadería que mandás, bultos y palets. El seguro es el 0,6 % de este valor y el cotizador lo calcula en pesos. ¿Está en dólares o euros? Elegí la moneda y mandanos el pedido: por WhatsApp lo pasamos a pesos y te calculamos el seguro.</p>
             </div>
           </div>
         </div>
@@ -946,13 +946,13 @@ function dato(clave) {
   if (clave === "salidaCarga") return `De Buenos Aires sale desde nuestra sucursal${NEGOCIO.sucursalBA ? `, en ${dato("sucursalConBarrio")}` : ""}. De Mar del Plata, desde nuestro depósito${NEGOCIO.direccion ? `, en ${NEGOCIO.direccion}` : ""}.`;
   if (clave === "comoSeCalcula") {
     const k = TARIFAS.kilos, rec = TARIFAS.sentidos.find((x) => x.recargo);
-    return `Por bulto, según sus kilos: de 1 a ${k.tramo} kg se cobra el mínimo (${pesos(k.minimo)}) y el precio sube cada ${k.tramo} kg (llevamos cargas de hasta ${numero(k.maximo)} kg, e incluso más). Si embalás la carga en un palet completo, se cobra por palet: ${pesos(TARIFAS.palet.porPalet)}.`
+    return `Por bulto, según sus kilos: de 1 a ${k.tramo} kg se cobra el mínimo (${pesos(k.minimo)}) y el precio sube cada ${k.tramo} kg (cada bulto puede pesar hasta ${numero(k.maximo)} kg). Si embalás la carga en un palet completo, se cobra por palet: ${pesos(TARIFAS.palet.porPalet)}.`
       + (rec ? ` De ${rec.desde} a ${rec.hasta} tiene un recargo del ${rec.recargo} % sobre todo el envío (bultos y palets).` : "")
       + ` El seguro es el ${numero(TARIFAS.seguro.porMil / 10)} % del valor declarado.`
       + " El del cotizador es un precio estimado: cuando nos escribís por WhatsApp te confirmamos el final antes del viaje.";
   }
   if (clave === "palets") return `Sí. Si embalás toda la carga en un palet completo, se cobra por palet: ${pesos(TARIFAS.palet.porPalet)}. Cuando son muchos bultos, te puede convenir.`;
-  if (clave === "maxKilos") return `Llevamos cargas de hasta ${numero(TARIFAS.kilos.maximo)} kg, e incluso más. Si tu carga pesa más, escribinos y lo coordinamos.`;
+  if (clave === "maxKilos") return `Hasta ${numero(TARIFAS.kilos.maximo)} kg por bulto. Si tenés algo más pesado, escribinos y lo coordinamos.`;
   if (clave === "sucursal") return "Sí, tenemos sucursal en Buenos Aires." + (NEGOCIO.sucursalBA ? ` Está en ${dato("sucursalConBarrio")}.` : "")
     + (NEGOCIO.recepcionBA ? ` Recibimos la carga ${dato("recepcionFraseBA")}.` : "");
   if (clave === "recepcionFrase") return minuscula(NEGOCIO.recepcion);
@@ -1090,7 +1090,7 @@ function pintarCotizador() {
   $("#palets-fila").innerHTML = filaPalet();
   $("#palet-ayuda").textContent = `Si juntás la carga en un palet completo, se cobra por palet y no por bulto: con muchos bultos te puede convenir. Lo que va en el palet no lo cargues arriba como bulto.`;
   const k = TARIFAS.kilos;
-  $("#tarifa-kilos").textContent = `De 1 a ${k.tramo} kg: ${pesos(k.minimo)} (mínimo). Cada ${k.tramo} kg más: + ${pesos(k.porTramoExtra)}${k.ejemplo && NEGOCIO.tarifasDeEjemplo ? " (ejemplo)" : ""}. Cargas de hasta ${numero(k.maximo)} kg; si pesa más, escribinos.`;
+  $("#tarifa-kilos").textContent = `De 1 a ${k.tramo} kg: ${pesos(k.minimo)} (mínimo). Cada ${k.tramo} kg más: + ${pesos(k.porTramoExtra)}${k.ejemplo && NEGOCIO.tarifasDeEjemplo ? " (ejemplo)" : ""}. Cada bulto puede pesar hasta ${numero(k.maximo)} kg; si pesa más, escribinos.`;
   $("#zona-entrega").innerHTML = TARIFAS.zonasMdp.map((z) =>
     `<option value="${z.id}">${esc(z.nombre)}${z.extra ? ` (costo extra: ${pesos(z.extra)})` : ""}</option>`
   ).join("");
@@ -1107,6 +1107,7 @@ function pintarCotizador() {
 /* ---------- Cotizador: cálculo ---------- */
 // Valor declarado: acepta "250000", "250.000" o "250.000,50", en pesos, dólares o euros
 const MONEDAS = { ARS: "$", USD: "US$", EUR: "€" };
+const MONEDAS_NOMBRE = { USD: "dólares", EUR: "euros" };
 const valorDeclarado = () => leerPlata() && `${MONEDAS[$("#moneda").value]} ${pesos(leerPlata()).replace(/^\$\s*/, "")}`;
 function leerPlata() {
   const n = parseFloat($("#valor").value.replace(/[^\d,]/g, "").replace(",", "."));
@@ -1137,13 +1138,14 @@ function calcular() {
   // Si se entrega en Mar del Plata, puede ser en Batán o Sierra de los Padres (costo extra)
   const zona = s.hasta === "Mar del Plata" ? TARIFAS.zonasMdp.find((z) => z.id === $("#zona-entrega").value) : null;
   if (zona?.extra) lineas.push({ c: `Entrega en ${zona.nombre} (costo extra)`, v: zona.extra });
-  // Seguro: valor declarado × 6 ÷ 1000 (el dueño, 27/10/2026). Si el valor está en
-  // dólares o euros no se suma al total en pesos: va aparte y Saldar lo pasa a pesos.
+  // Seguro: valor declarado × 6 ÷ 1000 (el dueño, 27/10/2026). El cotizador lo
+  // calcula solo en pesos; si el valor está en dólares o euros, Saldar lo pasa a
+  // pesos y calcula el seguro por WhatsApp (audio del dueño, 27/10/2026).
   const valor = leerPlata(), moneda = $("#moneda").value;
   const seguro = valor ? Math.round((valor * TARIFAS.seguro.porMil / 1000) * 100) / 100 : 0;
   const seguroTexto = `Seguro (${numero(TARIFAS.seguro.porMil / 10)} % del valor declarado)`;
   if (seguro && moneda === "ARS") lineas.push({ c: seguroTexto, v: redondear(seguro) });
-  const seguroAparte = seguro && moneda !== "ARS" ? `${MONEDAS[moneda]} ${pesos(seguro).replace(/^\$\s*/, "")}` : null;
+  const seguroAparte = valor && moneda !== "ARS" ? MONEDAS_NOMBRE[moneda] : null;
   return { s, filas, bultos, palets, zona, lineas, seguroTexto, seguroAparte, total: redondear(suma(lineas)) };
 }
 
@@ -1191,7 +1193,7 @@ function actualizar() {
   $("#ticket-lineas").hidden = !r.lineas.length;
   const seg = $("#ticket-seguro");
   seg.hidden = r.total == null || (!r.seguroAparte && leerPlata());
-  seg.textContent = r.seguroAparte ? `+ ${r.seguroTexto}: ${r.seguroAparte}. Lo pasamos a pesos al confirmar.`
+  seg.textContent = r.seguroAparte ? `+ ${r.seguroTexto}: como el valor está en ${r.seguroAparte}, lo pasamos a pesos y te lo calculamos por WhatsApp.`
     : `+ ${r.seguroTexto}: completá el valor declarado.`;
   const total = $("#ticket-total");
   if (r.total == null) {
@@ -1274,9 +1276,9 @@ function armarMensaje(r) {
   L.push(`*Nombre:* ${val("nombre")}`);
   if ($("#socio-cuds").checked) L.push("*Socio de CUDS:* sí, quiero consultar el descuento");
   if (val("comentario")) L.push(`*Comentario:* ${val("comentario")}`);
-  L.push("", `*Total: ${pesos(r.total)}${r.seguroAparte ? ` + seguro ${r.seguroAparte}` : ""}* (precio estimado, a confirmar)`);
+  L.push("", `*Total: ${pesos(r.total)}${r.seguroAparte ? " + seguro" : ""}* (precio estimado, a confirmar)`);
   r.lineas.forEach((l) => L.push(`• ${l.c}: ${pesos(l.v)}`));
-  if (r.seguroAparte) L.push(`• ${r.seguroTexto}: ${r.seguroAparte} (a pasar a pesos)`);
+  if (r.seguroAparte) L.push(`• ${r.seguroTexto}: a calcular (pasar ${valorDeclarado()} a pesos)`);
   return L.join("\n");
 }
 
@@ -1435,7 +1437,7 @@ const NEGOCIO = {
   preguntas: [
     { p: "¿Cómo se calcula el precio?", dato: "comoSeCalcula" },
     { p: "¿Llevan palets?", dato: "palets" },
-    { p: "¿Hasta cuántos kilos llevan?", dato: "maxKilos" },
+    { p: "¿Hasta cuántos kilos puede pesar un bulto?", dato: "maxKilos" },
     { p: "¿Entregan a domicilio?", dato: "domicilio" },
     { p: "¿Desde cuándo están?", r: "Desde 2015 hacemos logística y distribución entre Buenos Aires y Mar del Plata." },
     { p: "¿A qué zonas entregan?", dato: "zonas" },
@@ -1446,7 +1448,7 @@ const NEGOCIO = {
     { p: "¿Hacen mudanzas?", r: "Sí, dentro de Mar del Plata y entre Buenos Aires y Mar del Plata, de ida y de vuelta. Escribinos por WhatsApp contándonos qué hay que mover y adónde, y te pasamos el presupuesto." },
     { p: "¿Cómo se paga?", dato: "pagos" },
     { p: "¿Hacen factura?", r: "Sí, hacemos Factura A." },
-    { p: "¿Qué es el valor declarado?", r: "Es cuánto vale la mercadería que mandás, bultos y palets. Hay que ponerlo siempre: con ese valor se calcula el seguro, que es el 0,6 % (el valor × 6 ÷ 1.000). Puede ser en pesos, dólares o euros: nosotros lo pasamos a pesos." },
+    { p: "¿Qué es el valor declarado?", r: "Es cuánto vale la mercadería que mandás, bultos y palets. Hay que ponerlo siempre: con ese valor se calcula el seguro, que es el 0,6 % (el valor × 6 ÷ 1.000). El cotizador lo calcula en pesos. Si el valor está en dólares o euros, mandanos el pedido igual: por WhatsApp lo pasamos a pesos y te calculamos el seguro." },
     { p: "¿Hay descuento para socios de CUDS?", r: "Sí. Si sos socio de CUDS tenés un descuento en el servicio: consultanos por WhatsApp." },
     { p: "¿Cada cuánto viajan?", dato: "frecuencia" },
     { p: "¿Qué cosas no llevan?", dato: "noLlevan" },
@@ -1461,7 +1463,7 @@ const TARIFAS = {
   palet: { porPalet: 86260.40, max: 30 },
 
   // Bultos por kilos: de 1 a 10 kg se cobra el mínimo (dato real del dueño,
-  // 23/10/2026) y sube de a 10 kg. Llevan cargas de hasta 4.000 kg, e incluso más (27/10/2026).
+  // 23/10/2026) y sube de a 10 kg. Cada bulto puede pesar hasta 4.000 kg (27/10/2026).
   // "porTramoExtra" (lo que se suma por cada 10 kg más) es DE EJEMPLO:
   // cuando esté el real, cambiá el número y borrá "ejemplo: true".
   kilos: { minimo: 9181.97, tramo: 10, porTramoExtra: 1800, maximo: 4000, ejemplo: true },

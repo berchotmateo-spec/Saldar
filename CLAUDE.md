@@ -70,9 +70,9 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
 | Congelados | Se permiten | El dueño, vía Mateo, 22/10/2026 ✅ |
 | Factura | Hace Factura A | El dueño, vía Mateo, 22/10/2026 ✅ |
 | Vehículos | Camiones | El dueño, vía Mateo, 20/10/2026 ✅ |
-| Cómo cobra | Por bulto según sus kilos, de a 10 kg. **Llevan cargas de hasta 4.000 kg, e incluso más** (27/10; antes "unos 400 kg por bulto"): el campo de kilos llega a 4.000 y la pregunta dice "si pesa más, escribinos". **De 1 a 10 kg se cobra el mínimo: $ 9.181,97.** **Opción palet** (aparte, para el que embala toda la carga en un palet; con muchos bultos le conviene): **$ 86.260,40 el palet completo.** De Mar del Plata a Buenos Aires, recargo del 20 % sobre todo (bultos y palets) | El dueño, vía Mateo, 20 y 23/10/2026 ✅ (falta cuánto suma cada 10 kg). Audios del 23/10: "primero es por peso y por bulto, y después los que lo quieran mandar en palet, por palet" |
-| Valor declarado | El cliente pone cuánto vale **toda** la mercadería, bultos y palets (**obligatorio**, "sí o sí"), en **pesos, dólares o euros** (Saldar lo pasa a pesos); va en el mensaje de WhatsApp ("$ 250.000", "US$ 1.500", "€ 1.200"). **Con él se calcula el seguro: valor × 6 ÷ 1.000 (0,6 %)**. En pesos se suma al total como una línea más; en dólares o euros va aparte, en esa moneda ("+ seguro US$ 9", "lo pasamos a pesos al confirmar"), porque la web no inventa cotización | Pedido del dueño, vía Mateo, 23/10/2026 ✅. Monedas y "para todo": audio del dueño, 27/10/2026 ✅. Seguro: el dueño, vía Mateo, 27/10/2026 ✅ ("valor declarado x 6 dividido 1000") |
-| Entrega | **Buenos Aires → Mar del Plata: a domicilio.** **Mar del Plata → Buenos Aires: se retira por la sucursal de Buenos Aires** (el formulario esconde la dirección de entrega, el aviso y el mensaje dicen "Retira en: Sucursal de Buenos Aires…") | El dueño, vía Mateo, 20/10/2026 ✅. Retiro: 27/10/2026 ("cuando sale de mdp a bs as se retira por el depósito"; ⚠️ se entendió que en Buenos Aires se retira por la sucursal de Villa Soldati, falta confirmarlo) |
+| Cómo cobra | Por bulto según sus kilos, de a 10 kg. **Cada bulto puede pesar hasta 4.000 kg** (audio del dueño, 27/10: "por bulto se puede hasta 4.000 kilos… se puede un montón"; antes "unos 400 kg por bulto"): el campo de kilos llega a 4.000 y la pregunta dice "si tenés algo más pesado, escribinos". **De 1 a 10 kg se cobra el mínimo: $ 9.181,97.** **Opción palet** (aparte, para el que embala toda la carga en un palet; con muchos bultos le conviene): **$ 86.260,40 el palet completo.** De Mar del Plata a Buenos Aires, recargo del 20 % sobre todo (bultos y palets) | El dueño, vía Mateo, 20 y 23/10/2026 ✅ (falta cuánto suma cada 10 kg). Audios del 23/10: "primero es por peso y por bulto, y después los que lo quieran mandar en palet, por palet" |
+| Valor declarado | El cliente pone cuánto vale **toda** la mercadería, bultos y palets (**obligatorio**, "sí o sí"), en **pesos, dólares o euros** (Saldar lo pasa a pesos); va en el mensaje de WhatsApp ("$ 250.000", "US$ 1.500", "€ 1.200"). **Con él se calcula el seguro: valor × 6 ÷ 1.000 (0,6 %)**. **El cotizador lo calcula solo en pesos** (se suma al total como una línea más). En dólares o euros no lo calcula: debajo del total dice que lo pasan a pesos y calculan el seguro por WhatsApp, y el mensaje dice "+ seguro" y "a calcular (pasar US$ 1.500 a pesos)" | Pedido del dueño, vía Mateo, 23/10/2026 ✅. Monedas y "para todo": audio del dueño, 27/10/2026 ✅. Seguro: el dueño, vía Mateo, 27/10/2026 ✅ ("valor declarado x 6 dividido 1000"). Dólares y euros: audio del dueño, 27/10/2026 ✅ ("que solo se cotice en pesos y si es en euros o en dólares, que escriban al WhatsApp, que hacemos la conversión") |
+| Entrega | **Buenos Aires → Mar del Plata: a domicilio.** **Mar del Plata → Buenos Aires: se retira por la sucursal de Buenos Aires** (el formulario esconde la dirección de entrega, el aviso y el mensaje dicen "Retira en: Sucursal de Buenos Aires…") | El dueño, vía Mateo, 20/10/2026 ✅. Retiro: 27/10/2026 ✅ ("cuando sale de mdp a bs as se retira por el depósito" = la sucursal de Villa Soldati; Mateo lo confirmó el mismo día) |
 | Sucursal Buenos Aires | **John William Cooke 3155, Villa Soldati (CABA)**, C1437 (link a Google Maps). La carga de Buenos Aires → Mar del Plata sale de acá, y acá se retira la que viene de Mar del Plata. Recibe de 8 a 17 | Dirección: el dueño, vía Mateo, 23/10/2026 ✅ (escribió "Cooke John William 3155"). Barrio: buscado por Claude el 23/10/2026 (Waze, directorios de transporte y un aviso de galpón en Cooke 3200 dicen CABA, C1437, Villa Soldati). En esa altura hay un predio con varios expresos (Tres Lomas, Veninga, TransRE…), uno con horario de lunes a viernes de 8 a 17 |
 | Tarifas | 1–10 kg $ 9.181,97 (real). Cada 10 kg más: + $ 1.800 | ⚠️ El mínimo es real; el "+ $ 1.800" es de ejemplo (`kilos.ejemplo: true`, se ve "(ejemplo)") |
 | Palet | $ 86.260,40 el palet completo | El dueño, vía Mateo, 23/10/2026 ✅ |
@@ -147,7 +147,7 @@ con `tramos = ⌈kg / 10⌉` (10 kg = mínimo, 25 kg = 3 tramos, 4.000 kg = 400)
 `total = suma de (cantidad × precio de cada fila) + palets × porPalet +
 recargo del sentido (20 % sobre bultos y palets, de Mar del Plata a Buenos
 Aires) + extra de la zona + seguro`
-(zona: solo Batán / Sierra de los Padres; seguro: valor × porMil ÷ 1.000, solo si el valor está en pesos — en dólares o euros se muestra aparte, debajo del total), redondeado a `TARIFAS.redondeo`. Si
+(zona: solo Batán / Sierra de los Padres; seguro: valor × porMil ÷ 1.000, solo si el valor está en pesos — en dólares o euros no se calcula y un aviso debajo del total dice que se calcula por WhatsApp), redondeado a `TARIFAS.redondeo`. Si
 Saldar pasa una tabla con precios que no suben parejo cada 10 kg, o cobra
 por kilo exacto, cambiar `precioBulto()` (y `rangoBulto()`, que arma el
 texto "de 20 a 30 kg").
@@ -191,16 +191,17 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 - Cotizador: sentido (dos tarjetas) + filas de bultos (peso en kg +
   cantidad + ×, cada una muestra su precio "c/u · de 20 a 30 kg"; botón "+
   Agregar un bulto de otro peso"; arranca con 1 bulto de 10 kg; el peso
-  queda entre 1 y 400 al salir del campo) + **"Opción palet"** cerrada
+  queda entre 1 y 4.000 al salir del campo) + **"Opción palet"** cerrada
   ("¿Embalás todo en un palet?"; al abrirla suma 1 palet y muestra el
   contador, al cerrarla lo saca; si los bultos ya suman lo que vale un palet,
   se pinta de azul y dice "te puede convenir") + "Valor declarado de la
   mercadería" (`#moneda` $ Pesos / US$ Dólares / € Euros + `#valor`, acepta
   250000 o 250.000; obligatorio; `MONEDAS` y `valorDeclarado()` arman el
   texto del mensaje). El seguro (0,6 %) sale en el presupuesto como una
-  línea más si es en pesos, o debajo del total (`#ticket-seguro`, "+ Seguro
-  (0,6 % del valor declarado): US$ 9. Lo pasamos a pesos al confirmar.") si
-  es en otra moneda; sin valor dice "completá el valor declarado". De Mar
+  línea más si es en pesos; si es en otra moneda, debajo del total
+  (`#ticket-seguro`, `MONEDAS_NOMBRE`): "+ Seguro (0,6 % del valor
+  declarado): como el valor está en dólares, lo pasamos a pesos y te lo
+  calculamos por WhatsApp."; sin valor dice "completá el valor declarado". De Mar
   del Plata a Buenos Aires se esconde la dirección de entrega (`#campo-dir`)
   y el aviso dice que se retira por la sucursal (`retiroFrase()`). Nunca
   presentar el palet como alternativa al mismo nivel ("por peso o por
@@ -282,10 +283,8 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 | Costo extra de Batán y Sierra de los Padres: ¿cuánto? ¿por envío o por bulto? | Hoy $ 5.000 de ejemplo por envío |
 | Mudanzas: ¿cómo se cotizan? | Confirmado: dentro de Mar del Plata y entre Buenos Aires y Mar del Plata, de ida y de vuelta. Hoy "pedí presupuesto por WhatsApp" |
 | Pago con tarjeta (más adelante) | El dueño prefiere esperar (23/10/2026). Cuando quiera: cuenta de Mercado Pago (u otra) para el link o botón de pago en la web; con posnet, sumar "tarjeta en el depósito" a `pagos` |
-| Cuánto suma cada 10 kg más (o la tabla de precios de 10 a 400 kg) | Solo está el mínimo de 1 a 10 kg ($ 9.181,97); hoy + $ 1.800 de ejemplo por cada 10 kg |
-| Retiro en Buenos Aires: ¿lo que va de Mar del Plata a Buenos Aires se retira por la sucursal de Villa Soldati (Cooke 3155)? ¿Nunca entregan a domicilio en Buenos Aires? | Dijo "se retira por el depósito"; en Buenos Aires lo que hay es la sucursal |
-| Los 4.000 kg: ¿son por bulto o por envío? ¿Y cómo sigue el precio hasta 4.000 kg? | Hoy el campo de kilos de cada bulto llega a 4.000 y el precio sube parejo cada 10 kg (de ejemplo) |
-| Seguro en dólares o euros: ¿con qué cotización lo pasan a pesos? | Hoy la web lo muestra aparte en esa moneda y dice "lo pasamos a pesos al confirmar" |
+| Cuánto suma cada 10 kg más (o la tabla de precios de 10 a 4.000 kg) | Solo está el mínimo de 1 a 10 kg ($ 9.181,97); hoy + $ 1.800 de ejemplo por cada 10 kg |
+| (Opcional, más adelante) Que el cotizador pase solo los dólares o euros a pesos: ¿qué cotización usan (oficial, blue, MEP…)? | Hoy se calcula por WhatsApp (pedido del dueño, 27/10/2026). Se podría con la cotización del día de un servicio público (p. ej. DolarApi), pero depende de que ese servicio ande |
 | Cristalería sin seguro: ¿el cotizador tiene que preguntar si va cristalería? | Hoy solo está en preguntas frecuentes |
 | Que en Buenos Aires la carga también sale de la sucursal | Inferido de "sale desde el depósito" + "hay sucursal en Buenos Aires" |
 | ¿Retiran a domicilio además de entregar? | Se entendió que no: la carga sale del depósito; el formulario no pide dirección de retiro |
@@ -309,6 +308,14 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 
 ## Registro de cambios
 
+- 27/10/2026 — Mateo confirmó el retiro por la sucursal de Buenos Aires
+  ("la 1 está correcto") y pasó dos audios del dueño: los 4.000 kg son por
+  bulto; el seguro de valores en dólares o euros lo calculan ellos por
+  WhatsApp ("que solo se cotice en pesos") → preguntas "¿Hasta cuántos kilos
+  puede pesar un bulto?" y del precio, ayuda de los bultos "Cada bulto puede
+  pesar hasta 4.000 kg"; el cotizador ya no calcula el seguro en dólares o
+  euros (aviso debajo del total, mensaje "+ seguro" y "a calcular (pasar
+  US$ 1.500 a pesos)"), ayuda del valor y pregunta del valor declarado.
 - 27/10/2026 — Mateo pasó datos del dueño: de Mar del Plata a Buenos Aires
   "se retira por el depósito"; está desde 2015; no llevan cristalería salvo
   bien embalada y sin seguro; cargas de hasta 4.000 kg e incluso más; el
