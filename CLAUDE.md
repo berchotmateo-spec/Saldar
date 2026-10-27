@@ -211,7 +211,7 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
   desde 900 px, 38 px en el celular y en el pie. No deformarlo ni recortarlo.
 - **Club CUDS** (sección 05, después de Recorrido): título "¡Somos
   sponsors!" y debajo un recuadro con los dos logos "CUDS × SALDAR"
-  (`.cuds-dupla`: escudo, una ×, logo de Saldar), a la izquierda desde
+  (`.cuds-dupla`: escudo, una × grande dibujada en SVG, logo de Saldar), a la izquierda desde
   900 px y arriba en el celular; a la derecha (o abajo) la tarjeta negra
   "¿Sos socio del CUDS?". Sin más texto: Mateo pidió no repetir "CUDS" ni
   "sponsor" (comentario en la vista previa, 27/10/2026). La tarjeta tiene
@@ -270,6 +270,9 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 
 ## Registro de cambios
 
+- 27/10/2026 — Mateo: "la x entre ambos logos hacela más grande" → la ×
+  pasó de letra a una cruz dibujada (SVG, negra, 24 a 38 px). Pidió también
+  3 prototipos del sector CUDS antes de tocar la web (página aparte).
 - 27/10/2026 — Mateo (comentario en la vista previa): sacar "Sponsors del
   CUDS", que se repite; la tarjeta del socio está bien; "¡Somos sponsors!"
   arriba de los logos → se sacaron el título y la frase "Saldar es sponsor

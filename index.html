@@ -413,10 +413,10 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
 .cuds{display:grid;gap:1.75rem;align-items:end}
 @media (min-width:900px){.cuds{grid-template-columns:460px minmax(0,1fr);gap:3.5rem}}
 /* Los dos logos juntos: CUDS × Saldar */
-.cuds-dupla{display:flex;align-items:center;justify-content:center;gap:clamp(.6rem,2.5vw,1.25rem);padding:clamp(1.25rem,4vw,1.75rem);border:1px solid var(--linea);border-radius:var(--radio);background:var(--papel)}
+.cuds-dupla{display:flex;align-items:center;justify-content:center;gap:clamp(.6rem,2.5vw,1.1rem);padding:clamp(1.25rem,4vw,1.75rem);border:1px solid var(--linea);border-radius:var(--radio);background:var(--papel)}
 .cuds-logo{height:clamp(80px,26vw,136px);width:auto}
 .cuds-saldar{height:clamp(30px,9.5vw,46px);width:auto}
-.cuds-x{font:700 clamp(1.6rem,5vw,2.4rem)/1 var(--f-titulo);color:var(--tinta-2)}
+.cuds-x{flex:none;width:clamp(24px,7vw,38px);height:auto;fill:none;stroke:var(--tinta);stroke-width:3.2;stroke-linecap:round}
 .cuds .seccion-cabeza{margin-bottom:1.5rem}
 .cuds-socio{background:var(--tinta);color:#fff;border-radius:var(--radio);padding:clamp(1.25rem,3vw,1.75rem);display:flex;flex-direction:column;align-items:flex-start;gap:.9rem;max-width:640px}
 .cuds-socio-tit{font:800 clamp(1.7rem,4.5vw,2.3rem)/1.02 var(--f-titulo);text-transform:uppercase}
@@ -740,7 +740,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
         </header>
         <div class="cuds-dupla" role="img" aria-label="CUDS × Saldar">
           <img class="cuds-logo" src="img/cuds-logo.webp" width="245" height="360" alt="" loading="lazy">
-          <span class="cuds-x" aria-hidden="true">×</span>
+          <svg class="cuds-x" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 5l14 14M19 5 5 19"/></svg>
           <img class="cuds-saldar" src="img/saldar-logo.webp" width="708" height="140" alt="" loading="lazy">
         </div>
       </div>
