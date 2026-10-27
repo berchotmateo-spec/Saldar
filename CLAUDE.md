@@ -38,8 +38,10 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
   Estado 27/10/2026: repo público ✅, Pages desde la rama `/docs` con el
   Custom domain ✅ (el github.io ya redirige al dominio), cuenta de
   Cloudflare con el sitio agregado ✅; nameservers de Cloudflare:
-  **`nina.ns.cloudflare.com`** y **`sergi.ns.cloudflare.com`**. Faltan los
-  registros en Cloudflare y la delegación en NIC.ar.
+  **`nina.ns.cloudflare.com`** y **`sergi.ns.cloudflare.com`**. Los 5
+  registros en Cloudflare cargados y en gris ✅ (captura de Mateo). Falta la
+  delegación en NIC.ar (Cloudflare muestra el dominio "pending" hasta eso;
+  el cartel "Proxying is required…" se ignora: la nube queda gris).
 - **El DNS se puede revisar desde la sesión** con DNS por HTTPS (el `dig`
   no anda): `curl -sS -H 'accept: application/dns-json'
   'https://cloudflare-dns.com/dns-query?name=saldarlogistica.com.ar&type=NS'`.
