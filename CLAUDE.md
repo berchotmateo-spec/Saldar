@@ -70,7 +70,7 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
 | Factura | Hace Factura A | El dueño, vía Mateo, 22/10/2026 ✅ |
 | Vehículos | Camiones | El dueño, vía Mateo, 20/10/2026 ✅ |
 | Cómo cobra | Por bulto según sus kilos, de a 10 kg, **hasta unos 400 kg por bulto**. **De 1 a 10 kg se cobra el mínimo: $ 9.181,97.** **Opción palet** (aparte, para el que embala toda la carga en un palet; con muchos bultos le conviene): **$ 86.260,40 el palet completo.** De Mar del Plata a Buenos Aires, recargo del 20 % sobre todo (bultos y palets) | El dueño, vía Mateo, 20 y 23/10/2026 ✅ (falta cuánto suma cada 10 kg). Audios del 23/10: "primero es por peso y por bulto, y después los que lo quieran mandar en palet, por palet" |
-| Valor declarado | El cliente pone cuánto vale la mercadería (obligatorio para mandar el pedido); va en el mensaje de WhatsApp, no cambia el precio | Pedido del dueño, vía Mateo, 23/10/2026 ✅ |
+| Valor declarado | El cliente pone cuánto vale **toda** la mercadería, bultos y palets (**obligatorio**, "sí o sí"), en **pesos, dólares o euros** (Saldar lo pasa a pesos); va en el mensaje de WhatsApp ("$ 250.000", "US$ 1.500", "€ 1.200"), no cambia el precio | Pedido del dueño, vía Mateo, 23/10/2026 ✅. Monedas y "para todo": audio del dueño, 27/10/2026 ✅ |
 | Entrega | A domicilio | El dueño, vía Mateo, 20/10/2026 ✅ |
 | Sucursal Buenos Aires | **John William Cooke 3155, Villa Soldati (CABA)**, C1437 (link a Google Maps). La carga de Buenos Aires → Mar del Plata sale de acá. Recibe de 8 a 17 | Dirección: el dueño, vía Mateo, 23/10/2026 ✅ (escribió "Cooke John William 3155"). Barrio: buscado por Claude el 23/10/2026 (Waze, directorios de transporte y un aviso de galpón en Cooke 3200 dicen CABA, C1437, Villa Soldati). En esa altura hay un predio con varios expresos (Tres Lomas, Veninga, TransRE…), uno con horario de lunes a viernes de 8 a 17 |
 | Tarifas | 1–10 kg $ 9.181,97 (real). Cada 10 kg más: + $ 1.800 | ⚠️ El mínimo es real; el "+ $ 1.800" es de ejemplo (`kilos.ejemplo: true`, se ve "(ejemplo)") |
@@ -192,7 +192,9 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
   ("¿Embalás todo en un palet?"; al abrirla suma 1 palet y muestra el
   contador, al cerrarla lo saca; si los bultos ya suman lo que vale un palet,
   se pinta de azul y dice "te puede convenir") + "Valor declarado de la
-  mercadería" (`#valor`, acepta 250000 o 250.000; obligatorio). Nunca
+  mercadería" (`#moneda` $ Pesos / US$ Dólares / € Euros + `#valor`, acepta
+  250000 o 250.000; obligatorio; `MONEDAS` y `valorDeclarado()` arman el
+  texto del mensaje). Nunca
   presentar el palet como alternativa al mismo nivel ("por peso o por
   palet"): el precio es **por peso y por bulto**, el palet es una opción
   (pedido del dueño, 23/10/2026); se puede cotizar solo
@@ -267,7 +269,7 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 | Mudanzas: ¿cómo se cotizan? | Confirmado: dentro de Mar del Plata y entre Buenos Aires y Mar del Plata, de ida y de vuelta. Hoy "pedí presupuesto por WhatsApp" |
 | Pago con tarjeta (más adelante) | El dueño prefiere esperar (23/10/2026). Cuando quiera: cuenta de Mercado Pago (u otra) para el link o botón de pago en la web; con posnet, sumar "tarjeta en el depósito" a `pagos` |
 | Cuánto suma cada 10 kg más (o la tabla de precios de 10 a 400 kg) | Solo está el mínimo de 1 a 10 kg ($ 9.181,97); hoy + $ 1.800 de ejemplo por cada 10 kg |
-| Valor declarado: ¿cambia el precio (seguro, un %)? ¿Es obligatorio? | Hoy solo va en el mensaje y es obligatorio para mandar el pedido |
+| Valor declarado: ¿cambia el precio (seguro, un %)? | Obligatorio confirmado (27/10/2026). Hoy solo va en el mensaje |
 | Más de 400 kg en un bulto | Hoy "escribinos"; el campo no deja pasar de 400 |
 | Que en Buenos Aires la carga también sale de la sucursal | Inferido de "sale desde el depósito" + "hay sucursal en Buenos Aires" |
 | ¿Retiran a domicilio además de entregar? | Se entendió que no: la carga sale del depósito; el formulario no pide dirección de retiro |
@@ -293,6 +295,11 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 
 ## Registro de cambios
 
+- 27/10/2026 — Audio de Mateo (el dueño): el valor declarado puede ser en
+  euros o dólares (ellos lo pasan a pesos) y es para toda la mercadería,
+  bultos y palets, sí o sí → selector de moneda al lado del valor ($ Pesos,
+  US$ Dólares, € Euros), el mensaje dice la moneda, ayuda nueva y pregunta
+  "¿Qué es el valor declarado?".
 - 27/10/2026 — Mateo eligió la opción 2 de los prototipos del CUDS (carnet
   de socio) → la sección 05 pasó a título + logos, carnet con talón y
   botón "Pedir mi descuento", y 3 pasos. Prototipos:

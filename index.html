@@ -321,9 +321,9 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
 .palet-signo{flex:none;width:34px;height:34px;display:grid;place-items:center;border:2px solid var(--tinta);border-radius:5px;font:700 1.3rem/1 var(--f-texto)}
 .palet-panel{margin-top:10px}
 .palet-panel .ayuda{margin:0 0 .7rem}
-.campo-plata{position:relative}
-.campo-plata span{position:absolute;left:.9rem;top:50%;transform:translateY(-50%);font-weight:700;color:var(--tinta-2);pointer-events:none}
-.campo-plata input{padding-left:2rem;font-weight:700}
+.campo-plata{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px}
+.campo-plata select{width:auto;font-weight:700}
+.campo-plata input{font-weight:700}
 .aviso-salida{display:flex;gap:.6rem;align-items:flex-start;margin:0 0 1.25rem;padding:.8rem .95rem;border-radius:12px;background:var(--azul-claro);color:var(--tinta);font-size:.97rem}
 .aviso-salida .ico{color:var(--azul);margin-top:.05rem}
 .contador-ctrl{display:grid;grid-template-columns:48px minmax(0,1fr) 48px;gap:6px}
@@ -651,8 +651,15 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
             </div>
             <div class="campo" style="margin-top:1.25rem">
               <label for="valor">Valor declarado de la mercadería</label>
-              <div class="campo-plata"><span aria-hidden="true">$</span><input id="valor" name="valor" type="text" inputmode="decimal" autocomplete="off" placeholder="Ej.: 250.000" aria-describedby="valor-ayuda" required></div>
-              <p class="ayuda" id="valor-ayuda" style="margin-top:.45rem">Cuánto vale lo que mandás, en pesos. Va en el pedido.</p>
+              <div class="campo-plata">
+                <select id="moneda" name="moneda" aria-label="Moneda del valor declarado">
+                  <option value="ARS">$ Pesos</option>
+                  <option value="USD">US$ Dólares</option>
+                  <option value="EUR">€ Euros</option>
+                </select>
+                <input id="valor" name="valor" type="text" inputmode="decimal" autocomplete="off" placeholder="Ej.: 250.000" aria-describedby="valor-ayuda" required>
+              </div>
+              <p class="ayuda" id="valor-ayuda" style="margin-top:.45rem">Cuánto vale toda la mercadería que mandás, bultos y palets. Podés ponerlo en pesos, dólares o euros: nosotros lo pasamos a pesos.</p>
             </div>
           </div>
         </div>
@@ -1080,7 +1087,9 @@ function pintarCotizador() {
 }
 
 /* ---------- Cotizador: cálculo ---------- */
-// Valor declarado: acepta "250000", "250.000" o "250.000,50"
+// Valor declarado: acepta "250000", "250.000" o "250.000,50", en pesos, dólares o euros
+const MONEDAS = { ARS: "$", USD: "US$", EUR: "€" };
+const valorDeclarado = () => leerPlata() && `${MONEDAS[$("#moneda").value]} ${pesos(leerPlata()).replace(/^\$\s*/, "")}`;
 function leerPlata() {
   const n = parseFloat($("#valor").value.replace(/[^\d,]/g, "").replace(",", "."));
   return n > 0 ? Math.round(n * 100) / 100 : null;
@@ -1220,7 +1229,7 @@ function armarMensaje(r) {
   L.push(`*Sale de:* ${lugarSalida(r.s)}`);
   if (r.bultos) L.push(`*Bultos:* ${r.filas.map((f) => `${f.n} de ${f.kg} kg`).join(", ")}`);
   if (r.palets) L.push(`*Palets completos:* ${r.palets}`);
-  if (leerPlata()) L.push(`*Valor declarado:* ${pesos(leerPlata())}`);
+  if (leerPlata()) L.push(`*Valor declarado:* ${valorDeclarado()}`);
   L.push(`*Entrega a domicilio:* ${val("dir-entrega")} (${r.zona ? r.zona.nombre : r.s.hasta})`);
   const cuando = [fechaLinda(val("dia")), val("franja").toLowerCase()].filter(Boolean).join(", ");
   if (cuando) L.push(`*Cuándo:* ${cuando}`);
@@ -1395,6 +1404,7 @@ const NEGOCIO = {
     { p: "¿Hacen mudanzas?", r: "Sí, dentro de Mar del Plata y entre Buenos Aires y Mar del Plata, de ida y de vuelta. Escribinos por WhatsApp contándonos qué hay que mover y adónde, y te pasamos el presupuesto." },
     { p: "¿Cómo se paga?", dato: "pagos" },
     { p: "¿Hacen factura?", r: "Sí, hacemos Factura A." },
+    { p: "¿Qué es el valor declarado?", r: "Es cuánto vale la mercadería que mandás, bultos y palets. Hay que ponerlo siempre. Puede ser en pesos, dólares o euros: nosotros lo pasamos a pesos." },
     { p: "¿Hay descuento para socios del CUDS?", r: "Sí. Si sos socio del CUDS tenés un descuento en el servicio: consultanos por WhatsApp." },
     { p: "¿Cada cuánto viajan?", dato: "frecuencia" },
     { p: "¿Qué cosas no llevan?", dato: "noLlevan" },
