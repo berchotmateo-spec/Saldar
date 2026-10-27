@@ -18,19 +18,35 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
 
 - Repo: `berchotmateo-spec/Saldar` — rama de trabajo `claude/new-session-2zu43k` (todavía no hay `main`).
 - Archivo único: `index.html` (HTML + CSS + JS, sin build; solo Google Fonts).
-- Sitio publicado: todavía no. Dominio: todavía no. **`saldar.com.ar` está
-  tomado** (Mateo, 27/10/2026). Opciones en orden: `saldar.ar` (NIC.ar
-  vende ".ar" solo desde 2020; mínimo 4 letras; riesgo: quien lo escriba de
-  memoria con ".com.ar" por costumbre cae en el sitio de otro; por eso la
-  opción más segura es la siguiente), `logisticasaldar.com.ar`
-  (igual que el mail logisticasaldar1963@gmail.com), `saldarlogistica.com.ar`,
-  `saldardistribucion.com.ar`, `saldarcargas.com.ar`,
-  `saldartransporte.com.ar`, `expresosaldar.com.ar`, `saldar223.com.ar`
-  (como el Instagram). En `.com` y `.net` todas figuraban libres el
-  27/10/2026 (y `saldar.net`); `saldar.com` está tomado desde 2004. Desde la
-  sesión no se puede consultar NIC.ar: lo confirma Mateo en nic.ar. El
+- **Dominio: `saldarlogistica.com.ar`** (lo compró Mateo en NIC.ar el
+  27/10/2026; `saldar.com.ar` estaba tomado). Vence en un año: renovarlo
+  antes del 27/10/2027 (la fecha exacta está en nic.ar → Mis dominios). El
   dueño quiere la web en internet antes del fin de semana del 31/10 para
   poner QR en carteles.
+- **Publicación (en curso):** GitHub Pages desde la rama
+  `claude/new-session-2zu43k` (es la rama por defecto del repo; no hay
+  `main`), carpeta **`/docs`**. Después de cada cambio:
+  `python3 publicar.py saldarlogistica.com.ar` (arma `docs/` con `CNAME`,
+  `robots.txt`, `sitemap.xml`, `.nojekyll`, `img/` y `og.jpg`) y commitear
+  `docs/`. **El repo es privado**: GitHub Pages gratis solo anda con repos
+  públicos, así que Mateo tiene que hacerlo público (se revisó el
+  historial el 27/10/2026: no hay nada privado). Cadena del dominio: NIC.ar
+  (delegación a los 2 nameservers de Cloudflare) → Cloudflare (4 A del `@`
+  a `185.199.108.153`, `.109.153`, `.110.153`, `.111.153` y CNAME `www` →
+  `berchotmateo-spec.github.io`, todo en gris, "DNS only") → GitHub Pages
+  (Custom domain `saldarlogistica.com.ar`, después Enforce HTTPS).
+- **El DNS se puede revisar desde la sesión** con DNS por HTTPS (el `dig`
+  no anda): `curl -sS -H 'accept: application/dns-json'
+  'https://cloudflare-dns.com/dns-query?name=saldarlogistica.com.ar&type=NS'`.
+  `"Status":3` = todavía no está delegado (así estaba el 27/10/2026 a la
+  noche, recién comprado).
+- QR: `qr/qr-saldarlogistica.png` (2460 px, para WhatsApp o Canva) y
+  `qr/qr-saldarlogistica.svg` (imprenta). Abre `https://saldarlogistica.com.ar`
+  (leído de vuelta con zxing-cpp). Hecho con `qr.py` de la skill.
+- Imagen para compartir: `og.jpg` (1200 × 630), hecha en Chromium desde
+  `og-fuente.html` (logo, "Desde 2015 · cargas en camión", el titular y una
+  cinta con el dominio). El `<head>` tiene `canonical`, `og:url`,
+  `og:image` y el JSON-LD `url`, `logo` e `image`, todo con el dominio.
 - Vista previa (Artifact): https://claude.ai/artifact/BFzHpRD3RUbbA9wNtDmvHT
   (privado: el dueño la ve recién cuando Mateo la comparte desde el menú
   Compartir). Se publicó el 19/10/2026, después de que Mateo habló con el
@@ -300,14 +316,28 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 - [ ] Cargar datos y tarifas reales; `tarifasDeEjemplo: false`.
 - [ ] Cambiar `NEGOCIO.whatsapp` por el del negocio.
 - [ ] Sacar `<meta name="robots" content="noindex">`.
-- [ ] Revisar el JSON-LD: la sucursal ya está como `department` (Villa
-      Soldati, CABA, C1437), y `telephone` y `url` solo si el dueño los
-      confirma.
-- [ ] Imagen `og.jpg` 1200×630 para cuando se comparte por WhatsApp, y `canonical` con el dominio.
-- [ ] `publicar.py` de la skill → `docs/`, GitHub Pages, dominio, Search Console, Perfil de Empresa.
+- [x] JSON-LD: sucursal como `department` (Villa Soldati, CABA, C1437),
+      `url`, `logo` e `image` con el dominio (27/10/2026). `telephone`
+      cuando esté el WhatsApp del negocio.
+- [x] `og.jpg` 1200×630 y `canonical` con el dominio (27/10/2026).
+- [x] `publicar.py` en la raíz → `docs/` con `CNAME` (27/10/2026).
+- [x] QR en `qr/` (27/10/2026).
+- [ ] Mateo: repo público, GitHub Pages (rama `claude/new-session-2zu43k`,
+      `/docs`, Custom domain), Cloudflare y delegación en NIC.ar; después
+      Enforce HTTPS.
+- [ ] Search Console (propiedad de dominio) y Perfil de Empresa de Google.
+- [ ] Recordatorio en el calendario de Mateo para renovar el dominio.
 
 ## Registro de cambios
 
+- 27/10/2026 — Mateo compró el dominio **saldarlogistica.com.ar** → en la
+  página `canonical`, `og:url`, `og:image` y JSON-LD con `url`, `logo` e
+  `image`; imagen `og.jpg` (y su fuente `og-fuente.html`); `publicar.py`
+  copiado de la skill y `docs/` armada con el `CNAME`; QR en `qr/`. El repo
+  es privado y no hay `main`: Pages va desde la rama de trabajo, `/docs`,
+  y Mateo tiene que hacer público el repo. El dominio todavía no estaba
+  delegado (DNS por HTTPS: NXDOMAIN). Se deja el `noindex` hasta tener el
+  WhatsApp del negocio y los precios reales.
 - 27/10/2026 — Mateo confirmó el retiro por la sucursal de Buenos Aires
   ("la 1 está correcto") y pasó dos audios del dueño: los 4.000 kg son por
   bulto; el seguro de valores en dólares o euros lo calculan ellos por

@@ -1,0 +1,1511 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Saldar · Logística y distribución Buenos Aires – Mar del Plata</title>
+<meta name="description" content="Saldar: logística y distribución entre Buenos Aires y Mar del Plata. Desde 2015, cargas en camión con entrega a domicilio en Mar del Plata, precio según el peso, congelados y mudanzas. Cotizá y pedilo por WhatsApp.">
+<!-- DEMO: mientras sea vista previa no queremos que Google la indexe. Sacar esta línea al publicar de verdad (ver CLAUDE.md). -->
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0756DB">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+<meta property="og:site_name" content="Saldar">
+<meta property="og:title" content="Saldar · Logística y distribución Buenos Aires – Mar del Plata">
+<meta property="og:description" content="Logística y distribución en camión entre Buenos Aires y Mar del Plata desde 2015. Cotizá por peso y por bulto y pedilo por WhatsApp.">
+<meta property="og:url" content="https://saldarlogistica.com.ar/">
+<meta property="og:image" content="https://saldarlogistica.com.ar/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Saldar · Buenos Aires – Mar del Plata, ida y vuelta">
+<link rel="canonical" href="https://saldarlogistica.com.ar/">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<!-- Ficha para Google: solo datos confirmados. Sin teléfono (el WhatsApp de prueba es de Mateo, no del negocio). -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "MovingCompany"],
+  "name": "Saldar",
+  "url": "https://saldarlogistica.com.ar/",
+  "logo": "https://saldarlogistica.com.ar/img/saldar-logo.webp",
+  "image": "https://saldarlogistica.com.ar/og.jpg",
+  "foundingDate": "2015",
+  "description": "Logística y distribución entre Buenos Aires y Mar del Plata desde 2015: cargas en camión con entrega a domicilio en Mar del Plata, precio por peso y por bulto (opción palet), congelados y mudanzas. Factura A.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Victoriano Montes 1963",
+    "addressLocality": "Mar del Plata",
+    "addressRegion": "Buenos Aires",
+    "addressCountry": "AR"
+  },
+  "hasMap": "https://www.google.com/maps/search/?api=1&query=Victoriano%20Montes%201963%2C%20Mar%20del%20Plata",
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    "opens": "08:00",
+    "closes": "15:00"
+  }],
+  "paymentAccepted": "Efectivo, transferencia",
+  "areaServed": [
+    { "@type": "City", "name": "Buenos Aires" },
+    { "@type": "City", "name": "Mar del Plata" },
+    { "@type": "Place", "name": "Batán" },
+    { "@type": "Place", "name": "Sierra de los Padres" }
+  ],
+  "department": {
+    "@type": "LocalBusiness",
+    "name": "Saldar · Sucursal Buenos Aires",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "John William Cooke 3155",
+      "addressLocality": "Villa Soldati",
+      "addressRegion": "Ciudad Autónoma de Buenos Aires",
+      "postalCode": "C1437",
+      "addressCountry": "AR"
+    },
+    "hasMap": "https://www.google.com/maps/search/?api=1&query=John%20William%20Cooke%203155%2C%20Villa%20Soldati%2C%20Ciudad%20de%20Buenos%20Aires",
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "08:00",
+      "closes": "17:00"
+    }]
+  },
+  "sameAs": ["https://www.instagram.com/saldar223/"]
+}
+</script>
+<style>
+:root{
+  /* Colores de Saldar: azul y blanco, con detalles en negro.
+     El azul sale del logo real (ver --azul). */
+  --papel:#F5F7FC;
+  --papel-2:#E9EFF9;
+  --superficie:#FFFFFF;
+  --tinta:#0C1018;
+  --tinta-2:#4A5568;
+  --linea:#D8DFEB;
+  --borde-campo:#7C8798;
+  --azul:#0756DB;        /* del logo (#0864FF), un punto más oscuro para que el texto azul se lea bien */
+  --azul-osc:#0544B0;
+  --azul-claro:#E7F0FF;
+  --azul-suave:#DFE9FF;
+  --mar:#DCE6FA;
+  --error:#B42318;
+  --radio:20px;
+  --radio-chico:8px;
+  --sombra:0 1px 2px rgba(12,16,24,.06),0 10px 30px -14px rgba(12,16,24,.22);
+  --f-texto:"Barlow",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --f-titulo:"Barlow Condensed","Arial Narrow","Roboto Condensed",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:88px}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--papel);color:var(--tinta);font:400 1.0625rem/1.55 var(--f-texto);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img,svg{max-width:100%}
+a{color:var(--azul)}
+h1,h2,h3{margin:0;line-height:1.05}
+p{margin:0}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--tinta);outline-offset:3px;border-radius:6px}
+.sr{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.contenedor{width:100%;max-width:1180px;margin:0 auto;padding:0 16px}
+@media (min-width:720px){.contenedor{padding:0 28px}}
+.mono{font-family:var(--f-mono);font-weight:500;letter-spacing:.06em;text-transform:uppercase;font-size:.78rem}
+.confirmar{color:var(--tinta-2);font-style:italic;text-decoration:underline dotted;text-underline-offset:3px}
+
+/* Saltar al contenido */
+.saltar{position:absolute;left:16px;top:-80px;z-index:100;background:var(--tinta);color:#fff;padding:.75rem 1rem;border-radius:10px;text-decoration:none;font-weight:600}
+.saltar:focus{top:12px}
+
+/* Barra de vista previa (se saca con NEGOCIO.tarifasDeEjemplo = false) */
+.vista-previa{background:var(--tinta);color:#fff;text-align:center;padding:.55rem 16px;font:600 .8rem/1.35 var(--f-mono);letter-spacing:.04em}
+.vista-previa strong{font-weight:600;background:var(--azul);color:#fff;padding:.1rem .45rem;border-radius:4px;margin-right:.35rem;white-space:nowrap}
+
+/* Botones */
+/* Botones con forma de etiqueta de envío: esquinas casi rectas, borde y sombra dura
+   en negro, y un talón troquelado (línea punteada) cuando llevan ícono adelante.
+   Con el mouse se levantan; al apretarlos se hunden como un sello. */
+.btn{--sombra-btn:var(--tinta);position:relative;display:inline-flex;align-items:center;justify-content:center;gap:.55em;min-height:50px;padding:.75em 1.35em;border-radius:5px;border:2px solid var(--tinta);box-shadow:4px 4px 0 var(--sombra-btn);font:700 1.0625rem/1.1 var(--f-texto);text-decoration:none;cursor:pointer;transition:background-color .15s,color .15s,transform .12s,box-shadow .12s;text-align:center}
+@media (hover:hover){.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--sombra-btn)}}
+.btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--sombra-btn)}
+.btn:focus-visible{outline-offset:6px}
+.btn svg{width:1.25em;height:1.25em;flex:none}
+.btn:has(> .ico:first-child){padding-left:3.55em}
+.btn > .ico:first-child{position:absolute;left:.85em;top:50%;transform:translateY(-50%)}
+.btn:has(> .ico:first-child)::before{content:"";position:absolute;top:0;bottom:0;left:2.75em;border-left:2px dashed currentColor;opacity:.5}
+.btn-primario{background:var(--azul);color:#fff}
+.btn-primario:hover{background:var(--azul-osc)}
+.btn-borde{background:#fff;color:var(--tinta)}
+.btn-borde:hover{background:var(--azul-claro)}
+.btn-chico{min-height:44px;padding:.5em 1em;font-size:1rem;box-shadow:3px 3px 0 var(--sombra-btn)}
+@media (hover:hover){.btn-chico:hover{box-shadow:5px 5px 0 var(--sombra-btn)}}
+.btn-chico:active{box-shadow:1px 1px 0 var(--sombra-btn)}
+.btn-grande{min-height:58px;font-size:1.125rem;width:100%}
+.ico{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+/* Cabecera */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:#fff}
+.cabecera{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(255,255,255,.94);backdrop-filter:saturate(1.4) blur(8px);-webkit-backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid var(--linea)}
+.cabecera-in{display:flex;align-items:center;gap:12px;min-height:68px}
+.marca{display:inline-flex;align-items:center;text-decoration:none;color:var(--tinta);margin-right:auto;min-height:44px}
+.logo{height:38px;width:auto;display:block}
+@media (min-width:900px){.cabecera .logo{height:44px}}
+.menu{display:none;list-style:none;margin:0;padding:0;gap:4px}
+.menu a{display:inline-flex;align-items:center;min-height:44px;padding:0 .8rem;color:var(--tinta);text-decoration:none;font-weight:600}
+.menu a:hover{text-decoration:underline;text-decoration-color:var(--azul);text-decoration-thickness:2px;text-underline-offset:6px}
+.cab-wa{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:5px;color:var(--tinta);background:#fff;border:2px solid var(--tinta);box-shadow:3px 3px 0 var(--tinta);transition:background-color .15s,color .15s,transform .12s,box-shadow .12s}
+.cab-wa:hover{background:var(--azul);color:#fff}
+.cab-wa:active{transform:translate(3px,3px);box-shadow:0 0 0 var(--tinta)}
+@media (min-width:900px){.menu{display:flex}}
+/* Menú de las tres rayitas: en todos los tamaños; en el celular reemplaza al WhatsApp de la cabecera (está adentro) */
+.menu-boton{display:inline-flex;align-items:center;justify-content:center;flex:none;width:44px;height:44px;padding:0;border-radius:5px;color:var(--tinta);background:#fff;border:2px solid var(--tinta);box-shadow:3px 3px 0 var(--tinta);cursor:pointer}
+.menu-boton:hover{background:var(--azul-claro)}
+.menu-boton:active{transform:translate(3px,3px);box-shadow:0 0 0 var(--tinta)}
+.menu-boton .ico{width:24px;height:24px;stroke-width:2.2}
+.menu-boton[aria-expanded="true"]{background:var(--tinta);color:#fff}
+.menu-boton[aria-expanded="true"] .ico-abrir,.menu-boton[aria-expanded="false"] .ico-cerrar{display:none}
+@media (max-width:599px){.cab-wa{display:none}.cabecera .logo{height:34px}}
+@media (max-width:379px){.cabecera .logo{height:30px}.cabecera-in{gap:10px}}
+.menu-panel{border-top:1px solid var(--linea);background:#fff;max-height:calc(100vh - 69px);max-height:calc(100dvh - 69px);overflow-y:auto;box-shadow:0 24px 40px -24px rgba(12,16,24,.35)}
+.menu-panel[hidden]{display:none}
+.menu-panel-in{display:grid;gap:1.5rem;padding-top:.75rem;padding-bottom:1.75rem}
+@media (min-width:900px){.menu-panel-in{grid-template-columns:minmax(0,1fr) 300px;gap:3rem;padding-top:1.5rem;padding-bottom:2.25rem}}
+.menu-lista{list-style:none;margin:0;padding:0;display:grid}
+@media (min-width:600px){.menu-lista{grid-template-columns:1fr 1fr;column-gap:2rem}}
+.menu-lista a{display:flex;align-items:baseline;gap:.85rem;min-height:54px;padding:.7rem 0;border-bottom:1px solid var(--linea);color:var(--tinta);text-decoration:none;font:800 1.6rem/1.1 var(--f-titulo);text-transform:uppercase}
+.menu-lista a .mono{font-size:.8rem;font-weight:600;color:var(--azul)}
+.menu-lista a:hover{color:var(--azul)}
+.menu-contacto{display:flex;flex-direction:column;align-items:stretch;gap:14px}
+.menu-contacto > .mono{font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-2)}
+.menu-trabajo{display:flex;align-items:center;gap:.85rem;margin-top:.4rem;padding:.85rem 1rem;border:1px solid var(--linea);border-radius:12px;color:var(--tinta);text-decoration:none;background:var(--papel)}
+.menu-trabajo:hover{border-color:var(--azul)}
+.menu-trabajo .ico{color:var(--azul)}
+.menu-trabajo span{font-size:.92rem;color:var(--tinta-2)}
+.menu-trabajo strong{display:block;font-size:1.05rem;color:var(--tinta)}
+
+/* Portada */
+.portada{padding:clamp(2.5rem,7vw,5.5rem) 0 clamp(2.5rem,6vw,4.5rem)}
+.portada-in{display:grid;gap:clamp(2rem,5vw,3.5rem);align-items:center}
+@media (min-width:900px){.portada-in{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr)}}
+.portada-eyebrow{display:inline-flex;align-items:center;gap:.6rem;color:var(--azul);margin-bottom:1.1rem}
+.portada-eyebrow::before{content:"";width:28px;height:3px;background:var(--tinta);border-radius:2px}
+.portada h1{font:800 clamp(2.9rem,10vw,5.6rem)/.92 var(--f-titulo);text-transform:uppercase;letter-spacing:-.005em}
+.portada h1 .cinta-texto-h1{position:relative;display:inline-block;padding:0 .12em;z-index:0;color:#fff}
+.portada h1 .cinta-texto-h1::before{content:"";position:absolute;inset:.08em -.04em .02em;background:var(--azul);transform:rotate(-1.6deg);z-index:-1;border-radius:3px}
+.portada-bajada{font-size:clamp(1.1rem,2.6vw,1.3rem);color:var(--tinta-2);max-width:34ch;margin-top:1.3rem}
+.portada-botones{display:flex;flex-wrap:wrap;gap:16px;margin-top:2rem}
+@media (max-width:479px){.portada-botones .btn{width:100%}}
+
+/* Hoja de ruta (ilustración de la portada) */
+.guia{position:relative;background:var(--superficie);border-radius:var(--radio);box-shadow:var(--sombra);padding:1.25rem 1.25rem 1rem;max-width:440px;width:100%;justify-self:center;border:1px solid var(--linea)}
+.guia::after{content:"";position:absolute;top:-13px;left:50%;width:92px;height:26px;margin-left:-46px;background:var(--azul);opacity:.92;transform:rotate(-4deg);border-radius:2px;box-shadow:0 1px 2px rgba(0,0,0,.12)}
+.guia-fila{display:flex;justify-content:space-between;gap:1rem;font:600 .74rem/1.2 var(--f-mono);letter-spacing:.08em;text-transform:uppercase}
+.guia-top{padding-bottom:.85rem;border-bottom:2px dashed var(--linea);color:var(--azul)}
+.recorrido{display:block;width:100%;height:auto;margin:.9rem 0 .4rem}
+.recorrido-linea{fill:none;stroke:var(--azul);stroke-width:4;stroke-linecap:round;stroke-dasharray:420;stroke-dashoffset:0}
+.recorrido-et{font:600 11px var(--f-mono);fill:var(--tinta-2);letter-spacing:.1em}
+.recorrido-punteada{fill:none;stroke:var(--linea);stroke-width:4;stroke-linecap:round;stroke-dasharray:2 9}
+.punto-origen{fill:#fff;stroke:var(--azul);stroke-width:4}
+.punto-destino{fill:var(--tinta);stroke:var(--tinta);stroke-width:2.5}
+@media (prefers-reduced-motion:no-preference){
+  .recorrido-linea{animation:trazar 1.8s cubic-bezier(.6,.05,.3,1) .35s both}
+  .punto-destino{animation:aparecer .35s ease-out 2s both;transform-origin:240px 92px;transform-box:view-box}
+}
+@keyframes trazar{from{stroke-dashoffset:420}to{stroke-dashoffset:0}}
+@keyframes aparecer{from{transform:scale(0)}to{transform:scale(1)}}
+.guia-datos{margin:0;display:grid;gap:.15rem}
+.guia-datos div{display:grid;grid-template-columns:4.2rem 1fr;gap:.75rem;padding:.55rem 0;border-bottom:1px solid var(--linea);align-items:baseline}
+.guia-datos dt{font:600 .74rem/1.2 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-2)}
+.guia-datos dd{margin:0;font-weight:600}
+.barras{height:30px;margin:1rem 0 .55rem;background:repeating-linear-gradient(90deg,var(--tinta) 0 2px,transparent 2px 4px,var(--tinta) 4px 5px,transparent 5px 8px,var(--tinta) 8px 11px,transparent 11px 13px,var(--tinta) 13px 14px,transparent 14px 18px);opacity:.88}
+.guia-pie{color:var(--tinta-2)}
+
+/* Cinta de embalaje */
+.cinta{overflow:hidden;padding:18px 0;margin:0}
+.cinta-banda{background:var(--azul);color:#fff;transform:rotate(-1.4deg);margin:0 -40px;padding:.6rem 0;white-space:nowrap;overflow:hidden;font:600 .9rem/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;box-shadow:0 2px 0 rgba(12,16,24,.12)}
+/* Las letras corren hacia la izquierda: dos tiras iguales que se corren su propio ancho y vuelven a empezar */
+.cinta-banda span{display:inline-block;will-change:transform}
+@media (prefers-reduced-motion:no-preference){.cinta-banda span{animation:cinta-corre 60s linear infinite}}
+.cinta:hover .cinta-banda span{animation-play-state:paused}
+@keyframes cinta-corre{to{transform:translateX(-100%)}}
+
+/* Secciones */
+.seccion{padding:clamp(3.5rem,8vw,6rem) 0}
+.seccion-blanca{background:var(--superficie)}
+.seccion-cabeza{max-width:720px;margin-bottom:clamp(2rem,4vw,3rem)}
+.seccion-num{display:inline-flex;align-items:center;gap:.6rem;color:var(--azul);margin-bottom:.8rem}
+.seccion-num::after{content:"";width:40px;height:2px;background:currentColor;opacity:.5}
+.seccion h2{font:800 clamp(2.2rem,6vw,3.6rem)/.95 var(--f-titulo);text-transform:uppercase}
+.seccion-cabeza p:not(.seccion-num){margin-top:1rem;color:var(--tinta-2);font-size:1.125rem;max-width:56ch}
+
+/* Servicios */
+.servicios{display:grid;gap:16px}
+@media (min-width:720px){.servicios{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}}
+.servicio{background:var(--superficie);border:1px solid var(--linea);border-radius:var(--radio);padding:1.5rem;display:flex;flex-direction:column;gap:.75rem}
+.servicio > .ico{width:40px;height:40px;color:var(--azul);stroke-width:1.6}
+.servicio h3{font:700 1.6rem/1.05 var(--f-titulo);text-transform:uppercase}
+.servicio p{color:var(--tinta-2)}
+.servicio-otro{background:transparent;border:2px dashed var(--borde-campo)}
+.servicio .btn{align-self:flex-start;margin-top:auto}
+.servicio-etiquetas{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:.25rem}
+.servicio-etiquetas span{font:600 .72rem/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;padding:.45rem .6rem;border-radius:3px;background:var(--azul-claro);color:var(--azul-osc)}
+
+/* Cotizador */
+.seccion-cotizador{background:var(--papel-2);background-image:radial-gradient(rgba(12,16,24,.07) 1px,transparent 1px);background-size:18px 18px}
+.cot{display:flex;flex-direction:column;gap:16px}
+@media (min-width:980px){
+  .cot{display:grid;grid-template-columns:minmax(0,1fr) 380px;grid-template-areas:"paso1 ticket" "paso2 enviar";column-gap:28px;row-gap:20px}
+  .cot-paso1{grid-area:paso1}
+  .ticket{grid-area:ticket;align-self:start;position:sticky;top:92px}
+  .cot-paso2{grid-area:paso2}
+  .cot-enviar{grid-area:enviar;align-self:end}
+}
+.hoja{background:var(--superficie);border-radius:var(--radio);border:1px solid var(--linea);padding:clamp(1.15rem,3vw,1.75rem)}
+.paso-titulo{display:flex;align-items:center;gap:.7rem;font:700 1.5rem/1.1 var(--f-titulo);text-transform:uppercase;margin-bottom:1.25rem}
+.paso-num{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--tinta);color:#fff;font:600 .95rem/1 var(--f-mono);flex:none}
+.campos-2{display:grid;gap:14px}
+@media (min-width:600px){.campos-2{grid-template-columns:1fr 1fr}}
+.campo label,.campo .etiqueta{display:block;font-weight:600;margin-bottom:.4rem}
+.campo .opcional{font-weight:400;color:var(--tinta-2)}
+.campo + .campo{margin-top:0}
+.campos-2 + .campo,.campo + .campos-2,.campos-2 + .campos-2{margin-top:14px}
+select,input[type=text],input[type=tel],input[type=date],input[type=number],textarea{width:100%;min-height:48px;padding:.65rem .9rem;border:1.5px solid var(--borde-campo);border-radius:var(--radio-chico);background:#fff;color:var(--tinta);font-size:1rem}
+textarea{min-height:88px;resize:vertical}
+select{appearance:none;-webkit-appearance:none;padding-right:2.6rem;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230C1018' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .8rem center;background-size:18px;cursor:pointer}
+select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--azul);outline-offset:1px;border-color:var(--azul)}
+[aria-invalid="true"]{border-color:var(--error)!important;box-shadow:0 0 0 1px var(--error)}
+.ayuda{font-size:.95rem;color:var(--tinta-2);margin-top:.7rem}
+.grupo{border:0;padding:0;margin:1.5rem 0 0;min-width:0}
+.grupo legend{font-weight:600;padding:0;margin-bottom:.6rem}
+.opciones{display:grid;grid-template-columns:1fr;gap:10px}
+@media (min-width:600px){.opciones{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.opcion{position:relative;display:block;cursor:pointer}
+.opcion input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.opcion-caja{display:flex;flex-direction:column;gap:.2rem;height:100%;min-height:44px;padding:.85rem .85rem .8rem;border:1.5px solid var(--borde-campo);border-radius:14px;background:#fff;transition:border-color .15s,background-color .15s}
+.opcion:hover .opcion-caja{border-color:var(--tinta)}
+.opcion input:checked + .opcion-caja{border-color:var(--azul);background:var(--azul-claro);box-shadow:inset 0 0 0 1.5px var(--azul)}
+.opcion input:focus-visible + .opcion-caja{outline:3px solid var(--tinta);outline-offset:2px}
+.opcion-icono{height:30px;display:flex;align-items:flex-end;color:var(--azul);margin-bottom:.25rem}
+.opcion-icono .ico{stroke-width:1.6}
+.opcion-nombre{font-weight:700;font-size:1.05rem}
+.opcion-detalle{font-size:.88rem;line-height:1.3;color:var(--tinta-2)}
+.opcion-precio{font:600 .78rem/1.2 var(--f-mono);color:var(--azul);margin-top:auto;padding-top:.35rem}
+.pesos{display:grid;gap:10px}
+.peso-fila{display:grid;grid-template-columns:minmax(0,1fr) 140px;gap:12px;align-items:center;padding:.6rem .7rem .6rem .95rem;border:1.5px solid var(--borde-campo);border-radius:14px;background:#fff;transition:border-color .15s,background-color .15s}
+.peso-fila.con-bultos{border-color:var(--azul);background:var(--azul-claro);box-shadow:inset 0 0 0 1.5px var(--azul)}
+.peso-et strong{display:block;font-weight:700;font-size:1.05rem}
+.peso-et span{display:block;font:600 .72rem/1.3 var(--f-mono);color:var(--azul)}
+.peso-fila .contador-ctrl{grid-template-columns:44px minmax(0,1fr) 44px;gap:4px}
+@media (min-width:600px){.peso-fila{grid-template-columns:minmax(0,1fr) 168px}.peso-fila .contador-ctrl{grid-template-columns:48px minmax(0,1fr) 48px;gap:6px}}
+.bultos{display:grid;gap:10px}
+.bulto-fila{display:grid;grid-template-columns:minmax(0,1fr) 140px;grid-template-areas:"kg cant" "precio quitar";gap:8px 12px;align-items:end;padding:.7rem .8rem;border:1.5px solid var(--borde-campo);border-radius:14px;background:#fff;transition:border-color .15s,background-color .15s}
+.bulto-fila.con-bultos{border-color:var(--azul);background:var(--azul-claro);box-shadow:inset 0 0 0 1.5px var(--azul)}
+.bulto-fila .kg{grid-area:kg}
+.bulto-fila .cant{grid-area:cant}
+.bulto-fila label{display:block;font:600 .7rem/1.2 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--tinta-2);margin-bottom:.35rem}
+.bulto-fila .kg-input{text-align:center;font-weight:700;-moz-appearance:textfield;appearance:textfield}
+.bulto-fila .kg-input::-webkit-inner-spin-button,.bulto-fila .kg-input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+.bulto-fila .contador-ctrl{grid-template-columns:44px minmax(0,1fr) 44px;gap:4px}
+.bulto-precio{grid-area:precio;align-self:center;font:600 .8rem/1.3 var(--f-mono);color:var(--azul)}
+.bulto-quitar{grid-area:quitar;justify-self:end;width:44px;height:44px;border:1.5px solid var(--borde-campo);border-radius:8px;background:#fff;color:var(--tinta);font:700 1.25rem/1 var(--f-texto);cursor:pointer}
+.bulto-quitar:hover{border-color:var(--tinta)}
+@media (min-width:600px){
+  .bulto-fila{grid-template-columns:110px 168px minmax(0,1fr) 44px;grid-template-areas:"kg cant precio quitar"}
+  .bulto-fila .contador-ctrl{grid-template-columns:48px minmax(0,1fr) 48px;gap:6px}
+  .bulto-precio{padding-bottom:.9rem;align-self:end}
+}
+.btn-agregar{width:100%;min-height:48px;margin-top:10px;border:2px dashed var(--borde-campo);border-radius:12px;background:transparent;color:var(--azul);font-weight:700;cursor:pointer}
+.btn-agregar:hover{border-color:var(--azul);background:var(--azul-claro)}
+/* Opción palet: aparte, para los que embalan toda la carga en un palet */
+.palet-abrir{width:100%;display:flex;justify-content:space-between;align-items:center;gap:1rem;min-height:56px;padding:.75rem .95rem;border:1.5px solid var(--borde-campo);border-radius:14px;background:#fff;color:var(--tinta);font:inherit;text-align:left;cursor:pointer;transition:border-color .15s,background-color .15s}
+.palet-abrir:hover{border-color:var(--tinta)}
+.palet-abrir strong{display:block;font-weight:700;font-size:1.05rem}
+.palet-abrir .palet-detalle{display:block;margin-top:.15rem;font:600 .72rem/1.35 var(--f-mono);color:var(--azul)}
+.palet-abrir.conviene{border-color:var(--azul);background:var(--azul-claro)}
+.palet-signo{flex:none;width:34px;height:34px;display:grid;place-items:center;border:2px solid var(--tinta);border-radius:5px;font:700 1.3rem/1 var(--f-texto)}
+.palet-panel{margin-top:10px}
+.palet-panel .ayuda{margin:0 0 .7rem}
+.campo-plata{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px}
+.campo-plata select{width:auto;font-weight:700}
+.campo-plata input{font-weight:700}
+.aviso-salida{display:flex;gap:.6rem;align-items:flex-start;margin:0 0 1.25rem;padding:.8rem .95rem;border-radius:12px;background:var(--azul-claro);color:var(--tinta);font-size:.97rem}
+.aviso-salida .ico{color:var(--azul);margin-top:.05rem}
+.contador-ctrl{display:grid;grid-template-columns:48px minmax(0,1fr) 48px;gap:6px}
+.contador-ctrl input{text-align:center;font-weight:700;-moz-appearance:textfield;appearance:textfield}
+.contador-ctrl input::-webkit-inner-spin-button,.contador-ctrl input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+.contador-btn{min-height:48px;border-radius:var(--radio-chico);border:1.5px solid var(--borde-campo);background:#fff;font:700 1.35rem/1 var(--f-texto);cursor:pointer}
+.contador-btn:hover{border-color:var(--tinta)}
+
+/* Ticket con el precio */
+.ticket{background:var(--superficie);border-radius:var(--radio);box-shadow:var(--sombra);overflow:hidden;border:1px solid var(--linea)}
+.ticket-cabeza{display:flex;justify-content:space-between;align-items:center;gap:.75rem;background:var(--tinta);color:#fff;padding:.95rem 1.25rem;font:600 .78rem/1.2 var(--f-mono);letter-spacing:.08em;text-transform:uppercase}
+.ticket-ejemplo{background:var(--azul);color:#fff;padding:.3rem .5rem;border-radius:5px;font-size:.68rem;white-space:nowrap}
+.ticket-cuerpo{padding:1.25rem}
+.ticket-ruta{position:relative;display:grid;gap:.9rem;padding-left:1.6rem;margin-bottom:1.1rem}
+.ticket-ruta::before{content:"";position:absolute;left:6px;top:12px;bottom:12px;border-left:2.5px dashed var(--borde-campo)}
+.tr-punto{position:relative}
+.tr-punto::before{content:"";position:absolute;left:-1.6rem;top:.3rem;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--azul);box-sizing:border-box}
+.tr-destino::before{background:var(--tinta);border-color:var(--tinta);border-width:2px}
+.tr-et{display:block;font:600 .7rem/1.2 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-2)}
+.tr-valor{display:block;font-weight:700;font-size:1.08rem;line-height:1.25}
+.ticket-lineas{list-style:none;margin:0;padding:.9rem 0 0;border-top:2px dashed var(--linea);display:grid;gap:.45rem}
+.ticket-lineas li{display:flex;justify-content:space-between;gap:1rem;font-size:.97rem}
+.ticket-lineas li span:first-child{color:var(--tinta-2)}
+.ticket-lineas li span:last-child{font-family:var(--f-mono);font-weight:500;white-space:nowrap}
+.ticket-total-fila{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;margin-top:1rem;padding-top:1rem;border-top:2px solid var(--tinta)}
+.ticket-total-fila > span{font:600 .78rem/1.2 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;padding-bottom:.45rem}
+.ticket-total{font:800 clamp(2.4rem,9vw,3.1rem)/1 var(--f-titulo);color:var(--azul);text-align:right}
+.ticket-total.vacio{font:600 1rem/1.35 var(--f-texto);color:var(--tinta-2);max-width:18ch}
+.ticket-seguro{margin-top:.75rem;font-size:.92rem;color:var(--tinta);text-align:right}
+.ticket-aviso{margin-top:.6rem;font-size:.9rem;color:var(--tinta-2);text-align:right}
+.ticket .barras{margin:0 1.25rem 1rem;height:24px;opacity:.75}
+
+/* Enviar */
+.cot-enviar{display:grid;gap:.8rem}
+.enviar-total{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;font:600 .78rem/1.2 var(--f-mono);letter-spacing:.08em;text-transform:uppercase}
+.enviar-total strong{font:800 1.75rem/1 var(--f-titulo);color:var(--azul);letter-spacing:0}
+.error{color:var(--error);font-weight:600}
+.error:empty{display:none}
+.nota{font-size:.92rem;color:var(--tinta-2)}
+
+/* Cómo funciona */
+.seccion-oscura{background:var(--azul);color:#fff}
+.seccion-oscura .seccion-num{color:var(--azul-suave)}
+.seccion-oscura .seccion-cabeza p:not(.seccion-num){color:#DCE5FF}
+.seccion-oscura :focus-visible{outline-color:#fff}
+.pasos{list-style:none;margin:0;padding:0;display:grid;gap:16px;counter-reset:paso}
+@media (min-width:860px){.pasos{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}}
+.paso{position:relative;padding:1.5rem;border:1.5px solid rgba(255,255,255,.28);border-radius:var(--radio);background:rgba(255,255,255,.04)}
+.paso-n{display:block;font:600 .8rem/1 var(--f-mono);letter-spacing:.1em;color:var(--azul-suave);margin-bottom:1.6rem}
+.paso h3{font:700 1.85rem/1 var(--f-titulo);text-transform:uppercase;margin-bottom:.6rem}
+.paso p{color:#DCE5FF}
+.paso .ico{position:absolute;right:1.4rem;top:1.25rem;width:30px;height:30px;color:#fff}
+.pasos-cta{margin-top:2rem}
+
+/* Recorrido Buenos Aires – Mar del Plata */
+.ruta-in{display:grid;gap:clamp(1.5rem,4vw,2.5rem);align-items:start}
+@media (min-width:900px){.ruta-in{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+.mapa{background:var(--superficie);border:1px solid var(--linea);border-radius:var(--radio);padding:.75rem;margin:0}
+.mapa svg{display:block;width:100%;height:auto}
+.mapa figcaption{font-size:.85rem;color:var(--tinta-2);padding:.5rem .4rem .1rem}
+.m-tierra{fill:var(--papel)}
+.m-mar{fill:var(--mar)}
+.m-ola{fill:none;stroke:#A8BDEB;stroke-width:1.4;stroke-linecap:round}
+.m-costa{fill:none;stroke:var(--azul);stroke-width:2}
+.m-mar-et{font:600 10px var(--f-mono);fill:var(--azul);letter-spacing:.3em;opacity:.7}
+.m-norte{font:700 11px var(--f-mono);fill:var(--tinta)}
+.m-camino-fondo{fill:none;stroke:#fff;stroke-width:10;stroke-linecap:round}
+.m-camino{fill:none;stroke:var(--azul);stroke-width:4;stroke-linecap:round;stroke-dasharray:10 8}
+@media (prefers-reduced-motion:no-preference){.m-camino{animation:camino 1.6s linear infinite}}
+@keyframes camino{to{stroke-dashoffset:-18}}
+.m-ciudad-punto{fill:var(--azul);stroke:#fff;stroke-width:3}
+.m-ciudad-punto.base{fill:var(--tinta)}
+.m-et{font:700 12.5px var(--f-texto);fill:var(--tinta);paint-order:stroke;stroke:rgba(255,255,255,.9);stroke-width:3px;stroke-linejoin:round}
+.m-sub{font:600 9px var(--f-mono);fill:var(--tinta-2);letter-spacing:.04em;paint-order:stroke;stroke:rgba(255,255,255,.9);stroke-width:3px}
+.m-km{font:700 12px var(--f-mono);fill:var(--azul);paint-order:stroke;stroke:rgba(255,255,255,.9);stroke-width:3px}
+.ruta-cards{display:grid;gap:12px}
+.ruta-card{background:var(--superficie);border:1px solid var(--linea);border-radius:var(--radio);padding:1.25rem 1.35rem;display:grid;gap:.45rem;justify-items:start}
+.ruta-card .mono{color:var(--azul)}
+.ruta-card h3{font:700 1.6rem/1.05 var(--f-titulo);text-transform:uppercase}
+.ruta-card p{color:var(--tinta-2)}
+.ruta-card .btn{margin-top:.5rem}
+
+/* Preguntas */
+.preguntas{display:grid;gap:10px;max-width:820px}
+.pregunta{background:var(--superficie);border:1px solid var(--linea);border-radius:16px}
+.pregunta summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;min-height:56px;padding:.8rem 1.1rem;font-weight:700;font-size:1.08rem;cursor:pointer;border-radius:16px}
+.pregunta summary::-webkit-details-marker{display:none}
+.pregunta summary::after{content:"";flex:none;width:28px;height:28px;border-radius:4px;background:var(--papel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230756DB' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M12 6v12M6 12h12'/%3E%3C/svg%3E") center/16px no-repeat;transition:transform .2s}
+.pregunta[open] summary::after{transform:rotate(45deg)}
+.pregunta p{padding:0 1.1rem 1.1rem;color:var(--tinta-2)}
+
+/* Contacto */
+.contacto{display:grid;gap:16px}
+@media (min-width:860px){.contacto{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)}}
+.contacto-principal{background:var(--tinta);color:#fff;border-radius:var(--radio);padding:clamp(1.5rem,4vw,2.5rem);display:flex;flex-direction:column;gap:1.25rem;align-items:flex-start}
+.contacto-principal h3{font:800 clamp(2rem,5vw,2.8rem)/1.02 var(--f-titulo);text-transform:uppercase}
+.contacto-principal p{color:#C6CDDA}
+.contacto-principal :focus-visible{outline-color:#fff}
+.contacto-botones{display:flex;flex-wrap:wrap;gap:16px}
+.contacto-principal .btn{--sombra-btn:var(--azul)}
+.btn-claro{background:#fff;color:var(--tinta)}
+.btn-claro:hover{background:var(--azul-claro)}
+.btn-borde-claro{border-color:#fff;color:#fff;background:transparent}
+.btn-borde-claro:hover{background:rgba(255,255,255,.12)}
+.datos{margin:0;display:grid;gap:10px}
+.dato{display:grid;grid-template-columns:auto minmax(0,1fr);gap:.9rem;align-items:start;background:var(--superficie);border:1px solid var(--linea);border-radius:16px;padding:1rem 1.1rem}
+.dato .ico{color:var(--azul);margin-top:.15rem}
+.dato dt{font:600 .72rem/1.2 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-2);margin-bottom:.2rem}
+.dato dd{margin:0;font-weight:600;overflow-wrap:anywhere}
+
+/* Pie */
+/* CUDS: título + logos, carnet de socio y tres pasos (opción 2 de los prototipos) */
+.cuds-cabeza{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:1.25rem 2.5rem;margin-bottom:clamp(1.5rem,4vw,2.25rem)}
+.cuds-cabeza .seccion-cabeza{margin-bottom:0}
+/* Los dos logos juntos: CUDS × Saldar */
+.cuds-dupla{display:flex;align-items:center;gap:clamp(.7rem,2vw,1rem)}
+.cuds-logo{height:clamp(72px,18vw,84px);width:auto}
+.cuds-saldar{height:clamp(28px,7.5vw,34px);width:auto}
+.cuds-x{flex:none;width:clamp(22px,6vw,28px);height:auto;fill:none;stroke:var(--tinta);stroke-width:3.2;stroke-linecap:round}
+/* Carnet: parte principal + talón troquelado (con muescas del color del fondo) */
+.carnet{display:grid;background:var(--tinta);color:#fff;border-radius:var(--radio)}
+@media (min-width:900px){.carnet{grid-template-columns:minmax(0,1fr) 330px}}
+.carnet :focus-visible{outline-color:#fff}
+.carnet-main{display:flex;flex-direction:column;gap:1.1rem;padding:clamp(1.5rem,4vw,2.5rem)}
+@media (min-width:600px){.carnet-main{flex-direction:row;align-items:center;gap:2.25rem}}
+.carnet-escudo{flex:none;align-self:flex-start;background:#fff;border-radius:14px;padding:12px 14px}
+@media (min-width:600px){.carnet-escudo{align-self:center;padding:16px 20px}}
+.carnet-escudo img{display:block;height:clamp(110px,20vw,170px);width:auto}
+.carnet-et{font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--azul-suave)}
+.carnet-main .carnet-et{margin-bottom:.8rem}
+.carnet-tit{font:800 clamp(2.9rem,8vw,4.75rem)/1.14 var(--f-titulo);text-transform:uppercase}
+.carnet-tit span{background:var(--azul);padding:0 .15em;border-radius:6px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.carnet-talon{position:relative;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:.9rem;padding:clamp(1.5rem,4vw,2.5rem);border-top:2px dashed rgba(255,255,255,.4)}
+.carnet-talon p:not(.carnet-et){color:#C6CDDA}
+.carnet-talon .btn{--sombra-btn:var(--azul)}
+.carnet-talon::before,.carnet-talon::after{content:"";position:absolute;top:-17px;width:32px;height:32px;border-radius:50%;background:var(--superficie)}
+.carnet-talon::before{left:-16px}
+.carnet-talon::after{right:-16px}
+@media (min-width:900px){
+  .carnet-talon{border-top:0;border-left:2px dashed rgba(255,255,255,.4)}
+  .carnet-talon::before,.carnet-talon::after{left:-17px;right:auto;width:34px;height:34px}
+  .carnet-talon::before{top:-17px}
+  .carnet-talon::after{top:auto;bottom:-17px}
+}
+.cuds-pasos{list-style:none;margin:clamp(1.5rem,4vw,2rem) 0 0;padding:0;display:grid;gap:14px}
+@media (min-width:760px){.cuds-pasos{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}}
+.cuds-pasos li{display:flex;align-items:center;gap:14px;font-weight:700;font-size:1.1rem}
+.cuds-pasos .mono{flex:none;width:40px;height:40px;border-radius:50%;background:var(--tinta);color:#fff;display:grid;place-items:center;font-size:.95rem;font-weight:600}
+.check-cuds{display:flex;gap:.7rem;align-items:flex-start;font-weight:600;cursor:pointer}
+.check-cuds input{flex:none;width:22px;height:22px;margin:.1rem 0 0;accent-color:var(--azul)}
+
+
+.pie{border-top:1px solid var(--linea);padding:2rem 0 2.5rem;background:var(--papel)}
+.pie-in{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem}
+.pie p{font-size:.92rem;color:var(--tinta-2)}
+.pie .logo{height:38px}
+/* Trabajá con nosotros, bien a la vista arriba del pie */
+.pie-trabajo{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.25rem;margin-bottom:2rem;padding:1.25rem 1.4rem;background:#fff;border:2px solid var(--tinta);border-radius:12px;box-shadow:5px 5px 0 var(--azul)}
+.pie-trabajo > .ico{width:44px;height:44px;padding:9px;border-radius:10px;background:var(--azul-claro);color:var(--azul);flex:none}
+.pie-trabajo > div{flex:1 1 220px;min-width:0}
+.pie .pie-trabajo p{font-size:1rem;color:var(--tinta-2);overflow-wrap:anywhere}
+.pie .pie-trabajo .pie-trabajo-tit{font:800 1.6rem/1.05 var(--f-titulo);text-transform:uppercase;color:var(--tinta);margin-bottom:.2rem}
+.pie-credito{width:100%;font-size:.8rem!important;opacity:.85;margin-top:.5rem}
+.pie-credito a{color:inherit}
+</style>
+</head>
+<body>
+
+<!-- Íconos (se usan con <use href="#i-...">) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-camion" viewBox="0 0 24 24"><path d="M2.5 6h11v10h-11zM13.5 9.5h4.2l3.3 3.4V16h-7.5"/><circle cx="6.5" cy="17.2" r="1.9"/><circle cx="17" cy="17.2" r="1.9"/></symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path d="M20.5 11.7a8.5 8.5 0 0 1-12.6 7.4l-4.4 1.4 1.5-4.2a8.5 8.5 0 1 1 15.5-4.6z"/><path d="M9.1 8.4c.2-.5.5-.7.8-.7h.6c.2 0 .4.1.5.4l.7 1.7c.1.3 0 .5-.1.7l-.5.6c-.1.2-.1.4 0 .6a7 7 0 0 0 2.4 2.4c.2.1.4.1.6 0l.6-.5c.2-.2.5-.2.7-.1l1.7.7c.3.1.4.3.4.5v.6c0 .3-.2.6-.7.8-.6.3-1.6.4-2.8-.1a9.8 9.8 0 0 1-4.8-4.8c-.5-1.2-.4-2.2-.1-2.8z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-reloj" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></symbol>
+    <symbol id="i-pago" viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="2.5"/><path d="M2.5 10h19M6.5 15h4"/></symbol>
+    <symbol id="i-flecha" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-cotizar" viewBox="0 0 24 24"><rect x="5" y="2.5" width="14" height="19" rx="2.5"/><path d="M8.5 6.5h7M8.5 11h1M12 11h1M15.5 11h0M8.5 14.5h1M12 14.5h1M8.5 18h1M12 18h1M15.5 14.5V18"/></symbol>
+    <symbol id="i-casa" viewBox="0 0 24 24"><path d="M3.5 11 12 4l8.5 7"/><path d="M5.5 9.5V20h13V9.5"/><path d="M9.5 20v-5h5v5"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="m3.5 7 8.5 6.5L20.5 7"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5.5h16v10H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></symbol>
+  </defs>
+</svg>
+
+<a class="saltar" href="#cotizador">Saltar al cotizador</a>
+
+<!-- VISTA PREVIA: se saca sola poniendo NEGOCIO.tarifasDeEjemplo = false (o borrando este bloque) -->
+<div class="vista-previa" id="vista-previa" role="note">
+  <strong>VISTA PREVIA</strong>Faltan datos: lo que suma cada 10 kg y el extra de Batán y Sierras son de ejemplo.
+</div>
+
+<header class="cabecera">
+  <div class="contenedor cabecera-in">
+    <a class="marca" href="#inicio" aria-label="Saldar, volver al inicio">
+      <img class="logo" src="img/saldar-logo.webp" width="708" height="140" alt="">
+    </a>
+    <nav aria-label="Secciones">
+      <ul class="menu">
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#recorrido">Recorrido</a></li>
+        <li><a href="#preguntas">Preguntas</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+    <a class="cab-wa" data-wa href="#contacto" aria-label="Escribinos por WhatsApp"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg></a>
+    <a class="btn btn-primario btn-chico" href="#cotizador">Cotizá</a>
+    <button class="menu-boton" id="menu-boton" type="button" aria-expanded="false" aria-controls="menu-panel" aria-label="Abrir el menú">
+      <svg class="ico ico-abrir" aria-hidden="true" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg class="ico ico-cerrar" aria-hidden="true" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <!-- MENÚ: todas las secciones, contacto y Trabajá con nosotros -->
+  <div class="menu-panel" id="menu-panel" hidden>
+    <div class="contenedor menu-panel-in">
+      <nav aria-label="Menú">
+        <ul class="menu-lista">
+          <li><a href="#servicios"><span class="mono">01</span>Servicios</a></li>
+          <li><a href="#cotizador"><span class="mono">02</span>Cotizá tu envío</a></li>
+          <li><a href="#como-funciona"><span class="mono">03</span>Cómo funciona</a></li>
+          <li><a href="#recorrido"><span class="mono">04</span>Recorrido</a></li>
+          <li><a href="#cuds"><span class="mono">05</span>Club CUDS</a></li>
+          <li><a href="#preguntas"><span class="mono">06</span>Preguntas frecuentes</a></li>
+          <li><a href="#contacto"><span class="mono">07</span>Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="menu-contacto">
+        <p class="mono">Escribinos</p>
+        <a class="btn btn-primario" data-wa href="#contacto"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
+        <a class="btn btn-borde" data-ig href="https://www.instagram.com/saldar223/" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-ig"/></svg><span data-ig-usuario>@saldar223</span></a>
+        <a class="menu-trabajo" data-mail-cv href="#contacto"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg><span><strong>Trabajá con nosotros</strong>Mandanos tu CV por mail</span></a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="inicio">
+
+  <!-- PORTADA -->
+  <section class="portada" aria-labelledby="titulo">
+    <div class="contenedor portada-in">
+      <div>
+        <p class="portada-eyebrow mono">Logística y distribución · Buenos Aires – Mar del Plata</p>
+        <h1 id="titulo">Buenos Aires – Mar del Plata, <span class="cinta-texto-h1">ida y vuelta.</span></h1>
+        <p class="portada-bajada">Desde 2015 traemos tu carga en camión de Buenos Aires a Mar del Plata, con entrega a domicilio, y la llevamos de Mar del Plata a Buenos Aires. El precio es por peso y por bulto (y si embalás todo en un palet, por palet). Cotizalo y pedilo por WhatsApp. También hacemos mudanzas.</p>
+        <div class="portada-botones">
+          <a class="btn btn-primario" href="#cotizador"><svg class="ico" aria-hidden="true"><use href="#i-cotizar"/></svg>Cotizá tu envío</a>
+          <a class="btn btn-borde" data-wa href="#contacto"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Escribinos por WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="guia" aria-hidden="true">
+        <div class="guia-fila guia-top"><span>Saldar · desde 2015</span><span>Hoja de ruta</span></div>
+        <svg class="recorrido" viewBox="0 0 260 124">
+          <path class="recorrido-punteada" d="M20 92 C 70 92, 64 22, 128 22 S 190 92, 240 92"/>
+          <path class="recorrido-linea" d="M20 92 C 70 92, 64 22, 128 22 S 190 92, 240 92"/>
+          <circle class="punto-origen" cx="20" cy="92" r="8"/>
+          <circle class="punto-destino" cx="240" cy="92" r="10"/>
+          <text class="recorrido-et" x="20" y="120" text-anchor="middle">BA</text>
+          <text class="recorrido-et" x="240" y="120" text-anchor="middle">MDP</text>
+        </svg>
+        <dl class="guia-datos">
+          <div><dt>De</dt><dd>Buenos Aires</dd></div>
+          <div><dt>Para</dt><dd>Mar del Plata, y de vuelta</dd></div>
+          <div><dt>Entrega</dt><dd>A domicilio</dd></div>
+          <div><dt>Precio</dt><dd>Por peso y bulto</dd></div>
+        </dl>
+        <div class="barras"></div>
+        <div class="guia-fila guia-pie"><span>Mar del Plata</span><span>(223)</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cinta" aria-hidden="true">
+    <div class="cinta-banda" id="cinta-banda"><span>Saldar · Logística y distribución · Buenos Aires ↔ Mar del Plata · Entrega a domicilio · Mudanzas · Saldar · Logística y distribución · Buenos Aires ↔ Mar del Plata · Entrega a domicilio · Mudanzas · Saldar · Logística y distribución · Buenos Aires ↔ Mar del Plata · Entrega a domicilio · Mudanzas · Saldar · Logística y distribución · Buenos Aires ↔ Mar del Plata · Entrega a domicilio ·&nbsp;</span><span>Saldar · Logística y distribución · Buenos Aires ↔ Mar del Plata · Entrega a domicilio · Mudanzas · Saldar · Logística y distribución · Buenos Aires ↔ Mar del Plata · Entrega a domicilio · Mudanzas · Saldar · Logística y distribución · Buenos Aires ↔ Mar del Plata · Entrega a domicilio · Mudanzas · Saldar · Logística y distribución · Buenos Aires ↔ Mar del Plata · Entrega a domicilio ·&nbsp;</span></div>
+  </div>
+
+  <!-- SERVICIOS -->
+  <section class="seccion" id="servicios" aria-labelledby="t-servicios">
+    <div class="contenedor">
+      <header class="seccion-cabeza">
+        <p class="seccion-num mono">01 · Servicios</p>
+        <h2 id="t-servicios">Qué hacemos</h2>
+      </header>
+      <div class="servicios" id="lista-servicios"></div>
+    </div>
+  </section>
+
+  <!-- COTIZADOR -->
+  <section class="seccion seccion-cotizador" id="cotizador" aria-labelledby="t-cotizador">
+    <div class="contenedor">
+      <header class="seccion-cabeza">
+        <p class="seccion-num mono">02 · Cotizador</p>
+        <h2 id="t-cotizador">Cotizá tu envío</h2>
+        <p>Elegí para dónde va y cuánto pesa cada bulto: el precio estimado sale al instante. Si embalás todo en un palet, tenés la opción palet. Después lo mandás por WhatsApp y te lo confirmamos.</p>
+      </header>
+
+      <noscript><p class="hoja">El cotizador necesita JavaScript activado. También podés escribirnos por Instagram.</p></noscript>
+
+      <form class="cot" id="form-cot" novalidate>
+        <div class="cot-paso1 hoja">
+          <div>
+            <h3 class="paso-titulo"><span class="paso-num" aria-hidden="true">1</span>Qué llevamos y para dónde</h3>
+            <fieldset class="grupo" style="margin-top:0">
+              <legend>Para dónde va</legend>
+              <div class="opciones" id="sentidos"></div>
+            </fieldset>
+            <fieldset class="grupo">
+              <legend>Bultos</legend>
+              <p class="ayuda" style="margin:0 0 .7rem">Poné cuántos kilos pesa cada bulto. Si tenés varios del mismo peso, cambiá la cantidad.</p>
+              <div class="bultos" id="bultos"></div>
+              <button class="btn-agregar" type="button" id="agregar-bulto">+ Agregar un bulto de otro peso</button>
+              <p class="ayuda" id="tarifa-kilos"></p>
+            </fieldset>
+            <fieldset class="grupo">
+              <legend>Opción palet</legend>
+              <button class="palet-abrir" type="button" id="palet-abrir" aria-expanded="false" aria-controls="palet-panel">
+                <span><strong>¿Embalás todo en un palet?</strong><span class="palet-detalle" id="palet-detalle"></span></span>
+                <span class="palet-signo" aria-hidden="true">+</span>
+              </button>
+              <div class="palet-panel" id="palet-panel" hidden>
+                <p class="ayuda" id="palet-ayuda"></p>
+                <div class="pesos" id="palets-fila"></div>
+              </div>
+            </fieldset>
+            <div class="campo" id="campo-zona" style="margin-top:1.25rem" hidden>
+              <label for="zona-entrega">¿Dónde se entrega?</label>
+              <select id="zona-entrega" name="zona-entrega"></select>
+            </div>
+            <div class="campo" style="margin-top:1.25rem">
+              <label for="valor">Valor declarado de la mercadería</label>
+              <div class="campo-plata">
+                <select id="moneda" name="moneda" aria-label="Moneda del valor declarado">
+                  <option value="ARS">$ Pesos</option>
+                  <option value="USD">US$ Dólares</option>
+                  <option value="EUR">€ Euros</option>
+                </select>
+                <input id="valor" name="valor" type="text" inputmode="decimal" autocomplete="off" placeholder="Ej.: 250.000" aria-describedby="valor-ayuda" required>
+              </div>
+              <p class="ayuda" id="valor-ayuda" style="margin-top:.45rem">Cuánto vale toda la mercadería que mandás, bultos y palets. El seguro es el 0,6 % de este valor y el cotizador lo calcula en pesos. ¿Está en dólares o euros? Elegí la moneda y mandanos el pedido: por WhatsApp lo pasamos a pesos y te calculamos el seguro.</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="ticket" aria-labelledby="ticket-titulo">
+          <div class="ticket-cabeza"><span id="ticket-titulo">Presupuesto estimado</span><span class="ticket-ejemplo" id="ticket-ejemplo">Vista previa</span></div>
+          <div class="ticket-cuerpo">
+            <div class="ticket-ruta">
+              <div class="tr-punto"><span class="tr-et">Sale de</span><span class="tr-valor" id="tr-1">—</span></div>
+              <div class="tr-punto tr-destino"><span class="tr-et">Llega a</span><span class="tr-valor" id="tr-2">—</span></div>
+            </div>
+            <ul class="ticket-lineas" id="ticket-lineas"></ul>
+            <div class="ticket-total-fila">
+              <span aria-hidden="true">Total</span>
+              <output class="ticket-total" id="ticket-total" for="bultos palets" aria-live="polite" aria-atomic="true"></output>
+            </div>
+            <p class="ticket-seguro" id="ticket-seguro" hidden></p>
+            <p class="ticket-aviso">Precio estimado, a confirmar por WhatsApp.</p>
+          </div>
+          <div class="barras" aria-hidden="true"></div>
+        </aside>
+
+        <div class="cot-paso2 hoja">
+          <h3 class="paso-titulo"><span class="paso-num" aria-hidden="true">2</span>Tus datos</h3>
+          <p class="aviso-salida"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg><span id="aviso-salida"></span></p>
+          <div class="campo">
+            <label for="nombre">Tu nombre</label>
+            <input id="nombre" name="nombre" type="text" autocomplete="name" required>
+          </div>
+          <div class="campo" id="campo-dir" style="margin-top:14px">
+            <label for="dir-entrega">Dirección de entrega</label>
+            <input id="dir-entrega" name="dir-entrega" type="text" autocomplete="street-address" placeholder="Calle, número y localidad" required>
+          </div>
+          <div class="campos-2" style="margin-top:14px">
+            <div class="campo">
+              <label for="dia">¿Para cuándo? <span class="opcional">(opcional)</span></label>
+              <input id="dia" name="dia" type="date" aria-describedby="dia-ayuda">
+              <p class="ayuda" id="dia-ayuda">Recibimos la carga de lunes a viernes y sale el sábado.</p>
+            </div>
+            <div class="campo">
+              <label for="franja">Franja horaria <span class="opcional">(opcional)</span></label>
+              <select id="franja" name="franja">
+                <option value="">Elegí una franja</option>
+                <option>Por la mañana</option>
+                <option>Al mediodía</option>
+                <option>Cualquier horario</option>
+              </select>
+            </div>
+          </div>
+          <div class="campo" style="margin-top:14px">
+            <label for="comentario">Comentario <span class="opcional">(opcional)</span></label>
+            <textarea id="comentario" name="comentario" placeholder="Qué es, más o menos cuánto pesa, si hay algo frágil…"></textarea>
+          </div>
+          <label class="check-cuds" style="margin-top:14px"><input type="checkbox" id="socio-cuds" name="socio-cuds"><span>Soy socio de CUDS <span class="opcional">(el descuento te lo confirmamos por WhatsApp)</span></span></label>
+        </div>
+
+        <div class="cot-enviar">
+          <p class="enviar-total"><span>Total estimado</span><strong id="enviar-total">—</strong></p>
+          <a class="btn btn-primario btn-grande" id="pedir" href="#cotizador" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Pedir por WhatsApp</a>
+          <p class="error" id="enviar-error" role="alert"></p>
+          <p class="nota">Se abre WhatsApp con el pedido armado. Es un precio estimado: te lo confirmamos por chat antes del viaje.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- CÓMO FUNCIONA -->
+  <section class="seccion seccion-oscura" id="como-funciona" aria-labelledby="t-como">
+    <div class="contenedor">
+      <header class="seccion-cabeza">
+        <p class="seccion-num mono">03 · Cómo funciona</p>
+        <h2 id="t-como">Tres pasos y listo</h2>
+      </header>
+      <ol class="pasos">
+        <li class="paso">
+          <svg class="ico" aria-hidden="true"><use href="#i-cotizar"/></svg>
+          <span class="paso-n">Paso 01</span>
+          <h3>Cotizás</h3>
+          <p>Elegís para dónde va y cuánto pesa cada bulto. El precio estimado sale al instante, sin esperar respuesta.</p>
+        </li>
+        <li class="paso">
+          <svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg>
+          <span class="paso-n">Paso 02</span>
+          <h3>Confirmamos por WhatsApp</h3>
+          <p>Te llega el pedido armado al chat. Te confirmamos el precio final y los detalles del viaje.</p>
+        </li>
+        <li class="paso">
+          <svg class="ico" aria-hidden="true"><use href="#i-camion"/></svg>
+          <span class="paso-n">Paso 03</span>
+          <h3>Viaja y llega</h3>
+          <p>Tu carga viaja en camión. En Mar del Plata te la entregamos a domicilio; en Buenos Aires la retirás por nuestra sucursal.</p>
+        </li>
+      </ol>
+      <div class="pasos-cta"><a class="btn btn-claro" href="#cotizador">Cotizá tu envío<svg class="ico" aria-hidden="true"><use href="#i-flecha"/></svg></a></div>
+    </div>
+  </section>
+
+  <!-- RECORRIDO -->
+  <section class="seccion" id="recorrido" aria-labelledby="t-recorrido">
+    <div class="contenedor">
+      <header class="seccion-cabeza">
+        <p class="seccion-num mono">04 · Recorrido</p>
+        <h2 id="t-recorrido">Buenos Aires – Mar del Plata</h2>
+        <p>Traemos de Buenos Aires a Mar del Plata y llevamos de Mar del Plata a Buenos Aires, en camión. En Mar del Plata te la entregamos a domicilio; en Buenos Aires se retira por nuestra sucursal.</p>
+      </header>
+      <div class="ruta-in">
+        <figure class="mapa">
+          <svg viewBox="0 0 340 320" role="img" aria-labelledby="mapa-titulo">
+            <title id="mapa-titulo">Esquema del recorrido en camión entre Buenos Aires y Mar del Plata, unos 400 kilómetros, en los dos sentidos</title>
+            <rect class="m-tierra" width="340" height="320"/>
+            <path class="m-mar" d="M-5 30 C 40 40 70 52 96 66 C 130 84 160 100 182 124 C 196 140 200 150 228 150 C 258 150 276 158 280 172 C 282 190 268 214 256 232 C 246 248 236 262 228 274 C 220 290 206 306 190 325 L 345 325 L 345 -5 L -5 -5 Z"/>
+            <g aria-hidden="true">
+              <path class="m-ola" d="M300 60 q5 -4 10 0 t10 0"/>
+              <path class="m-ola" d="M250 300 q5 -4 10 0 t10 0"/>
+            </g>
+            <path class="m-costa" d="M-5 30 C 40 40 70 52 96 66 C 130 84 160 100 182 124 C 196 140 200 150 228 150 C 258 150 276 158 280 172 C 282 190 268 214 256 232 C 246 248 236 262 228 274 C 220 290 206 306 190 325"/>
+            <text class="m-mar-et" transform="translate(118 30) rotate(18)">RÍO DE LA PLATA</text>
+            <text class="m-mar-et" transform="translate(306 305) rotate(-80)">MAR ARGENTINO</text>
+            <path class="m-camino-fondo" d="M84 78 C 110 122 150 170 175 200 C 195 225 210 245 219 262"/>
+            <path class="m-camino" d="M84 78 C 110 122 150 170 175 200 C 195 225 210 245 219 262"/>
+            <circle class="m-ciudad-punto" cx="84" cy="78" r="8"/>
+            <circle class="m-ciudad-punto base" cx="219" cy="262" r="9"/>
+            <text class="m-et" x="48" y="100" text-anchor="middle">Buenos Aires</text>
+            <text class="m-sub" x="48" y="113" text-anchor="middle">SUCURSAL</text>
+            <text class="m-et" x="204" y="266" text-anchor="end">Mar del Plata</text>
+            <text class="m-sub" x="204" y="280" text-anchor="end">DEPÓSITO · VICTORIANO MONTES 1963</text>
+            <text class="m-km" x="138" y="178" text-anchor="end">≈ 400 km</text>
+            <text class="m-sub" x="138" y="192" text-anchor="end">IDA Y VUELTA</text>
+            <text class="m-norte" x="300" y="22">N ↑</text>
+          </svg>
+          <figcaption>Esquema de referencia, no está a escala.</figcaption>
+        </figure>
+        <div class="ruta-cards">
+          <article class="ruta-card">
+            <p class="mono">Sucursal · <span data-dato="barrioBA">Buenos Aires</span>, CABA</p>
+            <h3 data-dato="sucursalBA">A confirmar</h3>
+            <p>Recibimos la carga <span data-dato="recepcionFraseBA">A confirmar</span>. El sábado sale para Mar del Plata.</p>
+            <p>Acá se retira la carga que viene de Mar del Plata.</p>
+            <a class="btn btn-borde btn-chico" data-mapa="sucursal" href="#contacto"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Ver en Google Maps</a>
+          </article>
+          <article class="ruta-card">
+            <p class="mono">Depósito · Mar del Plata</p>
+            <h3 data-dato="direccion">A confirmar</h3>
+            <p>Abierto <span data-dato="horarioMdpFrase">A confirmar</span>. Recibimos la carga <span data-dato="recepcionFrase">A confirmar</span>. Los sábados está cerrado.</p>
+            <p>Entregamos en Mar del Plata, y en Batán y Sierra de los Padres con costo extra.</p>
+            <a class="btn btn-borde btn-chico" data-mapa href="#contacto"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Ver en Google Maps</a>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUDS -->
+  <section class="seccion seccion-blanca" id="cuds" aria-labelledby="t-cuds">
+    <div class="contenedor">
+      <div class="cuds-cabeza">
+        <header class="seccion-cabeza">
+          <p class="seccion-num mono">05 · Club CUDS</p>
+          <h2 id="t-cuds">¡Somos sponsors de CUDS!</h2>
+        </header>
+        <div class="cuds-dupla" role="img" aria-label="CUDS × Saldar">
+          <img class="cuds-logo" src="img/cuds-logo.webp" width="245" height="360" alt="" loading="lazy">
+          <svg class="cuds-x" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 5l14 14M19 5 5 19"/></svg>
+          <img class="cuds-saldar" src="img/saldar-logo.webp" width="708" height="140" alt="" loading="lazy">
+        </div>
+      </div>
+      <!-- Carnet de socio: el descuento y cómo pedirlo -->
+      <div class="carnet">
+        <div class="carnet-main">
+          <div class="carnet-escudo"><img src="img/cuds-logo.webp" width="245" height="360" alt="" loading="lazy"></div>
+          <div>
+            <p class="carnet-et mono">Beneficio para socios de CUDS</p>
+            <p class="carnet-tit">Tenés <span>descuento</span> en el servicio</p>
+          </div>
+        </div>
+        <div class="carnet-talon">
+          <p class="carnet-et mono">¿Cómo lo pedís?</p>
+          <p>Escribinos por WhatsApp, decinos que sos socio y te contamos.</p>
+          <a class="btn btn-claro" data-wa="¡Hola Saldar! Soy socio de CUDS y quiero consultar por el descuento." href="#contacto"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Pedir mi descuento</a>
+        </div>
+      </div>
+      <ol class="cuds-pasos">
+        <li><span class="mono" aria-hidden="true">1</span>Sos socio de CUDS</li>
+        <li><span class="mono" aria-hidden="true">2</span>Nos escribís por WhatsApp</li>
+        <li><span class="mono" aria-hidden="true">3</span>Te confirmamos el descuento</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- PREGUNTAS -->
+  <section class="seccion" id="preguntas" aria-labelledby="t-preguntas">
+    <div class="contenedor">
+      <header class="seccion-cabeza">
+        <p class="seccion-num mono">06 · Preguntas</p>
+        <h2 id="t-preguntas">Preguntas frecuentes</h2>
+      </header>
+      <div class="preguntas" id="lista-preguntas"></div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="seccion" id="contacto" aria-labelledby="t-contacto">
+    <div class="contenedor">
+      <header class="seccion-cabeza">
+        <p class="seccion-num mono">07 · Contacto</p>
+        <h2 id="t-contacto">Hablemos</h2>
+      </header>
+      <div class="contacto">
+        <div class="contacto-principal">
+          <h3>¿Tenés carga para mandar?</h3>
+          <p>Escribinos por WhatsApp o mandanos un mensaje por Instagram.</p>
+          <div class="contacto-botones">
+            <a class="btn btn-claro" data-wa href="#contacto"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Escribinos por WhatsApp</a>
+            <a class="btn btn-borde-claro" data-ig href="https://www.instagram.com/saldar223/" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-ig"/></svg><span data-ig-usuario>@saldar223</span></a>
+          </div>
+        </div>
+        <dl class="datos">
+          <div class="dato"><svg class="ico" aria-hidden="true"><use href="#i-reloj"/></svg><div><dt>Horario</dt><dd data-dato="horarioCompleto">A confirmar</dd></div></div>
+          <div class="dato"><svg class="ico" aria-hidden="true"><use href="#i-pago"/></svg><div><dt>Medios de pago</dt><dd data-dato="pagosCompleto">A confirmar</dd></div></div>
+          <div class="dato"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg><div><dt>Depósito</dt><dd><span data-dato="direccionCompleta">A confirmar</span> <a data-mapa href="#contacto">Ver en el mapa</a></dd></div></div>
+          <div class="dato"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg><div><dt>Sucursal Buenos Aires</dt><dd><span data-dato="sucursalCompleta">A confirmar</span> <a data-mapa="sucursal" href="#contacto">Ver en el mapa</a></dd></div></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="contenedor">
+    <div class="pie-trabajo" data-mail-cv-bloque>
+      <svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg>
+      <div>
+        <p class="pie-trabajo-tit">Trabajá con nosotros</p>
+        <p>Mandanos tu CV a <span data-mail-cv-texto>logisticasaldar1963@gmail.com</span></p>
+      </div>
+      <a class="btn btn-primario btn-chico" data-mail-cv href="#contacto">Mandar mi CV</a>
+    </div>
+  </div>
+  <div class="contenedor pie-in">
+    <img class="logo" src="img/saldar-logo.webp" width="708" height="140" alt="Saldar · Logística y distribución" loading="lazy">
+    <p>© <span id="anio">2026</span> Saldar · Logística y distribución Buenos Aires – Mar del Plata · Desde 2015</p>
+    <p class="pie-credito">Desarrollado por ConnectHUB</p>
+  </div>
+</footer>
+
+<script>
+"use strict";
+
+/* ============================================================
+   CÓMO FUNCIONA LA PÁGINA
+   Arriba están las funciones; las TARIFAS y los DATOS DEL NEGOCIO
+   están todos juntos AL FINAL de este script (buscá "DATOS DE SALDAR").
+   ============================================================ */
+
+const $ = (s, el = document) => el.querySelector(s);
+const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+const esc = (t) => String(t ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const formatoPesos = new Intl.NumberFormat("es-AR", { style: "currency", currency: "ARS", maximumFractionDigits: 0 });
+const formatoCentavos = new Intl.NumberFormat("es-AR", { style: "currency", currency: "ARS", minimumFractionDigits: 2, maximumFractionDigits: 2 });
+// Muestra centavos solo si el monto los tiene: $ 9.181,97 / $ 15.000
+const pesos = (n) => (Math.round(n * 100) % 100 ? formatoCentavos : formatoPesos).format(n);
+// redondeo 0 = no redondea (deja los centavos)
+const redondear = (n) => { const r = TARIFAS.redondeo; return r ? Math.round(n / r) * r : Math.round(n * 100) / 100; };
+const suma = (lineas) => lineas.reduce((t, l) => t + l.v, 0);
+const lista = (xs) => xs.length < 2 ? xs.join("") : xs.slice(0, -1).join(", ") + " y " + xs[xs.length - 1];
+const plural = (n, uno, varios) => `${n} ${n === 1 ? uno : varios}`;
+const numero = (n) => new Intl.NumberFormat("es-AR").format(n);
+const minuscula = (t) => t && t.charAt(0).toLowerCase() + t.slice(1);
+const mayuscula = (t) => t && t.charAt(0).toUpperCase() + t.slice(1);
+const valorRadio = (name) => $(`input[name="${name}"]:checked`)?.value;
+const icono = (id, clase = "ico") => `<svg class="${clase}" aria-hidden="true"><use href="#${id}"/></svg>`;
+
+/* ---------- Datos sueltos del negocio (horario, dirección, Instagram) ---------- */
+// Los datos de NEGOCIO más un par que se arman con ellos.
+function dato(clave) {
+  if (clave === "direccionCompleta") return NEGOCIO.direccion && `${NEGOCIO.direccion}, ${NEGOCIO.ciudad}`;
+  if (clave === "sucursalConBarrio") return NEGOCIO.sucursalBA && [NEGOCIO.sucursalBA, NEGOCIO.barrioBA].filter(Boolean).join(", ");
+  if (clave === "sucursalCompleta") return NEGOCIO.sucursalBA && [NEGOCIO.sucursalBA, NEGOCIO.barrioBA, NEGOCIO.ciudadBA].filter(Boolean).join(", ");
+  if (clave === "salidaCarga") return `De Buenos Aires sale desde nuestra sucursal${NEGOCIO.sucursalBA ? `, en ${dato("sucursalConBarrio")}` : ""}. De Mar del Plata, desde nuestro depósito${NEGOCIO.direccion ? `, en ${NEGOCIO.direccion}` : ""}.`;
+  if (clave === "comoSeCalcula") {
+    const k = TARIFAS.kilos, rec = TARIFAS.sentidos.find((x) => x.recargo);
+    return `Por bulto, según sus kilos: de 1 a ${k.tramo} kg se cobra el mínimo (${pesos(k.minimo)}) y el precio sube cada ${k.tramo} kg (cada bulto puede pesar hasta ${numero(k.maximo)} kg). Si embalás la carga en un palet completo, se cobra por palet: ${pesos(TARIFAS.palet.porPalet)}.`
+      + (rec ? ` De ${rec.desde} a ${rec.hasta} tiene un recargo del ${rec.recargo} % sobre todo el envío (bultos y palets).` : "")
+      + ` El seguro es el ${numero(TARIFAS.seguro.porMil / 10)} % del valor declarado.`
+      + " El del cotizador es un precio estimado: cuando nos escribís por WhatsApp te confirmamos el final antes del viaje.";
+  }
+  if (clave === "palets") return `Sí. Si embalás toda la carga en un palet completo, se cobra por palet: ${pesos(TARIFAS.palet.porPalet)}. Cuando son muchos bultos, te puede convenir.`;
+  if (clave === "maxKilos") return `Hasta ${numero(TARIFAS.kilos.maximo)} kg por bulto. Si tenés algo más pesado, escribinos y lo coordinamos.`;
+  if (clave === "sucursal") return "Sí, tenemos sucursal en Buenos Aires." + (NEGOCIO.sucursalBA ? ` Está en ${dato("sucursalConBarrio")}.` : "")
+    + (NEGOCIO.recepcionBA ? ` Recibimos la carga ${dato("recepcionFraseBA")}.` : "");
+  if (clave === "recepcionFrase") return minuscula(NEGOCIO.recepcion);
+  if (clave === "horarioMdpFrase") return minuscula(NEGOCIO.horarioMdp);
+  if (clave === "recepcionFraseBA") return minuscula(NEGOCIO.recepcionBA);
+  // Buenos Aires primero (es de donde sale la mayoría de la carga)
+  if (clave === "recepcionCompleta") return [
+    NEGOCIO.recepcionBA && `en Buenos Aires, ${dato("recepcionFraseBA")}`,
+    NEGOCIO.recepcion && `en Mar del Plata, ${dato("recepcionFrase")}`,
+  ].filter(Boolean).join("; ");
+  if (clave === "horarioCompleto") return `${NEGOCIO.horario}. Recibimos la carga ${dato("recepcionCompleta")}. El depósito de Mar del Plata abre ${dato("horarioMdpFrase")}. ${NEGOCIO.sabados}`;
+  if (clave === "recepcionCarga") return `${mayuscula(dato("recepcionCompleta"))}. ${NEGOCIO.sabados}`;
+  if (clave === "pagosCompleto") return NEGOCIO.pagos && `${NEGOCIO.pagos}. ${NEGOCIO.factura}`;
+  return NEGOCIO[clave];
+}
+
+function enlaceMapa(direccion = dato("direccionCompleta")) {
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(direccion)}`;
+}
+
+function pintarDatos() {
+  $$("[data-dato]").forEach((el) => {
+    const v = dato(el.dataset.dato);
+    el.textContent = v || "A confirmar";
+    el.classList.toggle("confirmar", !v);
+  });
+  // Links a Google Maps (solo un link: no usa la API ni pide clave)
+  $$("[data-mapa]").forEach((a) => {
+    const dir = dato(a.dataset.mapa === "sucursal" ? "sucursalCompleta" : "direccionCompleta");
+    a.hidden = !dir;
+    a.href = enlaceMapa(dir || "");
+    a.target = "_blank";
+    a.rel = "noopener";
+  });
+  const ig = `https://www.instagram.com/${NEGOCIO.instagram}/`;
+  $$("[data-ig]").forEach((a) => (a.href = ig));
+  $$("[data-ig-usuario]").forEach((el) => (el.textContent = "@" + NEGOCIO.instagram));
+}
+
+function enlaceWhatsapp(texto) {
+  return `https://wa.me/${NEGOCIO.whatsapp}?text=${encodeURIComponent(texto)}`;
+}
+
+function enlazarWhatsapp() {
+  $$("[data-wa]").forEach((a) => {
+    a.href = enlaceWhatsapp(a.dataset.wa || NEGOCIO.mensajeGeneral);
+    a.target = "_blank";
+    a.rel = "noopener";
+  });
+}
+
+/* ---------- Servicios ---------- */
+function pintarServicios() {
+  const activos = NEGOCIO.servicios.filter((s) => s.activo);
+  $("#lista-servicios").innerHTML = activos.map((s) => `
+    <article class="servicio">
+      ${icono(s.icono)}
+      <h3>${esc(s.titulo)}</h3>
+      <p>${esc(s.texto)}</p>
+      ${s.etiquetas?.length ? `<div class="servicio-etiquetas">${s.etiquetas.map((e) => `<span>${esc(e)}</span>`).join("")}</div>` : ""}
+      ${s.boton ? `<a class="btn btn-borde btn-chico" data-wa="${esc(s.boton.mensaje)}" href="#contacto">${icono("i-wa")}${esc(s.boton.texto)}</a>` : ""}
+    </article>`).join("") + `
+    <article class="servicio servicio-otro">
+      ${icono("i-chat")}
+      <h3>¿Necesitás otra cosa?</h3>
+      <p>Contanos qué hay que llevar y adónde, y lo vemos.</p>
+      <a class="btn btn-borde btn-chico" data-wa href="#contacto">${icono("i-wa")}Consultanos</a>
+    </article>`;
+}
+
+/* ---------- Cotizador: armar los controles ---------- */
+function tarjetaOpcion(name, item, detallePrecio, svg) {
+  return `<label class="opcion">
+    <input type="radio" name="${name}" value="${item.id}">
+    <span class="opcion-caja">
+      <span class="opcion-icono" aria-hidden="true">${svg}</span>
+      <span class="opcion-nombre">${esc(item.nombre)}</span>
+      <span class="opcion-detalle">${esc(item.detalle)}</span>
+      <span class="opcion-precio">${detallePrecio}</span>
+    </span>
+  </label>`;
+}
+
+// Precio de un bulto según sus kilos: el mínimo hasta 10 kg y, después,
+// lo que suma cada tramo de 10 kg más (TARIFAS.kilos)
+function precioBulto(kg) {
+  const k = TARIFAS.kilos;
+  const tramos = Math.max(1, Math.ceil(kg / k.tramo));
+  return redondear(k.minimo + (tramos - 1) * k.porTramoExtra);
+}
+
+function rangoBulto(kg) {
+  const k = TARIFAS.kilos;
+  const tramos = Math.max(1, Math.ceil(kg / k.tramo));
+  return tramos === 1 ? `mínimo (1 a ${k.tramo} kg)` : `de ${numero((tramos - 1) * k.tramo)} a ${numero(tramos * k.tramo)} kg`;
+}
+
+let filasCreadas = 0;
+function filaBulto(kg, n) {
+  const i = filasCreadas++;
+  const fila = document.createElement("div");
+  fila.className = "bulto-fila";
+  fila.innerHTML = `
+    <div class="kg"><label for="kg-${i}">Peso (kg)</label>
+      <input class="kg-input" id="kg-${i}" type="number" inputmode="numeric" value="${kg}" min="1" max="${TARIFAS.kilos.maximo}"></div>
+    <div class="cant"><label for="cant-${i}">Cantidad</label>
+      <div class="contador-ctrl">
+        <button class="contador-btn" type="button" data-para="cant-${i}" data-paso="-1" aria-label="Un bulto menos de este peso">−</button>
+        <input class="cant-input" id="cant-${i}" type="number" inputmode="numeric" value="${n}" min="0" max="${TARIFAS.maxBultos}">
+        <button class="contador-btn" type="button" data-para="cant-${i}" data-paso="1" aria-label="Un bulto más de este peso">+</button>
+      </div></div>
+    <p class="bulto-precio"></p>
+    <button class="bulto-quitar" type="button" aria-label="Quitar este bulto">×</button>`;
+  return fila;
+}
+
+function filaPalet() {
+  const pa = TARIFAS.palet;
+  return `<div class="peso-fila">
+    <label class="peso-et" for="palets"><strong>Palet completo</strong><span>${pesos(pa.porPalet)} por palet${pa.ejemplo && NEGOCIO.tarifasDeEjemplo ? " · ejemplo" : ""}</span></label>
+    <div class="contador-ctrl">
+      <button class="contador-btn" type="button" data-para="palets" data-paso="-1" aria-label="Un palet menos">−</button>
+      <input class="cant-input" id="palets" name="palets" type="number" inputmode="numeric" value="0" min="0" max="${pa.max}">
+      <button class="contador-btn" type="button" data-para="palets" data-paso="1" aria-label="Un palet más">+</button>
+    </div>
+  </div>`;
+}
+
+function pintarCotizador() {
+  $("#sentidos").innerHTML = TARIFAS.sentidos.map((s) =>
+    tarjetaOpcion("sentido", s, s.recargo ? `Recargo del ${s.recargo} %` : "Sin recargo", icono("i-camion"))
+  ).join("");
+  $(`input[name="sentido"][value="${TARIFAS.sentidos[0].id}"]`).checked = true;
+  $("#bultos").append(filaBulto(10, 1));
+  $("#palets-fila").innerHTML = filaPalet();
+  $("#palet-ayuda").textContent = `Si juntás la carga en un palet completo, se cobra por palet y no por bulto: con muchos bultos te puede convenir. Lo que va en el palet no lo cargues arriba como bulto.`;
+  const k = TARIFAS.kilos;
+  $("#tarifa-kilos").textContent = `De 1 a ${k.tramo} kg: ${pesos(k.minimo)} (mínimo). Cada ${k.tramo} kg más: + ${pesos(k.porTramoExtra)}${k.ejemplo && NEGOCIO.tarifasDeEjemplo ? " (ejemplo)" : ""}. Cada bulto puede pesar hasta ${numero(k.maximo)} kg; si pesa más, escribinos.`;
+  $("#zona-entrega").innerHTML = TARIFAS.zonasMdp.map((z) =>
+    `<option value="${z.id}">${esc(z.nombre)}${z.extra ? ` (costo extra: ${pesos(z.extra)})` : ""}</option>`
+  ).join("");
+
+  // Día: no se puede elegir una fecha pasada
+  const hoy = new Date();
+  hoy.setMinutes(hoy.getMinutes() - hoy.getTimezoneOffset());
+  $("#dia").min = hoy.toISOString().slice(0, 10);
+
+  enlazarCotizador();
+  actualizar();
+}
+
+/* ---------- Cotizador: cálculo ---------- */
+// Valor declarado: acepta "250000", "250.000" o "250.000,50", en pesos, dólares o euros
+const MONEDAS = { ARS: "$", USD: "US$", EUR: "€" };
+const MONEDAS_NOMBRE = { USD: "dólares", EUR: "euros" };
+const valorDeclarado = () => leerPlata() && `${MONEDAS[$("#moneda").value]} ${pesos(leerPlata()).replace(/^\$\s*/, "")}`;
+function leerPlata() {
+  const n = parseFloat($("#valor").value.replace(/[^\d,]/g, "").replace(",", "."));
+  return n > 0 ? Math.round(n * 100) / 100 : null;
+}
+
+function leerNumero(id) {
+  const el = $("#" + id);
+  const n = Math.round(+el.value);
+  const min = +el.min, max = +el.max;
+  return Math.min(max, Math.max(min, Number.isFinite(n) ? n : min));
+}
+
+// Cada bulto se cobra según sus kilos (cantidad × precio de ese peso) y cada palet a su precio
+function calcular() {
+  const s = TARIFAS.sentidos.find((x) => x.id === valorRadio("sentido"));
+  const filas = $$(".bulto-fila").map((fila) => {
+    const kg = leerNumero(fila.querySelector(".kg-input").id);
+    return { kg, n: leerNumero(fila.querySelector(".cant-input").id), precio: precioBulto(kg) };
+  }).filter((f) => f.n > 0);
+  const bultos = filas.reduce((t, f) => t + f.n, 0);
+  const palets = leerNumero("palets");
+  if (!s || (!bultos && !palets)) return { s, filas, bultos, palets, lineas: [], total: null };
+  const lineas = filas.map((f) => ({ c: `${plural(f.n, "bulto", "bultos")} de ${numero(f.kg)} kg × ${pesos(f.precio)}`, v: redondear(f.n * f.precio) }));
+  if (palets) lineas.push({ c: `${plural(palets, "palet completo", "palets completos")} × ${pesos(TARIFAS.palet.porPalet)}`, v: redondear(palets * TARIFAS.palet.porPalet) });
+  // Recargo del sentido (de Mar del Plata a Buenos Aires: 20 % sobre bultos y palets)
+  if (s.recargo) lineas.push({ c: `Recargo ${s.desde} → ${s.hasta} (+${s.recargo} %)`, v: redondear((suma(lineas) * s.recargo) / 100) });
+  // Si se entrega en Mar del Plata, puede ser en Batán o Sierra de los Padres (costo extra)
+  const zona = s.hasta === "Mar del Plata" ? TARIFAS.zonasMdp.find((z) => z.id === $("#zona-entrega").value) : null;
+  if (zona?.extra) lineas.push({ c: `Entrega en ${zona.nombre} (costo extra)`, v: zona.extra });
+  // Seguro: valor declarado × 6 ÷ 1000 (el dueño, 27/10/2026). El cotizador lo
+  // calcula solo en pesos; si el valor está en dólares o euros, Saldar lo pasa a
+  // pesos y calcula el seguro por WhatsApp (audio del dueño, 27/10/2026).
+  const valor = leerPlata(), moneda = $("#moneda").value;
+  const seguro = valor ? Math.round((valor * TARIFAS.seguro.porMil / 1000) * 100) / 100 : 0;
+  const seguroTexto = `Seguro (${numero(TARIFAS.seguro.porMil / 10)} % del valor declarado)`;
+  if (seguro && moneda === "ARS") lineas.push({ c: seguroTexto, v: redondear(seguro) });
+  const seguroAparte = valor && moneda !== "ARS" ? MONEDAS_NOMBRE[moneda] : null;
+  return { s, filas, bultos, palets, zona, lineas, seguroTexto, seguroAparte, total: redondear(suma(lineas)) };
+}
+
+// De Mar del Plata a Buenos Aires: dónde se retira (la sucursal, con su dirección y el mapa)
+function retiroFrase() {
+  const dir = dato("sucursalConBarrio"), completa = dato("sucursalCompleta");
+  return `En Buenos Aires la retirás por nuestra sucursal${dir ? `: <strong>${esc(dir)}</strong> (<a href="${enlaceMapa(completa)}" target="_blank" rel="noopener">ver en el mapa</a>)` : ""}.`;
+}
+
+// De dónde sale la carga en cada sentido (depósito o sucursal, con su dirección si la hay)
+function lugarSalida(s) {
+  const dir = dato(s.direccionSalida);
+  return dir ? `${s.salida} (${dir})` : s.salida;
+}
+
+/* ---------- Cotizador: mostrar el precio ---------- */
+function actualizar() {
+  const r = calcular();
+  $("#tr-1").textContent = r.s ? r.s.salida : "—";
+  const carga = [r.bultos && plural(r.bultos, "bulto", "bultos"), r.palets && plural(r.palets, "palet", "palets")].filter(Boolean);
+  $("#tr-2").textContent = r.s ? [r.s.hasta + (r.s.retiro ? " (retiro en sucursal)" : ""), ...carga].join(" · ") : "—";
+  $$(".peso-fila, .bulto-fila").forEach((fila) => fila.classList.toggle("con-bultos", +fila.querySelector(".cant-input").value > 0));
+  $$(".bulto-fila").forEach((fila) => {
+    const kg = leerNumero(fila.querySelector(".kg-input").id);
+    fila.querySelector(".bulto-precio").textContent = `${pesos(precioBulto(kg))} c/u · ${rangoBulto(kg)}`;
+  });
+  // Opción palet cerrada: si los bultos ya suman lo que sale un palet, avisa que puede convenir
+  const conviene = $("#palet-panel").hidden && r.filas.reduce((t, f) => t + f.n * f.precio, 0) >= TARIFAS.palet.porPalet;
+  $("#palet-abrir").classList.toggle("conviene", conviene);
+  $("#palet-detalle").textContent = !$("#palet-panel").hidden ? "Tocá para sacar los palets"
+    : conviene ? `Con estos bultos te puede convenir: el palet completo sale ${pesos(TARIFAS.palet.porPalet)}`
+    : `Se cobra por palet completo: ${pesos(TARIFAS.palet.porPalet)}`;
+  $("#campo-zona").hidden = !r.s || r.s.hasta !== "Mar del Plata";
+  // De Mar del Plata a Buenos Aires no hay entrega a domicilio: se retira por la sucursal
+  $("#campo-dir").hidden = !!r.s?.retiro;
+  if (r.s) {
+    $("#dir-entrega").placeholder = `Calle, número y localidad en ${r.zona ? r.zona.nombre : r.s.hasta}`;
+    const dir = dato(r.s.direccionSalida);
+    const completa = dato(r.s.direccionSalida === "direccion" ? "direccionCompleta" : "sucursalCompleta");
+    const mapa = completa ? ` (<a href="${enlaceMapa(completa)}" target="_blank" rel="noopener">ver en el mapa</a>)` : "";
+    $("#dia-ayuda").textContent = r.s.cuandoSale;
+    $("#aviso-salida").innerHTML = `La carga sale desde ${r.s.salidaEnFrase}${dir ? `: <strong>${esc(dir)}</strong>${mapa}` : ` <span class="confirmar">(dirección a confirmar)</span>`}.${NEGOCIO[r.s.recepcionSalida] ? ` Recibimos la carga ${esc(minuscula(NEGOCIO[r.s.recepcionSalida]))}.` : ""} ${r.s.retiro ? retiroFrase() : "Te la entregamos a domicilio."}`;
+  }
+  $("#ticket-lineas").innerHTML = r.lineas.map((l) => `<li><span>${esc(l.c)}</span><span>${pesos(l.v)}</span></li>`).join("");
+  $("#ticket-lineas").hidden = !r.lineas.length;
+  const seg = $("#ticket-seguro");
+  seg.hidden = r.total == null || (!r.seguroAparte && leerPlata());
+  seg.textContent = r.seguroAparte ? `+ ${r.seguroTexto}: como el valor está en ${r.seguroAparte}, lo pasamos a pesos y te lo calculamos por WhatsApp.`
+    : `+ ${r.seguroTexto}: completá el valor declarado.`;
+  const total = $("#ticket-total");
+  if (r.total == null) {
+    total.classList.add("vacio");
+    total.textContent = "Agregá al menos un bulto (o un palet) para ver el precio.";
+    $("#enviar-total").textContent = "—";
+  } else {
+    total.classList.remove("vacio");
+    total.innerHTML = `<span class="sr">Total estimado: </span>${pesos(r.total)}`;
+    $("#enviar-total").textContent = pesos(r.total);
+  }
+  $("#pedir").href = r.total == null ? "#cotizador" : enlaceWhatsapp(armarMensaje(r));
+  return r;
+}
+
+/* ---------- Cotizador: interacción ---------- */
+function enlazarCotizador() {
+  const form = $("#form-cot");
+  form.addEventListener("input", (e) => { e.target.removeAttribute("aria-invalid"); actualizar(); });
+  form.addEventListener("change", actualizar);
+  form.addEventListener("submit", (e) => e.preventDefault());
+  // El link ya tiene el mensaje armado; si falta algo, no se abre y avisa qué completar.
+  $("#pedir").addEventListener("click", (e) => { if (!validarPedido()) e.preventDefault(); });
+
+  // Las filas de bultos se agregan y se quitan: los clics se escuchan en el formulario
+  form.addEventListener("click", (e) => {
+    const b = e.target.closest(".contador-btn");
+    if (b) {
+      const el = $("#" + b.dataset.para);
+      el.value = Math.min(+el.max, Math.max(+el.min, (+el.value || 0) + +b.dataset.paso));
+      actualizar();
+    }
+    const quitar = e.target.closest(".bulto-quitar");
+    if (quitar) {
+      quitar.closest(".bulto-fila").remove();
+      $("#agregar-bulto").focus();
+      actualizar();
+    }
+  });
+  form.addEventListener("focusout", (e) => {
+    if (e.target.matches(".kg-input, .contador-ctrl input")) { e.target.value = leerNumero(e.target.id); actualizar(); }
+    if (e.target.id === "valor") { const v = leerPlata(); e.target.value = v ? pesos(v).replace(/^\$\s*/, "") : ""; actualizar(); }
+  });
+  // Opción palet: al abrirla suma un palet; al cerrarla lo saca
+  $("#palet-abrir").addEventListener("click", () => {
+    const abrir = $("#palet-panel").hidden;
+    $("#palet-panel").hidden = !abrir;
+    $("#palet-abrir").setAttribute("aria-expanded", abrir);
+    $("#palet-abrir .palet-signo").textContent = abrir ? "−" : "+";
+    $("#palets").value = abrir ? Math.max(1, +$("#palets").value) : 0;
+    actualizar();
+  });
+  $("#agregar-bulto").addEventListener("click", () => {
+    const fila = filaBulto(10, 1);
+    $("#bultos").append(fila);
+    fila.querySelector(".kg-input").select();
+    actualizar();
+  });
+}
+
+function fechaLinda(valor) {
+  if (!valor) return "";
+  const [a, m, d] = valor.split("-").map(Number);
+  const dia = new Date(a, m - 1, d).toLocaleDateString("es-AR", { weekday: "long" });
+  return `${dia} ${d}/${m}`;
+}
+
+function armarMensaje(r) {
+  const val = (id) => $("#" + id).value.trim();
+  const L = [`¡Hola ${NEGOCIO.nombre}! Quiero cotizar un envío desde la web.`, ""];
+  L.push(`*Viaje:* ${r.s.desde} → ${r.s.hasta}`);
+  L.push(`*Sale de:* ${lugarSalida(r.s)}`);
+  if (r.bultos) L.push(`*Bultos:* ${r.filas.map((f) => `${f.n} de ${numero(f.kg)} kg`).join(", ")}`);
+  if (r.palets) L.push(`*Palets completos:* ${r.palets}`);
+  if (leerPlata()) L.push(`*Valor declarado:* ${valorDeclarado()}`);
+  if (r.s.retiro) L.push(`*Retira en:* Sucursal de Buenos Aires${NEGOCIO.sucursalBA ? ` (${dato("sucursalConBarrio")})` : ""}`);
+  else L.push(`*Entrega a domicilio:* ${val("dir-entrega")} (${r.zona ? r.zona.nombre : r.s.hasta})`);
+  const cuando = [fechaLinda(val("dia")), val("franja").toLowerCase()].filter(Boolean).join(", ");
+  if (cuando) L.push(`*Cuándo:* ${cuando}`);
+  L.push(`*Nombre:* ${val("nombre")}`);
+  if ($("#socio-cuds").checked) L.push("*Socio de CUDS:* sí, quiero consultar el descuento");
+  if (val("comentario")) L.push(`*Comentario:* ${val("comentario")}`);
+  L.push("", `*Total: ${pesos(r.total)}${r.seguroAparte ? " + seguro" : ""}* (precio estimado, a confirmar)`);
+  r.lineas.forEach((l) => L.push(`• ${l.c}: ${pesos(l.v)}`));
+  if (r.seguroAparte) L.push(`• ${r.seguroTexto}: a calcular (pasar ${valorDeclarado()} a pesos)`);
+  return L.join("\n");
+}
+
+function validarPedido() {
+  const r = actualizar();
+  const faltan = [];
+  if (r.total == null) faltan.push([$(".bulto-fila .cant-input")?.id || "agregar-bulto", "al menos un bulto (o un palet)"]);
+  if (!leerPlata()) faltan.push(["valor", "el valor declarado"]);
+  if (!$("#nombre").value.trim()) faltan.push(["nombre", "tu nombre"]);
+  if (!r.s?.retiro && !$("#dir-entrega").value.trim()) faltan.push(["dir-entrega", "la dirección de entrega"]);
+
+  $$("#form-cot [aria-invalid]").forEach((el) => el.removeAttribute("aria-invalid"));
+  if (faltan.length || r.total == null) {
+    faltan.forEach(([id]) => $("#" + id).setAttribute("aria-invalid", "true"));
+    $("#enviar-error").textContent = faltan.length ? "Para mandar el pedido falta " + lista(faltan.map((f) => f[1])) + "." : "Agregá al menos un bulto (o un palet).";
+    if (faltan.length) $("#" + faltan[0][0]).focus();
+    return false;
+  }
+  $("#enviar-error").textContent = "";
+  return true;
+}
+
+/* ---------- Preguntas ---------- */
+function pintarPreguntas() {
+  $("#lista-preguntas").innerHTML = NEGOCIO.preguntas.map((q) => {
+    let r = q.dato ? dato(q.dato) : q.r;
+    if (r && !/[.!?]$/.test(r)) r += ".";
+    return `<details class="pregunta"><summary>${esc(q.p)}</summary><p${r ? "" : ' class="confirmar"'}>${esc(r || "A confirmar.")}</p></details>`;
+  }).join("");
+}
+
+/* ---------- Trabajá con nosotros: el CV va por mail ---------- */
+// Los links "Trabajá con nosotros" (pie y menú) abren el mail con un modelo; el CV lo adjunta la persona.
+function enlaceMailCV() {
+  const cuerpo = ["Hola Saldar, les mando mi currículum (va adjunto).", "", "Nombre:", "Teléfono:", "¿En qué me gustaría trabajar?:", "", "(Enviado desde la web)"].join("\n");
+  return `mailto:${NEGOCIO.mailCV}?subject=${encodeURIComponent("CV - Trabajá con nosotros")}&body=${encodeURIComponent(cuerpo)}`;
+}
+
+function enlazarCV() {
+  $$("[data-mail-cv]").forEach((a) => {
+    a.hidden = !NEGOCIO.mailCV;
+    a.href = enlaceMailCV();
+    a.target = "_blank";
+    a.rel = "noopener";
+  });
+  $$("[data-mail-cv-texto]").forEach((el) => (el.textContent = NEGOCIO.mailCV));
+  $$("[data-mail-cv-bloque]").forEach((el) => (el.hidden = !NEGOCIO.mailCV));
+}
+
+/* ---------- Menú (las tres rayitas) ---------- */
+function enlazarMenu() {
+  const boton = $("#menu-boton"), panel = $("#menu-panel");
+  const abrir = (si) => {
+    panel.hidden = !si;
+    boton.setAttribute("aria-expanded", si);
+    boton.setAttribute("aria-label", si ? "Cerrar el menú" : "Abrir el menú");
+  };
+  boton.addEventListener("click", () => abrir(panel.hidden));
+  // Al tocar un link se cierra (así se ve la sección a la que lleva)
+  panel.addEventListener("click", (e) => { if (e.target.closest("a")) abrir(false); });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !panel.hidden) { abrir(false); boton.focus(); }
+  });
+}
+
+function iniciar() {
+  if (!NEGOCIO.tarifasDeEjemplo) {
+    $("#vista-previa")?.remove();
+    $("#ticket-ejemplo")?.remove();
+  }
+  pintarDatos();
+  pintarServicios();
+  pintarCotizador();
+  pintarPreguntas();
+  enlazarWhatsapp();
+  enlazarCV();
+  enlazarMenu();
+  $("#anio").textContent = new Date().getFullYear();
+}
+
+
+/* ═════════════════════════════════════════════════════════════
+   DATOS DE SALDAR — ACÁ SE CAMBIAN LOS PRECIOS
+   ─────────────────────────────────────────────────────────────
+   Cómo cambiar un precio:
+     1. Buscá el número que querés cambiar (abajo, en TARIFAS.kilos o
+        TARIFAS.palet).
+     2. Cambiá solo el número, SIN puntos de miles ni signo $. Los
+        centavos van con punto: 9181.97 está bien; "9.181,97" o
+        "$9181" rompen la página.
+     3. Guardá. La página hace sola el formato ($ 9.181,97), el total
+        y el mensaje de WhatsApp.
+
+   Cómo se calcula un envío:
+     cada bulto se cobra según sus kilos (TARIFAS.kilos): hasta 10 kg el
+     mínimo, y por cada tramo de 10 kg más se suma "porTramoExtra"
+     (ej.: 25 kg = mínimo + 2 tramos). total = suma de (cantidad × precio
+     de cada bulto) + palets completos × precio del palet
+     + recargo del sentido (de Mar del Plata a Buenos Aires: 20 %)
+     + costo extra de la zona (Batán / Sierra de los Padres).
+     Se redondea a TARIFAS.redondeo.
+
+   IMPORTANTE: estas tarifas son DE EJEMPLO (inventadas para la demo).
+   Cuando estén las reales de Saldar, cargalas y poné
+   NEGOCIO.tarifasDeEjemplo = false para que se vaya la barra
+   "VISTA PREVIA".
+   ═════════════════════════════════════════════════════════════ */
+
+const NEGOCIO = {
+  nombre: "Saldar",                // confirmado por el dueño (19/10/2026)
+  // WhatsApp que recibe los pedidos. POR AHORA ES EL DE MATEO (pruebas).
+  // Formato: 549 + característica sin el 0 + número sin el 15. Ej.: 5492231234567
+  whatsapp: "5492235337853",
+  instagram: "saldar223",
+  tarifasDeEjemplo: true,          // true = muestra "VISTA PREVIA: tarifas de ejemplo"
+
+  // Datos del dueño (20/10/2026). Vacío ("") = la página muestra "A confirmar".
+  horario: "Trabajamos de lunes a sábados",
+  horarioMdp: "De lunes a viernes, de 8 a 15",    // horario del depósito de Mar del Plata (el dueño, 27/10/2026)
+  recepcion: "De lunes a viernes, de 8 a 13",     // recepción de carga en el depósito de Mar del Plata (el dueño, 27/10/2026)
+  recepcionBA: "De lunes a viernes, de 8 a 17",   // recepción de carga en la sucursal de Buenos Aires (el dueño, 23/10/2026)
+  sabados: "Los sábados el depósito de Mar del Plata está cerrado.",
+  direccion: "Victoriano Montes 1963",   // el depósito, en Mar del Plata
+  ciudad: "Mar del Plata",
+  sucursalBA: "John William Cooke 3155",   // dirección de la sucursal (el dueño, vía Mateo, 23/10/2026)
+  barrioBA: "Villa Soldati",               // barrio de la sucursal (buscado en la web, 23/10/2026)
+  ciudadBA: "Ciudad de Buenos Aires",      // para contacto y el link a Google Maps de la sucursal
+  pagos: "Efectivo y transferencia",  // tarjeta: más adelante (el dueño prefiere esperar, 23/10/2026)
+  factura: "Hacemos Factura A.",
+  congelados: "Sí, se pueden enviar productos congelados.",
+  domicilio: "En Mar del Plata, sí: te la entregamos a domicilio. Lo que va de Mar del Plata a Buenos Aires se retira por nuestra sucursal de Buenos Aires.",
+  noLlevan: "Cristalería no, salvo que esté bien embalada; en ese caso viaja sin seguro.",   // el dueño, 27/10/2026
+  frecuencia: "De Buenos Aires, la carga que recibimos de lunes a viernes sale el sábado para Mar del Plata.",   // el dueño, 23/10/2026 (falta Mar del Plata → Buenos Aires)
+  zonas: "Entregamos a domicilio en Mar del Plata, y también en Batán y Sierra de los Padres, con costo extra. En Buenos Aires la carga se retira por nuestra sucursal.",
+
+  mailCV: "logisticasaldar1963@gmail.com",   // mail donde llegan los CV de "Trabajá con nosotros" (el dueño, vía Mateo, 27/10/2026)
+
+  mensajeGeneral: "¡Hola Saldar! Te escribo desde la web, quería hacerte una consulta.",
+
+  // Saldar es logística y distribución en camión entre Buenos Aires y Mar del Plata, en los
+  // dos sentidos (predomina Buenos Aires → Mar del Plata), desde 2015; entrega a domicilio
+  // en Mar del Plata y retiro por la sucursal en Buenos Aires; NO tiene mensajería (el dueño, 19 a 27/10/2026).
+  servicios: [
+    { id: "ba-mdp", activo: true, icono: "i-camion", titulo: "Buenos Aires → Mar del Plata",
+      texto: "Traemos tu carga en camión desde Buenos Aires y la entregamos a domicilio en Mar del Plata.",
+      etiquetas: ["En camión", "Por peso y bulto", "Opción palet", "A domicilio", "Congelados"] },
+    { id: "mdp-ba", activo: true, icono: "i-camion", titulo: "Mar del Plata → Buenos Aires",
+      texto: "Y al revés: tu carga sale de nuestro depósito en Mar del Plata y en Buenos Aires la retirás por nuestra sucursal.",
+      etiquetas: ["En camión", "Por peso y bulto", "Opción palet", "Retiro en sucursal", "Congelados"] },
+    { id: "mudanzas", activo: true, icono: "i-casa", titulo: "Mudanzas",
+      texto: "Hacemos mudanzas dentro de Mar del Plata y entre Buenos Aires y Mar del Plata, de ida y de vuelta. Contanos qué hay que mover y adónde, y te pasamos el presupuesto.",
+      boton: { texto: "Pedir presupuesto", mensaje: "¡Hola Saldar! Te escribo desde la web: quiero un presupuesto para una mudanza." } },
+  ],
+
+  // dato: "horario" = usa el mismo texto de arriba. r = respuesta fija.
+  preguntas: [
+    { p: "¿Cómo se calcula el precio?", dato: "comoSeCalcula" },
+    { p: "¿Llevan palets?", dato: "palets" },
+    { p: "¿Hasta cuántos kilos puede pesar un bulto?", dato: "maxKilos" },
+    { p: "¿Entregan a domicilio?", dato: "domicilio" },
+    { p: "¿Desde cuándo están?", r: "Desde 2015 hacemos logística y distribución entre Buenos Aires y Mar del Plata." },
+    { p: "¿A qué zonas entregan?", dato: "zonas" },
+    { p: "¿Desde dónde sale la carga?", dato: "salidaCarga" },
+    { p: "¿Tienen sucursal en Buenos Aires?", dato: "sucursal" },
+    { p: "¿En qué horario reciben la carga?", dato: "recepcionCarga" },
+    { p: "¿Llevan productos congelados?", dato: "congelados" },
+    { p: "¿Hacen mudanzas?", r: "Sí, dentro de Mar del Plata y entre Buenos Aires y Mar del Plata, de ida y de vuelta. Escribinos por WhatsApp contándonos qué hay que mover y adónde, y te pasamos el presupuesto." },
+    { p: "¿Cómo se paga?", dato: "pagos" },
+    { p: "¿Hacen factura?", r: "Sí, hacemos Factura A." },
+    { p: "¿Qué es el valor declarado?", r: "Es cuánto vale la mercadería que mandás, bultos y palets. Hay que ponerlo siempre: con ese valor se calcula el seguro, que es el 0,6 % (el valor × 6 ÷ 1.000). El cotizador lo calcula en pesos. Si el valor está en dólares o euros, mandanos el pedido igual: por WhatsApp lo pasamos a pesos y te calculamos el seguro." },
+    { p: "¿Hay descuento para socios de CUDS?", r: "Sí. Si sos socio de CUDS tenés un descuento en el servicio: consultanos por WhatsApp." },
+    { p: "¿Cada cuánto viajan?", dato: "frecuencia" },
+    { p: "¿Qué cosas no llevan?", dato: "noLlevan" },
+  ],
+};
+
+const TARIFAS = {
+  redondeo: 0,            // 0 = no se redondea (se muestran los centavos)
+  maxBultos: 200,         // lo máximo de bultos de un mismo peso
+
+  // Palet completo (dato real del dueño, 23/10/2026).
+  palet: { porPalet: 86260.40, max: 30 },
+
+  // Bultos por kilos: de 1 a 10 kg se cobra el mínimo (dato real del dueño,
+  // 23/10/2026) y sube de a 10 kg. Cada bulto puede pesar hasta 4.000 kg (27/10/2026).
+  // "porTramoExtra" (lo que se suma por cada 10 kg más) es DE EJEMPLO:
+  // cuando esté el real, cambiá el número y borrá "ejemplo: true".
+  kilos: { minimo: 9181.97, tramo: 10, porTramoExtra: 1800, maximo: 4000, ejemplo: true },
+
+  // Seguro de la mercadería: valor declarado × 6 ÷ 1000 = 0,6 % (el dueño, 27/10/2026)
+  seguro: { porMil: 6 },
+
+  // Zonas de entrega en Mar del Plata. "extra" = costo extra por envío (0 = sin extra).
+  zonasMdp: [
+    { id: "mdp",    nombre: "Mar del Plata",        extra: 0 },
+    { id: "batan",  nombre: "Batán",                extra: 5000 },
+    { id: "sierra", nombre: "Sierra de los Padres", extra: 5000 },
+  ],
+
+  // De dónde sale la carga en cada sentido. "direccionSalida" y
+  // "recepcionSalida" = qué datos de NEGOCIO tienen la dirección y el horario
+  // de recepción de ese lugar; "cuandoSale" va debajo del día. El primero es el que viene
+  // elegido: Buenos Aires → Mar del Plata, que es el que más hacen.
+  sentidos: [
+    { id: "ba-mdp", nombre: "Buenos Aires → Mar del Plata", desde: "Buenos Aires", hasta: "Mar del Plata",
+      detalle: "Sale de nuestra sucursal de Buenos Aires", salida: "Sucursal de Buenos Aires",
+      salidaEnFrase: "nuestra sucursal de Buenos Aires", direccionSalida: "sucursalConBarrio",
+      recepcionSalida: "recepcionBA", recargo: 0,
+      cuandoSale: "Recibimos la carga de lunes a viernes y sale el sábado." },   // el dueño, 23/10/2026
+    { id: "mdp-ba", nombre: "Mar del Plata → Buenos Aires", desde: "Mar del Plata", hasta: "Buenos Aires",
+      detalle: "Sale de nuestro depósito en Mar del Plata", salida: "Depósito de Mar del Plata",
+      salidaEnFrase: "nuestro depósito de Mar del Plata", direccionSalida: "direccion",
+      recepcionSalida: "recepcion", recargo: 20, retiro: true,   // en Buenos Aires se retira por la sucursal (27/10/2026)
+      cuandoSale: "Recibimos la carga de lunes a viernes." },   // % que se suma sobre todo: bultos y palets (el dueño, 23/10/2026)
+  ],
+};
+
+iniciar();
+</script>
+</body>
+</html>
