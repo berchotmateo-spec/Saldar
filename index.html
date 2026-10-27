@@ -453,7 +453,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
 .carnet-escudo img{display:block;height:clamp(110px,20vw,170px);width:auto}
 .carnet-et{font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--azul-suave)}
 .carnet-main .carnet-et{margin-bottom:.8rem}
-.carnet-tit{font:800 clamp(2.9rem,8vw,4.75rem)/.95 var(--f-titulo);text-transform:uppercase}
+.carnet-tit{font:800 clamp(2.9rem,8vw,4.75rem)/1.14 var(--f-titulo);text-transform:uppercase}
 .carnet-tit span{background:var(--azul);padding:0 .15em;border-radius:6px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 .carnet-talon{position:relative;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:.9rem;padding:clamp(1.5rem,4vw,2.5rem);border-top:2px dashed rgba(255,255,255,.4)}
 .carnet-talon p:not(.carnet-et){color:#C6CDDA}
@@ -712,7 +712,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
             <label for="comentario">Comentario <span class="opcional">(opcional)</span></label>
             <textarea id="comentario" name="comentario" placeholder="Qué es, más o menos cuánto pesa, si hay algo frágil…"></textarea>
           </div>
-          <label class="check-cuds" style="margin-top:14px"><input type="checkbox" id="socio-cuds" name="socio-cuds"><span>Soy socio del CUDS <span class="opcional">(el descuento te lo confirmamos por WhatsApp)</span></span></label>
+          <label class="check-cuds" style="margin-top:14px"><input type="checkbox" id="socio-cuds" name="socio-cuds"><span>Soy socio de CUDS <span class="opcional">(el descuento te lo confirmamos por WhatsApp)</span></span></label>
         </div>
 
         <div class="cot-enviar">
@@ -817,7 +817,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
       <div class="cuds-cabeza">
         <header class="seccion-cabeza">
           <p class="seccion-num mono">05 · Club CUDS</p>
-          <h2 id="t-cuds">¡Somos sponsors del CUDS!</h2>
+          <h2 id="t-cuds">¡Somos sponsors de CUDS!</h2>
         </header>
         <div class="cuds-dupla" role="img" aria-label="CUDS × Saldar">
           <img class="cuds-logo" src="img/cuds-logo.webp" width="245" height="360" alt="" loading="lazy">
@@ -830,18 +830,18 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
         <div class="carnet-main">
           <div class="carnet-escudo"><img src="img/cuds-logo.webp" width="245" height="360" alt="" loading="lazy"></div>
           <div>
-            <p class="carnet-et mono">Beneficio para socios del CUDS</p>
+            <p class="carnet-et mono">Beneficio para socios de CUDS</p>
             <p class="carnet-tit">Tenés <span>descuento</span> en el servicio</p>
           </div>
         </div>
         <div class="carnet-talon">
           <p class="carnet-et mono">¿Cómo lo pedís?</p>
           <p>Escribinos por WhatsApp, decinos que sos socio y te contamos.</p>
-          <a class="btn btn-claro" data-wa="¡Hola Saldar! Soy socio del CUDS y quiero consultar por el descuento." href="#contacto"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Pedir mi descuento</a>
+          <a class="btn btn-claro" data-wa="¡Hola Saldar! Soy socio de CUDS y quiero consultar por el descuento." href="#contacto"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Pedir mi descuento</a>
         </div>
       </div>
       <ol class="cuds-pasos">
-        <li><span class="mono" aria-hidden="true">1</span>Sos socio del CUDS</li>
+        <li><span class="mono" aria-hidden="true">1</span>Sos socio de CUDS</li>
         <li><span class="mono" aria-hidden="true">2</span>Nos escribís por WhatsApp</li>
         <li><span class="mono" aria-hidden="true">3</span>Te confirmamos el descuento</li>
       </ol>
@@ -1234,7 +1234,7 @@ function armarMensaje(r) {
   const cuando = [fechaLinda(val("dia")), val("franja").toLowerCase()].filter(Boolean).join(", ");
   if (cuando) L.push(`*Cuándo:* ${cuando}`);
   L.push(`*Nombre:* ${val("nombre")}`);
-  if ($("#socio-cuds").checked) L.push("*Socio del CUDS:* sí, quiero consultar el descuento");
+  if ($("#socio-cuds").checked) L.push("*Socio de CUDS:* sí, quiero consultar el descuento");
   if (val("comentario")) L.push(`*Comentario:* ${val("comentario")}`);
   L.push("", `*Total: ${pesos(r.total)}* (precio estimado, a confirmar)`);
   r.lineas.forEach((l) => L.push(`• ${l.c}: ${pesos(l.v)}`));
@@ -1405,7 +1405,7 @@ const NEGOCIO = {
     { p: "¿Cómo se paga?", dato: "pagos" },
     { p: "¿Hacen factura?", r: "Sí, hacemos Factura A." },
     { p: "¿Qué es el valor declarado?", r: "Es cuánto vale la mercadería que mandás, bultos y palets. Hay que ponerlo siempre. Puede ser en pesos, dólares o euros: nosotros lo pasamos a pesos." },
-    { p: "¿Hay descuento para socios del CUDS?", r: "Sí. Si sos socio del CUDS tenés un descuento en el servicio: consultanos por WhatsApp." },
+    { p: "¿Hay descuento para socios de CUDS?", r: "Sí. Si sos socio de CUDS tenés un descuento en el servicio: consultanos por WhatsApp." },
     { p: "¿Cada cuánto viajan?", dato: "frecuencia" },
     { p: "¿Qué cosas no llevan?", dato: "noLlevan" },
   ],

@@ -84,7 +84,7 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
 
 | Instagram | @saldar223 | — |
 | Logo | El real: `img/saldar-logo.webp` (708 × 140, sacado del PDF "SALDAR.pdf", que trae una imagen de 1201 × 281). Ícono de la pestaña: `img/favicon.png`, la "S" del logo en blanco sobre azul | El dueño, vía Mateo, 27/10/2026 ✅. Si pasan el logo en vector (SVG, AI, PDF sin imagen adentro), cambiarlo |
-| CUDS | Saldar es **sponsor** del CUDS, club de rugby de Mar del Plata; los socios del CUDS tienen un descuento en el servicio (se consulta por WhatsApp, sin monto en la web). Escudo: `img/cuds-logo.webp` (del PDF "cuds_logo.pdf", vectorial) | El dueño, vía Mateo, 27/10/2026 ✅ ("son sponsors del club"). En la web: "¡Somos sponsors del CUDS!" + carnet de socio (opción 2 elegida por Mateo) |
+| CUDS | Saldar es **sponsor** de CUDS, club de rugby de Mar del Plata; los socios de CUDS tienen un descuento en el servicio (se consulta por WhatsApp, sin monto en la web). Escudo: `img/cuds-logo.webp` (del PDF "cuds_logo.pdf", vectorial) | El dueño, vía Mateo, 27/10/2026 ✅ ("son sponsors del club"). En la web: "¡Somos sponsors de CUDS!" + carnet de socio (opción 2 elegida por Mateo) |
 | Trabajá con nosotros | Link en el pie y en el menú (no es sección) que abre el mail de la persona a logisticasaldar1963@gmail.com, asunto "CV - Trabajá con nosotros" y un modelo (nombre, teléfono, en qué le gustaría trabajar); el CV lo adjunta ella | Pedido del dueño, vía Mateo, 27/10/2026 ✅. Mail: **logisticasaldar1963@gmail.com** (`NEGOCIO.mailCV`, el dueño vía Mateo, 27/10/2026) |
 | Fotos | Ninguna (la web se ve bien sin fotos) | ⚠️ Faltan las reales |
 
@@ -223,17 +223,20 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
   (texto) e IBM Plex Mono (etiquetas, precios del detalle).
 - **Logo real** (imagen `img/saldar-logo.webp`): 44 px de alto en la cabecera
   desde 900 px, 38 px en el celular y en el pie. No deformarlo ni recortarlo.
+- **Se dice "de CUDS", nunca "del CUDS"** (pedido de Mateo, 27/10/2026): en
+  títulos, carnet, pasos, casilla del cotizador, mensaje de WhatsApp y
+  preguntas.
 - **Club CUDS** (sección 05, después de Recorrido) = **opción 2 "Carnet de
   socio"** de los prototipos, elegida por Mateo (27/10/2026): arriba
-  "¡Somos sponsors del CUDS!" con los logos "CUDS × SALDAR" al lado
+  "¡Somos sponsors de CUDS!" con los logos "CUDS × SALDAR" al lado
   (`.cuds-cabeza`, `.cuds-dupla`, × en SVG); después el **carnet** negro
   (`.carnet`): escudo en un recuadro blanco, "Beneficio para socios del
   CUDS" y "Tenés **descuento** en el servicio" (la palabra en azul), y un
   **talón** troquelado (línea punteada con muescas del color del fondo) con
   "¿Cómo lo pedís?" y el botón de WhatsApp "Pedir mi descuento" ("Soy socio
-  del CUDS y quiero consultar por el descuento"); abajo **3 pasos**: Sos
-  socio del CUDS · Nos escribís por WhatsApp · Te confirmamos el descuento.
-  En el celular el talón va debajo. En el cotizador, casilla "Soy socio del CUDS" que suma una
+  de CUDS y quiero consultar por el descuento"); abajo **3 pasos**: Sos
+  socio de CUDS · Nos escribís por WhatsApp · Te confirmamos el descuento.
+  En el celular el talón va debajo. En el cotizador, casilla "Soy socio de CUDS" que suma una
   línea al pedido. Pregunta frecuente del descuento. Nada de montos.
 - **Trabajá con nosotros** **no es una sección** (pedido de Mateo,
   27/10/2026): es un link en el pie ("Trabajá con nosotros: mandanos tu CV
@@ -295,6 +298,10 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 
 ## Registro de cambios
 
+- 27/10/2026 — Mateo (captura del celular): más espacio entre "TENÉS" y el
+  recuadro azul de "DESCUENTO", y que diga "socio de CUDS", no "del" →
+  interlineado del título del carnet de .95 a 1.14; "del CUDS" → "de CUDS"
+  en toda la web (8 lugares).
 - 27/10/2026 — Audio de Mateo (el dueño): el valor declarado puede ser en
   euros o dólares (ellos lo pasan a pesos) y es para toda la mercadería,
   bultos y palets, sí o sí → selector de moneda al lado del valor ($ Pesos,
