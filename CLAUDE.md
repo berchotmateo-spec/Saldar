@@ -23,7 +23,7 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
   antes del 27/10/2027 (la fecha exacta está en nic.ar → Mis dominios). El
   dueño quiere la web en internet antes del fin de semana del 31/10 para
   poner QR en carteles.
-- **Publicación (en curso):** GitHub Pages desde la rama
+- **Publicación (hecha el 28/10/2026):** GitHub Pages desde la rama
   `claude/new-session-2zu43k` (es la rama por defecto del repo; no hay
   `main`), carpeta **`/docs`**. Después de cada cambio:
   `python3 publicar.py saldarlogistica.com.ar` (arma `docs/` con `CNAME`,
@@ -52,6 +52,12 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
   dominio en Pages (*Remove*) y volver a ponerlo (*Save*). Ojo: eso puede
   hacer que GitHub commitee en la rama (borra y vuelve a crear
   `docs/CNAME`): hacer `git pull` antes del próximo push.
+  **28/10/2026, 12:49 de Argentina: certificado emitido ✅** (Let's Encrypt,
+  `CN=saldarlogistica.com.ar`, vence el 26/01/2027 y GitHub lo renueva
+  solo), **Enforce HTTPS tildado ✅** (captura de Mateo),
+  `https://saldarlogistica.com.ar/` responde 200 y `www` redirige al
+  dominio sin `www`. En Pages puede seguir diciendo "DNS Check in Progress"
+  en amarillo: no afecta.
 - **El DNS se puede revisar desde la sesión** con DNS por HTTPS (el `dig`
   no anda): `curl -sS -H 'accept: application/dns-json'
   'https://cloudflare-dns.com/dns-query?name=saldarlogistica.com.ar&type=NS'`.
@@ -339,14 +345,19 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 - [x] `og.jpg` 1200×630 y `canonical` con el dominio (27/10/2026).
 - [x] `publicar.py` en la raíz → `docs/` con `CNAME` (27/10/2026).
 - [x] QR en `qr/` (27/10/2026).
-- [ ] Mateo: repo público, GitHub Pages (rama `claude/new-session-2zu43k`,
-      `/docs`, Custom domain), Cloudflare y delegación en NIC.ar; después
-      Enforce HTTPS.
+- [x] Mateo: repo público, GitHub Pages (rama `claude/new-session-2zu43k`,
+      `/docs`, Custom domain), Cloudflare, delegación en NIC.ar y Enforce
+      HTTPS (27 y 28/10/2026).
 - [ ] Search Console (propiedad de dominio) y Perfil de Empresa de Google.
 - [ ] Recordatorio en el calendario de Mateo para renovar el dominio.
 
 ## Registro de cambios
 
+- 28/10/2026 — La página quedó en internet en
+  **https://saldarlogistica.com.ar** con candado (certificado de Let's
+  Encrypt emitido por GitHub, Enforce HTTPS tildado por Mateo). Sigue con
+  `noindex`, el WhatsApp de Mateo y precios de ejemplo hasta que el dueño
+  pase los datos.
 - 27/10/2026 — Mateo compró el dominio **saldarlogistica.com.ar** → en la
   página `canonical`, `og:url`, `og:image` y JSON-LD con `url`, `logo` e
   `image`; imagen `og.jpg` (y su fuente `og-fuente.html`); `publicar.py`
