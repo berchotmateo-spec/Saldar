@@ -7,7 +7,7 @@ o volverse público).
 
 ## Qué es
 
-Web de una página para **Saldar** (Instagram [@saldar223](https://www.instagram.com/saldar223/)),
+Web de una página para **Saldar** (Instagram viejo @saldar223, sin acceso: no va en la web),
 empresa de **logística y distribución en camión entre Buenos Aires y Mar del Plata** (en los
 dos sentidos; **predomina Buenos Aires → Mar del Plata**, por eso va primero en
 toda la web), con depósito en Victoriano Montes 1963, Mar del Plata, y
