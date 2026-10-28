@@ -183,11 +183,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .menu-lista a:hover{color:var(--azul)}
 .menu-contacto{display:flex;flex-direction:column;align-items:stretch;gap:14px}
 .menu-contacto > .mono{font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-2)}
-.menu-trabajo{display:flex;align-items:center;gap:.85rem;margin-top:.4rem;padding:.85rem 1rem;border:1px solid var(--linea);border-radius:12px;color:var(--tinta);text-decoration:none;background:var(--papel)}
-.menu-trabajo:hover{border-color:var(--azul)}
-.menu-trabajo .ico{color:var(--azul)}
-.menu-trabajo span{font-size:.92rem;color:var(--tinta-2)}
-.menu-trabajo strong{display:block;font-size:1.05rem;color:var(--tinta)}
 
 /* Portada */
 .portada{padding:clamp(2.5rem,7vw,5.5rem) 0 clamp(2.5rem,6vw,4.5rem)}
@@ -558,13 +553,13 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
           <li><a href="#cuds"><span class="mono">05</span>Club CUDS</a></li>
           <li><a href="#preguntas"><span class="mono">06</span>Preguntas frecuentes</a></li>
           <li><a href="#contacto"><span class="mono">07</span>Contacto</a></li>
+          <li><a data-mail-cv href="#contacto"><span class="mono">08</span>Trabajá con nosotros</a></li>
         </ul>
       </nav>
       <div class="menu-contacto">
         <p class="mono">Escribinos</p>
         <a class="btn btn-primario" data-wa href="#contacto"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
         <a class="btn btn-borde" data-ig href="https://www.instagram.com/saldar223/" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-ig"/></svg><span data-ig-usuario>@saldar223</span></a>
-        <a class="menu-trabajo" data-mail-cv href="#contacto"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg><span><strong>Trabajá con nosotros</strong>Mandanos tu CV por mail</span></a>
       </div>
     </div>
   </div>

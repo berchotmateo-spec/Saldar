@@ -291,15 +291,17 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
   `[data-mail-cv-bloque]`: tarjeta blanca con borde negro y sombra azul,
   ícono de sobre, título "Trabajá con nosotros", "Mandanos tu CV a …" y
   botón "Mandar mi CV"; más a la vista por pedido del dueño, 27/10/2026), y
-  un link en el menú, los dos `[data-mail-cv]`: `mailto:` a
+  el "08" del menú, los dos `[data-mail-cv]`: `mailto:` a
   `NEGOCIO.mailCV` con asunto "CV - Trabajá con nosotros" y un modelo en el
   cuerpo. Abren en pestaña nueva (como WhatsApp, para que anden en la vista
   previa). Si `mailCV` quedara vacío, los links y el recuadro se esconden.
 - **Menú de las tres rayitas** (`#menu-boton` + `#menu-panel`, en todos los
   tamaños; pedido de Mateo, 27/10/2026): botón cuadrado con el mismo estilo
   que el WhatsApp de la cabecera (se pone negro con una × al abrir). El
-  panel baja debajo de la cabecera con las 7 secciones numeradas, WhatsApp,
-  Instagram y "Trabajá con nosotros". Se cierra al tocar un link o con Esc.
+  panel baja debajo de la cabecera con las 7 secciones numeradas, **"08
+  Trabajá con nosotros"** (mismo estilo, abre el mail; no es sección), y
+  abajo WhatsApp e Instagram (pedido de Mateo, 28/10/2026: se sacó el
+  recuadro de "Trabajá con nosotros" que estaba debajo de Instagram). Se cierra al tocar un link o con Esc.
   En la compu sigue también el menú corto (Servicios, Recorrido, Preguntas,
   Contacto). En el celular (< 600 px) el WhatsApp de la cabecera se esconde
   (está en el menú) y el logo baja a 34 px (30 px en < 380 px).
@@ -353,6 +355,11 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 
 ## Registro de cambios
 
+- 28/10/2026 — Mateo (captura del menú en el celular): "agregá el 08
+  trabajar con nosotros y quitalo de abajo" → "08 Trabajá con nosotros" en
+  la lista numerada del menú (abre el mail) y fuera el recuadro que estaba
+  debajo de Instagram. El recuadro del pie queda (lo pidió el dueño más a la
+  vista).
 - 28/10/2026 — La página quedó en internet en
   **https://saldarlogistica.com.ar** con candado (certificado de Let's
   Encrypt emitido por GitHub, Enforce HTTPS tildado por Mateo). Sigue con
