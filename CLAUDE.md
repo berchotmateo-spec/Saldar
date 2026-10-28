@@ -270,6 +270,13 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
   etiqueta. Con el mouse se levantan; al apretar se hunden como un sello.
   Mismo estilo en el WhatsApp de la cabecera. Sobre la tarjeta negra de
   contacto la sombra va en azul. No queda ningún `999px`.
+- **Nada de palabras sueltas en el último renglón** (pedido de Mateo,
+  28/10/2026, por "Factura / A."): `sinViudas()` une las dos últimas
+  palabras de cada `p`, `dd`, `li`, `summary`, títulos y `.tr-valor` con un
+  espacio que no corta (corre al iniciar y en cada `actualizar()` del
+  cotizador), más `text-wrap: pretty` / `balance` en el CSS y los links
+  "Ver en el mapa" de contacto sin cortar. Si se agrega texto nuevo que se
+  pinta después, llamar a `sinViudas()` sobre esa parte.
 - Tipografías: Barlow Condensed (títulos, aire de cartel de ruta), Barlow
   (texto) e IBM Plex Mono (etiquetas, precios del detalle).
 - **Logo real** (imagen `img/saldar-logo.webp`): 44 px de alto en la cabecera
@@ -358,6 +365,9 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 
 ## Registro de cambios
 
+- 28/10/2026 — Mateo (captura de contacto con "Factura" arriba y "A." sola
+  abajo): que no quede una letra o palabra suelta → `sinViudas()` en toda
+  la página, `text-wrap` en el CSS y "Ver en el mapa" sin cortar.
 - 28/10/2026 — Mateo: no tienen acceso al Instagram @saldar223, sacarlo
   hasta que armen el nuevo → `NEGOCIO.instagram` vacío esconde los botones
   del menú y de contacto; fuera `sameAs` del JSON-LD y las menciones de
