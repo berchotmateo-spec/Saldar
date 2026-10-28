@@ -39,9 +39,14 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
   Custom domain ✅ (el github.io ya redirige al dominio), cuenta de
   Cloudflare con el sitio agregado ✅; nameservers de Cloudflare:
   **`nina.ns.cloudflare.com`** y **`sergi.ns.cloudflare.com`**. Los 5
-  registros en Cloudflare cargados y en gris ✅ (captura de Mateo). Falta la
-  delegación en NIC.ar (Cloudflare muestra el dominio "pending" hasta eso;
-  el cartel "Proxying is required…" se ignora: la nube queda gris).
+  registros en Cloudflare cargados y en gris ✅ (captura de Mateo).
+  Delegación en NIC.ar publicada ✅ (se vio el 27/10/2026 a las 21:16 de
+  Argentina: NS de Cloudflare, los 4 A de GitHub y el `www`). Falta que
+  GitHub emita el certificado del dominio ("Check again" en Pages; puede
+  tardar hasta 24 h) y tildar **Enforce HTTPS**. Desde la sesión: el proxy
+  no deja pedir `http://` (405); con `curl -vI https://saldarlogistica.com.ar/
+  2>&1 | grep subject` se ve el certificado: `CN=*.github.io` = todavía no
+  está el del dominio.
 - **El DNS se puede revisar desde la sesión** con DNS por HTTPS (el `dig`
   no anda): `curl -sS -H 'accept: application/dns-json'
   'https://cloudflare-dns.com/dns-query?name=saldarlogistica.com.ar&type=NS'`.
