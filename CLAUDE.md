@@ -46,7 +46,12 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
   tardar hasta 24 h) y tildar **Enforce HTTPS**. Desde la sesión: el proxy
   no deja pedir `http://` (405); con `curl -vI https://saldarlogistica.com.ar/
   2>&1 | grep subject` se ve el certificado: `CN=*.github.io` = todavía no
-  está el del dominio.
+  está el del dominio. El 28/10/2026 a las 0:05 de Argentina (casi 3 h después
+  de la delegación) seguía sin certificado; el DNS estaba bien (4 A, `www`,
+  sin AAAA ni CAA que lo trabe). Si no aparece, el remedio es sacar el
+  dominio en Pages (*Remove*) y volver a ponerlo (*Save*). Ojo: eso puede
+  hacer que GitHub commitee en la rama (borra y vuelve a crear
+  `docs/CNAME`): hacer `git pull` antes del próximo push.
 - **El DNS se puede revisar desde la sesión** con DNS por HTTPS (el `dig`
   no anda): `curl -sS -H 'accept: application/dns-json'
   'https://cloudflare-dns.com/dns-query?name=saldarlogistica.com.ar&type=NS'`.
