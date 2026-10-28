@@ -73,8 +73,7 @@
       "opens": "08:00",
       "closes": "17:00"
     }]
-  },
-  "sameAs": ["https://www.instagram.com/saldar223/"]
+  }
 }
 </script>
 <style>
@@ -562,7 +561,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
       <div class="menu-contacto">
         <p class="mono">Escribinos</p>
         <a class="btn btn-primario" data-wa href="#contacto"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
-        <a class="btn btn-borde" data-ig href="https://www.instagram.com/saldar223/" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-ig"/></svg><span data-ig-usuario>@saldar223</span></a>
+        <a class="btn btn-borde" data-ig href="#contacto" target="_blank" rel="noopener" hidden><svg class="ico" aria-hidden="true"><use href="#i-ig"/></svg><span data-ig-usuario></span></a>
       </div>
     </div>
   </div>
@@ -638,7 +637,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
         <p>Elegí para dónde va y cuánto pesa cada bulto: el precio estimado sale al instante. Si embalás todo en un palet, tenés la opción palet. Después lo mandás por WhatsApp y te lo confirmamos.</p>
       </header>
 
-      <noscript><p class="hoja">El cotizador necesita JavaScript activado. También podés escribirnos por Instagram.</p></noscript>
+      <noscript><p class="hoja">El cotizador necesita JavaScript activado.</p></noscript>
 
       <form class="cot" id="form-cot" novalidate>
         <div class="cot-paso1 hoja">
@@ -891,10 +890,10 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
       <div class="contacto">
         <div class="contacto-principal">
           <h3>¿Tenés carga para mandar?</h3>
-          <p>Escribinos por WhatsApp o mandanos un mensaje por Instagram.</p>
+          <p>Contanos qué tenés que mandar y te respondemos.</p>
           <div class="contacto-botones">
             <a class="btn btn-claro" data-wa href="#contacto"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Escribinos por WhatsApp</a>
-            <a class="btn btn-borde-claro" data-ig href="https://www.instagram.com/saldar223/" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-ig"/></svg><span data-ig-usuario>@saldar223</span></a>
+            <a class="btn btn-borde-claro" data-ig href="#contacto" target="_blank" rel="noopener" hidden><svg class="ico" aria-hidden="true"><use href="#i-ig"/></svg><span data-ig-usuario></span></a>
           </div>
         </div>
         <dl class="datos">
@@ -1003,8 +1002,11 @@ function pintarDatos() {
     a.target = "_blank";
     a.rel = "noopener";
   });
-  const ig = `https://www.instagram.com/${NEGOCIO.instagram}/`;
-  $$("[data-ig]").forEach((a) => (a.href = ig));
+  // Sin Instagram (vacío) los botones quedan escondidos
+  $$("[data-ig]").forEach((a) => {
+    a.hidden = !NEGOCIO.instagram;
+    if (NEGOCIO.instagram) a.href = `https://www.instagram.com/${NEGOCIO.instagram}/`;
+  });
   $$("[data-ig-usuario]").forEach((el) => (el.textContent = "@" + NEGOCIO.instagram));
 }
 
@@ -1408,7 +1410,7 @@ const NEGOCIO = {
   // WhatsApp que recibe los pedidos. POR AHORA ES EL DE MATEO (pruebas).
   // Formato: 549 + característica sin el 0 + número sin el 15. Ej.: 5492231234567
   whatsapp: "5492235337853",
-  instagram: "saldar223",
+  instagram: "",   // vacío = sin Instagram en la web. @saldar223 no lo manejan; va la cuenta nueva cuando esté (Mateo, 28/10/2026)
   tarifasDeEjemplo: true,          // true = muestra "VISTA PREVIA: tarifas de ejemplo"
 
   // Datos del dueño (20/10/2026). Vacío ("") = la página muestra "A confirmar".

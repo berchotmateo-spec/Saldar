@@ -122,7 +122,7 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
 | Qué no llevan | Cristalería no, salvo que esté bien embalada; en ese caso viaja sin seguro (solo en preguntas; el cotizador no lo controla) | El dueño, vía Mateo, 27/10/2026 ✅ |
 | Cada cuánto viajan | De Buenos Aires sale el sábado (lo recibido de lunes a viernes) | El dueño, vía Mateo, 23/10/2026 ✅ (falta Mar del Plata → Buenos Aires) |
 
-| Instagram | @saldar223 | — |
+| Instagram | **Ninguno por ahora** (`NEGOCIO.instagram: ""`): no tienen acceso a @saldar223. Van a abrir una cuenta nueva y se la ofrecieron manejar a Mateo; cuando esté, poner el usuario en `NEGOCIO.instagram` (los botones `[data-ig]` del menú y de contacto aparecen solos) y, si se quiere, volver a sumar `sameAs` al JSON-LD y la mención en el texto de contacto | Mateo, 28/10/2026 ✅ |
 | Logo | El real: `img/saldar-logo.webp` (708 × 140, sacado del PDF "SALDAR.pdf", que trae una imagen de 1201 × 281). Ícono de la pestaña: `img/favicon.png`, la "S" del logo en blanco sobre azul | El dueño, vía Mateo, 27/10/2026 ✅. Si pasan el logo en vector (SVG, AI, PDF sin imagen adentro), cambiarlo |
 | CUDS | Saldar es **sponsor** de CUDS, club de rugby de Mar del Plata; los socios de CUDS tienen un descuento en el servicio (se consulta por WhatsApp, sin monto en la web). Escudo: `img/cuds-logo.webp` (del PDF "cuds_logo.pdf", vectorial) | El dueño, vía Mateo, 27/10/2026 ✅ ("son sponsors del club"). En la web: "¡Somos sponsors de CUDS!" + carnet de socio (opción 2 elegida por Mateo) |
 | Trabajá con nosotros | Recuadro en el pie con botón "Mandar mi CV" y link en el menú (no es sección) que abre el mail de la persona a logisticasaldar1963@gmail.com, asunto "CV - Trabajá con nosotros" y un modelo (nombre, teléfono, en qué le gustaría trabajar); el CV lo adjunta ella | Pedido del dueño, vía Mateo, 27/10/2026 ✅. Mail: **logisticasaldar1963@gmail.com** (`NEGOCIO.mailCV`, el dueño vía Mateo, 27/10/2026) |
@@ -303,7 +303,7 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
   que el WhatsApp de la cabecera (se pone negro con una × al abrir). El
   panel baja debajo de la cabecera con las 7 secciones numeradas, **"08
   Trabajá con nosotros"** (mismo estilo, abre el mail; no es sección), y
-  abajo WhatsApp e Instagram (pedido de Mateo, 28/10/2026: se sacó el
+  abajo WhatsApp (e Instagram cuando haya cuenta; pedido de Mateo, 28/10/2026: se sacó el
   recuadro de "Trabajá con nosotros" que estaba debajo de Instagram). Se cierra al tocar un link o con Esc.
   En la compu sigue también el menú corto (Servicios, Recorrido, Preguntas,
   Contacto). En el celular (< 600 px) el WhatsApp de la cabecera se esconde
@@ -358,6 +358,11 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 
 ## Registro de cambios
 
+- 28/10/2026 — Mateo: no tienen acceso al Instagram @saldar223, sacarlo
+  hasta que armen el nuevo → `NEGOCIO.instagram` vacío esconde los botones
+  del menú y de contacto; fuera `sameAs` del JSON-LD y las menciones de
+  Instagram en el texto (contacto: "Contanos qué tenés que mandar y te
+  respondemos.").
 - 28/10/2026 — Mateo (captura de la hoja de ruta de la portada): "¿podés
   agregarle un efecto de movimiento a esa línea?" → un puntito azul (la
   carga) que recorre la línea de Buenos Aires a Mar del Plata y vuelve, sin
