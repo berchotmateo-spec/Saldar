@@ -218,7 +218,10 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
     barras, punto de destino y Miramar en el mapa.
   - Los tokens están en `:root`; no hay naranja ni verde en ningún lado.
 - Idea: **etiqueta / hoja de ruta**. Hoja de ruta MDP → BA con código de
-  barras en la portada, cinta de embalaje azul con el nombre, el presupuesto
+  barras en la portada (la línea se dibuja al cargar y después **un puntito
+  azul con halo, "la carga", va y viene de BA a MDP** con una pausa en cada
+  punta: `<animateMotion>` de 7 s sobre `#ruta-guia`, arranca a los 2,3 s;
+  pedido de Mateo, 28/10/2026; con "reducir movimiento" no aparece), cinta de embalaje azul con el nombre, el presupuesto
   como ticket, numeración de secciones en tipografía mono.
 - **Orden: Buenos Aires → Mar del Plata primero** (el que más hacen; pedido de
   Mateo, 23/10/2026): título, portada, hoja de ruta (BA → MDP), cinta,
@@ -355,6 +358,10 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 
 ## Registro de cambios
 
+- 28/10/2026 — Mateo (captura de la hoja de ruta de la portada): "¿podés
+  agregarle un efecto de movimiento a esa línea?" → un puntito azul (la
+  carga) que recorre la línea de Buenos Aires a Mar del Plata y vuelve, sin
+  parar, con una pausa en cada punta.
 - 28/10/2026 — Mateo (captura del menú en el celular): "agregá el 08
   trabajar con nosotros y quitalo de abajo" → "08 Trabajá con nosotros" en
   la lista numerada del menú (abre el mail) y fuera el recuadro que estaba
