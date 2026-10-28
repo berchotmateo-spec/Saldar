@@ -280,6 +280,12 @@ select{appearance:none;-webkit-appearance:none;padding-right:2.6rem;background-i
 select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--azul);outline-offset:1px;border-color:var(--azul)}
 [aria-invalid="true"]{border-color:var(--error)!important;box-shadow:0 0 0 1px var(--error)}
 .ayuda{font-size:.95rem;color:var(--tinta-2);margin-top:.7rem}
+.tabla-precios{margin-top:.6rem;font-size:.95rem}
+.tabla-precios summary{cursor:pointer;color:var(--azul);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.tabla-precios table{width:100%;max-width:340px;margin-top:.6rem;border-collapse:collapse}
+.tabla-precios th,.tabla-precios td{padding:.4rem .2rem;border-bottom:1px solid var(--linea);text-align:left}
+.tabla-precios th{font:600 .72rem/1.2 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-2)}
+.tabla-precios td:last-child,.tabla-precios th:last-child{text-align:right;font-family:var(--f-mono)}
 .grupo{border:0;padding:0;margin:1.5rem 0 0;min-width:0}
 .grupo legend{font-weight:600;padding:0;margin-bottom:.6rem}
 .opciones{display:grid;grid-template-columns:1fr;gap:10px}
@@ -522,7 +528,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
 
 <!-- VISTA PREVIA: se saca sola poniendo NEGOCIO.tarifasDeEjemplo = false (o borrando este bloque) -->
 <div class="vista-previa" id="vista-previa" role="note">
-  <strong>VISTA PREVIA</strong>Faltan datos: lo que suma cada 10 kg y el extra de Batán y Sierras son de ejemplo.
+  <strong>VISTA PREVIA</strong>Página de prueba: los precios pueden cambiar.
 </div>
 
 <header class="cabecera">
@@ -655,6 +661,10 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
               <div class="bultos" id="bultos"></div>
               <button class="btn-agregar" type="button" id="agregar-bulto">+ Agregar un bulto de otro peso</button>
               <p class="ayuda" id="tarifa-kilos"></p>
+              <details class="tabla-precios">
+                <summary>Ver los precios por peso</summary>
+                <table><thead><tr><th scope="col">Peso del bulto</th><th scope="col">Precio</th></tr></thead><tbody id="tabla-kilos"></tbody></table>
+              </details>
             </fieldset>
             <fieldset class="grupo">
               <legend>Opción palet</legend>
@@ -699,6 +709,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
               <output class="ticket-total" id="ticket-total" for="bultos palets" aria-live="polite" aria-atomic="true"></output>
             </div>
             <p class="ticket-seguro" id="ticket-seguro" hidden></p>
+            <p class="ticket-seguro" id="ticket-pendiente" hidden>+ Lo que dice "a cotizar" te lo pasamos por WhatsApp.</p>
             <p class="ticket-aviso">Precio estimado, a confirmar por WhatsApp.</p>
           </div>
           <div class="barras" aria-hidden="true"></div>
@@ -826,7 +837,7 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
             <p class="mono">Depósito · Mar del Plata</p>
             <h3 data-dato="direccion">A confirmar</h3>
             <p>Abierto <span data-dato="horarioMdpFrase">A confirmar</span>. Recibimos la carga <span data-dato="recepcionFrase">A confirmar</span>. Los sábados está cerrado.</p>
-            <p>Entregamos en Mar del Plata, y en Batán y Sierra de los Padres con costo extra.</p>
+            <p>Entregamos en Mar del Plata y en Batán. En Sierra de los Padres también, con un costo extra a consultar.</p>
             <a class="btn btn-borde btn-chico" data-mapa href="#contacto"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Ver en Google Maps</a>
           </article>
         </div>
@@ -945,7 +956,7 @@ const formatoCentavos = new Intl.NumberFormat("es-AR", { style: "currency", curr
 const pesos = (n) => (Math.round(n * 100) % 100 ? formatoCentavos : formatoPesos).format(n);
 // redondeo 0 = no redondea (deja los centavos)
 const redondear = (n) => { const r = TARIFAS.redondeo; return r ? Math.round(n / r) * r : Math.round(n * 100) / 100; };
-const suma = (lineas) => lineas.reduce((t, l) => t + l.v, 0);
+const suma = (lineas) => lineas.reduce((t, l) => t + (l.v || 0), 0);   // v: null = a cotizar, no suma
 const lista = (xs) => xs.length < 2 ? xs.join("") : xs.slice(0, -1).join(", ") + " y " + xs[xs.length - 1];
 const plural = (n, uno, varios) => `${n} ${n === 1 ? uno : varios}`;
 const numero = (n) => new Intl.NumberFormat("es-AR").format(n);
@@ -963,13 +974,15 @@ function dato(clave) {
   if (clave === "salidaCarga") return `De Buenos Aires sale desde nuestra sucursal${NEGOCIO.sucursalBA ? `, en ${dato("sucursalConBarrio")}` : ""}. De Mar del Plata, desde nuestro depósito${NEGOCIO.direccion ? `, en ${NEGOCIO.direccion}` : ""}.`;
   if (clave === "comoSeCalcula") {
     const k = TARIFAS.kilos, rec = TARIFAS.sentidos.find((x) => x.recargo);
-    return `Por bulto, según sus kilos: de 1 a ${k.tramo} kg se cobra el mínimo (${pesos(k.minimo)}) y el precio sube cada ${k.tramo} kg (cada bulto puede pesar hasta ${numero(k.maximo)} kg). Si embalás la carga en un palet completo, se cobra por palet: ${pesos(TARIFAS.palet.porPalet)}.`
+    return `Por bulto, según sus kilos: de 1 a ${numero(k.tabla[0].hasta)} kg se cobra el mínimo (${pesos(k.tabla[0].precio)}) y el precio sube según el peso hasta ${numero(k.tabla.at(-1).hasta)} kg (${pesos(k.tabla.at(-1).precio)} ${rangoKilos(k.tabla.length - 1)}). Los bultos más pesados, hasta ${numero(k.maximo)} kg, te los cotizamos por WhatsApp. Si embalás la carga en un palet completo, se cobra por palet: ${pesos(TARIFAS.palet.porPalet)}.`
       + (rec ? ` De ${rec.desde} a ${rec.hasta} tiene un recargo del ${rec.recargo} % sobre todo el envío (bultos y palets).` : "")
       + ` El seguro es el ${numero(TARIFAS.seguro.porMil / 10)} % del valor declarado.`
       + " El del cotizador es un precio estimado: cuando nos escribís por WhatsApp te confirmamos el final antes del viaje.";
   }
   if (clave === "palets") return `Sí. Si embalás toda la carga en un palet completo, se cobra por palet: ${pesos(TARIFAS.palet.porPalet)}. Cuando son muchos bultos, te puede convenir.`;
-  if (clave === "maxKilos") return `Hasta ${numero(TARIFAS.kilos.maximo)} kg por bulto. Si tenés algo más pesado, escribinos y lo coordinamos.`;
+  if (clave === "maxKilos") return `Hasta ${numero(TARIFAS.kilos.maximo)} kg por bulto. En la web cotizás hasta ${numero(TARIFAS.kilos.tabla.at(-1).hasta)} kg; si pesa más, escribinos y te pasamos el precio.`;
+  if (clave === "preciosPeso") return "D" + TARIFAS.kilos.tabla.map((t, i) => `${rangoKilos(i)}: ${pesos(t.precio)}`).join(" · ").slice(1)
+    + `. Más de ${numero(TARIFAS.kilos.tabla.at(-1).hasta)} kg: te lo cotizamos por WhatsApp. Es el precio por bulto; de Mar del Plata a Buenos Aires se suma el recargo`;
   if (clave === "sucursal") return "Sí, tenemos sucursal en Buenos Aires." + (NEGOCIO.sucursalBA ? ` Está en ${dato("sucursalConBarrio")}.` : "")
     + (NEGOCIO.recepcionBA ? ` Recibimos la carga ${dato("recepcionFraseBA")}.` : "");
   if (clave === "recepcionFrase") return minuscula(NEGOCIO.recepcion);
@@ -1056,18 +1069,21 @@ function tarjetaOpcion(name, item, detallePrecio, svg) {
   </label>`;
 }
 
-// Precio de un bulto según sus kilos: el mínimo hasta 10 kg y, después,
-// lo que suma cada tramo de 10 kg más (TARIFAS.kilos)
+// Precio de un bulto según sus kilos, con la tabla de TARIFAS.kilos. Si pesa
+// más que el último renglón de la tabla, devuelve null: se cotiza por WhatsApp.
+const filaKilos = (kg) => TARIFAS.kilos.tabla.findIndex((t) => kg <= t.hasta);
 function precioBulto(kg) {
-  const k = TARIFAS.kilos;
-  const tramos = Math.max(1, Math.ceil(kg / k.tramo));
-  return redondear(k.minimo + (tramos - 1) * k.porTramoExtra);
+  const i = filaKilos(kg);
+  return i < 0 ? null : redondear(TARIFAS.kilos.tabla[i].precio);
 }
 
+function rangoKilos(i) {
+  const t = TARIFAS.kilos.tabla;
+  return `de ${i ? numero(t[i - 1].hasta + 1) : 1} a ${numero(t[i].hasta)} kg`;
+}
 function rangoBulto(kg) {
-  const k = TARIFAS.kilos;
-  const tramos = Math.max(1, Math.ceil(kg / k.tramo));
-  return tramos === 1 ? `mínimo (1 a ${k.tramo} kg)` : `de ${numero((tramos - 1) * k.tramo)} a ${numero(tramos * k.tramo)} kg`;
+  const i = filaKilos(kg), t = TARIFAS.kilos.tabla;
+  return i < 0 ? `más de ${numero(t.at(-1).hasta)} kg` : i === 0 ? `mínimo (${rangoKilos(0)})` : rangoKilos(i);
 }
 
 let filasCreadas = 0;
@@ -1110,9 +1126,12 @@ function pintarCotizador() {
   $("#palets-fila").innerHTML = filaPalet();
   $("#palet-ayuda").textContent = `Si juntás la carga en un palet completo, se cobra por palet y no por bulto: con muchos bultos te puede convenir. Lo que va en el palet no lo cargues arriba como bulto.`;
   const k = TARIFAS.kilos;
-  $("#tarifa-kilos").textContent = `De 1 a ${k.tramo} kg: ${pesos(k.minimo)} (mínimo). Cada ${k.tramo} kg más: + ${pesos(k.porTramoExtra)}${k.ejemplo && NEGOCIO.tarifasDeEjemplo ? " (ejemplo)" : ""}. Cada bulto puede pesar hasta ${numero(k.maximo)} kg; si pesa más, escribinos.`;
+  const hastaTabla = numero(k.tabla.at(-1).hasta);
+  $("#tarifa-kilos").textContent = `De 1 a ${numero(k.tabla[0].hasta)} kg: ${pesos(k.tabla[0].precio)} (mínimo). El precio sube según el peso hasta ${hastaTabla} kg. Los bultos de más de ${hastaTabla} kg (hasta ${numero(k.maximo)} kg) te los cotizamos por WhatsApp.`;
+  $("#tabla-kilos").innerHTML = k.tabla.map((t, i) => `<tr><td>${rangoKilos(i)}</td><td>${pesos(t.precio)}</td></tr>`).join("")
+    + `<tr><td>Más de ${hastaTabla} kg</td><td>A cotizar</td></tr>`;
   $("#zona-entrega").innerHTML = TARIFAS.zonasMdp.map((z) =>
-    `<option value="${z.id}">${esc(z.nombre)}${z.extra ? ` (costo extra: ${pesos(z.extra)})` : ""}</option>`
+    `<option value="${z.id}">${esc(z.nombre)}${z.extra == null ? " (extra a consultar)" : z.extra ? ` (costo extra: ${pesos(z.extra)})` : ""}</option>`
   ).join("");
 
   // Día: no se puede elegir una fecha pasada
@@ -1151,13 +1170,16 @@ function calcular() {
   const bultos = filas.reduce((t, f) => t + f.n, 0);
   const palets = leerNumero("palets");
   if (!s || (!bultos && !palets)) return { s, filas, bultos, palets, lineas: [], total: null };
-  const lineas = filas.map((f) => ({ c: `${plural(f.n, "bulto", "bultos")} de ${numero(f.kg)} kg × ${pesos(f.precio)}`, v: redondear(f.n * f.precio) }));
+  const lineas = filas.map((f) => f.precio == null
+    ? { c: `${plural(f.n, "bulto", "bultos")} de ${numero(f.kg)} kg`, v: null }
+    : { c: `${plural(f.n, "bulto", "bultos")} de ${numero(f.kg)} kg × ${pesos(f.precio)}`, v: redondear(f.n * f.precio) });
   if (palets) lineas.push({ c: `${plural(palets, "palet completo", "palets completos")} × ${pesos(TARIFAS.palet.porPalet)}`, v: redondear(palets * TARIFAS.palet.porPalet) });
   // Recargo del sentido (de Mar del Plata a Buenos Aires: 20 % sobre bultos y palets)
   if (s.recargo) lineas.push({ c: `Recargo ${s.desde} → ${s.hasta} (+${s.recargo} %)`, v: redondear((suma(lineas) * s.recargo) / 100) });
-  // Si se entrega en Mar del Plata, puede ser en Batán o Sierra de los Padres (costo extra)
+  // Si se entrega en Mar del Plata: Batán sin extra; Sierra de los Padres con un extra a consultar (extra: null)
   const zona = s.hasta === "Mar del Plata" ? TARIFAS.zonasMdp.find((z) => z.id === $("#zona-entrega").value) : null;
   if (zona?.extra) lineas.push({ c: `Entrega en ${zona.nombre} (costo extra)`, v: zona.extra });
+  else if (zona && zona.extra == null) lineas.push({ c: `Entrega en ${zona.nombre} (costo extra)`, v: null });
   // Seguro: valor declarado × 6 ÷ 1000 (el dueño, 27/10/2026). El cotizador lo
   // calcula solo en pesos; si el valor está en dólares o euros, Saldar lo pasa a
   // pesos y calcula el seguro por WhatsApp (audio del dueño, 27/10/2026).
@@ -1166,7 +1188,10 @@ function calcular() {
   const seguroTexto = `Seguro (${numero(TARIFAS.seguro.porMil / 10)} % del valor declarado)`;
   if (seguro && moneda === "ARS") lineas.push({ c: seguroTexto, v: redondear(seguro) });
   const seguroAparte = valor && moneda !== "ARS" ? MONEDAS_NOMBRE[moneda] : null;
-  return { s, filas, bultos, palets, zona, lineas, seguroTexto, seguroAparte, total: redondear(suma(lineas)) };
+  const aCotizar = lineas.some((l) => l.v == null);
+  // Ningún bulto ni palet con precio (solo bultos pesados): el total va "a cotizar"
+  const soloACotizar = aCotizar && !palets && !filas.some((f) => f.precio != null);
+  return { s, filas, bultos, palets, zona, lineas, seguroTexto, seguroAparte, aCotizar, soloACotizar, total: redondear(suma(lineas)) };
 }
 
 // De Mar del Plata a Buenos Aires: dónde se retira (la sucursal, con su dirección y el mapa)
@@ -1190,10 +1215,12 @@ function actualizar() {
   $$(".peso-fila, .bulto-fila").forEach((fila) => fila.classList.toggle("con-bultos", +fila.querySelector(".cant-input").value > 0));
   $$(".bulto-fila").forEach((fila) => {
     const kg = leerNumero(fila.querySelector(".kg-input").id);
-    fila.querySelector(".bulto-precio").textContent = `${pesos(precioBulto(kg))} c/u · ${rangoBulto(kg)}`;
+    const precio = precioBulto(kg);
+    fila.querySelector(".bulto-precio").textContent = precio == null
+      ? `${rangoBulto(kg)}: te lo cotizamos por WhatsApp` : `${pesos(precio)} c/u · ${rangoBulto(kg)}`;
   });
   // Opción palet cerrada: si los bultos ya suman lo que sale un palet, avisa que puede convenir
-  const conviene = $("#palet-panel").hidden && r.filas.reduce((t, f) => t + f.n * f.precio, 0) >= TARIFAS.palet.porPalet;
+  const conviene = $("#palet-panel").hidden && r.filas.reduce((t, f) => t + f.n * (f.precio || 0), 0) >= TARIFAS.palet.porPalet;
   $("#palet-abrir").classList.toggle("conviene", conviene);
   $("#palet-detalle").textContent = !$("#palet-panel").hidden ? "Tocá para sacar los palets"
     : conviene ? `Con estos bultos te puede convenir: el palet completo sale ${pesos(TARIFAS.palet.porPalet)}`
@@ -1209,7 +1236,8 @@ function actualizar() {
     $("#dia-ayuda").textContent = r.s.cuandoSale;
     $("#aviso-salida").innerHTML = `La carga sale desde ${r.s.salidaEnFrase}${dir ? `: <strong>${esc(dir)}</strong>${mapa}` : ` <span class="confirmar">(dirección a confirmar)</span>`}.${NEGOCIO[r.s.recepcionSalida] ? ` Recibimos la carga ${esc(minuscula(NEGOCIO[r.s.recepcionSalida]))}.` : ""} ${r.s.retiro ? retiroFrase() : "Te la entregamos a domicilio."}`;
   }
-  $("#ticket-lineas").innerHTML = r.lineas.map((l) => `<li><span>${esc(l.c)}</span><span>${pesos(l.v)}</span></li>`).join("");
+  $("#ticket-lineas").innerHTML = r.lineas.map((l) => `<li><span>${esc(l.c)}</span><span>${l.v == null ? "a cotizar" : pesos(l.v)}</span></li>`).join("");
+  $("#ticket-pendiente").hidden = r.total == null || !r.aCotizar;
   $("#ticket-lineas").hidden = !r.lineas.length;
   const seg = $("#ticket-seguro");
   seg.hidden = r.total == null || (!r.seguroAparte && leerPlata());
@@ -1220,10 +1248,14 @@ function actualizar() {
     total.classList.add("vacio");
     total.textContent = "Agregá al menos un bulto (o un palet) para ver el precio.";
     $("#enviar-total").textContent = "—";
+  } else if (r.soloACotizar) {
+    total.classList.add("vacio");
+    total.textContent = "Te lo cotizamos por WhatsApp.";
+    $("#enviar-total").textContent = "A cotizar";
   } else {
     total.classList.remove("vacio");
     total.innerHTML = `<span class="sr">Total estimado: </span>${pesos(r.total)}`;
-    $("#enviar-total").textContent = pesos(r.total);
+    $("#enviar-total").textContent = pesos(r.total) + (r.aCotizar ? " + a cotizar" : "");
   }
   $("#pedir").href = r.total == null ? "#cotizador" : enlaceWhatsapp(armarMensaje(r));
   sinViudas($("#cotizador"));
@@ -1297,8 +1329,9 @@ function armarMensaje(r) {
   L.push(`*Nombre:* ${val("nombre")}`);
   if ($("#socio-cuds").checked) L.push("*Socio de CUDS:* sí, quiero consultar el descuento");
   if (val("comentario")) L.push(`*Comentario:* ${val("comentario")}`);
-  L.push("", `*Total: ${pesos(r.total)}${r.seguroAparte ? " + seguro" : ""}* (precio estimado, a confirmar)`);
-  r.lineas.forEach((l) => L.push(`• ${l.c}: ${pesos(l.v)}`));
+  if (r.soloACotizar) L.push("", "*Total: a cotizar* (¿me pasan el precio, por favor?)");
+  else L.push("", `*Total: ${pesos(r.total)}${r.aCotizar ? " + lo que falta cotizar" : ""}${r.seguroAparte ? " + seguro" : ""}* (precio estimado, a confirmar)`);
+  r.lineas.forEach((l) => L.push(`• ${l.c}: ${l.v == null ? "a cotizar" : pesos(l.v)}`));
   if (r.seguroAparte) L.push(`• ${r.seguroTexto}: a calcular (pasar ${valorDeclarado()} a pesos)`);
   return L.join("\n");
 }
@@ -1408,18 +1441,18 @@ function sinViudas(raiz = document.body) {
         y el mensaje de WhatsApp.
 
    Cómo se calcula un envío:
-     cada bulto se cobra según sus kilos (TARIFAS.kilos): hasta 10 kg el
-     mínimo, y por cada tramo de 10 kg más se suma "porTramoExtra"
-     (ej.: 25 kg = mínimo + 2 tramos). total = suma de (cantidad × precio
-     de cada bulto) + palets completos × precio del palet
+     cada bulto se cobra según sus kilos, con la tabla de TARIFAS.kilos
+     (ej.: 23 kg = el precio "hasta: 25"); si pesa más que el último
+     renglón, queda "a cotizar". total = suma de (cantidad × precio de
+     cada bulto) + palets completos × precio del palet
      + recargo del sentido (de Mar del Plata a Buenos Aires: 20 %)
-     + costo extra de la zona (Batán / Sierra de los Padres).
+     + costo extra de la zona (Sierra de los Padres: a consultar)
+     + seguro (0,6 % del valor declarado, si es en pesos).
      Se redondea a TARIFAS.redondeo.
 
-   IMPORTANTE: estas tarifas son DE EJEMPLO (inventadas para la demo).
-   Cuando estén las reales de Saldar, cargalas y poné
-   NEGOCIO.tarifasDeEjemplo = false para que se vaya la barra
-   "VISTA PREVIA".
+   Las tarifas son las reales de Saldar (28/10/2026). Si algún día se
+   vuelve a cargar algo de ejemplo, poné NEGOCIO.tarifasDeEjemplo = true
+   para que aparezca la barra "VISTA PREVIA".
    ═════════════════════════════════════════════════════════════ */
 
 const NEGOCIO = {
@@ -1428,7 +1461,7 @@ const NEGOCIO = {
   // Formato: 549 + característica sin el 0 + número sin el 15. Ej.: 5492231234567
   whatsapp: "5492235337853",
   instagram: "",   // vacío = sin Instagram en la web; va la cuenta nueva cuando esté (Mateo, 28/10/2026)
-  tarifasDeEjemplo: true,          // true = muestra "VISTA PREVIA: tarifas de ejemplo"
+  tarifasDeEjemplo: false,         // true = muestra la barra "VISTA PREVIA" (precios de ejemplo)
 
   // Datos del dueño (20/10/2026). Vacío ("") = la página muestra "A confirmar".
   horario: "Trabajamos de lunes a sábados",
@@ -1447,7 +1480,7 @@ const NEGOCIO = {
   domicilio: "En Mar del Plata, sí: te la entregamos a domicilio. Lo que va de Mar del Plata a Buenos Aires se retira por nuestra sucursal de Buenos Aires.",
   noLlevan: "Cristalería no, salvo que esté bien embalada; en ese caso viaja sin seguro.",   // el dueño, 27/10/2026
   frecuencia: "De Buenos Aires, la carga que recibimos de lunes a viernes sale el sábado para Mar del Plata.",   // el dueño, 23/10/2026 (falta Mar del Plata → Buenos Aires)
-  zonas: "Entregamos a domicilio en Mar del Plata, y también en Batán y Sierra de los Padres, con costo extra. En Buenos Aires la carga se retira por nuestra sucursal.",
+  zonas: "Entregamos a domicilio en Mar del Plata y en Batán, sin costo extra. En Sierra de los Padres también, con un costo extra que te confirmamos por WhatsApp. En Buenos Aires la carga se retira por nuestra sucursal.",
 
   mailCV: "logisticasaldar1963@gmail.com",   // mail donde llegan los CV de "Trabajá con nosotros" (el dueño, vía Mateo, 27/10/2026)
 
@@ -1472,6 +1505,7 @@ const NEGOCIO = {
   preguntas: [
     { p: "¿Cómo se calcula el precio?", dato: "comoSeCalcula" },
     { p: "¿Llevan palets?", dato: "palets" },
+    { p: "¿Cuánto sale cada bulto según el peso?", dato: "preciosPeso" },
     { p: "¿Hasta cuántos kilos puede pesar un bulto?", dato: "maxKilos" },
     { p: "¿Entregan a domicilio?", dato: "domicilio" },
     { p: "¿Desde cuándo están?", r: "Desde 2015 hacemos logística y distribución entre Buenos Aires y Mar del Plata." },
@@ -1497,20 +1531,33 @@ const TARIFAS = {
   // Palet completo (dato real del dueño, 23/10/2026).
   palet: { porPalet: 86260.40, max: 30 },
 
-  // Bultos por kilos: de 1 a 10 kg se cobra el mínimo (dato real del dueño,
-  // 23/10/2026) y sube de a 10 kg. Cada bulto puede pesar hasta 4.000 kg (27/10/2026).
-  // "porTramoExtra" (lo que se suma por cada 10 kg más) es DE EJEMPLO:
-  // cuando esté el real, cambiá el número y borrá "ejemplo: true".
-  kilos: { minimo: 9181.97, tramo: 10, porTramoExtra: 1800, maximo: 4000, ejemplo: true },
+  // Precio por bulto según el peso (datos reales del dueño, 23 y 28/10/2026).
+  // "hasta" = kilos máximos de ese precio. Un bulto que pesa más que el último
+  // renglón se cotiza por WhatsApp. Cada bulto puede pesar hasta 4.000 kg (27/10/2026).
+  kilos: {
+    tabla: [
+      { hasta: 10, precio: 9181.97 },   // mínimo
+      { hasta: 15, precio: 10482 },
+      { hasta: 20, precio: 12484 },
+      { hasta: 25, precio: 14009 },
+      { hasta: 30, precio: 15001 },
+      { hasta: 35, precio: 17503 },
+      { hasta: 40, precio: 17993 },
+      { hasta: 45, precio: 20500 },
+      { hasta: 50, precio: 21507 },
+    ],
+    maximo: 4000,
+  },
 
   // Seguro de la mercadería: valor declarado × 6 ÷ 1000 = 0,6 % (el dueño, 27/10/2026)
   seguro: { porMil: 6 },
 
-  // Zonas de entrega en Mar del Plata. "extra" = costo extra por envío (0 = sin extra).
+  // Zonas de entrega en Mar del Plata. "extra" = costo extra por envío
+  // (0 = sin extra; null = a consultar, se cotiza por WhatsApp). El dueño, 28/10/2026.
   zonasMdp: [
     { id: "mdp",    nombre: "Mar del Plata",        extra: 0 },
-    { id: "batan",  nombre: "Batán",                extra: 5000 },
-    { id: "sierra", nombre: "Sierra de los Padres", extra: 5000 },
+    { id: "batan",  nombre: "Batán",                extra: 0 },
+    { id: "sierra", nombre: "Sierra de los Padres", extra: null },
   ],
 
   // De dónde sale la carga en cada sentido. "direccionSalida" y

@@ -82,10 +82,9 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
 
 - Demo armada **sin la ficha del negocio**: Instagram no se pudo leer desde la
   sesión y Saldar no aparece en Google ni en directorios de logística de MDP.
-- **Los precios son reales salvo uno**: lo que suma cada 10 kg más (y el
-  extra de Batán y Sierras) es de ejemplo → barra "VISTA PREVIA: Falta un
-  precio…" arriba, etiqueta "Vista previa" en el presupuesto y "(ejemplo)"
-  en la ayuda de los bultos.
+- **Todos los precios son reales** (28/10/2026): `tarifasDeEjemplo: false`,
+  sin barra de VISTA PREVIA. Quedan "a cotizar" los bultos de más de 50 kg
+  y el extra de Sierra de los Padres.
 - **Todos los pedidos van al WhatsApp de Mateo** (5492235337853) para pruebas.
 - Tiene `<meta name="robots" content="noindex">` para que Google no indexe la
   demo (precios de ejemplo y WhatsApp de Mateo). **Sacarlo al publicar.**
@@ -113,12 +112,12 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
 | Valor declarado | El cliente pone cuánto vale **toda** la mercadería, bultos y palets (**obligatorio**, "sí o sí"), en **pesos, dólares o euros** (Saldar lo pasa a pesos); va en el mensaje de WhatsApp ("$ 250.000", "US$ 1.500", "€ 1.200"). **Con él se calcula el seguro: valor × 6 ÷ 1.000 (0,6 %)**. **El cotizador lo calcula solo en pesos** (se suma al total como una línea más). En dólares o euros no lo calcula: debajo del total dice que lo pasan a pesos y calculan el seguro por WhatsApp, y el mensaje dice "+ seguro" y "a calcular (pasar US$ 1.500 a pesos)" | Pedido del dueño, vía Mateo, 23/10/2026 ✅. Monedas y "para todo": audio del dueño, 27/10/2026 ✅. Seguro: el dueño, vía Mateo, 27/10/2026 ✅ ("valor declarado x 6 dividido 1000"). Dólares y euros: audio del dueño, 27/10/2026 ✅ ("que solo se cotice en pesos y si es en euros o en dólares, que escriban al WhatsApp, que hacemos la conversión") |
 | Entrega | **Buenos Aires → Mar del Plata: a domicilio.** **Mar del Plata → Buenos Aires: se retira por la sucursal de Buenos Aires** (el formulario esconde la dirección de entrega, el aviso y el mensaje dicen "Retira en: Sucursal de Buenos Aires…") | El dueño, vía Mateo, 20/10/2026 ✅. Retiro: 27/10/2026 ✅ ("cuando sale de mdp a bs as se retira por el depósito" = la sucursal de Villa Soldati; Mateo lo confirmó el mismo día) |
 | Sucursal Buenos Aires | **John William Cooke 3155, Villa Soldati (CABA)**, C1437 (link a Google Maps). La carga de Buenos Aires → Mar del Plata sale de acá, y acá se retira la que viene de Mar del Plata. Recibe de 8 a 17 | Dirección: el dueño, vía Mateo, 23/10/2026 ✅ (escribió "Cooke John William 3155"). Barrio: buscado por Claude el 23/10/2026 (Waze, directorios de transporte y un aviso de galpón en Cooke 3200 dicen CABA, C1437, Villa Soldati). En esa altura hay un predio con varios expresos (Tres Lomas, Veninga, TransRE…), uno con horario de lunes a viernes de 8 a 17 |
-| Tarifas | 1–10 kg $ 9.181,97 (real). Cada 10 kg más: + $ 1.800 | ⚠️ El mínimo es real; el "+ $ 1.800" es de ejemplo (`kilos.ejemplo: true`, se ve "(ejemplo)") |
+| Tarifas | **Tabla por bulto** (`TARIFAS.kilos.tabla`): 1–10 kg $ 9.181,97 · 11–15 $ 10.482 · 16–20 $ 12.484 · 21–25 $ 14.009 · 26–30 $ 15.001 · 31–35 $ 17.503 · 36–40 $ 17.993 · 41–45 $ 20.500 · 46–50 $ 21.507. **Más de 50 kg: "a cotizar" por WhatsApp** (no suma al total; si no hay ningún bulto con precio, el total dice "Te lo cotizamos por WhatsApp") | El dueño, vía Mateo, 23 y 28/10/2026 ✅. Falta, si quieren, el precio de 51 a 4.000 kg |
 | Palet | $ 86.260,40 el palet completo | El dueño, vía Mateo, 23/10/2026 ✅ |
 | WhatsApp | El de Mateo (pruebas) | ⚠️ Falta el del negocio |
 | Horario | Trabaja de lunes a sábados. Recepción de carga: **sucursal de Buenos Aires de 8 a 17**, **depósito de Mar del Plata de 8 a 13** (el depósito está abierto de 8 a 15), de lunes a viernes. **De Buenos Aires la carga sale el sábado.** Sábados el depósito de Mar del Plata está cerrado | El dueño, vía Mateo, 22, 23 y 27/10/2026 ✅ ("de lunes a viernes se recibe mercadería, porque ya sale el sábado"; 27/10: "en mdp de 8 a 15, pero para recibir mercadería de 8 a 13", `horarioMdp` y `recepcion`). El 23/10 reemplaza el "8 a 16:30" y aclara el "6 a 15": el galpón de Mar del Plata abre a las 5, pero la mercadería se recibe desde las 8 aprox. (en la web va solo la recepción, para que nadie llegue a las 5). El 22/10 había dicho "los sábados no sale la mercadería" (se entendió del depósito de Mar del Plata); la web ya no lo dice. En el JSON-LD (depósito): lunes a viernes 8 a 15 |
 | Medios de pago | Efectivo y transferencia | El dueño, vía Mateo, 22/10/2026 ✅ (reemplaza "todos los medios"). Tarjeta: el dueño prefiere esperar (23/10/2026); en la web no se menciona |
-| Zonas de entrega | Mar del Plata y Buenos Aires; en Mar del Plata también Batán y Sierra de los Padres con costo extra | El dueño, vía Mateo, 22/10/2026 ✅ (el monto del extra falta) |
+| Zonas de entrega | Mar del Plata y **Batán sin extra**; **Sierra de los Padres con extra "a consultar"** (`extra: null`: en el cotizador "(extra a consultar)" y la línea "a cotizar"); en Buenos Aires se retira por la sucursal | El dueño, vía Mateo, 22 y 28/10/2026 ✅ (el extra de Sierras todavía no lo saben) |
 | Qué no llevan | Cristalería no, salvo que esté bien embalada; en ese caso viaja sin seguro (solo en preguntas; el cotizador no lo controla) | El dueño, vía Mateo, 27/10/2026 ✅ |
 | Cada cuánto viajan | De Buenos Aires sale el sábado (lo recibido de lunes a viernes) | El dueño, vía Mateo, 23/10/2026 ✅ (falta Mar del Plata → Buenos Aires) |
 
@@ -164,11 +163,11 @@ comentario **"DATOS DE SALDAR — ACÁ SE CAMBIAN LOS PRECIOS"**:
   preguntas frecuentes.
 - `TARIFAS`: `redondeo` (0 = no redondea y muestra centavos), `maxBultos`
   (de un mismo peso), **`palet`** (`porPalet`, `max`), **`kilos`**
-  (`minimo` = precio de 1 a `tramo` kg, `tramo` = 10, **`porTramoExtra`** =
-  lo que suma cada 10 kg más, `maximo` = 4000 kg, `ejemplo`: sacarlo
-  cuando `porTramoExtra` sea real), **`zonasMdp`** (Mar del
-  Plata sin extra, Batán y Sierra de los Padres con `extra`; solo aparece
-  cuando la entrega es en Mar del Plata) **`seguro`** (`porMil`: 6 = valor declarado × 6 ÷ 1.000) y `sentidos` (de dónde
+  (**`tabla`**: renglones `{ hasta, precio }`, de menor a mayor; un bulto
+  que pesa más que el último `hasta` queda "a cotizar"; `maximo` = 4000 kg
+  por bulto), **`zonasMdp`** (`extra`: 0 = sin extra, un número = se suma,
+  `null` = "a consultar"; solo aparece cuando la entrega es en Mar del
+  Plata) **`seguro`** (`porMil`: 6 = valor declarado × 6 ÷ 1.000) y `sentidos` (de dónde
   sale la carga en cada sentido: depósito de Mar del Plata o sucursal de
   Buenos Aires; `direccionSalida` y `recepcionSalida` dicen qué dato de
   `NEGOCIO` tiene la dirección y el horario de ese lugar, para el aviso del
@@ -181,15 +180,16 @@ Reglas: los precios van **sin puntos de miles ni $; los centavos con punto**
 función `pesos()`: muestra centavos solo si el monto los tiene.
 
 Cálculo (`calcular()`): cada fila de bultos tiene kilos y cantidad; el
-precio de un bulto (`precioBulto()`) es `minimo + (tramos − 1) × porTramoExtra`,
-con `tramos = ⌈kg / 10⌉` (10 kg = mínimo, 25 kg = 3 tramos, 4.000 kg = 400);
+precio de un bulto (`precioBulto()`) es el del primer renglón de
+`TARIFAS.kilos.tabla` cuyo `hasta` alcanza sus kilos (23 kg → el de 25), o
+`null` ("a cotizar") si pesa más que el último; las líneas con `v: null` no
+suman y muestran "a cotizar";
 `total = suma de (cantidad × precio de cada fila) + palets × porPalet +
 recargo del sentido (20 % sobre bultos y palets, de Mar del Plata a Buenos
 Aires) + extra de la zona + seguro`
-(zona: solo Batán / Sierra de los Padres; seguro: valor × porMil ÷ 1.000, solo si el valor está en pesos — en dólares o euros no se calcula y un aviso debajo del total dice que se calcula por WhatsApp), redondeado a `TARIFAS.redondeo`. Si
-Saldar pasa una tabla con precios que no suben parejo cada 10 kg, o cobra
-por kilo exacto, cambiar `precioBulto()` (y `rangoBulto()`, que arma el
-texto "de 20 a 30 kg").
+(zona: solo Sierra de los Padres, hoy a consultar; seguro: valor × porMil ÷ 1.000, solo si el valor está en pesos — en dólares o euros no se calcula y un aviso debajo del total dice que se calcula por WhatsApp), redondeado a `TARIFAS.redondeo`. Si
+pasan precios de más de 50 kg, agregar renglones a la tabla (el texto
+"de 51 a 100 kg", la tabla desplegable y la pregunta se arman solos).
 
 El link a Google Maps es un link común (`https://www.google.com/maps/search/?api=1&query=…`):
 no usa la API ni pide clave. Está en la tarjeta del recorrido, en contacto y
@@ -331,10 +331,10 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 | Qué | Por qué hay duda |
 |---|---|
 | ¿De Mar del Plata a Buenos Aires qué días sale la carga? ¿También el sábado? | El 22/10 dijo "los sábados no sale la mercadería" y el 23/10 "ya sale el sábado" (pregunta sobre Buenos Aires). La web dice el sábado solo para Buenos Aires → Mar del Plata |
-| Costo extra de Batán y Sierra de los Padres: ¿cuánto? ¿por envío o por bulto? | Hoy $ 5.000 de ejemplo por envío |
+| Costo extra de Sierra de los Padres: ¿cuánto? ¿por envío o por bulto? | Hoy "a consultar" (Batán no tiene extra, 28/10/2026) |
 | Mudanzas: ¿cómo se cotizan? | Confirmado: dentro de Mar del Plata y entre Buenos Aires y Mar del Plata, de ida y de vuelta. Hoy "pedí presupuesto por WhatsApp" |
 | Pago con tarjeta (más adelante) | El dueño prefiere esperar (23/10/2026). Cuando quiera: cuenta de Mercado Pago (u otra) para el link o botón de pago en la web; con posnet, sumar "tarjeta en el depósito" a `pagos` |
-| Cuánto suma cada 10 kg más (o la tabla de precios de 10 a 4.000 kg) | Solo está el mínimo de 1 a 10 kg ($ 9.181,97); hoy + $ 1.800 de ejemplo por cada 10 kg |
+| Precios de bultos de más de 50 kg (hasta 4.000) | Hoy "a cotizar por WhatsApp"; la tabla llega a 50 kg (28/10/2026) |
 | (Opcional, más adelante) Que el cotizador pase solo los dólares o euros a pesos: ¿qué cotización usan (oficial, blue, MEP…)? | Hoy se calcula por WhatsApp (pedido del dueño, 27/10/2026). Se podría con la cotización del día de un servicio público (p. ej. DolarApi), pero depende de que ese servicio ande |
 | Cristalería sin seguro: ¿el cotizador tiene que preguntar si va cristalería? | Hoy solo está en preguntas frecuentes |
 | Que en Buenos Aires la carga también sale de la sucursal | Inferido de "sale desde el depósito" + "hay sucursal en Buenos Aires" |
@@ -348,7 +348,7 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 
 ## Para publicar (cuando cierre)
 
-- [ ] Cargar datos y tarifas reales; `tarifasDeEjemplo: false`.
+- [x] Tarifas reales hasta 50 kg; `tarifasDeEjemplo: false` (28/10/2026).
 - [ ] Cambiar `NEGOCIO.whatsapp` por el del negocio.
 - [ ] Sacar `<meta name="robots" content="noindex">`.
 - [x] JSON-LD: sucursal como `department` (Villa Soldati, CABA, C1437),
@@ -365,6 +365,15 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 
 ## Registro de cambios
 
+- 28/10/2026 — Mateo pasó los precios por peso de 11 a 50 kg (de a 5 kg),
+  Batán sin extra y Sierra de los Padres a confirmar → `TARIFAS.kilos` pasó
+  de "mínimo + cada 10 kg" a una **tabla** (`precioBulto()`, `rangoKilos()`,
+  `rangoBulto()`); más de 50 kg queda "a cotizar" (no suma, aviso debajo
+  del total, mensaje "+ lo que falta cotizar" o "Total: a cotizar"); tabla
+  desplegable "Ver los precios por peso" debajo de los bultos; pregunta
+  nueva "¿Cuánto sale cada bulto según el peso?"; Batán `extra: 0`, Sierra
+  `extra: null` ("extra a consultar"); zonas y tarjeta del depósito con el
+  texto nuevo; `tarifasDeEjemplo: false` (se fue la barra VISTA PREVIA).
 - 28/10/2026 — Mateo (captura de contacto con "Factura" arriba y "A." sola
   abajo): que no quede una letra o palabra suelta → `sinViudas()` en toda
   la página, `text-wrap` en el CSS y "Ver en el mapa" sin cortar.
