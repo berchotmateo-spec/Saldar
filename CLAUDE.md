@@ -99,10 +99,9 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
 - **Todos los precios son reales** (28/10/2026): `tarifasDeEjemplo: false`,
   sin barra de VISTA PREVIA. Quedan "a cotizar" los bultos de más de 50 kg
   y el extra de Sierra de los Padres.
-- **Todos los pedidos van al WhatsApp de Mateo** (5492235337853) para pruebas.
+- **Los pedidos van al WhatsApp de Saldar** (223 595-7130, `5492235957130`) desde el 04/11/2026.
 - **Visible para Google desde el 04/11/2026** (pedido de Mateo): se sacó el
-  `noindex`. Ojo: los pedidos siguen yendo al WhatsApp de Mateo hasta que
-  el dueño pase el suyo.
+  `noindex`.
 - Probado en Chromium a 1366 y 390 px: 0 errores de JS, sin desborde
   horizontal, mensaje de WhatsApp bien armado en los dos sentidos, aviso
   cuando falta un dato, links a Google Maps, ninguna mención a "fletes" ni a
@@ -129,7 +128,7 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
 | Sucursal Buenos Aires | **John William Cooke 3155, Villa Soldati (CABA)**, C1437 (link a Google Maps). La carga de Buenos Aires → Mar del Plata sale de acá, y acá se retira la que viene de Mar del Plata. Recibe de 8 a 17 | Dirección: el dueño, vía Mateo, 23/10/2026 ✅ (escribió "Cooke John William 3155"). Barrio: buscado por Claude el 23/10/2026 (Waze, directorios de transporte y un aviso de galpón en Cooke 3200 dicen CABA, C1437, Villa Soldati). En esa altura hay un predio con varios expresos (Tres Lomas, Veninga, TransRE…), uno con horario de lunes a viernes de 8 a 17 |
 | Tarifas | **Tabla por bulto** (`TARIFAS.kilos.tabla`): 1–10 kg $ 9.181,97 · 11–15 $ 10.482 · 16–20 $ 12.484 · 21–25 $ 14.009 · 26–30 $ 15.001 · 31–35 $ 17.503 · 36–40 $ 17.993 · 41–45 $ 20.500 · 46–50 $ 21.507. **Más de 50 kg: "a cotizar" por WhatsApp** (no suma al total; si no hay ningún bulto con precio, el total dice "Te lo cotizamos por WhatsApp") | El dueño, vía Mateo, 23 y 28/10/2026 ✅. Falta, si quieren, el precio de 51 a 4.000 kg |
 | Palet | $ 86.260,40 el palet completo | El dueño, vía Mateo, 23/10/2026 ✅ |
-| WhatsApp | El de Mateo (pruebas) | ⚠️ Falta el del negocio |
+| WhatsApp | **223 595-7130** (`NEGOCIO.whatsapp: "5492235957130"`; también `telephone` en el JSON-LD) | Mateo, 04/11/2026 ✅ |
 | Horario | Trabaja de lunes a sábados. Recepción de carga: **sucursal de Buenos Aires de 8 a 17**, **depósito de Mar del Plata de 8 a 13** (el depósito está abierto de 8 a 15), de lunes a viernes. **De Buenos Aires la carga sale el sábado.** Sábados el depósito de Mar del Plata está cerrado | El dueño, vía Mateo, 22, 23 y 27/10/2026 ✅ ("de lunes a viernes se recibe mercadería, porque ya sale el sábado"; 27/10: "en mdp de 8 a 15, pero para recibir mercadería de 8 a 13", `horarioMdp` y `recepcion`). El 23/10 reemplaza el "8 a 16:30" y aclara el "6 a 15": el galpón de Mar del Plata abre a las 5, pero la mercadería se recibe desde las 8 aprox. (en la web va solo la recepción, para que nadie llegue a las 5). El 22/10 había dicho "los sábados no sale la mercadería" (se entendió del depósito de Mar del Plata); la web ya no lo dice. En el JSON-LD (depósito): lunes a viernes 8 a 15 |
 | Medios de pago | Efectivo y transferencia | El dueño, vía Mateo, 22/10/2026 ✅ (reemplaza "todos los medios"). Tarjeta: el dueño prefiere esperar (23/10/2026); en la web no se menciona |
 | Zonas de entrega | Mar del Plata y **Batán sin extra**; **Sierra de los Padres con extra "a consultar"** (`extra: null`: en el cotizador "(extra a consultar)" y la línea "a cotizar"); en Buenos Aires se retira por la sucursal | El dueño, vía Mateo, 22 y 28/10/2026 ✅ (el extra de Sierras todavía no lo saben) |
@@ -354,7 +353,6 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 | Cristalería sin seguro: ¿el cotizador tiene que preguntar si va cristalería? | Hoy solo está en preguntas frecuentes |
 | Que en Buenos Aires la carga también sale de la sucursal | Inferido de "sale desde el depósito" + "hay sucursal en Buenos Aires" |
 | ¿Retiran a domicilio además de entregar? | Se entendió que no: la carga sale del depósito; el formulario no pide dirección de retiro |
-| WhatsApp del negocio | Hoy todo va al de Mateo |
 | Franjas horarias del formulario (mañana / mediodía / cualquier horario) | Puestas sin horario exacto; se sacó "tarde". ¿En qué horario entregan? |
 | Clientes o marcas que se puedan nombrar (con permiso) | No hay ninguno en la web |
 | Algo más que lo distinga (frecuencia, seguimiento…) | Ya está "desde 2015" (27/10/2026) |
@@ -364,11 +362,11 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 ## Para publicar (cuando cierre)
 
 - [x] Tarifas reales hasta 50 kg; `tarifasDeEjemplo: false` (28/10/2026).
-- [ ] Cambiar `NEGOCIO.whatsapp` por el del negocio.
+- [x] `NEGOCIO.whatsapp` = el del negocio (04/11/2026).
 - [x] Sacar `<meta name="robots" content="noindex">` (04/11/2026).
 - [x] JSON-LD: sucursal como `department` (Villa Soldati, CABA, C1437),
-      `url`, `logo` e `image` con el dominio (27/10/2026). `telephone`
-      cuando esté el WhatsApp del negocio.
+      `url`, `logo` e `image` con el dominio (27/10/2026), `telephone`
+      con el WhatsApp del negocio (04/11/2026).
 - [x] `og.jpg` 1200×630 y `canonical` con el dominio (27/10/2026).
 - [x] `publicar.py` en la raíz → `docs/` con `CNAME` (27/10/2026).
 - [x] QR en `qr/` (27/10/2026).
@@ -387,6 +385,9 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 
 ## Registro de cambios
 
+- 04/11/2026 — Mateo pasó el WhatsApp del negocio (2235957130) →
+  `NEGOCIO.whatsapp` y `telephone` del JSON-LD; todos los botones y el
+  pedido del cotizador van a ese número.
 - 04/11/2026 — Contrato armado sobre el de La Nieve (Word y PDF, fuera del
   repo) y, por pedido de Mateo, la página visible para Google (sin
   `noindex`).
