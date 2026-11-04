@@ -19,7 +19,7 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
 - Repo: `berchotmateo-spec/Saldar` — rama de trabajo `claude/new-session-2zu43k` (todavía no hay `main`).
 - Archivo único: `index.html` (HTML + CSS + JS, sin build; solo Google Fonts).
 - **Dominio: `saldarlogistica.com.ar`** (lo compró Mateo en NIC.ar el
-  27/10/2026; `saldar.com.ar` estaba tomado). Vence en un año: renovarlo
+  27/10/2026, **a su nombre**, como dice el contrato; `saldar.com.ar` estaba tomado). Vence en un año: renovarlo
   antes del 27/10/2027 (la fecha exacta está en nic.ar → Mis dominios). El
   dueño quiere la web en internet antes del fin de semana del 31/10 para
   poner QR en carteles.
