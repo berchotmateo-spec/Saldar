@@ -381,6 +381,8 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
       Al cargar el sitemap le dio "Dirección de sitemap no válida"; el
       sitemap anda bien (200, `application/xml`) y también figura en
       `robots.txt`, así que Google lo encuentra igual.
+      04/11/2026: Mateo solicitó la indexación de la portada ✅ (aparece en
+      Google en días). Falta el Perfil de Empresa (lo hace el dueño).
 - [ ] Recordatorio en el calendario de Mateo para renovar el dominio.
 
 ## Registro de cambios
