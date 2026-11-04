@@ -70,6 +70,12 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
   `og-fuente.html` (logo, "Desde 2015 · cargas en camión", el titular y una
   cinta con el dominio). El `<head>` tiene `canonical`, `og:url`,
   `og:image` y el JSON-LD `url`, `logo` e `image`, todo con el dominio.
+- **Contrato** (modelo, 04/11/2026): doc privado de Mateo "Contrato de
+  servicio web — Saldar", https://claude.ai/artifact/NtWg3NQL423UyLab5wXfQD
+  (partes, qué incluye y qué no el abono, precio con ajuste trimestral por
+  IPC, dominio, duración y baja con 30 días, contenido y responsabilidades,
+  crédito ConnectHUB, jurisdicción Mar del Plata, firmas). Los montos y datos
+  personales se completan ahí, **nunca en este archivo**.
 - Vista previa (Artifact): https://claude.ai/artifact/BFzHpRD3RUbbA9wNtDmvHT
   (privado: el dueño la ve recién cuando Mateo la comparte desde el menú
   Compartir). Se publicó el 19/10/2026, después de que Mateo habló con el
@@ -365,6 +371,10 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 
 ## Registro de cambios
 
+- 04/11/2026 — Mateo: "hay que hacer el contrato" → modelo de contrato en
+  un doc aparte (link arriba, en "Qué es"), con espacios en blanco para
+  montos, datos de las partes, dominio y plazos, y una lista "Antes de
+  firmar" (incluye revisarlo con un abogado o contador).
 - 28/10/2026 — Mateo pasó los precios por peso de 11 a 50 kg (de a 5 kg),
   Batán sin extra y Sierra de los Padres a confirmar → `TARIFAS.kilos` pasó
   de "mínimo + cada 10 kg" a una **tabla** (`precioBulto()`, `rangoKilos()`,
