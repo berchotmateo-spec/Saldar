@@ -376,6 +376,11 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
       `/docs`, Custom domain), Cloudflare, delegación en NIC.ar y Enforce
       HTTPS (27 y 28/10/2026).
 - [ ] Search Console (propiedad de dominio) y Perfil de Empresa de Google.
+      04/11/2026: Mateo verificó la propiedad de dominio (TXT
+      `google-site-verification=…` en Cloudflare: **no borrarlo nunca**).
+      Al cargar el sitemap le dio "Dirección de sitemap no válida"; el
+      sitemap anda bien (200, `application/xml`) y también figura en
+      `robots.txt`, así que Google lo encuentra igual.
 - [ ] Recordatorio en el calendario de Mateo para renovar el dominio.
 
 ## Registro de cambios
