@@ -70,7 +70,15 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
   `og-fuente.html` (logo, "Desde 2015 · cargas en camión", el titular y una
   cinta con el dominio). El `<head>` tiene `canonical`, `og:url`,
   `og:image` y el JSON-LD `url`, `logo` e `image`, todo con el dominio.
-- **Contrato** (modelo, 04/11/2026): doc privado de Mateo "Contrato de
+- **Contrato firmable** (04/11/2026): Word y PDF con el mismo diseño que el
+  de La Nieve (10 cláusulas), hechos con python-docx + LibreOffice. **No
+  están en el repo** (tienen DNI, domicilio y montos): se le mandaron a
+  Mateo. Datos que no van acá: los montos y el DNI. Acordado: 50 % al firmar
+  y el resto a negociar; la web se da por entregada (publicada desde el
+  28/10); dominio a nombre de Mateo mientras dure el contrato y se
+  transfiere si lo piden; 4 cambios por mes y desde el 5.º con costo;
+  baja con 30 días de preaviso o multa de un abono.
+- **Contrato** (primer modelo, 04/11/2026, reemplazado por el de arriba): doc privado de Mateo "Contrato de
   servicio web — Saldar", https://claude.ai/artifact/NtWg3NQL423UyLab5wXfQD
   (partes, qué incluye y qué no el abono, precio con ajuste trimestral por
   IPC, dominio, duración y baja con 30 días, contenido y responsabilidades,
@@ -92,8 +100,9 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
   sin barra de VISTA PREVIA. Quedan "a cotizar" los bultos de más de 50 kg
   y el extra de Sierra de los Padres.
 - **Todos los pedidos van al WhatsApp de Mateo** (5492235337853) para pruebas.
-- Tiene `<meta name="robots" content="noindex">` para que Google no indexe la
-  demo (precios de ejemplo y WhatsApp de Mateo). **Sacarlo al publicar.**
+- **Visible para Google desde el 04/11/2026** (pedido de Mateo): se sacó el
+  `noindex`. Ojo: los pedidos siguen yendo al WhatsApp de Mateo hasta que
+  el dueño pase el suyo.
 - Probado en Chromium a 1366 y 390 px: 0 errores de JS, sin desborde
   horizontal, mensaje de WhatsApp bien armado en los dos sentidos, aviso
   cuando falta un dato, links a Google Maps, ninguna mención a "fletes" ni a
@@ -356,7 +365,7 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 
 - [x] Tarifas reales hasta 50 kg; `tarifasDeEjemplo: false` (28/10/2026).
 - [ ] Cambiar `NEGOCIO.whatsapp` por el del negocio.
-- [ ] Sacar `<meta name="robots" content="noindex">`.
+- [x] Sacar `<meta name="robots" content="noindex">` (04/11/2026).
 - [x] JSON-LD: sucursal como `department` (Villa Soldati, CABA, C1437),
       `url`, `logo` e `image` con el dominio (27/10/2026). `telephone`
       cuando esté el WhatsApp del negocio.
@@ -371,6 +380,9 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 
 ## Registro de cambios
 
+- 04/11/2026 — Contrato armado sobre el de La Nieve (Word y PDF, fuera del
+  repo) y, por pedido de Mateo, la página visible para Google (sin
+  `noindex`).
 - 04/11/2026 — Mateo: "hay que hacer el contrato" → modelo de contrato en
   un doc aparte (link arriba, en "Qué es"), con espacios en blanco para
   montos, datos de las partes, dominio y plazos, y una lista "Antes de
