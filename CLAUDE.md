@@ -11,7 +11,7 @@ Web de una página para **Saldar** (Instagram viejo @saldar223, sin acceso: no v
 empresa de **logística y distribución en camión entre Buenos Aires y Mar del Plata** (en los
 dos sentidos; **predomina Buenos Aires → Mar del Plata**, por eso va primero en
 toda la web), con depósito en Victoriano Montes 1963, Mar del Plata, y
-sucursal en Buenos Aires. Está **desde 2015**. También hace **mudanzas** y lleva **congelados**. **En la web se dice "logística y distribución", nunca "fletes"**
+sucursal en Buenos Aires. Está **desde 2015**. También hace **mudanzas**. **En la web se dice "logística y distribución", nunca "fletes"**
 (pedido de Mateo, 20 y 27/10/2026). Es una **demo de venta** de Mateo
 Berchot: se le muestra al dueño funcionando y se le ofrece con abono mensual.
 Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
@@ -119,7 +119,7 @@ Primer cliente no gastronómico (el anterior fue Pizzería La Nieve).
 | Trayectoria | **Desde 2015**: bajada de la portada, hoja de ruta ("Saldar · desde 2015"), pregunta "¿Desde cuándo están?", pie, description, Open Graph y JSON-LD (`foundingDate`) | El dueño, vía Mateo, 27/10/2026 ✅ |
 | Depósito | Victoriano Montes 1963, Mar del Plata (link a Google Maps). La carga sale desde acá | El dueño, vía Mateo, 20/10/2026 ✅. Mateo escribió "victoriano monte"; la calle es Dr. Victoriano E. Montes |
 | Servicios | Buenos Aires → Mar del Plata y Mar del Plata → Buenos Aires, y mudanzas (dentro de Mar del Plata y entre Buenos Aires y Mar del Plata, de ida y de vuelta) | El dueño, vía Mateo, 19, 20, 22 y 23/10/2026 ✅. **No tiene mensajería** |
-| Congelados | Se permiten | El dueño, vía Mateo, 22/10/2026 ✅ |
+| Congelados | **No van en la web** (se sacaron el 13/11/2026: etiquetas de servicios, pregunta, description y JSON-LD) | Pedido del dueño, vía Mateo, 13/11/2026 ✅ |
 | Factura | Hace Factura A | El dueño, vía Mateo, 22/10/2026 ✅ |
 | Vehículos | Camiones | El dueño, vía Mateo, 20/10/2026 ✅ |
 | Cómo cobra | Por bulto según sus kilos, de a 10 kg. **Cada bulto puede pesar hasta 4.000 kg** (audio del dueño, 27/10: "por bulto se puede hasta 4.000 kilos… se puede un montón"; antes "unos 400 kg por bulto"): el campo de kilos llega a 4.000 y la pregunta dice "si tenés algo más pesado, escribinos". **De 1 a 10 kg se cobra el mínimo: $ 9.181,97.** **Opción palet** (aparte, para el que embala toda la carga en un palet; con muchos bultos le conviene): **$ 86.260,40 el palet completo.** De Mar del Plata a Buenos Aires, recargo del 20 % sobre todo (bultos y palets) | El dueño, vía Mateo, 20 y 23/10/2026 ✅ (falta cuánto suma cada 10 kg). Audios del 23/10: "primero es por peso y por bulto, y después los que lo quieran mandar en palet, por palet" |
@@ -152,6 +152,8 @@ Al sacar algo, buscarlo en **todo** el `index.html`: textos, `<title>`,
   contra entrega), los precios por zona y la sección "Para empresas y
   tiendas online". Si algún día la suma, está en el historial de git
   (commit anterior a "Sacar la mensajería").
+- **Congelados** (pedido del dueño, 13/11/2026): ni etiqueta, ni pregunta,
+  ni description.
 - **La palabra "fletes"**: Mateo prefiere "logística" (20/10/2026). Buscar
   "flete" en todo el archivo antes de publicar.
 - **Fletes dentro de la ciudad por hora** (vehículo, horas, ayudantes, pisos)
@@ -385,6 +387,11 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 
 ## Registro de cambios
 
+- 13/11/2026 — Mateo: "la parte de congelados, me pidieron que la saquemos" →
+  fuera la etiqueta "Congelados" de los dos servicios, la pregunta
+  "¿Llevan productos congelados?", `NEGOCIO.congelados` y la palabra en la
+  description y el JSON-LD.
+- 12/11/2026 — JSON-LD con `alternateName` y `legalName` "Logística Saldar".
 - 04/11/2026 — Mateo pasó el WhatsApp del negocio (2235957130) →
   `NEGOCIO.whatsapp` y `telephone` del JSON-LD; todos los botones y el
   pedido del cotizador van a ese número.
