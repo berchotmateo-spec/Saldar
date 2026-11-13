@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Saldar · Logística y distribución Buenos Aires – Mar del Plata</title>
-<meta name="description" content="Saldar: logística y distribución entre Buenos Aires y Mar del Plata. Desde 2015, cargas en camión con entrega a domicilio en Mar del Plata, precio según el peso, congelados y mudanzas. Cotizá y pedilo por WhatsApp.">
+<meta name="description" content="Saldar: logística y distribución entre Buenos Aires y Mar del Plata. Desde 2015, cargas en camión con entrega a domicilio en Mar del Plata, precio según el peso y mudanzas. Cotizá y pedilo por WhatsApp.">
 <meta name="theme-color" content="#0756DB">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_AR">
@@ -34,7 +34,7 @@
   "image": "https://saldarlogistica.com.ar/og.jpg",
   "foundingDate": "2015",
   "telephone": "+54 9 223 595-7130",
-  "description": "Logística y distribución entre Buenos Aires y Mar del Plata desde 2015: cargas en camión con entrega a domicilio en Mar del Plata, precio por peso y por bulto (opción palet), congelados y mudanzas. Factura A.",
+  "description": "Logística y distribución entre Buenos Aires y Mar del Plata desde 2015: cargas en camión con entrega a domicilio en Mar del Plata, precio por peso y por bulto (opción palet) y mudanzas. Factura A.",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Victoriano Montes 1963",
@@ -1477,7 +1477,6 @@ const NEGOCIO = {
   ciudadBA: "Ciudad de Buenos Aires",      // para contacto y el link a Google Maps de la sucursal
   pagos: "Efectivo y transferencia",  // tarjeta: más adelante (el dueño prefiere esperar, 23/10/2026)
   factura: "Hacemos Factura A.",
-  congelados: "Sí, se pueden enviar productos congelados.",
   domicilio: "En Mar del Plata, sí: te la entregamos a domicilio. Lo que va de Mar del Plata a Buenos Aires se retira por nuestra sucursal de Buenos Aires.",
   noLlevan: "Cristalería no, salvo que esté bien embalada; en ese caso viaja sin seguro.",   // el dueño, 27/10/2026
   frecuencia: "De Buenos Aires, la carga que recibimos de lunes a viernes sale el sábado para Mar del Plata.",   // el dueño, 23/10/2026 (falta Mar del Plata → Buenos Aires)
@@ -1493,10 +1492,10 @@ const NEGOCIO = {
   servicios: [
     { id: "ba-mdp", activo: true, icono: "i-camion", titulo: "Buenos Aires → Mar del Plata",
       texto: "Traemos tu carga en camión desde Buenos Aires y la entregamos a domicilio en Mar del Plata.",
-      etiquetas: ["En camión", "Por peso y bulto", "Opción palet", "A domicilio", "Congelados"] },
+      etiquetas: ["En camión", "Por peso y bulto", "Opción palet", "A domicilio"] },
     { id: "mdp-ba", activo: true, icono: "i-camion", titulo: "Mar del Plata → Buenos Aires",
       texto: "Y al revés: tu carga sale de nuestro depósito en Mar del Plata y en Buenos Aires la retirás por nuestra sucursal.",
-      etiquetas: ["En camión", "Por peso y bulto", "Opción palet", "Retiro en sucursal", "Congelados"] },
+      etiquetas: ["En camión", "Por peso y bulto", "Opción palet", "Retiro en sucursal"] },
     { id: "mudanzas", activo: true, icono: "i-casa", titulo: "Mudanzas",
       texto: "Hacemos mudanzas dentro de Mar del Plata y entre Buenos Aires y Mar del Plata, de ida y de vuelta. Contanos qué hay que mover y adónde, y te pasamos el presupuesto.",
       boton: { texto: "Pedir presupuesto", mensaje: "¡Hola Saldar! Te escribo desde la web: quiero un presupuesto para una mudanza." } },
@@ -1514,7 +1513,6 @@ const NEGOCIO = {
     { p: "¿Desde dónde sale la carga?", dato: "salidaCarga" },
     { p: "¿Tienen sucursal en Buenos Aires?", dato: "sucursal" },
     { p: "¿En qué horario reciben la carga?", dato: "recepcionCarga" },
-    { p: "¿Llevan productos congelados?", dato: "congelados" },
     { p: "¿Hacen mudanzas?", r: "Sí, dentro de Mar del Plata y entre Buenos Aires y Mar del Plata, de ida y de vuelta. Escribinos por WhatsApp contándonos qué hay que mover y adónde, y te pasamos el presupuesto." },
     { p: "¿Cómo se paga?", dato: "pagos" },
     { p: "¿Hacen factura?", r: "Sí, hacemos Factura A." },
