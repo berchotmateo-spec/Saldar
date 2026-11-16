@@ -51,7 +51,7 @@
   }, {
     "@type": "OpeningHoursSpecification",
     "dayOfWeek": "Saturday",
-    "opens": "07:00",
+    "opens": "06:00",
     "closes": "12:00"
   }],
   "paymentAccepted": "Efectivo, transferencia",
@@ -78,6 +78,11 @@
       "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
       "opens": "08:00",
       "closes": "17:00"
+    }, {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "07:00",
+      "closes": "13:00"
     }]
   }
 }
@@ -835,14 +840,14 @@ select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
           <article class="ruta-card">
             <p class="mono">Sucursal · <span data-dato="barrioBA">Buenos Aires</span>, CABA</p>
             <h3 data-dato="sucursalBA">A confirmar</h3>
-            <p>Recibimos la carga <span data-dato="recepcionFraseBA">A confirmar</span>. El sábado sale para Mar del Plata.</p>
+            <p>Recibimos la carga <span data-dato="recepcionFraseBA">A confirmar</span>. Los sábados abre de 7 a 13. El sábado sale para Mar del Plata.</p>
             <p>Acá se retira la carga que viene de Mar del Plata.</p>
             <a class="btn btn-borde btn-chico" data-mapa="sucursal" href="#contacto"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Ver en Google Maps</a>
           </article>
           <article class="ruta-card">
             <p class="mono">Depósito · Mar del Plata</p>
             <h3 data-dato="direccion">A confirmar</h3>
-            <p>Abierto <span data-dato="horarioMdpFrase">A confirmar</span>. Recibimos la carga <span data-dato="recepcionFrase">A confirmar</span>. Los sábados abre de 7 a 12.</p>
+            <p>Abierto <span data-dato="horarioMdpFrase">A confirmar</span>. Recibimos la carga <span data-dato="recepcionFrase">A confirmar</span>. Los sábados abre de 6 a 12.</p>
             <p>Entregamos en Mar del Plata y en Batán. En Sierra de los Padres también, con un costo extra a consultar.</p>
             <a class="btn btn-borde btn-chico" data-mapa href="#contacto"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Ver en Google Maps</a>
           </article>
@@ -1474,7 +1479,7 @@ const NEGOCIO = {
   horarioMdp: "De lunes a viernes, de 8 a 15",    // horario del depósito de Mar del Plata (el dueño, 27/10/2026)
   recepcion: "De lunes a viernes, de 8 a 13",     // recepción de carga en el depósito de Mar del Plata (el dueño, 27/10/2026)
   recepcionBA: "De lunes a viernes, de 8 a 17",   // recepción de carga en la sucursal de Buenos Aires (el dueño, 23/10/2026)
-  sabados: "Los sábados el depósito de Mar del Plata abre de 7 a 12.",   // audio del dueño, vía Mateo, 16/11/2026
+  sabados: "Los sábados abrimos de 7 a 13 en Buenos Aires y de 6 a 12 en Mar del Plata.",   // Mateo, 16/11/2026
   direccion: "Victoriano Montes 1963",   // el depósito, en Mar del Plata
   ciudad: "Mar del Plata",
   sucursalBA: "John William Cooke 3155",   // dirección de la sucursal (el dueño, vía Mateo, 23/10/2026)
