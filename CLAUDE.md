@@ -387,6 +387,7 @@ si cambian la dirección, las ciudades o el horario, actualizarlo a mano.
 
 ## Registro de cambios
 
+- 17/11/2026 — Crédito del pie pasado a "Diseñado por connectHUB" con botón al Instagram de la consultora (https://www.instagram.com/connect.hub.consultora/). Pedido de Mateo: vale para todas las webs.
 - 16/11/2026 — Mateo confirmó el horario de los sábados: Buenos Aires de 7 a
   13, Mar del Plata de 6 a 12 → tarjetas de la sucursal y del depósito,
   `NEGOCIO.sabados` y JSON-LD (depósito y `department`).
